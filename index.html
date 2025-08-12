@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filipino Etsy Success Formula - AETOPHIS</title>
+    <meta name="description" content="While Americans struggle to make $1,000/month on Etsy, Filipinos are quietly making $5,000+. Discover your competitive advantage.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23DAA520"/><text x="50" y="58" text-anchor="middle" fill="%23654321" font-size="12" font-weight="bold">AETOPHIS</text></svg>') center/contain no-repeat;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero .subheadline {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #DAA520;
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            max-width: 600px;
+            margin: 40px auto;
+            cursor: pointer;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(218, 165, 32, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, #DAA520, #FFD700);
+            color: #1a1a1a;
+            padding: 20px 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 30px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(218, 165, 32, 0.3);
+        }
+        
+        /* Pattern Interrupt */
+        .pattern-interrupt {
+            background: #f8f9fa;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .pattern-interrupt h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+        
+        .pattern-interrupt .flip {
+            font-size: 1.8rem;
+            color: #DAA520;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            background: white;
+            padding: 80px 0;
+        }
+        
+        .social-proof h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #1a1a1a;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .result-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .result-card .amount {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #DAA520;
+            margin-bottom: 10px;
+        }
+        
+        .result-card .description {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        /* Authority Section */
+        .authority {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .authority h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .authority p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Course Preview */
+        .course-preview {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+        
+        .course-preview h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #1a1a1a;
+        }
+        
+        .preview-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .preview-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #DAA520;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .preview-item h3 {
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #DAA520 0%, #FFD700 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: #1a1a1a;
+        }
+        
+        .final-cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #DAA520;
+        }
+        
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(45deg, #1a1a1a, #2d1810);
+            color: white;
+            padding: 20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        .guarantee {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subheadline {
+                font-size: 1.2rem;
+            }
+            
+            .pattern-interrupt h2,
+            .social-proof h2,
+            .authority h2,
+            .course-preview h2 {
+                font-size: 2rem;
+            }
+            
+            .final-cta h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="logo"></div>
+            <h1>While Americans Struggle to Make $1,000/Month on Etsy,<br>Filipinos Are Quietly Making $5,000+</h1>
+            <p class="subheadline">Discover why being Filipino is actually your biggest advantage</p>
+            
+            <div class="video-thumbnail" onclick="playVideo()">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=300&fit=crop" alt="Carbon Market Success Story">
+                <div class="play-button">▶</div>
+            </div>
+            
+            <a href="#signup" class="cta-button">Watch Free Training Now</a>
+        </div>
+    </section>
+
+    <!-- Pattern Interrupt -->
+    <section class="pattern-interrupt">
+        <div class="container">
+            <h2>Most people think being Filipino means earning less online...</h2>
+            <p class="flip">But here's what they don't know about Etsy</p>
+            <p>IDF soldiers, American entrepreneurs, and European sellers are all being outperformed by Filipinos who understand this simple advantage.</p>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <h2>Real Filipinos, Real Results</h2>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="amount">$2,500</div>
+                    <div class="description">IDF Soldier's First Month<br>Working from Army Bunk</div>
+                </div>
+                <div class="result-card">
+                    <div class="amount">₱150,000</div>
+                    <div class="description">Maria's Monthly Income<br>From Unemployed to Multiple Shops</div>
+                </div>
+                <div class="result-card">
+                    <div class="amount">$8,000</div>
+                    <div class="description">Consistent Monthly Results<br>Working 2 Hours Daily</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authority Section -->
+    <section class="authority">
+        <div class="container">
+            <h2>From SM Seaside Mall to Teaching Success</h2>
+            <p>A year ago, I was working 14 hours a day at Carbon Market, driving a Honda Click with broken brakes, thinking my journey was over.</p>
+            <p>Today, I've helped over 50 students achieve ₱100,000+ monthly income, and I'm about to show you exactly how.</p>
+        </div>
+    </section>
+
+    <!-- Course Preview -->
+    <section class="course-preview">
+        <div class="container">
+            <h2>What You'll Discover in This Free Training</h2>
+            <div class="preview-list">
+                <div class="preview-item">
+                    <h3>🇵🇭 Why Filipinos Have Natural Etsy Advantages</h3>
+                    <p>The cultural and economic factors that make Filipinos perfect for Etsy success</p>
+                </div>
+                <div class="preview-item">
+                    <h3>💰 The Exact Method That's Working Right Now</h3>
+                    <p>Step-by-step process from product research to first sale</p>
+                </div>
+                <div class="preview-item">
+                    <h3>📊 Live Case Studies and Real Results</h3>
+                    <p>See actual shops, real numbers, and proven strategies</p>
+                </div>
+                <div class="preview-item">
+                    <h3>🏆 The Carbon Market to Freedom Story</h3>
+                    <p>How I went from 14-hour days to 2-hour workdays with complete freedom</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="signup">
+        <div class="container">
+            <h2>Get Instant Access Now</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 40px;">Join hundreds of Filipinos already building their Etsy empire</p>
+            
+            <div class="form-container">
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Contact Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+63 9xx xxx xxxx">
+                    </div>
+                    <button type="submit" class="submit-button">Start Your Transformation Now</button>
+                    <p class="guarantee">100% Free Training • No Credit Card Required</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function playVideo() {
+            // Replace this with your actual video player or redirect to video page
+            alert('Video player would open here with your Carbon Market success story');
+            // Example: window.open('https://youtu.be/your-video-id', '_blank');
+        }
+
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            
+            // Here you would send the data to your backend/CRM
+            console.log('Form Data:', { email, phone });
+            
+            // Replace this alert with actual form submission
+            alert('Form submitted! This would redirect to your free course.');
+            
+            // Example redirect to free course:
+            // window.location.href = 'https://your-course-platform.com/free-course';
+        });
+
+        // Smooth scrolling for CTA button
+        document.querySelector('a[href="#signup"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('signup').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Optional: Add form validation
+        function validateForm() {
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            
+            if (!email || !phone) {
+                alert('Please fill in all required fields');
+                return false;
+            }
+            
+            return true;
+        }
+    </script>
+</body>
+</html>
