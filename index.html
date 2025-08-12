@@ -260,7 +260,7 @@
             text-align: center;
             font-size: 3rem;
             margin-bottom: 20px;
-            color: #2c3e50;
+            color: #ffffff;
             font-weight: 800;
             letter-spacing: -1px;
         }
@@ -429,8 +429,8 @@
         .success-result {
             font-size: 1.8rem;
             font-weight: 800;
-            color: #ffffff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            color: #f39c12;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         /* System Section */
@@ -935,7 +935,7 @@
                         Is this really free for the first 100 people?
                     </button>
                     <div class="faq-answer">
-                        <p>Yes, completely free with zero hidden costs or upsells. I'm launching in the Philippines market for the first time and want to create success stories here like I did in Israel. The first 100 people get my complete course, all templates, supplier lists, and personal guidance at no cost. After these spots are filled, I'll charge the full price. This is my way of testing the system in a new market and building a community of successful Filipino entrepreneurs. No credit card required, no trial periods - just pure value.</p>
+                        <p>Yes, completely free! I'm launching in the Philippines market for the first time and want to create success stories here like I did in Israel. The first 100 people get my complete course, all templates, supplier lists, and personal guidance at no cost. After these spots are filled, I'll start charging. This is my way of testing the system in a new market and building a community of successful Filipino entrepreneurs. Just enter your email and phone to secure your spot.</p>
                     </div>
                 </div>
                 
@@ -1032,6 +1032,28 @@
             
             // Replace with your actual form submission logic
             alert('Form submitted! Redirecting to free training...');
+        });
+
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = answer.classList.contains('active');
+                
+                // Close all FAQs
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.classList.remove('active');
+                });
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                });
+                
+                // Open clicked FAQ if it wasn't active
+                if (!isActive) {
+                    answer.classList.add('active');
+                    question.classList.add('active');
+                }
+            });
         });
 
         // FAQ functionality removed - all answers are visible
