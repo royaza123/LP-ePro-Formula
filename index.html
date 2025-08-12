@@ -1,9 +1,19 @@
-<!DOCTYPE html>
+.faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #D2691E;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How I Escaped Poverty Using Etsy - Roy's Secret System</title>
+    <title>How I Escaped Poverty Using Etsy - ePro Formula Secret System</title>
     <style>
         * {
             margin: 0;
@@ -419,7 +429,8 @@
         .success-result {
             font-size: 1.8rem;
             font-weight: 800;
-            color: #f1c40f;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         /* System Section */
@@ -475,6 +486,69 @@
         .step p {
             color: #7f8c8d;
             line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: white;
+            padding: 100px 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: #f8f9fa;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            padding: 25px 30px;
+            background: #f8f9fa;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #ecf0f1;
+        }
+        
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
+            border-top: 1px solid #ecf0f1;
+        }
+        
+        .faq-answer.active {
+            padding: 25px 30px;
+            max-height: 300px;
+        }
+        
+        .faq-answer p {
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin: 0;
         }
 
         /* Final CTA */
@@ -568,80 +642,7 @@
             background: rgba(255,255,255,0.2);
         }
 
-        /* FAQ Section */
-        .faq-section {
-            background: white;
-            padding: 100px 0;
-        }
-        
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq-item {
-            background: #f8f9fa;
-            margin-bottom: 20px;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .faq-item:hover {
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-        
-        .faq-question {
-            padding: 25px 30px;
-            background: #f8f9fa;
-            border: none;
-            width: 100%;
-            text-align: left;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #2c3e50;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-        
-        .faq-question:hover {
-            background: #ecf0f1;
-        }
-        
-        .faq-question::after {
-            content: '+';
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #D2691E;
-            transition: transform 0.3s ease;
-        }
-        
-        .faq-question.active::after {
-            transform: rotate(45deg);
-        }
-        
-        .faq-answer {
-            padding: 25px 30px;
-            max-height: none;
-            overflow: visible;
-            transition: all 0.3s ease;
-            background: white;
-            border-top: 1px solid #ecf0f1;
-        }
-        
-        .faq-answer.active {
-            padding: 25px 30px;
-            max-height: none;
-        }
-        
-        .faq-answer p {
-            color: #7f8c8d;
-            line-height: 1.6;
-            margin: 0;
-        }
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -672,6 +673,22 @@
             
             .stat-number {
                 font-size: 3rem;
+            }
+            
+            .success-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .faq-question {
+                font-size: 1.1rem;
+                padding: 20px;
+            }
+            
+            .faq-answer.active {
+                padding: 20px;
+                max-height: 350px;
             }
         }
 
@@ -789,21 +806,47 @@
             
             <div class="success-grid">
                 <div class="success-card fade-in">
-                    <p class="success-quote">"Roy's system works. I'm doing this from my army base with brownout Wi-Fi. If I can do it from here, anyone can do it."</p>
-                    <p class="success-author">- David (IDF Soldier)</p>
-                    <p class="success-result">$2,500 First Month</p>
+                    <div class="success-content">
+                        <p class="success-quote">"Roy's system works. I'm doing this from my army base with brownout Wi-Fi. If I can do it from here, anyone can do it."</p>
+                        <p class="success-author">- Ido (IDF Soldier)</p>
+                    </div>
+                    <div class="success-stats">
+                        <p class="success-result">$2,500</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">First Month</p>
+                    </div>
                 </div>
                 
                 <div class="success-card fade-in">
-                    <p class="success-quote">"I'm 16 and made $2,000 profit selling goth jewelry I never even touched. This is incredible."</p>
-                    <p class="success-author">- Sarah (16-Year-Old)</p>
-                    <p class="success-result">Scaled to $5K Monthly</p>
+                    <div class="success-content">
+                        <p class="success-quote">"I'm 16 and made $2,000 profit selling goth jewelry I never even touched. This is incredible."</p>
+                        <p class="success-author">- Adir (16-Year-Old)</p>
+                    </div>
+                    <div class="success-stats">
+                        <p class="success-result">$5K</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Monthly</p>
+                    </div>
                 </div>
                 
                 <div class="success-card fade-in">
-                    <p class="success-quote">"Multiple shops running automatically. I make in a month what I used to make in a year."</p>
-                    <p class="success-author">- Maria (Roy's Partner)</p>
-                    <p class="success-result">Multiple $10K Months</p>
+                    <div class="success-content">
+                        <p class="success-quote">"Multiple shops running automatically. I make in a month what I used to make in a year."</p>
+                        <p class="success-author">- Maria (Roy's Partner)</p>
+                    </div>
+                    <div class="success-stats">
+                        <p class="success-result">$10K</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Monthly</p>
+                    </div>
+                </div>
+                
+                <div class="success-card fade-in">
+                    <div class="success-content">
+                        <p class="success-quote">"At 30+, I thought it was too late to start online business. Roy proved me wrong. Now I have financial freedom."</p>
+                        <p class="success-author">- Imanuel (30+)</p>
+                    </div>
+                    <div class="success-stats">
+                        <p class="success-result">$8K</p>
+                        <p style="font-size: 0.9rem; opacity: 0.8;">Monthly</p>
+                    </div>
                 </div>
             </div>
             
@@ -865,7 +908,7 @@
                         Do I need any experience to start?
                     </button>
                     <div class="faq-answer">
-                        <p>No experience needed. Ido started from the army base with no computer knowledge, Adir was only 16, and Imanuel started at 30+. The system works for complete beginners.</p>
+                        <p>Absolutely not! This system is designed for complete beginners. Ido started from his army base with no computer knowledge and made $2,500 his first month. Adir was only 16 years old with zero business experience. Imanuel started at 30+ thinking he was "too old" for online business. I've taught 200+ Israelis this exact system, and most started with zero experience. The beauty of Etsy dropshipping is that you don't need technical skills, design abilities, or business background. I'll show you everything step-by-step.</p>
                     </div>
                 </div>
                 
@@ -874,7 +917,7 @@
                         How much money do I need to start?
                     </button>
                     <div class="faq-answer">
-                        <p>You can start with as little as $50-100. Unlike traditional business, you don't need inventory, warehouse, or employees. Just follow the system.</p>
+                        <p>Very little! You can start with as little as $50-100 for your first few product tests. Unlike traditional businesses that need thousands for inventory, warehouses, or employees, this system requires minimal upfront investment. You only pay for products AFTER customers buy from you. No inventory risk, no storage costs, no employee salaries. Most of my students started with under $200 and were profitable within their first month. The biggest investment is your time learning the system, not your money.</p>
                     </div>
                 </div>
                 
@@ -883,7 +926,7 @@
                         How much time does this take per day?
                     </button>
                     <div class="faq-answer">
-                        <p>I work 2 hours per day maximum. Once you set up the system correctly, it runs mostly on autopilot. Perfect for busy people or side income.</p>
+                        <p>I work 2-3 hours per day maximum, and that's managing multiple shops making $10K+ monthly. When you're starting, expect to invest 2-3 hours daily for the first few weeks while you're learning and setting everything up. Once your shops are running smoothly, you can scale back to 1-2 hours of maintenance work. The system is designed to be mostly automated - customers order, suppliers ship directly, Etsy handles payments. Perfect for busy people, students, or anyone wanting location independence.</p>
                     </div>
                 </div>
                 
@@ -892,7 +935,7 @@
                         Is this really free for the first 100 people?
                     </button>
                     <div class="faq-answer">
-                        <p>Yes, completely free. I'm testing this system in the Philippines market. After the first 100 people, I'll start charging. No hidden costs or upsells.</p>
+                        <p>Yes, completely free with zero hidden costs or upsells. I'm launching in the Philippines market for the first time and want to create success stories here like I did in Israel. The first 100 people get my complete course, all templates, supplier lists, and personal guidance at no cost. After these spots are filled, I'll charge the full price. This is my way of testing the system in a new market and building a community of successful Filipino entrepreneurs. No credit card required, no trial periods - just pure value.</p>
                     </div>
                 </div>
                 
@@ -901,7 +944,7 @@
                         Will this work in the Philippines?
                     </button>
                     <div class="faq-answer">
-                        <p>Actually, Filipinos have a huge advantage. There's almost zero competition, lower costs than Americans, and incredible work ethic. This is the perfect time to start.</p>
+                        <p>This system works everywhere in the world! Etsy is a global marketplace where you're selling to customers worldwide, primarily in the US, UK, Canada, and Australia. Your location doesn't matter - you could be in Manila, Cebu, Davao, or anywhere with internet connection. In fact, Filipinos have massive advantages: lower cost of living means higher profit margins, incredible English skills for customer service, strong work ethic, and almost zero competition since very few Filipinos know about this opportunity. The internet has no borders - your success depends on following the system, not your zip code.</p>
                     </div>
                 </div>
             </div>
@@ -946,7 +989,7 @@
                     target.scrollIntoView({ 
                         behavior: 'smooth',
                         block: 'start'
-                    // Add some dynamic effects
+                    });
                 }
             });
         });
@@ -991,27 +1034,8 @@
             alert('Form submitted! Redirecting to free training...');
         });
 
-        // FAQ functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isActive = answer.classList.contains('active');
-                
-                // Close all FAQs
-                document.querySelectorAll('.faq-answer').forEach(ans => {
-                    ans.classList.remove('active');
-                });
-                document.querySelectorAll('.faq-question').forEach(q => {
-                    q.classList.remove('active');
-                });
-                
-                // Open clicked FAQ if it wasn't active
-                if (!isActive) {
-                    answer.classList.add('active');
-                    question.classList.add('active');
-                }
-            });
-        });
+        // FAQ functionality removed - all answers are visible
+        // Add some dynamic effects
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const header = document.querySelector('.header');
