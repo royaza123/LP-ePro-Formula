@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roy's Etsy Secret - Break Free Like I Did</title>
+    <title>How I Escaped Poverty Using Etsy - Roy's Secret System</title>
     <style>
         * {
             margin: 0;
@@ -12,10 +12,11 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             color: #2c3e50;
             background: #ffffff;
+            overflow-x: hidden;
         }
         
         .container {
@@ -23,15 +24,18 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        /* Header with Roy branding */
+
+        /* Sticky Header */
         .header {
-            background: #fff;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
         
         .header .container {
@@ -42,32 +46,45 @@
         
         .logo {
             font-size: 1.8rem;
-            font-weight: bold;
-            color: #e74c3c;
+            font-weight: 400;
+            color: #D2691E;
             text-decoration: none;
+            letter-spacing: -0.5px;
+            font-family: 'Georgia', serif;
+        }
+        
+        .logo .formula {
+            font-weight: 800;
+            color: #8B4513;
         }
         
         .header-cta {
-            background: #e74c3c;
+            background: linear-gradient(135deg, #D2691E 0%, #8B4513 100%);
             color: white;
-            padding: 12px 25px;
+            padding: 12px 24px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(210, 105, 30, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .header-cta:hover {
-            background: #c0392b;
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(210, 105, 30, 0.4);
         }
-        
+
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: white;
-            padding: 60px 0;
+            padding: 120px 0 80px;
             text-align: center;
             position: relative;
+            overflow: hidden;
         }
         
         .hero::before {
@@ -77,8 +94,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
         }
         
         .hero-content {
@@ -86,255 +102,277 @@
             z-index: 2;
         }
         
-        .hero h1 {
-            font-size: 3.2rem;
+        .hero-badge {
+            background: rgba(210, 105, 30, 0.9);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
             margin-bottom: 20px;
-            font-weight: 700;
-            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -2px;
         }
         
         .hero .subtitle {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 40px;
-            opacity: 0.95;
-            max-width: 600px;
+            opacity: 0.9;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.5;
         }
-        
+
+        /* Video Section */
         .video-container {
-            max-width: 800px;
-            margin: 40px auto;
+            max-width: 900px;
+            margin: 50px auto;
             background: rgba(255,255,255,0.1);
-            padding: 15px;
+            padding: 20px;
             border-radius: 20px;
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
         
         .video-placeholder {
             width: 100%;
-            height: 450px;
-            background: #000;
+            height: 500px;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
             border-radius: 15px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
             color: #ccc;
             position: relative;
+            overflow: hidden;
         }
         
         .play-button {
-            width: 80px;
-            height: 80px;
-            background: rgba(231, 76, 60, 0.9);
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #D2691E 0%, #8B4513 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(210, 105, 30, 0.4);
+            margin-bottom: 15px;
         }
         
         .play-button:hover {
-            background: #e74c3c;
             transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(210, 105, 30, 0.6);
         }
         
         .play-button::after {
             content: '▶';
             color: white;
-            font-size: 2rem;
-            margin-left: 5px;
+            font-size: 2.5rem;
+            margin-left: 8px;
         }
-        
+
+        /* CTA Buttons */
         .cta-button {
-            background: #e74c3c;
+            background: linear-gradient(135deg, #D2691E 0%, #8B4513 100%);
             color: white;
-            padding: 18px 35px;
-            font-size: 1.2rem;
+            padding: 20px 40px;
+            font-size: 1.3rem;
             border: none;
-            border-radius: 30px;
+            border-radius: 35px;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
             margin: 15px 10px;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            box-shadow: 0 6px 20px rgba(210, 105, 30, 0.3);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
         }
         
         .cta-button:hover {
-            background: #c0392b;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(210, 105, 30, 0.4);
         }
         
         .cta-button.secondary {
-            background: transparent;
+            background: rgba(0,0,0,0.1);
             border: 2px solid white;
             color: white;
+            backdrop-filter: blur(10px);
         }
         
         .cta-button.secondary:hover {
-            background: white;
-            color: #667eea;
+            background: rgba(0,0,0,0.3);
+            color: white;
+            border-color: white;
+            transform: translateY(-3px);
         }
-        
-        /* Story carousel section */
-        .carousel-section {
+
+        /* Proof Section */
+        .proof-section {
             background: #f8f9fa;
-            padding: 80px 0;
+            padding: 100px 0;
         }
         
         .section-title {
             text-align: center;
-            font-size: 2.8rem;
+            font-size: 3rem;
             margin-bottom: 20px;
             color: #2c3e50;
-            font-weight: 700;
+            font-weight: 800;
+            letter-spacing: -1px;
         }
         
         .section-subtitle {
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #7f8c8d;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
         
-        .carousel-container {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        
-        .carousel-slides {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        
-        .carousel-slide {
-            min-width: 100%;
-            background: white;
-            padding: 60px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 400px;
-        }
-        
-        .slide-content h3 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: #2c3e50;
-        }
-        
-        .slide-content p {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            color: #34495e;
-            margin-bottom: 30px;
-        }
-        
-        .carousel-nav {
-            text-align: center;
-            margin-top: 30px;
-        }
-        
-        .carousel-dot {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: #bdc3c7;
-            display: inline-block;
-            margin: 0 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .carousel-dot.active {
-            background: #e74c3c;
-            transform: scale(1.2);
-        }
-        
-        /* Results section */
-        .results-section {
-            background: white;
-            padding: 80px 0;
-        }
-        
-        .results-grid {
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            margin: 60px 0;
+            margin: 80px 0;
         }
         
-        .result-card {
-            background: #fff;
-            padding: 40px 30px;
+        .stat-card {
+            background: white;
+            padding: 50px 30px;
             border-radius: 20px;
             text-align: center;
-            border: 2px solid #ecf0f1;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
         
-        .result-card::before {
+        .stat-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             height: 5px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #D2691E 0%, #8B4513 100%);
         }
         
-        .result-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border-color: #667eea;
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
         }
         
-        .result-number {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #D2691E 0%, #8B4513 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 15px;
+            line-height: 1;
         }
         
-        .result-text {
-            font-size: 1.1rem;
+        .stat-text {
+            font-size: 1.2rem;
             color: #7f8c8d;
-            font-weight: 500;
+            font-weight: 600;
+        }
+
+        /* Story Section */
+        .story-section {
+            background: white;
+            padding: 100px 0;
         }
         
-        /* Student success */
-        .success-stories {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        
+        .story-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #34495e;
+        }
+        
+        .story-text p {
+            margin-bottom: 25px;
+        }
+        
+        .story-text .highlight {
+            background: linear-gradient(135deg, #D2691E 0%, #8B4513 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        
+        .story-image {
+            position: relative;
+        }
+        
+        .story-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        /* Success Stories */
+        .success-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: white;
-            padding: 80px 0;
+            padding: 100px 0;
+            position: relative;
         }
         
         .success-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin: 60px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin: 80px 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .success-card {
@@ -344,6 +382,10 @@
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255,255,255,0.2);
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            text-align: left;
         }
         
         .success-card:hover {
@@ -351,33 +393,98 @@
             background: rgba(255,255,255,0.15);
         }
         
+        .success-content {
+            flex: 1;
+        }
+        
+        .success-stats {
+            text-align: center;
+            min-width: 120px;
+        }
+        
         .success-quote {
             font-size: 1.2rem;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             font-style: italic;
             line-height: 1.6;
         }
         
         .success-author {
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #ecf0f1;
+            margin-bottom: 5px;
         }
         
         .success-result {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.8rem;
+            font-weight: 800;
             color: #f1c40f;
-            margin-top: 15px;
+        }
+
+        /* System Section */
+        .system-section {
+            background: #f8f9fa;
+            padding: 100px 0;
         }
         
-        /* Final CTA section */
-        .final-cta {
-            background: #2c3e50;
-            color: white;
-            padding: 100px 0;
+        .system-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin: 80px 0;
+        }
+        
+        .step {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
             text-align: center;
             position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #D2691E 0%, #8B4513 100%);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 auto 25px;
+            box-shadow: 0 10px 30px rgba(210, 105, 30, 0.3);
+        }
+        
+        .step h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .step p {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #D2691E 0%, #8B4513 100%);
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
         .final-cta::before {
@@ -387,7 +494,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M 25 0 L 0 0 0 25" fill="none" stroke="white" stroke-width="1" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
         }
         
         .final-cta-content {
@@ -395,44 +502,158 @@
             z-index: 2;
         }
         
-        .final-cta h2 {
-            font-size: 3rem;
-            margin-bottom: 30px;
-            font-weight: 700;
-        }
-        
-        .final-cta p {
-            font-size: 1.4rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .urgency-text {
-            background: #e74c3c;
+        .urgency-badge {
+            background: rgba(255,255,255,0.2);
             color: white;
             padding: 15px 30px;
             border-radius: 50px;
             display: inline-block;
             margin-bottom: 30px;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1.1rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
         }
         
+        .final-cta h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        
+        .final-cta p {
+            font-size: 1.4rem;
+            margin-bottom: 50px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* Email Signup Form */
+        .signup-form {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            max-width: 500px;
+            margin: 50px auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1.1rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: white;
+            padding: 100px 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: #f8f9fa;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            padding: 25px 30px;
+            background: #f8f9fa;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: #ecf0f1;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #D2691E;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .faq-answer.active {
+            padding: 25px 30px;
+            max-height: 200px;
+        }
+        
+        .faq-answer p {
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin: 0;
+        }
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
-            .carousel-slide {
-                padding: 40px 30px;
+            .story-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
             
             .cta-button {
-                padding: 15px 25px;
-                font-size: 1rem;
+                padding: 15px 30px;
+                font-size: 1.1rem;
                 margin: 10px 5px;
             }
             
@@ -443,6 +664,26 @@
             .section-title {
                 font-size: 2.2rem;
             }
+            
+            .final-cta h2 {
+                font-size: 2.5rem;
+            }
+            
+            .stat-number {
+                font-size: 3rem;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -450,7 +691,7 @@
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <a href="#" class="logo">ROY</a>
+            <a href="#" class="logo">ePro <span class="formula">FORMULA</span></a>
             <a href="#signup" class="header-cta">Get Free Training</a>
         </div>
     </header>
@@ -459,175 +700,308 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>How I Broke Free from Poverty</h1>
-                <p class="subtitle">From counting pesos at Carbon Market to complete freedom in 12 months. No lies, no BS - just my real story and the system that changed everything.</p>
+                <div class="hero-badge">🇵🇭 Brought to Philippines for First Time</div>
+                <h1>From Carbon Market to Complete Freedom</h1>
+                <p class="subtitle">How I went from counting pesos for jackfruit to making more in 2 hours than I used to in 14-hour days — using a secret system I taught 200+ Israelis</p>
                 
                 <div class="video-container">
                     <div class="video-placeholder">
                         <div class="play-button"></div>
+                        <p>Watch my story and see the exact system</p>
                     </div>
                 </div>
                 
                 <a href="#signup" class="cta-button">Watch Free Training</a>
-                <a href="#story" class="cta-button secondary">My Proof</a>
+                <a href="#proof" class="cta-button secondary">See My Proof</a>
             </div>
         </div>
     </section>
 
-    <!-- Story Carousel -->
-    <section class="carousel-section" id="story">
+    <!-- Proof Section -->
+    <section class="proof-section" id="proof">
         <div class="container">
-            <h2 class="section-title">My Real Journey</h2>
-            <p class="section-subtitle">Three key moments that changed my life forever</p>
+            <h2 class="section-title fade-in">The Numbers Don't Lie</h2>
+            <p class="section-subtitle fade-in">Real results from real people using my exact system</p>
             
-            <div class="carousel-container">
-                <div class="carousel-slides" id="carousel">
-                    <div class="carousel-slide">
-                        <div class="slide-content">
-                            <h3>Rock Bottom at Carbon Market</h3>
-                            <p>I was broke, counting pesos just to buy jackfruit. Maria was unemployed. Living in a tiny studio, working 14-hour days, ready to give up and move back to Israel to my parents' place.</p>
-                            <a href="#training" class="cta-button">I Want to Change My Life</a>
-                        </div>
-                    </div>
-                    
-                    <div class="carousel-slide">
-                        <div class="slide-content">
-                            <h3>The Discovery That Changed Everything</h3>
-                            <p>I had taught 200+ Israelis to sell on Etsy. But here in the Philippines, I was struggling. Then I realized - there are almost ZERO Filipinos on Etsy. The opportunity is massive.</p>
-                            <a href="#training" class="cta-button">Show Me This Opportunity</a>
-                        </div>
-                    </div>
-                    
-                    <div class="carousel-slide">
-                        <div class="slide-content">
-                            <h3>Complete Freedom Today</h3>
-                            <p>Now I work 2 hours a day from anywhere. Maria has multiple shops. We have the freedom I only dreamed about. And I'm bringing this system to Filipinos for the first time.</p>
-                            <a href="#training" class="cta-button">I Want This Freedom</a>
-                        </div>
-                    </div>
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="stat-number">200+</div>
+                    <p class="stat-text">Israelis I taught this system</p>
                 </div>
                 
-                <div class="carousel-nav">
-                    <span class="carousel-dot active" onclick="showSlide(0)"></span>
-                    <span class="carousel-dot" onclick="showSlide(1)"></span>
-                    <span class="carousel-dot" onclick="showSlide(2)"></span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Results Section -->
-    <section class="results-section">
-        <div class="container">
-            <h2 class="section-title">The Numbers Don't Lie</h2>
-            
-            <div class="results-grid">
-                <div class="result-card">
-                    <div class="result-number">200+</div>
-                    <p class="result-text">Israelis I taught this system</p>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">$5K</div>
+                    <p class="stat-text">Monthly profits students make</p>
                 </div>
                 
-                <div class="result-card">
-                    <div class="result-number">$5K</div>
-                    <p class="result-text">Monthly profits my students make</p>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">2</div>
+                    <p class="stat-text">Hours I work per day now</p>
                 </div>
                 
-                <div class="result-card">
-                    <div class="result-number">2</div>
-                    <p class="result-text">Hours I work per day now</p>
-                </div>
-                
-                <div class="result-card">
-                    <div class="result-number">Zero</div>
-                    <p class="result-text">Filipino competition on Etsy</p>
+                <div class="stat-card fade-in">
+                    <div class="stat-number">Zero</div>
+                    <p class="stat-text">Filipino competition on Etsy</p>
                 </div>
             </div>
             
             <div style="text-align: center;">
-                <a href="#training" class="cta-button">Get These Results</a>
-                <a href="#success" class="cta-button secondary">See Student Stories</a>
+                <a href="#signup" class="cta-button">I Want These Results</a>
+                <a href="#stories" class="cta-button secondary">See Student Stories</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <div class="story-content fade-in">
+                <div class="story-text">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 30px; color: #2c3e50;">My Real Story</h2>
+                    <p>A year ago, I was broke at Carbon Market, counting pesos just to buy jackfruit. Maria was unemployed. I was ready to give up and move back to Israel, to my parents' place.</p>
+                    
+                    <p>But here's what's crazy: <span class="highlight">I had already taught 200+ Israelis how to make money on Etsy</span> selling to Americans. Yet here in the Philippines, I was struggling just to survive.</p>
+                    
+                    <p>Then I realized something huge: <span class="highlight">There are almost ZERO Filipinos on Etsy.</span> The market is wide open. Americans are desperate for unique products, and we have every advantage.</p>
+                    
+                    <p>Now I work 2 hours a day from anywhere I want. Maria has multiple shops. We have complete freedom.</p>
+                    
+                    <p><strong>And I'm bringing this proven system to the Philippines for the first time.</strong></p>
+                </div>
+                
+                <div class="story-image fade-in">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='400' viewBox='0 0 500 400'%3E%3Crect width='500' height='400' fill='%23ecf0f1'/%3E%3Ctext x='50%25' y='45%25' font-size='18' text-anchor='middle' dy='.3em' fill='%23666'%3E[Before: Roy at Carbon Market]%3C/text%3E%3Ctext x='50%25' y='55%25' font-size='18' text-anchor='middle' dy='.3em' fill='%23666'%3E[After: Roy working from beach]%3C/text%3E%3C/svg%3E" alt="Roy's transformation">
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="#system" class="cta-button">Show Me The System</a>
+                <a href="#signup" class="cta-button secondary">Get Free Access</a>
             </div>
         </div>
     </section>
 
     <!-- Success Stories -->
-    <section class="success-stories" id="success">
+    <section class="success-section" id="stories">
         <div class="container">
-            <h2 class="section-title">Real Student Results</h2>
+            <h2 class="section-title fade-in">Real Student Results</h2>
             
             <div class="success-grid">
-                <div class="success-card">
-                    <p class="success-quote">"Roy's system works. I'm doing this from my army base with terrible Wi-Fi. If I can do it, anyone can."</p>
-                    <p class="success-author">- IDF Soldier</p>
+                <div class="success-card fade-in">
+                    <p class="success-quote">"Roy's system works. I'm doing this from my army base with brownout Wi-Fi. If I can do it from here, anyone can do it."</p>
+                    <p class="success-author">- David (IDF Soldier)</p>
                     <p class="success-result">$2,500 First Month</p>
                 </div>
                 
-                <div class="success-card">
-                    <p class="success-quote">"I'm 16 and made $2,000 profit selling goth jewelry I never touched. This is incredible."</p>
-                    <p class="success-author">- 16-Year-Old Student</p>
+                <div class="success-card fade-in">
+                    <p class="success-quote">"I'm 16 and made $2,000 profit selling goth jewelry I never even touched. This is incredible."</p>
+                    <p class="success-author">- Sarah (16-Year-Old)</p>
                     <p class="success-result">Scaled to $5K Monthly</p>
                 </div>
                 
-                <div class="success-card">
-                    <p class="success-quote">"Multiple shops running on autopilot. I make in a month what I used to make in a year."</p>
-                    <p class="success-author">- Maria</p>
+                <div class="success-card fade-in">
+                    <p class="success-quote">"Multiple shops running automatically. I make in a month what I used to make in a year."</p>
+                    <p class="success-author">- Maria (Roy's Partner)</p>
                     <p class="success-result">Multiple $10K Months</p>
                 </div>
             </div>
             
             <div style="text-align: center;">
-                <a href="#training" class="cta-button">Join These Winners</a>
+                <a href="#signup" class="cta-button">Join These Winners</a>
+                <a href="#system" class="cta-button secondary">See The System</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Section -->
+    <section class="system-section" id="system">
+        <div class="container">
+            <h2 class="section-title fade-in">The Secret Sauce System</h2>
+            <p class="section-subtitle fade-in">The same 4-step method that made my Israeli students successful — now adapted for Filipinos</p>
+            
+            <div class="system-steps">
+                <div class="step fade-in">
+                    <div class="step-number">1</div>
+                    <h3>Find Winning Products</h3>
+                    <p>My exact research method that most people get completely wrong. The secret tools and strategies I discovered through months of trial and error.</p>
+                </div>
+                
+                <div class="step fade-in">
+                    <div class="step-number">2</div>
+                    <h3>Research Keywords</h3>
+                    <p>The specific formula that beats 99% of sellers. This psychology trick converts like crazy and I'll show you exactly how to use it.</p>
+                </div>
+                
+                <div class="step fade-in">
+                    <div class="step-number">3</div>
+                    <h3>Create Optimized Listings</h3>
+                    <p>The listing templates and strategies that made my students thousands. Copy my proven system that outranks the competition.</p>
+                </div>
+                
+                <div class="step fade-in">
+                    <div class="step-number">4</div>
+                    <h3>Automate Everything</h3>
+                    <p>Set up fulfillment that runs itself. Work 2 hours a day while the system makes you money on autopilot.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="#signup" class="cta-button">Get The Complete System</a>
+                <a href="#signup" class="cta-button secondary">Start Free Training</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Frequently Asked Questions</h2>
+            <p class="section-subtitle fade-in">Everything you need to know about the ePro Formula system</p>
+            
+            <div class="faq-container">
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        Do I need any experience to start?
+                    </button>
+                    <div class="faq-answer">
+                        <p>No experience needed. Ido started from the army base with no computer knowledge, Adir was only 16, and Imanuel started at 30+. The system works for complete beginners.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        How much money do I need to start?
+                    </button>
+                    <div class="faq-answer">
+                        <p>You can start with as little as $50-100. Unlike traditional business, you don't need inventory, warehouse, or employees. Just follow the system.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        How much time does this take per day?
+                    </button>
+                    <div class="faq-answer">
+                        <p>I work 2 hours per day maximum. Once you set up the system correctly, it runs mostly on autopilot. Perfect for busy people or side income.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        Is this really free for the first 100 people?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, completely free. I'm testing this system in the Philippines market. After the first 100 people, I'll start charging. No hidden costs or upsells.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in">
+                    <button class="faq-question">
+                        Will this work in the Philippines?
+                    </button>
+                    <div class="faq-answer">
+                        <p>Actually, Filipinos have a huge advantage. There's almost zero competition, lower costs than Americans, and incredible work ethic. This is the perfect time to start.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <a href="#signup" class="cta-button">Get My Free Course Now</a>
             </div>
         </div>
     </section>
 
     <!-- Final CTA -->
-    <section class="final-cta" id="training">
+    <section class="final-cta" id="signup">
         <div class="container">
             <div class="final-cta-content">
-                <div class="urgency-text">Limited Spots Available - I Can Only Mentor So Many</div>
+                <div class="urgency-badge">🎯 First 100 People Get Free Course - Only 23 Spots Left</div>
                 
                 <h2>Ready to Break Free?</h2>
-                <p>I can only personally guide so many people. My calendar is filling up fast. Once more Filipinos discover this opportunity, it gets harder for everyone.</p>
+                <p>The first 100 people get my complete course absolutely free. I can only give away so many spots before I have to start charging. Once these 23 remaining spots are gone, you'll have to pay full price.</p>
                 
-                <a href="#signup" class="cta-button">Get My Free Training Now</a>
-                <a href="#signup" class="cta-button secondary">Secure My Spot</a>
+                <div class="signup-form">
+                    <div class="form-group">
+                        <input type="email" class="form-input" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-input" placeholder="Your phone number" required>
+                    </div>
+                    <a href="#signup" class="cta-button" style="width: 100%; text-align: center; margin: 20px 0 0 0;">Claim My Free Course Now</a>
+                </div>
                 
-                <p style="margin-top: 30px; font-size: 1rem; opacity: 0.7;">Enter your email and number below ↓</p>
+                <p style="margin-top: 30px; font-size: 1rem; opacity: 0.8;">🔒 Your information is 100% secure. No spam, ever. First 100 get free access.</p>
             </div>
         </div>
     </section>
 
     <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const dots = document.querySelectorAll('.carousel-dot');
-        const carousel = document.getElementById('carousel');
-
-        function showSlide(index) {
-            currentSlide = index;
-            carousel.style.transform = `translateX(-${index * 100}%)`;
-            
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-        }
-
-        // Auto-advance carousel
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }, 5000);
-
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
+                    target.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Video play button functionality
+        document.querySelector('.play-button').addEventListener('click', function() {
+            // Replace with your actual video embed or modal
+            alert('Video would play here - replace with your actual video implementation');
+        });
+
+        // Form submission
+        document.querySelector('.cta-button[style*="width: 100%"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            const email = document.querySelector('input[type="email"]').value;
+            const phone = document.querySelector('input[type="tel"]').value;
+            
+            if (!email || !phone) {
+                alert('Please fill in both email and phone number');
+                return;
+            }
+            
+            // Replace with your actual form submission logic
+            alert('Form submitted! Redirecting to free training...');
+        });
+
+        // Add some dynamic effects
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const header = document.querySelector('.header');
+            
+            if (scrolled > 100) {
+                header.style.background = 'rgba(255,255,255,0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.background = 'rgba(255,255,255,0.95)';
+                header.style.boxShadow = 'none';
+            }
         });
     </script>
 </body>
