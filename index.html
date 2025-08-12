@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>This Foreign Guy Made $10K Monthly - Now Teaching Filipinos - ePro Formula</title>
-    <meta name="description" content="From Carbon Market struggles to $10K monthly on Etsy. Watch how this foreigner cracked the code and why Filipinos have the biggest advantage.">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Roy's Etsy Secret - Break Free Like I Did</title>
     <style>
         * {
             margin: 0;
@@ -16,23 +14,60 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #000;
+            color: #2c3e50;
+            background: #ffffff;
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #000 100%);
+        /* Header with Roy branding */
+        .header {
+            background: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #e74c3c;
+            text-decoration: none;
+        }
+        
+        .header-cta {
+            background: #e74c3c;
             color: white;
-            padding: 60px 0 80px;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .header-cta:hover {
+            background: #c0392b;
+            transform: translateY(-1px);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
             position: relative;
-            overflow: hidden;
         }
         
         .hero::before {
@@ -42,1009 +77,558 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ff8c00" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ff8c00" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
             opacity: 0.3;
         }
         
         .hero-content {
             position: relative;
             z-index: 2;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            min-height: 80vh;
-        }
-        
-        .hero-left {
-            max-width: 600px;
-        }
-        
-        .logo {
-            width: 180px;
-            height: 60px;
-            margin-bottom: 30px;
-            background: url('./ePro Formula logo.jpg') center/contain no-repeat;
-        }
-        
-        .hero-badge {
-            background: linear-gradient(45deg, #ff8c00, #ffa500);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 20px;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
         }
         
         .hero h1 {
-            font-size: 3.8rem;
-            font-weight: 900;
-            margin-bottom: 25px;
-            line-height: 1.1;
-            background: linear-gradient(135deg, #fff 0%, #ff8c00 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
         }
         
-        .hero-subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 30px;
-            color: #ccc;
-            line-height: 1.4;
-        }
-        
-        .hero-cta {
-            background: linear-gradient(45deg, #ff8c00, #ff6600);
-            color: white;
-            padding: 20px 40px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.3);
-        }
-        
-        .hero-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 140, 0, 0.4);
-            background: linear-gradient(45deg, #ff6600, #ff8c00);
-        }
-        
-        .hero-right {
-            position: relative;
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .video-container {
-            position: relative;
+            max-width: 800px;
+            margin: 40px auto;
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
             border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 25px 60px rgba(255, 140, 0, 0.2);
-            cursor: pointer;
-            transition: all 0.3s ease;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.2);
         }
         
-        .video-container:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 35px 80px rgba(255, 140, 0, 0.3);
-        }
-        
-        .video-thumbnail {
+        .video-placeholder {
             width: 100%;
-            height: 350px;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            height: 450px;
+            background: #000;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.1rem;
+            color: #ccc;
             position: relative;
         }
         
         .play-button {
             width: 80px;
             height: 80px;
-            background: linear-gradient(45deg, #ff8c00, #ff6600);
+            background: rgba(231, 76, 60, 0.9);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            color: white;
+            cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.3);
         }
         
         .play-button:hover {
+            background: #e74c3c;
             transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(255, 140, 0, 0.5);
         }
         
-        .video-caption {
-            background: rgba(0, 0, 0, 0.8);
+        .play-button::after {
+            content: '▶';
             color: white;
-            padding: 15px;
-            text-align: center;
+            font-size: 2rem;
+            margin-left: 5px;
         }
         
-        /* Trust Indicators */
-        .trust-bar {
-            background: #111;
-            padding: 20px 0;
-            text-align: center;
-            border-top: 1px solid #333;
-        }
-        
-        .trust-items {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-        
-        .trust-item {
-            color: #888;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .trust-item i {
-            color: #ff8c00;
-        }
-        
-        /* Proof Carousel */
-        .proof-section {
-            background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
-            padding: 80px 0;
+        .cta-button {
+            background: #e74c3c;
             color: white;
-        }
-        
-        .proof-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .proof-header h2 {
-            font-size: 2.8rem;
-            font-weight: 900;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #fff 0%, #ff8c00 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .proof-subtitle {
+            padding: 18px 35px;
             font-size: 1.2rem;
-            color: #ccc;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 15px 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .cta-button:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .cta-button.secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        /* Story carousel section */
+        .carousel-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 60px;
             max-width: 600px;
-            margin: 0 auto;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .carousel-container {
             position: relative;
+            max-width: 900px;
+            margin: 0 auto;
             overflow: hidden;
-            margin: 0 -20px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         
-        .carousel-track {
+        .carousel-slides {
             display: flex;
             transition: transform 0.5s ease;
-            gap: 30px;
-            padding: 0 20px;
         }
         
-        .proof-card {
-            min-width: 350px;
-            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+        .carousel-slide {
+            min-width: 100%;
+            background: white;
+            padding: 60px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 400px;
+        }
+        
+        .slide-content h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .slide-content p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #34495e;
+            margin-bottom: 30px;
+        }
+        
+        .carousel-nav {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .carousel-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #bdc3c7;
+            display: inline-block;
+            margin: 0 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background: #e74c3c;
+            transform: scale(1.2);
+        }
+        
+        /* Results section */
+        .results-section {
+            background: white;
+            padding: 80px 0;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+        
+        .result-card {
+            background: #fff;
+            padding: 40px 30px;
             border-radius: 20px;
-            padding: 40px;
-            border: 1px solid #333;
+            text-align: center;
+            border: 2px solid #ecf0f1;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
         
-        .proof-card::before {
+        .result-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(45deg, #ff8c00, #ff6600);
+            height: 5px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
-        .proof-amount {
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+        
+        .result-number {
             font-size: 3rem;
-            font-weight: 900;
-            color: #ff8c00;
-            margin-bottom: 10px;
-        }
-        
-        .proof-description {
-            font-size: 1.1rem;
-            color: #ccc;
-            margin-bottom: 20px;
-        }
-        
-        .proof-details {
-            font-size: 0.9rem;
-            color: #888;
-            line-height: 1.5;
-        }
-        
-        .carousel-nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-        }
-        
-        .nav-btn {
-            background: #333;
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .nav-btn:hover {
-            background: #ff8c00;
-            transform: scale(1.1);
-        }
-        
-        /* Story Section */
-        .story-section {
-            background: #000;
-            padding: 100px 0;
-            color: white;
-        }
-        
-        .story-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-        
-        .story-content h2 {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 30px;
-            line-height: 1.2;
-        }
-        
-        .story-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #ccc;
-            margin-bottom: 30px;
-        }
-        
-        .story-highlight {
-            background: linear-gradient(135deg, #ff8c00 0%, #ff6600 100%);
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
-            font-style: italic;
-            font-size: 1.1rem;
-        }
-        
-        .story-image {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Method Preview */
-        .method-section {
-            background: linear-gradient(135deg, #ff8c00 0%, #ff6600 100%);
-            padding: 100px 0;
-            color: white;
-        }
-        
-        .method-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .method-header h2 {
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 20px;
-        }
-        
-        .method-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-        
-        .method-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .method-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-        
-        .method-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-        
-        /* Final CTA Section */
-        .final-cta {
-            background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #000 100%);
-            padding: 100px 0;
-            color: white;
-            text-align: center;
-            position: relative;
-        }
-        
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .cta-content h2 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 30px;
-            background: linear-gradient(135deg, #fff 0%, #ff8c00 100%);
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin-bottom: 15px;
         }
         
-        .cta-subtitle {
-            font-size: 1.3rem;
-            color: #ccc;
-            margin-bottom: 50px;
+        .result-text {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+        
+        /* Student success */
+        .success-stories {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .success-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+        
+        .success-card {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .success-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .success-quote {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            font-style: italic;
             line-height: 1.6;
         }
         
-        .form-container {
-            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
-            padding: 50px;
-            border-radius: 20px;
-            border: 1px solid #333;
-            max-width: 600px;
-            margin: 0 auto;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #ff8c00;
-            font-size: 1rem;
-        }
-        
-        .form-group input {
-            width: 100%;
-            padding: 18px;
-            border: 2px solid #333;
-            border-radius: 10px;
+        .success-author {
+            font-weight: 600;
             font-size: 1.1rem;
-            background: #000;
-            color: white;
-            transition: all 0.3s ease;
+            color: #ecf0f1;
         }
         
-        .form-group input:focus {
-            outline: none;
-            border-color: #ff8c00;
-            box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.1);
+        .success-result {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f1c40f;
+            margin-top: 15px;
         }
         
-        .submit-button {
-            width: 100%;
-            background: linear-gradient(45deg, #ff8c00, #ff6600);
+        /* Final CTA section */
+        .final-cta {
+            background: #2c3e50;
             color: white;
-            padding: 22px;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+        }
+        
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .final-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        
+        .final-cta p {
             font-size: 1.4rem;
-            font-weight: bold;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.3);
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .submit-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 140, 0, 0.4);
-        }
-        
-        .guarantee {
-            margin-top: 30px;
-            font-size: 0.9rem;
-            color: #888;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .story-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .trust-items {
-                gap: 20px;
-            }
-            
-            .proof-card {
-                min-width: 300px;
-            }
-        }
-        
-        /* Floating CTA */
-        .floating-cta {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: linear-gradient(45deg, #ff8c00, #ff6600);
+        .urgency-text {
+            background: #e74c3c;
             color: white;
-            padding: 15px 25px;
+            padding: 15px 30px;
             border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.3);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            animation: bounce 2s infinite;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
         
-        .floating-cta:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 140, 0, 0.4);
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .carousel-slide {
+                padding: 40px 30px;
+            }
+            
+            .cta-button {
+                padding: 15px 25px;
+                font-size: 1rem;
+                margin: 10px 5px;
+            }
+            
+            .video-placeholder {
+                height: 300px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">ROY</a>
+            <a href="#signup" class="header-cta">Get Free Training</a>
+        </div>
+    </header>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-left">
-                    <div class="logo"></div>
-                    <div class="hero-badge">🔥 FROM CARBON MARKET TO SUCCESS</div>
-                    <h1>This Foreign Guy Was Broke in Cebu<br>Now Making $10K Monthly</h1>
-                    <p class="hero-subtitle">
-                        One year ago, I was counting pesos at Carbon Market, driving a broken Honda Click, 
-                        working 14 hours a day just to survive. Now I'm teaching Filipinos why they have 
-                        the <strong>biggest advantage on Etsy</strong> - and <em>sana all</em> will be reality.
-                    </p>
-                    <a href="#signup" class="hero-cta">
-                        <i class="fas fa-play"></i>
-                        Show Me How
-                    </a>
-                </div>
-                <div class="hero-right">
-                    <div class="video-container" onclick="playVideo()">
-                        <div class="video-thumbnail">
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                        <div class="video-caption">
-                            "From Carbon Market barracks to $10K monthly - the real story"
-                        </div>
+                <h1>How I Broke Free from Poverty</h1>
+                <p class="subtitle">From counting pesos at Carbon Market to complete freedom in 12 months. No lies, no BS - just my real story and the system that changed everything.</p>
+                
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <div class="play-button"></div>
                     </div>
                 </div>
+                
+                <a href="#signup" class="cta-button">Watch Free Training</a>
+                <a href="#story" class="cta-button secondary">My Proof</a>
             </div>
         </div>
     </section>
 
-    <!-- Trust Bar -->
-    <section class="trust-bar">
+    <!-- Story Carousel -->
+    <section class="carousel-section" id="story">
         <div class="container">
-            <div class="trust-items">
-                <div class="trust-item">
-                    <i class="fas fa-users"></i>
-                    500+ Successful Filipino Students
-                </div>
-                <div class="trust-item">
-                    <i class="fas fa-clock"></i>
-                    Average 2-3 Hours Daily Work
-                </div>
-                <div class="trust-item">
-                    <i class="fas fa-globe"></i>
-                    Selling to US Market
-                </div>
-                <div class="trust-item">
-                    <i class="fas fa-shield-alt"></i>
-                    100% Legit Business Model
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Proof Carousel -->
-    <section class="proof-section">
-        <div class="container">
-            <div class="proof-header">
-                <h2>My Filipino Students Are Crushing It</h2>
-                <p class="proof-subtitle">
-                    Real people, real results. No fake screenshots, no bullshit. 
-                    These are actual Filipinos who went from struggle to <em>sana all</em> lifestyle.
-                </p>
-            </div>
+            <h2 class="section-title">My Real Journey</h2>
+            <p class="section-subtitle">Three key moments that changed my life forever</p>
             
             <div class="carousel-container">
-                <div class="carousel-track" id="carouselTrack">
-                    <div class="proof-card">
-                        <div class="proof-amount">$2,500</div>
-                        <div class="proof-description">Mark - IDF Soldier</div>
-                        <div class="proof-details">
-                            First month profit. Working from army barracks with brownout wifi. 
-                            Now making more in 1 month than his yearly army salary. 
-                            <em>"Dili ko motuo!"</em> he said when he saw the results.
+                <div class="carousel-slides" id="carousel">
+                    <div class="carousel-slide">
+                        <div class="slide-content">
+                            <h3>Rock Bottom at Carbon Market</h3>
+                            <p>I was broke, counting pesos just to buy jackfruit. Maria was unemployed. Living in a tiny studio, working 14-hour days, ready to give up and move back to Israel to my parents' place.</p>
+                            <a href="#training" class="cta-button">I Want to Change My Life</a>
                         </div>
                     </div>
                     
-                    <div class="proof-card">
-                        <div class="proof-amount">₱150,000</div>
-                        <div class="proof-description">Maria - My Girlfriend</div>
-                        <div class="proof-details">
-                            From unemployed for 6 months to owning multiple Etsy shops. 
-                            What she makes now in 1 month used to take her a whole year. 
-                            She's not <em>koripot</em> with success anymore.
+                    <div class="carousel-slide">
+                        <div class="slide-content">
+                            <h3>The Discovery That Changed Everything</h3>
+                            <p>I had taught 200+ Israelis to sell on Etsy. But here in the Philippines, I was struggling. Then I realized - there are almost ZERO Filipinos on Etsy. The opportunity is massive.</p>
+                            <a href="#training" class="cta-button">Show Me This Opportunity</a>
                         </div>
                     </div>
                     
-                    <div class="proof-card">
-                        <div class="proof-amount">$8,000</div>
-                        <div class="proof-description">Jenny - Former OFW</div>
-                        <div class="proof-details">
-                            Came back from Dubai with zero savings. 4 months later, 
-                            consistent $8K monthly. No more overseas work needed. 
-                            <em>"Salamat kaayo!"</em> she tells me every month.
-                        </div>
-                    </div>
-                    
-                    <div class="proof-card">
-                        <div class="proof-amount">$5,200</div>
-                        <div class="proof-description">Carlo - Former Grab Driver</div>
-                        <div class="proof-details">
-                            Used to work 12 hours on the road for $200 daily. 
-                            Now works 2 hours for $170+ daily from home. 
-                            Has time for family. True <em>sana all</em> moment.
-                        </div>
-                    </div>
-                    
-                    <div class="proof-card">
-                        <div class="proof-amount">$10,000</div>
-                        <div class="proof-description">Sarah - Single Mom</div>
-                        <div class="proof-details">
-                            First time hitting 5 digits monthly. From minimum wage at the mall 
-                            to financial independence. Her kids are so proud. 
-                            <em>"Wala jud ko kasabot"</em> turned into <em>"Kaya diay!"</em>
+                    <div class="carousel-slide">
+                        <div class="slide-content">
+                            <h3>Complete Freedom Today</h3>
+                            <p>Now I work 2 hours a day from anywhere. Maria has multiple shops. We have the freedom I only dreamed about. And I'm bringing this system to Filipinos for the first time.</p>
+                            <a href="#training" class="cta-button">I Want This Freedom</a>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="carousel-nav">
-                <button class="nav-btn" onclick="moveCarousel(-1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="nav-btn" onclick="moveCarousel(1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Story Section -->
-    <section class="story-section">
-        <div class="container">
-            <div class="story-grid">
-                <div class="story-content">
-                    <h2>If I Can Make It Here, Anyone Can</h2>
-                    <p class="story-text">
-                        Look, I'm not special. I'm not a tech genius. I'm not from a rich family. 
-                        I'm just a foreigner who was struggling in Cebu.
-                    </p>
-                    <p class="story-text">
-                        One year ago, I was standing at SM Seaside for 9 hours straight, trying to sell cosmetics 
-                        to people who didn't want them. Exhausted from 14-hour days, driving a Honda Click 
-                        with broken brakes, living paycheck to paycheck.
-                    </p>
-                    <div class="story-highlight">
-                        "I was driving from Carbon Market, counting pesos for food. 
-                        I thought: Is this it? Is this my life now? <em>Wa jud ko'y labot.</em>"
-                    </div>
-                    <p class="story-text">
-                        That was my rock bottom. But that's where I discovered Etsy dropshipping. 
-                        And when a 16-year-old kid (not the brightest) sent me a screenshot of $2,000 profit 
-                        in his first month...
-                    </p>
-                    <p class="story-text">
-                        That's when I realized - <strong>if he can do it, why not me? Why not you?</strong> 
-                        And especially... why not Filipinos who are naturally better at this than anyone else?
-                    </p>
-                </div>
-                <div class="story-image">
-                    <img src="./aetophis logo.jpg" alt="From Carbon Market to Success" style="width: 100%; height: 400px; object-fit: cover;">
+                
+                <div class="carousel-nav">
+                    <span class="carousel-dot active" onclick="showSlide(0)"></span>
+                    <span class="carousel-dot" onclick="showSlide(1)"></span>
+                    <span class="carousel-dot" onclick="showSlide(2)"></span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Method Preview -->
-    <section class="method-section">
+    <!-- Results Section -->
+    <section class="results-section">
         <div class="container">
-            <div class="method-header">
-                <h2>The System That Actually Works</h2>
-                <p>No <em>pakipot</em>. No holding back. Here's exactly what we do.</p>
+            <h2 class="section-title">The Numbers Don't Lie</h2>
+            
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-number">200+</div>
+                    <p class="result-text">Israelis I taught this system</p>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">$5K</div>
+                    <p class="result-text">Monthly profits my students make</p>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">2</div>
+                    <p class="result-text">Hours I work per day now</p>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">Zero</div>
+                    <p class="result-text">Filipino competition on Etsy</p>
+                </div>
             </div>
             
-            <div class="method-grid">
-                <div class="method-card">
-                    <div class="method-icon">🔍</div>
-                    <h3>Find Winning Products</h3>
-                    <p>Not guessing games. We use specific tools and methods to see exactly what's selling. 
-                    No more <em>"basin"</em> - only data-driven decisions.</p>
+            <div style="text-align: center;">
+                <a href="#training" class="cta-button">Get These Results</a>
+                <a href="#success" class="cta-button secondary">See Student Stories</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="success-stories" id="success">
+        <div class="container">
+            <h2 class="section-title">Real Student Results</h2>
+            
+            <div class="success-grid">
+                <div class="success-card">
+                    <p class="success-quote">"Roy's system works. I'm doing this from my army base with terrible Wi-Fi. If I can do it, anyone can."</p>
+                    <p class="success-author">- IDF Soldier</p>
+                    <p class="success-result">$2,500 First Month</p>
                 </div>
                 
-                <div class="method-card">
-                    <div class="method-icon">✍️</div>
-                    <h3>Create Better Listings</h3>
-                    <p>While competitors copy each other, you'll create listings that actually convert. 
-                    Quality over quantity - <em>dili ra basta-basta</em>.</p>
+                <div class="success-card">
+                    <p class="success-quote">"I'm 16 and made $2,000 profit selling goth jewelry I never touched. This is incredible."</p>
+                    <p class="success-author">- 16-Year-Old Student</p>
+                    <p class="success-result">Scaled to $5K Monthly</p>
                 </div>
                 
-                <div class="method-card">
-                    <div class="method-icon">💰</div>
-                    <h3>Get Automatic Sales</h3>
-                    <p>Once optimized, Etsy sends customers to you automatically. 
-                    While you sleep, eat, or spend time with family.</p>
+                <div class="success-card">
+                    <p class="success-quote">"Multiple shops running on autopilot. I make in a month what I used to make in a year."</p>
+                    <p class="success-author">- Maria</p>
+                    <p class="success-result">Multiple $10K Months</p>
                 </div>
-                
-                <div class="method-card">
-                    <div class="method-icon">📈</div>
-                    <h3>Scale & Repeat</h3>
-                    <p>One successful product becomes your template for the next. 
-                    Rinse and repeat until you hit $10K monthly. <em>Sana all</em> becomes reality.</p>
-                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="#training" class="cta-button">Join These Winners</a>
             </div>
         </div>
     </section>
 
     <!-- Final CTA -->
-    <section class="final-cta" id="signup">
+    <section class="final-cta" id="training">
         <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Make <em>Sana All</em> Your Reality?</h2>
-                <p class="cta-subtitle">
-                    I'm going to show you the exact system I've taught to 500+ Filipinos 
-                    who are now making $2,000-$10,000 monthly. No hidden agenda. No catch. 
-                    <strong>Just pure value from someone who's been in your shoes.</strong>
-                </p>
+            <div class="final-cta-content">
+                <div class="urgency-text">Limited Spots Available - I Can Only Mentor So Many</div>
                 
-                <div class="form-container">
-                    <form id="signupForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Your Email *</label>
-                                <input type="email" id="email" name="email" required placeholder="juan@gmail.com">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Your Number *</label>
-                                <input type="tel" id="phone" name="phone" required placeholder="09xx xxx xxxx">
-                            </div>
-                        </div>
-                        
-                        <button type="submit" class="submit-button">
-                            Get Free Training Now
-                        </button>
-                        
-                        <div class="guarantee">
-                            <i class="fas fa-shield-alt"></i>
-                            100% Free • No Hidden Charges • No Credit Card Needed
-                        </div>
-                    </form>
-                </div>
+                <h2>Ready to Break Free?</h2>
+                <p>I can only personally guide so many people. My calendar is filling up fast. Once more Filipinos discover this opportunity, it gets harder for everyone.</p>
+                
+                <a href="#signup" class="cta-button">Get My Free Training Now</a>
+                <a href="#signup" class="cta-button secondary">Secure My Spot</a>
+                
+                <p style="margin-top: 30px; font-size: 1rem; opacity: 0.7;">Enter your email and number below ↓</p>
             </div>
         </div>
     </section>
 
-    <!-- Floating CTA -->
-    <a href="#signup" class="floating-cta">
-        <i class="fas fa-rocket"></i>
-        Let's Go!
-    </a>
-
     <script>
-        // Carousel functionality
         let currentSlide = 0;
-        const totalSlides = 5;
-        
-        function moveCarousel(direction) {
-            const track = document.getElementById('carouselTrack');
-            currentSlide += direction;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const carousel = document.getElementById('carousel');
+
+        function showSlide(index) {
+            currentSlide = index;
+            carousel.style.transform = `translateX(-${index * 100}%)`;
             
-            if (currentSlide >= totalSlides) currentSlide = 0;
-            if (currentSlide < 0) currentSlide = totalSlides - 1;
-            
-            const translateX = -currentSlide * (350 + 30); // card width + gap
-            track.style.transform = `translateX(${translateX}px)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
         }
-        
+
         // Auto-advance carousel
         setInterval(() => {
-            moveCarousel(1);
-        }, 4000);
-        
-        // Video player
-        function playVideo() {
-            alert('Video player would open here with your Carbon Market success story');
-            // Replace with actual video URL
-            // window.open('https://youtu.be/your-video-id', '_blank');
-        }
-        
-        // Form submission
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            
-            // Basic validation
-            if (!email || !phone) {
-                alert('Please complete the form first');
-                return;
-            }
-            
-            // Show loading state
-            const submitBtn = document.querySelector('.submit-button');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-            submitBtn.disabled = true;
-            
-            // Simulate form submission (replace with actual endpoint)
-            setTimeout(() => {
-                alert('Salamat! Check your email for the training link. Check spam folder too!');
-                // Reset form
-                this.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                
-                // Redirect to course (replace with actual URL)
-                // window.location.href = 'https://your-course-platform.com/free-training';
-            }, 2000);
-        });
-        
-        // Smooth scrolling
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 5000);
+
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
-        
-        // Hide floating CTA when in form view
-        window.addEventListener('scroll', function() {
-            const floatingCta = document.querySelector('.floating-cta');
-            const finalCta = document.querySelector('.final-cta');
-            const rect = finalCta.getBoundingClientRect();
-            
-            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-                floatingCta.style.display = 'none';
-            } else {
-                floatingCta.style.display = 'flex';
-            }
-        });
-        
-        // Add scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        // Observe elements for scroll animations
-        document.querySelectorAll('.proof-card, .method-card, .story-content').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-        
-        // Add interactive hover effects
-        document.querySelectorAll('.proof-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-                this.style.boxShadow = '0 25px 60px rgba(255, 140, 0, 0.2)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-                this.style.boxShadow = 'none';
-            });
-        });
-        
-        // Add pulse effect to important numbers
-        function pulseNumbers() {
-            document.querySelectorAll('.proof-amount').forEach(amount => {
-                amount.style.transform = 'scale(1.05)';
-                setTimeout(() => {
-                    amount.style.transform = 'scale(1)';
-                }, 200);
-            });
-        }
-        
-        setInterval(pulseNumbers, 3000);
-        
-        // Track user engagement (replace with actual analytics)
-        function trackEvent(event, data = {}) {
-            console.log(`Event: ${event}`, data);
-            // Replace with actual tracking code
-            // gtag('event', event, data);
-        }
-        
-        // Track video play
-        document.querySelector('.video-container').addEventListener('click', function() {
-            trackEvent('video_play', { location: 'hero' });
-        });
-        
-        // Track form interactions
-        document.querySelectorAll('input').forEach(input => {
-            input.addEventListener('focus', function() {
-                trackEvent('form_field_focus', { field: this.name });
-            });
-        });
-        
-        // Track scroll depth
-        let maxScroll = 0;
-        window.addEventListener('scroll', function() {
-            const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-            if (scrollPercent > maxScroll) {
-                maxScroll = scrollPercent;
-                if (maxScroll % 25 === 0) { // Track at 25%, 50%, 75%, 100%
-                    trackEvent('scroll_depth', { percent: maxScroll });
-                }
-            }
-        });
-        
-        // Add some Easter eggs for Filipino users
-        const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-        let konamiIndex = 0;
-        
-        document.addEventListener('keydown', function(e) {
-            if (e.keyCode === konamiCode[konamiIndex]) {
-                konamiIndex++;
-                if (konamiIndex === konamiCode.length) {
-                    alert('Oy! Pila ka na ba nimo? 😄 Secret Bisaya code activated!');
-                    document.body.style.background = 'linear-gradient(45deg, #ff8c00, #ff6600)';
-                    konamiIndex = 0;
-                }
-            } else {
-                konamiIndex = 0;
-            }
-        });
-        
-        // Add dynamic timestamp for urgency
-        function updateTimestamp() {
-            const now = new Date();
-            const options = { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric',
-                timeZone: 'Asia/Manila'
-            };
-            const timestamp = now.toLocaleDateString('en-PH', options);
-            
-            // Add timestamp to guarantee text if element exists
-            const guarantee = document.querySelector('.guarantee');
-            if (guarantee && !guarantee.innerHTML.includes('Updated')) {
-                guarantee.innerHTML += `<br><small style="opacity: 0.7;">Updated: ${timestamp}</small>`;
-            }
-        }
-        
-        // Initialize timestamp on load
-        window.addEventListener('load', updateTimestamp);
-        
-        // Add some Filipino-specific behavior
-        const filipinoGreetings = ['Maayong buntag!', 'Maayong hapon!', 'Maayong gabii!'];
-        const hour = new Date().getHours();
-        let greeting = filipinoGreetings[0]; // Default morning
-        
-        if (hour >= 12 && hour < 18) greeting = filipinoGreetings[1]; // Afternoon
-        if (hour >= 18) greeting = filipinoGreetings[2]; // Evening
-        
-        // Show greeting on first visit
-        if (!localStorage.getItem('visited')) {
-            setTimeout(() => {
-                const welcomeMsg = `${greeting} Welcome to ePro Formula! 🇵🇭`;
-                // You could show this in a toast notification instead of alert
-                console.log(welcomeMsg);
-            }, 2000);
-            localStorage.setItem('visited', 'true');
-        }
     </script>
 </body>
 </html>
