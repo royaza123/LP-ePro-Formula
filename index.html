@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ePro Formula - The Secret System Behind $2M+ in Student Sales</title>
+    <title>ePro Formula - The Underground System Behind $2M+ in Student Sales</title>
     <style>
         * {
             margin: 0;
@@ -29,7 +29,7 @@
             padding: 0 20px;
         }
 
-        /* Animated Background */
+        /* Enhanced Animated Background */
         .hero-bg {
             position: absolute;
             top: 0;
@@ -48,25 +48,101 @@
         
         .particle {
             position: absolute;
-            background: rgba(217, 119, 6, 0.1);
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.8) 0%, rgba(217, 119, 6, 0.1) 100%);
             border-radius: 50%;
-            animation: float 8s infinite ease-in-out;
+            animation: float 12s infinite ease-in-out;
+            box-shadow: 0 0 20px rgba(217, 119, 6, 0.3);
         }
         
-        .particle:nth-child(1) { width: 20px; height: 20px; left: 10%; animation-delay: 0s; }
-        .particle:nth-child(2) { width: 30px; height: 30px; left: 20%; animation-delay: 1s; }
-        .particle:nth-child(3) { width: 15px; height: 15px; left: 30%; animation-delay: 2s; }
-        .particle:nth-child(4) { width: 25px; height: 25px; left: 40%; animation-delay: 3s; }
-        .particle:nth-child(5) { width: 35px; height: 35px; left: 50%; animation-delay: 4s; }
-        .particle:nth-child(6) { width: 18px; height: 18px; left: 60%; animation-delay: 5s; }
-        .particle:nth-child(7) { width: 28px; height: 28px; left: 70%; animation-delay: 6s; }
-        .particle:nth-child(8) { width: 22px; height: 22px; left: 80%; animation-delay: 7s; }
+        .particle:nth-child(1) { width: 8px; height: 8px; left: 10%; animation-delay: 0s; animation-duration: 8s; }
+        .particle:nth-child(2) { width: 12px; height: 12px; left: 20%; animation-delay: 1.5s; animation-duration: 10s; }
+        .particle:nth-child(3) { width: 6px; height: 6px; left: 30%; animation-delay: 3s; animation-duration: 9s; }
+        .particle:nth-child(4) { width: 10px; height: 10px; left: 40%; animation-delay: 4.5s; animation-duration: 11s; }
+        .particle:nth-child(5) { width: 14px; height: 14px; left: 50%; animation-delay: 6s; animation-duration: 7s; }
+        .particle:nth-child(6) { width: 7px; height: 7px; left: 60%; animation-delay: 7.5s; animation-duration: 12s; }
+        .particle:nth-child(7) { width: 11px; height: 11px; left: 70%; animation-delay: 9s; animation-duration: 8s; }
+        .particle:nth-child(8) { width: 9px; height: 9px; left: 80%; animation-delay: 10.5s; animation-duration: 10s; }
+        .particle:nth-child(9) { width: 13px; height: 13px; left: 85%; animation-delay: 2s; animation-duration: 9s; }
+        .particle:nth-child(10) { width: 5px; height: 5px; left: 90%; animation-delay: 3.5s; animation-duration: 11s; }
         
         @keyframes float {
-            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+            0% { 
+                transform: translateY(100vh) rotate(0deg) scale(0.5); 
+                opacity: 0; 
+                box-shadow: 0 0 5px rgba(217, 119, 6, 0.1);
+            }
+            5% { 
+                opacity: 1; 
+                box-shadow: 0 0 15px rgba(217, 119, 6, 0.3);
+            }
+            50% { 
+                transform: translateY(50vh) rotate(180deg) scale(1.2); 
+                opacity: 1; 
+                box-shadow: 0 0 25px rgba(217, 119, 6, 0.5);
+            }
+            95% { 
+                opacity: 1; 
+                box-shadow: 0 0 15px rgba(217, 119, 6, 0.3);
+            }
+            100% { 
+                transform: translateY(-100px) rotate(360deg) scale(0.5); 
+                opacity: 0;
+                box-shadow: 0 0 5px rgba(217, 119, 6, 0.1);
+            }
+        }
+
+        /* Money symbols floating animation */
+        .money-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .money-symbol {
+            position: absolute;
+            font-size: 24px;
+            color: rgba(217, 119, 6, 0.6);
+            animation: moneyFloat 15s infinite linear;
+            text-shadow: 0 0 10px rgba(217, 119, 6, 0.8);
+        }
+
+        .money-symbol:nth-child(1) { left: 5%; animation-delay: 0s; }
+        .money-symbol:nth-child(2) { left: 15%; animation-delay: 3s; }
+        .money-symbol:nth-child(3) { left: 25%; animation-delay: 6s; }
+        .money-symbol:nth-child(4) { left: 35%; animation-delay: 9s; }
+        .money-symbol:nth-child(5) { left: 45%; animation-delay: 12s; }
+
+        .money-symbol:nth-child(1)::before { content: '$'; }
+        .money-symbol:nth-child(2)::before { content: '₱'; }
+        .money-symbol:nth-child(3)::before { content: '$'; }
+        .money-symbol:nth-child(4)::before { content: '₱'; }
+        .money-symbol:nth-child(5)::before { content: '$'; }
+
+        @keyframes moneyFloat {
+            0% { 
+                transform: translateY(100vh) rotate(0deg); 
+                opacity: 0; 
+                font-size: 16px;
+            }
+            10% { 
+                opacity: 0.8; 
+                font-size: 24px;
+            }
+            50% { 
+                transform: translateY(50vh) rotate(180deg); 
+                opacity: 1; 
+                font-size: 32px;
+            }
+            90% { 
+                opacity: 0.8; 
+                font-size: 24px;
+            }
+            100% { 
+                transform: translateY(-100px) rotate(360deg); 
+                opacity: 0;
+                font-size: 16px;
+            }
         }
 
         /* Header */
@@ -174,15 +250,21 @@
         .hero-badge {
             background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
             color: white;
-            padding: 10px 25px;
+            padding: 12px 30px;
             border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
+            font-size: 0.95rem;
+            font-weight: 700;
             display: inline-block;
             margin-bottom: 25px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             box-shadow: 0 5px 15px rgba(217, 119, 6, 0.3);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 5px 15px rgba(217, 119, 6, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 25px rgba(217, 119, 6, 0.5); }
         }
         
         .hero h1 {
@@ -203,6 +285,15 @@
             opacity: 0.9;
             line-height: 1.6;
             color: #f8f9fa;
+            font-weight: 600;
+        }
+
+        .story-highlight {
+            background: rgba(217, 119, 6, 0.1);
+            padding: 3px 8px;
+            border-radius: 5px;
+            color: #f59e0b;
+            font-weight: 700;
         }
 
         /* Video Section */
@@ -310,7 +401,7 @@
             border-color: #d97706;
         }
 
-        /* Animated Metrics Section */
+        /* Enhanced Metrics Section */
         .metrics-section {
             background: #0a0a0a;
             padding: 120px 0;
@@ -420,15 +511,35 @@
             border: 2px dashed rgba(217, 119, 6, 0.3);
         }
 
-        /* Results Bombardment Section */
-        .bombardment-section {
+        /* Story Section Enhanced */
+        .story-section {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             padding: 120px 0;
             color: white;
             position: relative;
             overflow: hidden;
         }
-        
+
+        .story-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="storypattern" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(217,119,6,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23storypattern)"/></svg>');
+            animation: bgMove 30s linear infinite;
+        }
+
+        .story-impact {
+            font-size: 1.8rem;
+            color: #d97706;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(217, 119, 6, 0.3);
+        }
+
         .bombardment-title {
             font-size: 4rem;
             font-weight: 900;
@@ -439,64 +550,59 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
-        .bombardment-subtitle {
-            text-align: center;
-            font-size: 1.5rem;
-            color: #f59e0b;
-            margin-bottom: 80px;
-            font-weight: 600;
+
+        /* Enhanced Steps Section */
+        .steps-section {
+            background: #0a0a0a;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
         }
-        
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin: 80px 0;
-        }
-        
-        .result-card {
+
+        .step-card {
             background: rgba(255,255,255,0.05);
-            padding: 30px;
+            padding: 50px 30px;
             border-radius: 20px;
+            text-align: center;
             backdrop-filter: blur(20px);
             border: 1px solid rgba(217, 119, 6, 0.2);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             position: relative;
+            overflow: hidden;
         }
-        
-        .result-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(217, 119, 6, 0.2);
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
         }
-        
-        .result-image {
-            width: 100%;
-            height: 200px;
-            background: #0a0a0a;
-            border-radius: 15px;
-            margin-bottom: 20px;
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(217, 119, 6, 0.3);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #d97706;
-            border: 2px dashed rgba(217, 119, 6, 0.3);
-        }
-        
-        .result-text {
-            font-size: 1.1rem;
-            color: #ecf0f1;
-            line-height: 1.6;
-        }
-
-        /* Story Section */
-        .story-section {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            padding: 120px 0;
+            margin: 0 auto 30px;
+            font-size: 2.5rem;
+            font-weight: 900;
             color: white;
+            box-shadow: 0 10px 30px rgba(217, 119, 6, 0.4);
         }
 
-        /* FAQ Section */
+        /* FAQ Section Enhanced */
         .faq-section {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             padding: 120px 0;
@@ -566,7 +672,7 @@
         
         .faq-answer.active {
             padding: 30px;
-            max-height: 400px;
+            max-height: 500px;
         }
         
         .faq-answer p {
@@ -576,7 +682,7 @@
             font-size: 1.1rem;
         }
 
-        /* Final CTA Section */
+        /* Enhanced Final CTA Section */
         .final-cta {
             background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
             color: white;
@@ -617,12 +723,12 @@
             font-size: 1.2rem;
             border: 2px solid rgba(255,255,255,0.3);
             backdrop-filter: blur(10px);
-            animation: pulse 2s infinite;
+            animation: urgentPulse 2s infinite;
         }
         
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        @keyframes urgentPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255,255,255,0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(255,255,255,0.5); }
         }
         
         .final-cta h2 {
@@ -642,7 +748,7 @@
             line-height: 1.6;
         }
 
-        /* Signup Form */
+        /* Signup Form Enhanced */
         .signup-form {
             background: rgba(255,255,255,0.1);
             padding: 50px;
@@ -652,6 +758,24 @@
             max-width: 500px;
             margin: 50px auto;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .signup-form::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: rotate 4s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
         }
         
         .form-group {
@@ -732,6 +856,12 @@
             .metric-number {
                 font-size: 3rem;
             }
+
+            .step-number {
+                font-size: 2rem;
+                width: 60px;
+                height: 60px;
+            }
         }
 
         /* Scroll Animations */
@@ -756,6 +886,17 @@
             opacity: 1;
             transform: translateX(0);
         }
+
+        /* Enhanced hover effects */
+        .metric-card:hover .metric-number {
+            transform: scale(1.1);
+            text-shadow: 0 0 20px rgba(217, 119, 6, 0.8);
+        }
+
+        .step-card:hover .step-number {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(217, 119, 6, 0.6);
+        }
     </style>
 </head>
 <body>
@@ -779,15 +920,24 @@
                 <div class="particle"></div>
                 <div class="particle"></div>
                 <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+            <div class="money-particles">
+                <div class="money-symbol"></div>
+                <div class="money-symbol"></div>
+                <div class="money-symbol"></div>
+                <div class="money-symbol"></div>
+                <div class="money-symbol"></div>
             </div>
         </div>
         
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text fade-in">
-                    <div class="hero-badge">🇵🇭 SECRET FINALLY REVEALED IN PHILIPPINES</div>
+                    <div class="hero-badge">🇵🇭 THE SECRET FINALLY REVEALED IN PHILIPPINES</div>
                     <h1>The Underground System That's Made Students $2M+</h1>
-                    <p class="subtitle">While everyone's fighting over scraps on Facebook Marketplace, my students are secretly dominating a $6 billion market with ZERO Filipino competition. This changes everything.</p>
+                    <p class="subtitle">While everyone's fighting over scraps on Facebook Marketplace, TikTok shops, and Shopee, my students are secretly dominating a <span class="story-highlight">$6 billion market</span> with almost ZERO Filipino competition. This changes everything.</p>
                     
                     <a href="#proof" class="cta-button">Show Me The Proof</a>
                     <a href="#signup" class="cta-button secondary">I Want In</a>
@@ -796,137 +946,76 @@
                 <div class="video-container slide-in-right">
                     <div class="video-placeholder">
                         <div class="play-button"></div>
-                        <p>The moment everything clicked...</p>
+                        <p>Watch how a 16-year-old changed my life...</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Animated Metrics Section -->
+    <!-- Enhanced Metrics Section -->
     <section class="metrics-section" id="proof">
         <div class="metrics-bg"></div>
         <div class="container">
             <h2 class="section-title fade-in">The Numbers Don't Lie</h2>
-            <p class="section-subtitle fade-in">My students are quietly building empires while everyone else struggles</p>
+            <p class="section-subtitle fade-in">My students are quietly building empires while everyone else struggles with local competition</p>
             
             <div class="metrics-grid">
                 <div class="metric-card fade-in" data-delay="0">
-                    <div class="metric-image">[money-results.jpg]</div>
+                    <div class="metric-image">[Total Student Revenue Screenshot]</div>
                     <div class="metric-number" data-target="2000000">$0</div>
                     <p class="metric-text">Total Student Profits</p>
                 </div>
                 
                 <div class="metric-card fade-in" data-delay="200">
-                    <div class="metric-image">[profit-screenshot.jpg]</div>
-                    <div class="metric-number" data-target="300">0</div>
-                    <p class="metric-text">Successful Students</p>
+                    <div class="metric-image">[Success Stories Compilation]</div>
+                    <div class="metric-number" data-target="200">0+</div>
+                    <p class="metric-text">Students Success</p>
                 </div>
                 
                 <div class="metric-card fade-in" data-delay="400">
-                    <div class="metric-image">[seo-optimization.jpg]</div>
-                    <div class="metric-number" data-target="94">0%</div>
+                    <div class="metric-image">[SEO Rankings Dashboard]</div>
+                    <div class="metric-number" data-target="95">0%</div>
                     <p class="metric-text">SEO Success Rate</p>
                 </div>
                 
                 <div class="metric-card fade-in" data-delay="600">
-                    <div class="metric-image">[niche-seo.jpg]</div>
-                    <div class="metric-number" data-target="15">0</div>
-                    <p class="metric-text">Profitable Niches Discovered</p>
+                    <div class="metric-image">[Profitable Niches Map]</div>
+                    <div class="metric-number" data-target="500">0+</div>
+                    <p class="metric-text">Profitable Niches Found</p>
                 </div>
                 
                 <div class="metric-card fade-in" data-delay="800">
-                    <div class="metric-image">[profit-margins.jpg]</div>
-                    <div class="metric-number" data-target="67">0%</div>
-                    <p class="metric-text">Average Profit Margin</p>
-                </div>
-                
-                <div class="metric-card fade-in" data-delay="1000">
-                    <div class="metric-image">[student-count.jpg]</div>
-                    <div class="metric-number" data-target="0">100%</div>
-                    <p class="metric-text">Filipino Competition on Etsy</p>
+                    <div class="metric-image">[Profit Margin Analysis]</div>
+                    <div class="metric-number" data-target="55">0%</div>
+                    <p class="metric-text">Profit Margins</p>
                 </div>
             </div>
             
             <div style="text-align: center;">
                 <a href="#signup" class="cta-button">I Want These Results</a>
-                <a href="#proof-bombardment" class="cta-button secondary">Show Me More Proof</a>
+                <a href="#story" class="cta-button secondary">Show Me The Secret</a>
             </div>
         </div>
     </section>
 
-    <!-- Results Bombardment Section -->
-    <section class="bombardment-section" id="proof-bombardment">
+    <!-- Enhanced Story Section -->
+    <section class="story-section" id="story">
         <div class="container">
-            <h2 class="bombardment-title fade-in">They Said It Was "Too Good To Be True"</h2>
-            <p class="bombardment-subtitle fade-in">Then they saw the bank deposits...</p>
-            
-            <div class="results-grid">
-                <div class="result-card fade-in">
-                    <div class="result-image">[student-message-1.jpg]</div>
-                    <p class="result-text">Student thanking Roy for life-changing system</p>
-                </div>
-                
-                <div class="result-card fade-in">
-                    <div class="result-image">[profit-results-1.jpg]</div>
-                    <p class="result-text">$8,500 monthly profit screenshot</p>
-                </div>
-                
-                <div class="result-card fade-in">
-                    <div class="result-image">[star-seller-1.jpg]</div>
-                    <p class="result-text">5-star seller badge achievement</p>
-                </div>
-                
-                <div class="result-card fade-in">
-                    <div class="result-image">[student-message-2.jpg]</div>
-                    <p class="result-text">Message about financial freedom achieved</p>
-                </div>
-                
-                <div class="result-card fade-in">
-                    <div class="result-image">[order-notification-1.jpg]</div>
-                    <p class="result-text">Etsy order notification flood</p>
-                </div>
-                
-                <div class="result-card fade-in">
-                    <div class="result-image">[global-sales-1.jpg]</div>
-                    <p class="result-text">Sales to 15+ countries map</p>
-                </div>
-                
-                <div class="result-card fade-in">
-                    <div class="result-image">[bulk-order-1.jpg]</div>
-                    <p class="result-text">$5,000 single order screenshot</p>
-                </div>
-                
-                <div class="result-card fade-in">
-                    <div class="result-image">[orders-dashboard-1.jpg]</div>
-                    <p class="result-text">Orders dashboard overflowing</p>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 60px;">
-                <a href="#signup" class="cta-button">I Need This System</a>
-                <a href="#secret" class="cta-button secondary">What's The Secret?</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Story Section -->
-    <section class="story-section" id="secret">
-        <div class="container">
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <h2 class="bombardment-title fade-in">Here's What Nobody Tells You...</h2>
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <h2 class="bombardment-title fade-in">From Carbon Market Rice to $10K Monthly...</h2>
                 <div style="font-size: 1.4rem; line-height: 1.8; color: #ecf0f1; margin: 60px 0;" class="fade-in">
-                    <p style="margin-bottom: 30px;">A year ago, I was broke at Carbon Market, counting pesos just to buy jackfruit. Maria was unemployed. I was ready to give up and crawl back to Israel with my tail between my legs.</p>
+                    <p style="margin-bottom: 30px;">A year ago, I was <span class="story-highlight">praying I had enough pesos</span> at the end of the month. Living on rice, vegetables, and chicken from Carbon Market. Maria, my girlfriend and business partner, was unemployed. I was financing us both and ready to crawl back to Israel with my tail between my legs.</p>
                     
-                    <p style="margin-bottom: 30px; color: #d97706; font-weight: 700;">But here's the thing that'll blow your mind...</p>
+                    <p style="margin-bottom: 30px;" class="story-impact">Then I saw a 16-year-old making BANK on Etsy...</p>
                     
-                    <p style="margin-bottom: 30px;">I had already taught 200+ Israelis to make BANK on Etsy selling to Americans. Yet here I was in the Philippines, struggling to survive on instant noodles.</p>
+                    <p style="margin-bottom: 30px;">Fast forward one year: I've taught <span class="story-highlight">200+ Israelis</span> to make serious money on Etsy, selling to rich Americans. But here's the INSANE part...</p>
                     
-                    <p style="margin-bottom: 30px; font-size: 1.6rem; color: #f59e0b; font-weight: 800;">Then it hit me like a freight train...</p>
+                    <p style="margin-bottom: 30px; font-size: 1.6rem; color: #f59e0b; font-weight: 800;">I decided to bring this system to the Philippines - the country that's been my home for two years.</p>
                     
-                    <p style="margin-bottom: 30px;">There are virtually ZERO Filipinos on Etsy. The market is WIDE OPEN. Americans are desperate for unique products, and Filipinos have every single advantage.</p>
+                    <p style="margin-bottom: 30px;">After teaching Maria's friends and some incredible people I met here, I realized there's <span class="story-highlight">literally NO reason</span> a Filipino can't make an extra ₱100,000+ monthly selling Chinese products to rich Americans.</p>
                     
-                    <p style="color: #d97706; font-weight: 700; font-size: 1.5rem;">Now I work 2 hours a day from anywhere I want. Maria runs multiple 6-figure shops. We have complete freedom.</p>
+                    <p style="color: #d97706; font-weight: 700; font-size: 1.5rem;">Now my students and I work 2-3 hours a day, making salaries that were only possible working full-time+ before.</p>
                 </div>
                 
                 <a href="#system" class="cta-button">Show Me The System</a>
@@ -935,47 +1024,53 @@
         </div>
     </section>
 
-    <!-- Interactive Steps Section -->
-    <section class="metrics-section" id="system">
+    <!-- Enhanced 5-Step System Section -->
+    <section class="steps-section" id="system">
         <div class="metrics-bg"></div>
         <div class="container">
-            <h2 class="section-title fade-in">The Secret 4-Step Formula</h2>
-            <p class="section-subtitle fade-in">The exact system that's made my students millionaires</p>
+            <h2 class="section-title fade-in">The Secret 5-Step Formula</h2>
+            <p class="section-subtitle fade-in">The exact system that took me months to develop and has made my students millionaires</p>
             
             <div class="metrics-grid">
-                <div class="metric-card fade-in" data-step="1">
-                    <div class="metric-number">1</div>
-                    <h3 style="color: #d97706; font-size: 1.8rem; margin-bottom: 20px;">Find Winning Products</h3>
-                    <p style="color: #ecf0f1; line-height: 1.7;">My underground research method that most people get completely wrong. I'll show you the secret tools that reveal products making $10K+ monthly.</p>
+            <div class="step-card fade-in" data-step="1">
+                    <div class="step-number">1</div>
+                    <h3 style="color: #d97706; font-size: 1.8rem; margin-bottom: 20px;">Find Killer Niches</h3>
+                    <p style="color: #ecf0f1; line-height: 1.7;">The underground research method that guarantees MONEY EVERY SINGLE TIME. I'll reveal the secret tools and psychology tricks that uncover products making $10K+ monthly that nobody else knows about.</p>
                 </div>
                 
-                <div class="metric-card fade-in" data-step="2">
-                    <div class="metric-number">2</div>
-                    <h3 style="color: #d97706; font-size: 1.8rem; margin-bottom: 20px;">Dominate Keywords</h3>
-                    <p style="color: #ecf0f1; line-height: 1.7;">The psychology trick that beats 99% of sellers. This formula puts you on page 1 of Etsy search results every single time.</p>
+                <div class="step-card fade-in" data-step="2">
+                    <div class="step-number">2</div>
+                    <h3 style="color: #d97706; font-size: 1.8rem; margin-bottom: 20px;">Software Statistics Domination</h3>
+                    <p style="color: #ecf0f1; line-height: 1.7;">The advanced software tricks that beat 99% of sellers. This formula puts you on page 1 of Etsy search results EVERY SINGLE TIME, leaving your competition in the dust.</p>
                 </div>
                 
-                <div class="metric-card fade-in" data-step="3">
-                    <div class="metric-number">3</div>
+                <div class="step-card fade-in" data-step="3">
+                    <div class="step-number">3</div>
                     <h3 style="color: #d97706; font-size: 1.8rem; margin-bottom: 20px;">Create Killer Listings</h3>
-                    <p style="color: #ecf0f1; line-height: 1.7;">The listing templates that convert browsers into buyers. Copy my proven system that outranks million-dollar companies.</p>
+                    <p style="color: #ecf0f1; line-height: 1.7;">The listing templates and psychological triggers that convert browsers into buyers. Copy my proven system that outranks million-dollar companies and turns visitors into cash.</p>
                 </div>
                 
-                <div class="metric-card fade-in" data-step="4">
-                    <div class="metric-number">4</div>
-                    <h3 style="color: #d97706; font-size: 1.8rem; margin-bottom: 20px;">Automate Everything</h3>
-                    <p style="color: #ecf0f1; line-height: 1.7;">Set up fulfillment that runs itself while you sleep. Work 2 hours a day while the system prints money 24/7.</p>
+                <div class="step-card fade-in" data-step="4">
+                    <div class="step-number">4</div>
+                    <h3 style="color: #d97706; font-size: 1.8rem; margin-bottom: 20px;">Scale & Automate</h3>
+                    <p style="color: #ecf0f1; line-height: 1.7;">Set up fulfillment systems that run themselves while you sleep. Work 2-3 hours a day maximum while the system prints money 24/7 from customers worldwide.</p>
+                </div>
+
+                <div class="step-card fade-in" data-step="5">
+                    <div class="step-number">5</div>
+                    <h3 style="color: #d97706; font-size: 1.8rem; margin-bottom: 20px;">Profit & Expand</h3>
+                    <p style="color: #ecf0f1; line-height: 1.7;">Multiple income streams and advanced scaling strategies. Build an empire of profitable shops that generate consistent revenue while you enjoy complete location freedom.</p>
                 </div>
             </div>
             
             <div style="text-align: center; margin-top: 60px;">
-                <a href="#signup" class="cta-button">Give Me This System</a>
+                <a href="#signup" class="cta-button">Give Me This System Now</a>
                 <a href="#faq" class="cta-button secondary">I Have Questions</a>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- Enhanced FAQ Section -->
     <section class="faq-section" id="faq">
         <div class="container">
             <h2 class="section-title fade-in">Your Questions Answered</h2>
@@ -984,28 +1079,28 @@
             <div class="faq-container">
                 <div class="faq-item fade-in">
                     <button class="faq-question">
-                        Do I need any experience to start making money?
+                        How much money do I need to start this system?
                     </button>
                     <div class="faq-answer">
-                        <p>Absolutely not! This system is designed for complete beginners. Ido started from his army base with no computer knowledge and made $2,500 his first month. Adir was only 16 years old with zero business experience. Imanuel started at 30+ thinking he was "too old" for online business. I've taught 300+ people this exact system, and most started with zero experience. The beauty of Etsy dropshipping is that you don't need technical skills, design abilities, or business background. I'll show you everything step-by-step.</p>
+                        <p>You can start with as little as ₱5,000-₱6,000 ($100) for your first product tests. But here's the BEAUTIFUL part about dropshipping - this money is GUARANTEED to come back because you're buying products AFTER customers already paid you! Unlike traditional businesses needing hundreds of thousands for inventory, warehouses, or employees, this system requires minimal upfront investment. You only pay suppliers AFTER customers buy from you. No inventory risk, no storage costs, no employee salaries. Most of my students started with under ₱10,000 and were profitable within their first month.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item fade-in">
                     <button class="faq-question">
-                        How much money do I need to start?
+                        Do I need any experience to start making money with this?
                     </button>
                     <div class="faq-answer">
-                        <p>Very little! You can start with as little as $50-100 for your first few product tests. Unlike traditional businesses that need thousands for inventory, warehouses, or employees, this system requires minimal upfront investment. You only pay for products AFTER customers buy from you. No inventory risk, no storage costs, no employee salaries. Most of my students started with under $200 and were profitable within their first month. The biggest investment is your time learning the system, not your money.</p>
+                        <p>ABSOLUTELY NOT! Listen, if you're asking this question, you're already overthinking it. This system is specifically designed for complete beginners. I've taught 200+ people this exact method, and most started with ZERO experience. No technical skills, no design abilities, no business background needed. The beauty of Etsy dropshipping is its simplicity - if you can browse Facebook, you can do this. I'll walk you through everything step-by-step, and you'll be shocked how fast you pick it up. Stop letting "inexperience" hold you back from financial freedom.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item fade-in">
                     <button class="faq-question">
-                        How much time does this take per day?
+                        How much time does this actually take per day?
                     </button>
                     <div class="faq-answer">
-                        <p>I work 2-3 hours per day maximum, and that's managing multiple shops making $10K+ monthly. When you're starting, expect to invest 2-3 hours daily for the first few weeks while you're learning and setting everything up. Once your shops are running smoothly, you can scale back to 1-2 hours of maintenance work. The system is designed to be mostly automated - customers order, suppliers ship directly, Etsy handles payments. Perfect for busy people, students, or anyone wanting location independence.</p>
+                        <p>I personally work 2-3 hours maximum per day, managing multiple shops making ₱500,000+ monthly. When starting, invest 2-3 hours daily for the first few weeks while learning and setting up. Once your shops run smoothly, scale back to 1-2 hours of maintenance work. The system is designed to be mostly automated - customers order, suppliers ship directly, Etsy handles payments. Perfect for busy people, students, OFWs, or anyone wanting location independence. This isn't about working harder, it's about working SMARTER.</p>
                     </div>
                 </div>
                 
@@ -1014,7 +1109,7 @@
                         Is this really free for the first 100 people?
                     </button>
                     <div class="faq-answer">
-                        <p>Yes, completely free! I'm launching in the Philippines for the first time and want to share this opportunity with the first 100 people. This free course will teach you the fundamentals of the ePro Formula system and show you how to get started. It's my way of introducing this proven method to Filipino entrepreneurs and helping you take your first steps toward financial freedom. Just enter your email and phone to secure your spot.</p>
+                        <p>Yes, completely FREE! I'm launching in the Philippines for the first time and want to share this life-changing opportunity with the first 100 Filipinos. This free training reveals the fundamentals of the ePro Formula system and shows you exactly how to get started. It's my way of giving back to the country that's become my home and helping Filipino entrepreneurs achieve the financial freedom they deserve. Just enter your email and phone to secure your spot before they're gone.</p>
                     </div>
                 </div>
                 
@@ -1023,7 +1118,7 @@
                         Will this work everywhere in the world?
                     </button>
                     <div class="faq-answer">
-                        <p>This system works everywhere in the world! Etsy is a global marketplace where you're selling to customers worldwide, primarily in the US, UK, Canada, and Australia. Your location doesn't matter - you could be in Manila, Cebu, Davao, or anywhere with internet connection. In fact, Filipinos have massive advantages: lower cost of living means higher profit margins, incredible English skills for customer service, strong work ethic, and almost zero competition since very few Filipinos know about this opportunity. The internet has no borders - your success depends on following the system, not your zip code.</p>
+                        <p>This system works EVERYWHERE! Etsy is a global marketplace where you're selling to customers worldwide, primarily in the US, UK, Canada, and Australia. Your location is completely irrelevant - you could be in Manila, Cebu, Davao, or a remote island with internet connection. Filipinos actually have MASSIVE advantages: lower cost of living means higher profit margins, incredible English skills for customer service, strong work ethic, and almost zero competition since very few Filipinos know about this goldmine. The internet has no borders - your success depends on following the system, not your zip code.</p>
                     </div>
                 </div>
             </div>
@@ -1034,7 +1129,7 @@
         </div>
     </section>
 
-    <!-- Final CTA -->
+    <!-- Enhanced Final CTA -->
     <section class="final-cta" id="signup">
         <div class="cta-bg"></div>
         <div class="container">
@@ -1042,7 +1137,7 @@
                 <div class="urgency-badge">🎯 Only 23 Spots Left Out Of 100</div>
                 
                 <h2>Your Moment Is NOW</h2>
-                <p>The first 100 Filipinos get my complete ePro Formula system absolutely free. Once these spots are gone, you'll pay full price. Don't let this opportunity slip through your fingers.</p>
+                <p>The first 100 Filipinos get my complete ePro Formula system absolutely FREE. Once these spots are gone, you'll pay full price. Don't let this life-changing opportunity slip through your fingers.</p>
                 
                 <div class="signup-form">
                     <div class="form-group">
@@ -1054,10 +1149,10 @@
                     <a href="#" class="cta-button" style="width: 100%; text-align: center; margin: 25px 0 0 0; font-size: 1.4rem; padding: 22px;">CLAIM MY FREE SPOT NOW</a>
                 </div>
                 
-                <p style="margin-top: 30px; font-size: 1rem; opacity: 0.9;">🔒 Your information is 100% secure. Join 77 others who've already claimed their spot.</p>
+                <p style="margin-top: 30px; font-size: 1rem; opacity: 0.9;">🔒 Your information is 100% secure. Join <span id="claimed-spots">77</span> others who've already claimed their spot.</p>
                 
                 <div style="margin-top: 50px; font-size: 1.8rem; font-weight: 700;">
-                    Join <span id="student-counter">277</span> students who are already winning
+                    Join <span id="student-counter">277</span> students who are already winning with ePro Formula
                 </div>
             </div>
         </div>
@@ -1066,11 +1161,53 @@
     <!-- Disclaimer -->
     <section class="disclaimer">
         <div class="container">
-            <p>All testimonials on this page are from real students of ePro Formula. These individuals shared their experiences voluntarily, and their results are not typical. Your results may vary based on factors like your background, effort, skill level, market conditions, and implementation of strategies. We do not claim that these results are achievable by everyone.</p>
+            <p>All testimonials and results mentioned on this page are from real students of ePro Formula. These individuals shared their experiences voluntarily, and their results are not typical. Your results may vary based on factors like your background, effort, skill level, market conditions, and implementation of strategies. We do not guarantee that these results are achievable by everyone. Individual results will vary.</p>
         </div>
     </section>
 
     <script>
+        // Immediate FAQ fix
+        window.addEventListener('load', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(function(question) {
+                question.onclick = function() {
+                    const answer = this.nextElementSibling;
+                    const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+                    
+                    // Close all
+                    document.querySelectorAll('.faq-answer').forEach(function(ans) {
+                        ans.style.maxHeight = '0px';
+                        ans.style.padding = '0 30px';
+                    });
+                    document.querySelectorAll('.faq-question').forEach(function(q) {
+                        q.classList.remove('active');
+                    });
+                    
+                    // Open this one if it was closed
+                    if (!isOpen) {
+                        answer.style.maxHeight = '500px';
+                        answer.style.padding = '30px';
+                        this.classList.add('active');
+                    }
+                };
+            });
+            
+            // Immediate counter fix
+            const counters = document.querySelectorAll('.metric-number[data-target]');
+            counters.forEach(function(counter) {
+                const target = parseInt(counter.dataset.target);
+                let current = 0;
+                const increment = target / 100;
+                
+                const timer = setInterval(function() {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    
+                    if (target >= 1000000) {
+                        counter.textContent = '
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1095,7 +1232,7 @@
             }
         });
 
-        // Scroll animations
+        // Enhanced scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1116,7 +1253,7 @@
             observer.observe(el);
         });
 
-        // Animated counters
+        // Enhanced animated counters
         function animateCounter(element, target, duration = 2000) {
             const start = 0;
             const increment = target / (duration / 16);
@@ -1132,62 +1269,79 @@
                 if (target >= 1000000) {
                     element.textContent = ' + (current / 1000000).toFixed(1) + 'M+';
                 } else if (target >= 1000) {
-                    element.textContent = ' + (current / 1000).toFixed(0) + 'K+';
+                    element.textContent = (current / 1000).toFixed(0) + 'K+';
                 } else if (element.textContent.includes('%')) {
                     element.textContent = Math.floor(current) + '%';
+                } else if (target === 0) {
+                    element.textContent = '~0';
                 } else {
-                    element.textContent = Math.floor(current).toLocaleString();
+                    element.textContent = Math.floor(current).toLocaleString() + '+';
                 }
             }, 16);
         }
 
-        // Start counters when visible
+        // Start counters when visible - Fixed to work immediately
         const metricsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('.metric-number[data-target]');
-                    counters.forEach(counter => {
-                        const target = parseInt(counter.dataset.target);
-                        animateCounter(counter, target);
-                    });
+                    setTimeout(() => {
+                        const counters = entry.target.querySelectorAll('.metric-number[data-target]');
+                        counters.forEach(counter => {
+                            const target = parseInt(counter.dataset.target);
+                            animateCounter(counter, target);
+                        });
+                    }, 500);
                     metricsObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.3 });
+        }, { threshold: 0.1 });
 
-        const metricsSection = document.querySelector('.metrics-section');
-        if (metricsSection) {
-            metricsObserver.observe(metricsSection);
-        }
+        // Also trigger immediately on load
+        setTimeout(() => {
+            const metricsSection = document.querySelector('.metrics-section');
+            if (metricsSection) {
+                metricsObserver.observe(metricsSection);
+                // Force trigger if already visible
+                const counters = metricsSection.querySelectorAll('.metric-number[data-target]');
+                counters.forEach(counter => {
+                    const target = parseInt(counter.dataset.target);
+                    animateCounter(counter, target);
+                });
+            }
+        }, 2000);
 
-        // FAQ functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isActive = answer.classList.contains('active');
-                
-                document.querySelectorAll('.faq-answer').forEach(ans => {
-                    ans.classList.remove('active');
+        // Enhanced FAQ functionality - Fixed
+        setTimeout(() => {
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isActive = answer.classList.contains('active');
+                    
+                    // Close all answers
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        ans.classList.remove('active');
+                    });
+                    document.querySelectorAll('.faq-question').forEach(q => {
+                        q.classList.remove('active');
+                    });
+                    
+                    // Open this one if it wasn't active
+                    if (!isActive) {
+                        answer.classList.add('active');
+                        this.classList.add('active');
+                    }
                 });
-                document.querySelectorAll('.faq-question').forEach(q => {
-                    q.classList.remove('active');
-                });
-                
-                if (!isActive) {
-                    answer.classList.add('active');
-                    question.classList.add('active');
-                }
             });
-        });
+        }, 1000);
 
-        // Form submission
+        // Enhanced form submission with urgency
         document.querySelector('.signup-form .cta-button').addEventListener('click', function(e) {
             e.preventDefault();
             const email = document.querySelector('input[type="email"]').value;
             const phone = document.querySelector('input[type="tel"]').value;
             
             if (!email || !phone) {
-                alert('Please fill in both email and phone number to secure your spot!');
+                alert('Please fill in both email and phone number to secure your FREE spot!');
                 return;
             }
             
@@ -1198,29 +1352,263 @@
             
             this.textContent = 'SPOT SECURED! 🎉';
             this.style.background = '#27ae60';
+            this.style.transform = 'scale(1.05)';
+            
+            const claimedSpots = document.getElementById('claimed-spots');
+            const currentClaimed = parseInt(claimedSpots.textContent);
+            claimedSpots.textContent = currentClaimed + 1;
             
             const counter = document.getElementById('student-counter');
             const currentCount = parseInt(counter.textContent);
             counter.textContent = currentCount + 1;
             
             const urgencyBadge = document.querySelector('.urgency-badge');
-            const spotsLeft = 100 - (currentCount + 1);
+            const spotsLeft = 100 - (currentClaimed + 1);
             urgencyBadge.textContent = `🎯 Only ${spotsLeft} Spots Left Out Of 100`;
             
             setTimeout(() => {
-                alert('Welcome to ePro Formula! Check your email for instant access.');
+                alert('🎉 CONGRATULATIONS! You\'ve secured your FREE spot in ePro Formula. Check your email within the next 5 minutes for instant access to the training!');
             }, 1000);
         });
 
-        // Video play functionality
+        // Enhanced video play functionality
         document.querySelector('.play-button').addEventListener('click', function() {
             this.innerHTML = '⏸';
             this.style.background = 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)';
+            this.style.transform = 'scale(1.1)';
             
             setTimeout(() => {
-                alert('Video integration ready - replace with your actual video embed code');
+                alert('🎬 Video player ready! This is where your actual video content will be embedded.');
             }, 500);
         });
+
+        // Real-time urgency updates
+        setInterval(() => {
+            const urgencyBadge = document.querySelector('.urgency-badge');
+            const currentText = urgencyBadge.textContent;
+            const spotsMatch = currentText.match(/(\d+) Spots Left/);
+            
+            if (spotsMatch && Math.random() < 0.1) { // 10% chance every interval
+                const currentSpots = parseInt(spotsMatch[1]);
+                if (currentSpots > 5) {
+                    const newSpots = currentSpots - 1;
+                    urgencyBadge.textContent = `🎯 Only ${newSpots} Spots Left Out Of 100`;
+                    
+                    // Visual flash effect
+                    urgencyBadge.style.background = 'rgba(255,0,0,0.3)';
+                    setTimeout(() => {
+                        urgencyBadge.style.background = 'rgba(255,255,255,0.2)';
+                    }, 1000);
+                }
+            }
+        }, 30000); // Check every 30 seconds
+    </script>
+</body>
+</html> + (current / 1000000).toFixed(1) + 'M+';
+                    } else if (target === 200 || target === 500) {
+                        counter.textContent = Math.floor(current) + '+';
+                    } else if (target === 95 || target === 55) {
+                        counter.textContent = Math.floor(current) + '%';
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, 20);
+            });
+        });
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Enhanced scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, delay);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced animated counters
+        function animateCounter(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                
+                if (target >= 1000000) {
+                    element.textContent = ' + (current / 1000000).toFixed(1) + 'M+';
+                } else if (target >= 1000) {
+                    element.textContent = (current / 1000).toFixed(0) + 'K+';
+                } else if (element.textContent.includes('%')) {
+                    element.textContent = Math.floor(current) + '%';
+                } else if (target === 0) {
+                    element.textContent = '~0';
+                } else {
+                    element.textContent = Math.floor(current).toLocaleString() + '+';
+                }
+            }, 16);
+        }
+
+        // Start counters when visible - Fixed to work immediately
+        const metricsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        const counters = entry.target.querySelectorAll('.metric-number[data-target]');
+                        counters.forEach(counter => {
+                            const target = parseInt(counter.dataset.target);
+                            animateCounter(counter, target);
+                        });
+                    }, 500);
+                    metricsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Also trigger immediately on load
+        setTimeout(() => {
+            const metricsSection = document.querySelector('.metrics-section');
+            if (metricsSection) {
+                metricsObserver.observe(metricsSection);
+                // Force trigger if already visible
+                const counters = metricsSection.querySelectorAll('.metric-number[data-target]');
+                counters.forEach(counter => {
+                    const target = parseInt(counter.dataset.target);
+                    animateCounter(counter, target);
+                });
+            }
+        }, 2000);
+
+        // Enhanced FAQ functionality - Fixed
+        setTimeout(() => {
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isActive = answer.classList.contains('active');
+                    
+                    // Close all answers
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        ans.classList.remove('active');
+                    });
+                    document.querySelectorAll('.faq-question').forEach(q => {
+                        q.classList.remove('active');
+                    });
+                    
+                    // Open this one if it wasn't active
+                    if (!isActive) {
+                        answer.classList.add('active');
+                        this.classList.add('active');
+                    }
+                });
+            });
+        }, 1000);
+
+        // Enhanced form submission with urgency
+        document.querySelector('.signup-form .cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            const email = document.querySelector('input[type="email"]').value;
+            const phone = document.querySelector('input[type="tel"]').value;
+            
+            if (!email || !phone) {
+                alert('Please fill in both email and phone number to secure your FREE spot!');
+                return;
+            }
+            
+            if (!email.includes('@')) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            this.textContent = 'SPOT SECURED! 🎉';
+            this.style.background = '#27ae60';
+            this.style.transform = 'scale(1.05)';
+            
+            const claimedSpots = document.getElementById('claimed-spots');
+            const currentClaimed = parseInt(claimedSpots.textContent);
+            claimedSpots.textContent = currentClaimed + 1;
+            
+            const counter = document.getElementById('student-counter');
+            const currentCount = parseInt(counter.textContent);
+            counter.textContent = currentCount + 1;
+            
+            const urgencyBadge = document.querySelector('.urgency-badge');
+            const spotsLeft = 100 - (currentClaimed + 1);
+            urgencyBadge.textContent = `🎯 Only ${spotsLeft} Spots Left Out Of 100`;
+            
+            setTimeout(() => {
+                alert('🎉 CONGRATULATIONS! You\'ve secured your FREE spot in ePro Formula. Check your email within the next 5 minutes for instant access to the training!');
+            }, 1000);
+        });
+
+        // Enhanced video play functionality
+        document.querySelector('.play-button').addEventListener('click', function() {
+            this.innerHTML = '⏸';
+            this.style.background = 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)';
+            this.style.transform = 'scale(1.1)';
+            
+            setTimeout(() => {
+                alert('🎬 Video player ready! This is where your actual video content will be embedded.');
+            }, 500);
+        });
+
+        // Real-time urgency updates
+        setInterval(() => {
+            const urgencyBadge = document.querySelector('.urgency-badge');
+            const currentText = urgencyBadge.textContent;
+            const spotsMatch = currentText.match(/(\d+) Spots Left/);
+            
+            if (spotsMatch && Math.random() < 0.1) { // 10% chance every interval
+                const currentSpots = parseInt(spotsMatch[1]);
+                if (currentSpots > 5) {
+                    const newSpots = currentSpots - 1;
+                    urgencyBadge.textContent = `🎯 Only ${newSpots} Spots Left Out Of 100`;
+                    
+                    // Visual flash effect
+                    urgencyBadge.style.background = 'rgba(255,0,0,0.3)';
+                    setTimeout(() => {
+                        urgencyBadge.style.background = 'rgba(255,255,255,0.2)';
+                    }, 1000);
+                }
+            }
+        }, 30000); // Check every 30 seconds
     </script>
 </body>
 </html>
