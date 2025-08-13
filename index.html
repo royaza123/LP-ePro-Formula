@@ -954,50 +954,84 @@
     </section>
 
     <!-- Enhanced Metrics Section -->
-    <section class="metrics-section" id="proof">
-        <div class="metrics-bg"></div>
-        <div class="container">
-            <h2 class="section-title fade-in">The Numbers Don't Lie</h2>
-            <p class="section-subtitle fade-in">My students are quietly building empires while everyone else struggles with local competition</p>
-            
-            <div class="metrics-grid">
-                <div class="metric-card fade-in" data-delay="0">
-                    <div class="metric-image">[Total Student Revenue Screenshot]</div>
-                    <div class="metric-number" data-target="2000000">$0</div>
-                    <p class="metric-text">Total Student Profits</p>
-                </div>
-                
-                <div class="metric-card fade-in" data-delay="200">
-                    <div class="metric-image">[Success Stories Compilation]</div>
-                    <div class="metric-number" data-target="200">0+</div>
-                    <p class="metric-text">Students Success</p>
-                </div>
-                
-                <div class="metric-card fade-in" data-delay="400">
-                    <div class="metric-image">[SEO Rankings Dashboard]</div>
-                    <div class="metric-number" data-target="95">0%</div>
-                    <p class="metric-text">SEO Success Rate</p>
-                </div>
-                
-                <div class="metric-card fade-in" data-delay="600">
-                    <div class="metric-image">[Profitable Niches Map]</div>
-                    <div class="metric-number" data-target="500">0+</div>
-                    <p class="metric-text">Profitable Niches Found</p>
-                </div>
-                
-                <div class="metric-card fade-in" data-delay="800">
-                    <div class="metric-image">[Profit Margin Analysis]</div>
-                    <div class="metric-number" data-target="55">0%</div>
-                    <p class="metric-text">Profit Margins</p>
-                </div>
+<section class="metrics-section" id="proof">
+    <div class="metrics-bg"></div>
+    <div class="container">
+        <h2 class="section-title fade-in">The Numbers Don't Lie</h2>
+        <p class="section-subtitle fade-in">My students are quietly building empires while everyone else struggles with local competition</p>
+        
+        <div class="metrics-grid">
+            <div class="metric-card fade-in" data-delay="0">
+                <div class="metric-image">[Total Student Revenue Screenshot]</div>
+                <div class="metric-number" id="counter1">$2M+</div>
+                <p class="metric-text">Total Student Profits</p>
             </div>
             
-            <div style="text-align: center;">
-                <a href="#signup" class="cta-button">I Want These Results</a>
-                <a href="#story" class="cta-button secondary">Show Me The Secret</a>
+            <div class="metric-card fade-in" data-delay="200">
+                <div class="metric-image">[Success Stories Compilation]</div>
+                <div class="metric-number" id="counter2">200+</div>
+                <p class="metric-text">Students Success</p>
+            </div>
+            
+            <div class="metric-card fade-in" data-delay="400">
+                <div class="metric-image">[SEO Rankings Dashboard]</div>
+                <div class="metric-number" id="counter3">95%</div>
+                <p class="metric-text">SEO Success Rate</p>
+            </div>
+            
+            <div class="metric-card fade-in" data-delay="600">
+                <div class="metric-image">[Profitable Niches Map]</div>
+                <div class="metric-number" id="counter4">500+</div>
+                <p class="metric-text">Profitable Niches Found</p>
+            </div>
+            
+            <div class="metric-card fade-in" data-delay="800">
+                <div class="metric-image">[Profit Margin Analysis]</div>
+                <div class="metric-number" id="counter5">55%</div>
+                <p class="metric-text">Profit Margins</p>
             </div>
         </div>
-    </section>
+        
+        <div style="text-align: center;">
+            <a href="#signup" class="cta-button">I Want These Results</a>
+            <a href="#story" class="cta-button secondary">Show Me The Secret</a>
+        </div>
+    </div>
+</section>
+
+<script>
+// Animate counters on page load
+window.addEventListener('load', function() {
+    animateCounter('counter1', 2000000, '$', 'M+');
+    animateCounter('counter2', 200, '', '+');
+    animateCounter('counter3', 95, '', '%');
+    animateCounter('counter4', 500, '', '+');
+    animateCounter('counter5', 55, '', '%');
+});
+
+function animateCounter(id, target, prefix = '', suffix = '') {
+    const element = document.getElementById(id);
+    let current = 0;
+    const increment = target / 100;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+        
+        let displayValue;
+        if (target >= 1000000) {
+            displayValue = prefix + (current / 1000000).toFixed(1) + suffix;
+        } else {
+            displayValue = prefix + Math.floor(current) + suffix;
+        }
+        
+        element.textContent = displayValue;
+    }, 20);
+}
+</script>
 
     <!-- Enhanced Story Section -->
     <section class="story-section" id="story">
@@ -1071,64 +1105,87 @@
     </section>
 
     <!-- Enhanced FAQ Section -->
-    <section class="faq-section" id="faq">
-        <div class="container">
-            <h2 class="section-title fade-in">Your Questions Answered</h2>
-            <p class="section-subtitle fade-in">Everything you need to know about the ePro Formula</p>
-            
-            <div class="faq-container">
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        How much money do I need to start this system?
-                    </button>
-                    <div class="faq-answer">
-                        <p>You can start with as little as ₱5,000-₱6,000 ($100) for your first product tests. But here's the BEAUTIFUL part about dropshipping - this money is GUARANTEED to come back because you're buying products AFTER customers already paid you! Unlike traditional businesses needing hundreds of thousands for inventory, warehouses, or employees, this system requires minimal upfront investment. You only pay suppliers AFTER customers buy from you. No inventory risk, no storage costs, no employee salaries. Most of my students started with under ₱10,000 and were profitable within their first month.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        Do I need any experience to start making money with this?
-                    </button>
-                    <div class="faq-answer">
-                        <p>ABSOLUTELY NOT! Listen, if you're asking this question, you're already overthinking it. This system is specifically designed for complete beginners. I've taught 200+ people this exact method, and most started with ZERO experience. No technical skills, no design abilities, no business background needed. The beauty of Etsy dropshipping is its simplicity - if you can browse Facebook, you can do this. I'll walk you through everything step-by-step, and you'll be shocked how fast you pick it up. Stop letting "inexperience" hold you back from financial freedom.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        How much time does this actually take per day?
-                    </button>
-                    <div class="faq-answer">
-                        <p>I personally work 2-3 hours maximum per day, managing multiple shops making ₱500,000+ monthly. When starting, invest 2-3 hours daily for the first few weeks while learning and setting up. Once your shops run smoothly, scale back to 1-2 hours of maintenance work. The system is designed to be mostly automated - customers order, suppliers ship directly, Etsy handles payments. Perfect for busy people, students, OFWs, or anyone wanting location independence. This isn't about working harder, it's about working SMARTER.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        Is this really free for the first 100 people?
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes, completely FREE! I'm launching in the Philippines for the first time and want to share this life-changing opportunity with the first 100 Filipinos. This free training reveals the fundamentals of the ePro Formula system and shows you exactly how to get started. It's my way of giving back to the country that's become my home and helping Filipino entrepreneurs achieve the financial freedom they deserve. Just enter your email and phone to secure your spot before they're gone.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        Will this work everywhere in the world?
-                    </button>
-                    <div class="faq-answer">
-                        <p>This system works EVERYWHERE! Etsy is a global marketplace where you're selling to customers worldwide, primarily in the US, UK, Canada, and Australia. Your location is completely irrelevant - you could be in Manila, Cebu, Davao, or a remote island with internet connection. Filipinos actually have MASSIVE advantages: lower cost of living means higher profit margins, incredible English skills for customer service, strong work ethic, and almost zero competition since very few Filipinos know about this goldmine. The internet has no borders - your success depends on following the system, not your zip code.</p>
-                    </div>
+<section class="faq-section" id="faq">
+    <div class="container">
+        <h2 class="section-title fade-in">Your Questions Answered</h2>
+        <p class="section-subtitle fade-in">Everything you need to know about the ePro Formula</p>
+        
+        <div class="faq-container">
+            <div class="faq-item fade-in">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    How much money do I need to start this system?
+                </button>
+                <div class="faq-answer">
+                    <p>You can start with as little as ₱5,000-₱6,000 ($100) for your first product tests. But here's the BEAUTIFUL part about dropshipping - this money is GUARANTEED to come back because you're buying products AFTER customers already paid you! Unlike traditional businesses needing hundreds of thousands for inventory, warehouses, or employees, this system requires minimal upfront investment. You only pay suppliers AFTER customers buy from you. No inventory risk, no storage costs, no employee salaries. Most of my students started with under ₱10,000 and were profitable within their first month.</p>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 60px;">
-                <a href="#signup" class="cta-button">I'm Convinced - Give Me Access</a>
+            <div class="faq-item fade-in">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Do I need any experience to start making money with this?
+                </button>
+                <div class="faq-answer">
+                    <p>ABSOLUTELY NOT! Listen, if you're asking this question, you're already overthinking it. This system is specifically designed for complete beginners. I've taught 200+ people this exact method, and most started with ZERO experience. No technical skills, no design abilities, no business background needed. The beauty of Etsy dropshipping is its simplicity - if you can browse Facebook, you can do this. I'll walk you through everything step-by-step, and you'll be shocked how fast you pick it up. Stop letting "inexperience" hold you back from financial freedom.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    How much time does this actually take per day?
+                </button>
+                <div class="faq-answer">
+                    <p>I personally work 2-3 hours maximum per day, managing multiple shops making ₱500,000+ monthly. When starting, invest 2-3 hours daily for the first few weeks while learning and setting up. Once your shops run smoothly, scale back to 1-2 hours of maintenance work. The system is designed to be mostly automated - customers order, suppliers ship directly, Etsy handles payments. Perfect for busy people, students, OFWs, or anyone wanting location independence. This isn't about working harder, it's about working SMARTER.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Is this really free for the first 100 people?
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, completely FREE! I'm launching in the Philippines for the first time and want to share this life-changing opportunity with the first 100 Filipinos. This free training reveals the fundamentals of the ePro Formula system and shows you exactly how to get started. It's my way of giving back to the country that's become my home and helping Filipino entrepreneurs achieve the financial freedom they deserve. Just enter your email and phone to secure your spot before they're gone.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item fade-in">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Will this work everywhere in the world?
+                </button>
+                <div class="faq-answer">
+                    <p>This system works EVERYWHERE! Etsy is a global marketplace where you're selling to customers worldwide, primarily in the US, UK, Canada, and Australia. Your location is completely irrelevant - you could be in Manila, Cebu, Davao, or a remote island with internet connection. Filipinos actually have MASSIVE advantages: lower cost of living means higher profit margins, incredible English skills for customer service, strong work ethic, and almost zero competition since very few Filipinos know about this goldmine. The internet has no borders - your success depends on following the system, not your zip code.</p>
+                </div>
             </div>
         </div>
-    </section>
+        
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="#signup" class="cta-button">I'm Convinced - Give Me Access</a>
+        </div>
+    </div>
+</section>
 
+<script>
+function toggleFAQ(button) {
+    const answer = button.nextElementSibling;
+    const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+    
+    // Close all FAQs
+    document.querySelectorAll('.faq-answer').forEach(ans => {
+        ans.style.maxHeight = '0px';
+        ans.style.padding = '0 30px';
+    });
+    document.querySelectorAll('.faq-question').forEach(q => {
+        q.classList.remove('active');
+    });
+    
+    // Open this one if it was closed
+    if (!isOpen) {
+        answer.style.maxHeight = '500px';
+        answer.style.padding = '30px';
+        button.classList.add('active');
+    }
+}
+</script>
+    
     <!-- Enhanced Final CTA -->
     <section class="final-cta" id="signup">
         <div class="cta-bg"></div>
