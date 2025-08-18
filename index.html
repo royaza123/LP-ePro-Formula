@@ -822,89 +822,119 @@
             line-height: 1.6;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 40px;
-            }
-            
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .hero-text {
-                text-align: center;
-            }
-            
-            .cta-button {
-                padding: 15px 30px;
-                font-size: 1.1rem;
-                margin: 10px 5px;
-            }
-            
-            .video-placeholder {
-                height: 250px;
-            }
-            
-            .section-title {
-                font-size: 2.5rem;
-            }
-            
-            .bombardment-title {
-                font-size: 2.8rem;
-            }
-            
-            .final-cta h2 {
-                font-size: 2.8rem;
-            }
-            
-            .metric-number {
-                font-size: 3rem;
-            }
+       /* Mobile Responsive */
+       @media (max-width: 768px) {
+           .hero-content {
+               grid-template-columns: 1fr;
+               text-align: center;
+               gap: 40px;
+           }
+           
+           .hero h1 {
+               font-size: 2.8rem;
+           }
+           
+           .hero-text {
+               text-align: center;
+           }
+           
+           .cta-button {
+               padding: 15px 30px;
+               font-size: 1.1rem;
+               margin: 10px 5px;
+           }
+           
+           .video-placeholder {
+               height: 250px;
+           }
+           
+           .section-title {
+               font-size: 2.5rem;
+           }
+           
+           .bombardment-title {
+               font-size: 2.8rem;
+           }
+           
+           .final-cta h2 {
+               font-size: 2.8rem;
+           }
+           
+           .metric-number {
+               font-size: 3rem;
+           }
+           
+           .step-number {
+               font-size: 2rem;
+               width: 60px;
+               height: 60px;
+           }
+       }
+       
+       /* Scroll Animations */
+       .fade-in {
+           opacity: 1;
+           transform: translateY(0);
+           transition: all 0.8s ease;
+       }
+       
+       .fade-in.visible {
+           opacity: 1;
+           transform: translateY(0);
+       }
+       
+       .slide-in-right {
+           opacity: 1;
+           transform: translateX(0);
+           transition: all 0.8s ease;
+       }
+       
+       .slide-in-right.visible {
+           opacity: 1;
+           transform: translateX(0);
+       }
+       
+       /* Enhanced hover effects */
+       .metric-card:hover .metric-number {
+           transform: scale(1.1);
+           text-shadow: 0 0 20px rgba(217, 119, 6, 0.8);
+       }
+       
+       .step-card:hover .step-number {
+           transform: scale(1.1);
+           box-shadow: 0 15px 40px rgba(217, 119, 6, 0.6);
+       }
 
-            .step-number {
-                font-size: 2rem;
-                width: 60px;
-                height: 60px;
-            }
-        }
+       /* Form Styles */
+       .form-group {
+           margin-bottom: 25px;
+       }
 
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.8s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .slide-in-right {
-            opacity: 1;
-            transform: translateX(0);
-            transition: all 0.8s ease;
-        }
-        
-        .slide-in-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
+       .form-input {
+           width: 100%;
+           padding: 18px 25px;
+           border: 2px solid rgba(255,255,255,0.3);
+           border-radius: 15px;
+           background: rgba(255,255,255,0.1);
+           color: white;
+           font-size: 1.2rem;
+           backdrop-filter: blur(10px);
+           transition: all 0.3s ease;
+           position: relative;
+           z-index: 1;
+       }
 
-        /* Enhanced hover effects */
-        .metric-card:hover .metric-number {
-            transform: scale(1.1);
-            text-shadow: 0 0 20px rgba(217, 119, 6, 0.8);
-        }
+       .form-input::placeholder {
+           color: rgba(255,255,255,0.7);
+       }
 
-        .step-card:hover .step-number {
-            transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(217, 119, 6, 0.6);
-        }
-    </style>
+       .form-input:focus {
+           outline: none;
+           border-color: rgba(255,255,255,0.8);
+           background: rgba(255,255,255,0.2);
+           box-shadow: 0 0 20px rgba(255,255,255,0.1);
+       }
+   </style>
 </head>
 <body>
     <!-- Header -->
@@ -1727,215 +1757,12 @@ function animateCounter(id, target, prefix = '', suffix = '') {
         element.textContent = displayValue;
     }, 20);
 }
-</script>
-    
-    <!-- Enhanced Final CTA -->
-    <section class="final-cta" id="signup">
-        <div class="cta-bg"></div>
-        <div class="container">
-            <div class="final-cta-content">
-                <div class="urgency-badge">🎯 Only 23 Spots Left Out Of 100</div>
-                
-                <h2>Your Moment Is NOW</h2>
-                <p>The first 100 Filipinos get my complete ePro Formula system absolutely FREE. Once these spots are gone, you'll pay full price. Don't let this life-changing opportunity slip through your fingers.</p>
-                
-                <div class="signup-form">
-                    <div class="form-group">
-                        <input type="email" class="form-input" placeholder="Enter your email address" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" class="form-input" placeholder="Your phone number" required>
-                    </div>
-                    <a href="#" class="cta-button" style="width: 100%; text-align: center; margin: 25px 0 0 0; font-size: 1.4rem; padding: 22px;">CLAIM MY FREE SPOT NOW</a>
-                </div>
-                
-                <p style="margin-top: 30px; font-size: 1rem; opacity: 0.9;">🔒 Your information is 100% secure. Join <span id="claimed-spots">77</span> others who've already claimed their spot.</p>
-                
-                <div style="margin-top: 50px; font-size: 1.8rem; font-weight: 700;">
-                    Join <span id="student-counter">277</span> students who are already winning with ePro Formula
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Disclaimer -->
-    <section class="disclaimer">
-        <div class="container">
-            <p>All testimonials and results mentioned on this page are from real students of ePro Formula. These individuals shared their experiences voluntarily, and their results are not typical. Your results may vary based on factors like your background, effort, skill level, market conditions, and implementation of strategies. We do not guarantee that these results are achievable by everyone. Individual results will vary.</p>
-        </div>
-    </section>
-
-    <script>
-        // Immediate FAQ fix
-        window.addEventListener('load', function() {
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            faqQuestions.forEach(function(question) {
-                question.onclick = function() {
-                    const answer = this.nextElementSibling;
-                    const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
-                    
-                    // Close all
-                    document.querySelectorAll('.faq-answer').forEach(function(ans) {
-                        ans.style.maxHeight = '0px';
-                        ans.style.padding = '0 30px';
-                    });
-                    document.querySelectorAll('.faq-question').forEach(function(q) {
-                        q.classList.remove('active');
-                    });
-                    
-                    // Open this one if it was closed
-                    if (!isOpen) {
-                        answer.style.maxHeight = '500px';
-                        answer.style.padding = '30px';
-                        this.classList.add('active');
-                    }
-                };
-            });
-            
-            // Immediate counter fix
-            const counters = document.querySelectorAll('.metric-number[data-target]');
-            counters.forEach(function(counter) {
-                const target = parseInt(counter.dataset.target);
-                let current = 0;
-                const increment = target / 100;
-                
-                const timer = setInterval(function() {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    
-                    if (target >= 1000000) {
-                        counter.textContent = '
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Enhanced scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const delay = entry.target.dataset.delay || 0;
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, delay);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in, .slide-in-right').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Enhanced animated counters
-        function animateCounter(element, target, duration = 2000) {
-            const start = 0;
-            const increment = target / (duration / 16);
-            let current = start;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                
-                if (target >= 1000000) {
-                    element.textContent = ' + (current / 1000000).toFixed(1) + 'M+';
-                } else if (target >= 1000) {
-                    element.textContent = (current / 1000).toFixed(0) + 'K+';
-                } else if (element.textContent.includes('%')) {
-                    element.textContent = Math.floor(current) + '%';
-                } else if (target === 0) {
-                    element.textContent = '~0';
-                } else {
-                    element.textContent = Math.floor(current).toLocaleString() + '+';
-                }
-            }, 16);
-        }
-
-        // Start counters when visible - Fixed to work immediately
-        const metricsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        const counters = entry.target.querySelectorAll('.metric-number[data-target]');
-                        counters.forEach(counter => {
-                            const target = parseInt(counter.dataset.target);
-                            animateCounter(counter, target);
-                        });
-                    }, 500);
-                    metricsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        // Also trigger immediately on load
-        setTimeout(() => {
-            const metricsSection = document.querySelector('.metrics-section');
-            if (metricsSection) {
-                metricsObserver.observe(metricsSection);
-                // Force trigger if already visible
-                const counters = metricsSection.querySelectorAll('.metric-number[data-target]');
-                counters.forEach(counter => {
-                    const target = parseInt(counter.dataset.target);
-                    animateCounter(counter, target);
-                });
-            }
-        }, 2000);
-
-        // Enhanced FAQ functionality - Fixed
-        setTimeout(() => {
-            document.querySelectorAll('.faq-question').forEach(question => {
-                question.addEventListener('click', function() {
-                    const answer = this.nextElementSibling;
-                    const isActive = answer.classList.contains('active');
-                    
-                    // Close all answers
-                    document.querySelectorAll('.faq-answer').forEach(ans => {
-                        ans.classList.remove('active');
-                    });
-                    document.querySelectorAll('.faq-question').forEach(q => {
-                        q.classList.remove('active');
-                    });
-                    
-                    // Open this one if it wasn't active
-                    if (!isActive) {
-                        answer.classList.add('active');
-                        this.classList.add('active');
-                    }
-                });
-            });
-        }, 1000);
-
-        // Enhanced form submission with urgency
-        document.querySelector('.signup-form .cta-button').addEventListener('click', function(e) {
+// Form submission
+document.addEventListener('DOMContentLoaded', function() {
+    const formButton = document.querySelector('.signup-form .cta-button');
+    if (formButton) {
+        formButton.addEventListener('click', function(e) {
             e.preventDefault();
             const email = document.querySelector('input[type="email"]').value;
             const phone = document.querySelector('input[type="tel"]').value;
@@ -1970,38 +1797,8 @@ function animateCounter(id, target, prefix = '', suffix = '') {
                 alert('🎉 CONGRATULATIONS! You\'ve secured your FREE spot in ePro Formula. Check your email within the next 5 minutes for instant access to the training!');
             }, 1000);
         });
-
-        // Enhanced video play functionality
-        document.querySelector('.play-button').addEventListener('click', function() {
-            this.innerHTML = '⏸';
-            this.style.background = 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)';
-            this.style.transform = 'scale(1.1)';
-            
-            setTimeout(() => {
-                alert('🎬 Video player ready! This is where your actual video content will be embedded.');
-            }, 500);
-        });
-
-        // Real-time urgency updates
-        setInterval(() => {
-            const urgencyBadge = document.querySelector('.urgency-badge');
-            const currentText = urgencyBadge.textContent;
-            const spotsMatch = currentText.match(/(\d+) Spots Left/);
-            
-            if (spotsMatch && Math.random() < 0.1) { // 10% chance every interval
-                const currentSpots = parseInt(spotsMatch[1]);
-                if (currentSpots > 5) {
-                    const newSpots = currentSpots - 1;
-                    urgencyBadge.textContent = `🎯 Only ${newSpots} Spots Left Out Of 100`;
-                    
-                    // Visual flash effect
-                    urgencyBadge.style.background = 'rgba(255,0,0,0.3)';
-                    setTimeout(() => {
-                        urgencyBadge.style.background = 'rgba(255,255,255,0.2)';
-                    }, 1000);
-                }
-            }
-        }, 30000); // Check every 30 seconds
-    </script>
+    }
+});
+</script>
 </body>
 </html>
