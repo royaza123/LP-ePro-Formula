@@ -1313,44 +1313,37 @@
 </section>
 
 <script>
-// Function to handle smooth scrolling to sections
+// Smooth scroll function for CTAs
 function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    
-    if (section) {
-        // If the section exists, scroll to it
-        section.scrollIntoView({ 
+    const element = document.getElementById(sectionId);
+    if (element) {
+        element.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
         });
     } else {
-        // If section doesn't exist, you can redirect to a specific page or show a modal
-        // For now, let's scroll to top as fallback
-        console.log(`Section '${sectionId}' not found. Add your redirect logic here.`);
-        
-        // Example alternatives:
-        if (sectionId === 'signup') {
-            // Option 1: Redirect to signup page
-            // window.location.href = '/signup';
-            
-            // Option 2: Show alert (temporary solution)
-            alert('Signup functionality coming soon!');
-            
-            // Option 3: Scroll to a contact section if it exists
-            const contactSection = document.getElementById('contact');
-            if (contactSection) {
-                contactSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        } else if (sectionId === 'story') {
-            // Handle story section
-            alert('Story section coming soon!');
-            
-            // Or scroll to an about section
-            const aboutSection = document.getElementById('about');
-            if (aboutSection) {
-                aboutSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
+        // If section doesn't exist, scroll to top as fallback
+        console.warn(`Section '${sectionId}' not found. Consider adding these sections to your page.`);
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        // You can also redirect to a specific URL if needed
+        // window.location.href = `#${sectionId}`;
+    }
+}
+
+// Alternative: If you want to redirect to different pages instead
+function redirectToPage(page) {
+    switch(page) {
+        case 'signup':
+            window.location.href = '/signup'; // Change to your signup page URL
+            break;
+        case 'story':
+            window.location.href = '/story'; // Change to your story page URL
+            break;
+        default:
+            console.warn('Unknown page:', page);
     }
 }
 </script>
