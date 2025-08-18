@@ -1337,7 +1337,6 @@
 </section>
 
 <style>
-    
 /* Testimonials Section */
 .testimonials-section {
     background: #0a0a0a;
@@ -1402,6 +1401,12 @@
     object-fit: cover;
     border: 2px solid #d97706;
     box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+    background: linear-gradient(135deg, #d97706, #92400e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
 }
 
 .student-info h4 {
@@ -1424,11 +1429,16 @@
 .result-pic {
     width: 100%;
     height: 150px;
-    object-fit: cover;
     border-radius: 15px;
     border: 2px solid rgba(217, 119, 6, 0.3);
     margin-bottom: 15px;
     transition: all 0.3s ease;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d97706;
+    font-weight: bold;
 }
 
 .result-pic:hover {
@@ -1457,192 +1467,80 @@
 .testimonials-carousel:hover .testimonials-track {
     animation-play-state: paused;
 }
+</style>
 
-/* Signup Form Enhanced */
-.signup-form {
-    background: rgba(255,255,255,0.1);
-    padding: 50px;
-    border-radius: 25px;
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.2);
-    max-width: 500px;
-    margin: 50px auto;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    position: relative;
-    overflow: hidden;
-}
-
-.signup-form::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(from 0deg, transparent, rgba(217,119,6,0.3), transparent, rgba(217,119,6,0.2), transparent);
-    animation: rotateGlow 6s linear infinite;
-    z-index: -1;
-}
-
-.signup-form::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 30%, rgba(217,119,6,0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(217,119,6,0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(217,119,6,0.08) 0%, transparent 50%),
-                radial-gradient(circle at 90% 20%, rgba(217,119,6,0.12) 0%, transparent 50%);
-    animation: floatingBubbles 8s ease-in-out infinite;
-    border-radius: 25px;
-    z-index: -1;
-}
-
-@keyframes rotateGlow {
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes floatingBubbles {
-    0%, 100% { 
-        transform: scale(1) translate(0, 0);
-        opacity: 0.6;
-    }
-    25% { 
-        transform: scale(1.1) translate(10px, -15px);
-        opacity: 0.8;
-    }
-    50% { 
-        transform: scale(0.9) translate(-5px, 10px);
-        opacity: 1;
-    }
-    75% { 
-        transform: scale(1.05) translate(15px, 5px);
-        opacity: 0.7;
-    }
-}
-
-/* Mobile responsive */
-@media (max-width: 768px) {
-    .testimonial-box {
-        min-width: 250px;
-    }
-    
-    .profile-pic {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .result-pic {
-        height: 120px;
-    }
-}
-// Animate counters on page load
-window.addEventListener('load', function() {
-    animateCounter('counter1', 2000000, '$', 'M+');
-    animateCounter('counter2', 200, '', '+');
-    animateCounter('counter3', 95, '', '%');
-    animateCounter('counter4', 500, '', '+');
-    animateCounter('counter5', 55, '', '%');
-});
-
-function animateCounter(id, target, prefix = '', suffix = '') {
-    const element = document.getElementById(id);
-    let current = 0;
-    const increment = target / 100;
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            current = target;
-            clearInterval(timer);
-        }
-        
-        let displayValue;
-        if (target >= 1000000) {
-            displayValue = prefix + (current / 1000000).toFixed(1) + suffix;
-        } else {
-            displayValue = prefix + Math.floor(current) + suffix;
-        }
-        
-        element.textContent = displayValue;
-    }, 20);
-}
-</script>
-
-    <!-- Enhanced Story Section -->
-    <section class="story-section" id="story">
-        <div class="container">
-            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-                <h2 class="bombardment-title fade-in">From Fighting Another Day to $10K Monthly...</h2>
-                <div style="font-size: 1.4rem; line-height: 1.8; color: #ecf0f1; margin: 60px 0;" class="fade-in">
-                    <p style="margin-bottom: 30px;">A year ago, I was <span class="story-highlight">praying I had enough pesos</span> at the end of the month. Living on rice, vegetables, and chicken from Carbon Market. Maria, my girlfriend and business partner, was unemployed. I was financing us both and ready to crawl back to Israel with my tail between my legs.</p>
-                    
-                    <p style="margin-bottom: 30px;" class="story-impact">Then I saw a 16-year-old making BANK on Etsy...</p>
-                    
-                    <p style="margin-bottom: 30px;">Fast forward one year: I've taught <span class="story-highlight">200+ Israelis</span> to make serious money on Etsy, selling to rich Americans. But here's where YOU come in</p>
-                    
-                    <p style="margin-bottom: 30px; font-size: 1.6rem; color: #f59e0b; font-weight: 800;">I decided to bring this system to the Philippines - the country that's been my home for two years.</p>
-                    
-                    <p style="margin-bottom: 30px;">After teaching Maria's friends and some incredible people I met here, I realized there's <span class="story-highlight">literally NO reason</span> a Filipino can't make an extra ₱100,000+ monthly selling Chinese products to rich Americans. And making all around them say SANA ALL</p>
-                    
-                    <p style="color: #d97706; font-weight: 700; font-size: 1.5rem;">Now my students and I work 2-3 hours a day, making salaries that were only possible working full-time+ before.</p>
-                </div>
+<!-- Enhanced Story Section -->
+<section class="story-section" id="story">
+    <div class="container">
+        <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+            <h2 class="bombardment-title fade-in">From Fighting Another Day to $10K Monthly...</h2>
+            <div style="font-size: 1.4rem; line-height: 1.8; color: #ecf0f1; margin: 60px 0;" class="fade-in">
+                <p style="margin-bottom: 30px;">A year ago, I was <span class="story-highlight">praying I had enough pesos</span> at the end of the month. Living on rice, vegetables, and chicken from Carbon Market. Maria, my girlfriend and business partner, was unemployed. I was financing us both and ready to crawl back to Israel with my tail between my legs.</p>
                 
-                <a href="#system" class="cta-button">Show Me The System</a>
-                <a href="#signup" class="cta-button secondary">I'm Ready To Win</a>
+                <p style="margin-bottom: 30px;" class="story-impact">Then I saw a 16-year-old making BANK on Etsy...</p>
+                
+                <p style="margin-bottom: 30px;">Fast forward one year: I've taught <span class="story-highlight">200+ Israelis</span> to make serious money on Etsy, selling to rich Americans. But here's where YOU come in</p>
+                
+                <p style="margin-bottom: 30px; font-size: 1.6rem; color: #f59e0b; font-weight: 800;">I decided to bring this system to the Philippines - the country that's been my home for two years.</p>
+                
+                <p style="margin-bottom: 30px;">After teaching Maria's friends and some incredible people I met here, I realized there's <span class="story-highlight">literally NO reason</span> a Filipino can't make an extra ₱100,000+ monthly selling Chinese products to rich Americans. And making all around them say SANA ALL</p>
+                
+                <p style="color: #d97706; font-weight: 700; font-size: 1.5rem;">Now my students and I work 2-3 hours a day, making salaries that were only possible working full-time+ before.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Enhanced 5-Step System Section -->
-    <section class="steps-section" id="system">
-        <div class="metrics-bg"></div>
-        <div class="container">
-            <h2 class="section-title fade-in">The Secret 5-Step Formula</h2>
-            <p class="section-subtitle fade-in">The exact system that took me months to develop and has made my students millionaires</p>
             
-            <div class="metrics-grid">
+            <a href="#system" class="cta-button">Show Me The System</a>
+            <a href="#signup" class="cta-button secondary">I'm Ready To Win</a>
+        </div>
+    </div>
+</section>
+
+<!-- Enhanced 5-Step System Section -->
+<section class="steps-section" id="system">
+    <div class="metrics-bg"></div>
+    <div class="container">
+        <h2 class="section-title fade-in">The Secret 5-Step Formula</h2>
+        <p class="section-subtitle fade-in">The exact system that took me months to develop and has made my students millionaires</p>
+        
+        <div class="metrics-grid">
             <div class="step-card fade-in" data-step="1">
-                    <div class="step-number">1</div>
-                    <h3 style="color: #d97706; font-size: 1.8rem; margin-bottom: 20px;">Find Killer Niches</h3>
-                    <p style="color: #ecf0f1; line-height: 1.7;">The underground research method that guarantees MONEY EVERY SINGLE TIME. I'll reveal the secret tools and psychology tricks that uncover products making $10K+ monthly that nobody else knows about.</p>
-                </div>
-                
-                <div class="step-card fade-in" data-step="2">
-                    <div class="step-number">2</div>
-                    <h3 style="color: #d97706; font-size: 1.8rem; margin-bottom: 20px;">Software Statistics Domination</h3>
-                    <p style="color: #ecf0f1; line-height: 1.7;">The advanced software tricks that beat 99% of sellers. This formula puts you on page 1 of Etsy search results EVERY SINGLE TIME, leaving your competition in the dust.</p>
-                </div>
-                
-                <div class="step-card fade-in" data-step="3">
-                    <div class="step-number">3</div>
-                    <h3 style="color: #d97706; font-size: 1.8rem; margin-bottom: 20px;">Create Killer Listings</h3>
-                    <p style="color: #ecf0f1; line-height: 1.7;">The listing templates and psychological triggers that convert browsers into buyers. Copy my proven system that outranks million-dollar companies and turns visitors into cash.</p>
-                </div>
-                
-                <div class="step-card fade-in" data-step="4">
-                    <div class="step-number">4</div>
-                    <h3 style="color: #d97706; font-size: 1.8rem; margin-bottom: 20px;">Scale & Automate</h3>
-                    <p style="color: #ecf0f1; line-height: 1.7;">Set up fulfillment systems that run themselves while you sleep. Work 2-3 hours a day maximum while the system prints money 24/7 from customers worldwide.</p>
-                </div>
-
-                <div class="step-card fade-in" data-step="5">
-                    <div class="step-number">5</div>
-                    <h3 style="color: #d97706; font-size: 1.8rem; margin-bottom: 20px;">Profit & Expand</h3>
-                    <p style="color: #ecf0f1; line-height: 1.7;">Multiple income streams and advanced scaling strategies. Build an empire of profitable shops that generate consistent revenue while you enjoy complete location freedom.</p>
-                </div>
+                <div class="step-number">1</div>
+                <h3 style="color: #d97706; font-size: 1.8rem; margin-bottom: 20px;">Find Killer Niches</h3>
+                <p style="color: #ecf0f1; line-height: 1.7;">The underground research method that guarantees MONEY EVERY SINGLE TIME. I'll reveal the secret tools and psychology tricks that uncover products making $10K+ monthly that nobody else knows about.</p>
             </div>
             
-            <div style="text-align: center; margin-top: 60px;">
-                <a href="#signup" class="cta-button">Give Me This System Now</a>
-                <a href="#faq" class="cta-button secondary">I Have Questions</a>
+            <div class="step-card fade-in" data-step="2">
+                <div class="step-number">2</div>
+                <h3 style="color: #d97706; font-size: 1.8rem; margin-bottom: 20px;">Software Statistics Domination</h3>
+                <p style="color: #ecf0f1; line-height: 1.7;">The advanced software tricks that beat 99% of sellers. This formula puts you on page 1 of Etsy search results EVERY SINGLE TIME, leaving your competition in the dust.</p>
+            </div>
+            
+            <div class="step-card fade-in" data-step="3">
+                <div class="step-number">3</div>
+                <h3 style="color: #d97706; font-size: 1.8rem; margin-bottom: 20px;">Create Killer Listings</h3>
+                <p style="color: #ecf0f1; line-height: 1.7;">The listing templates and psychological triggers that convert browsers into buyers. Copy my proven system that outranks million-dollar companies and turns visitors into cash.</p>
+            </div>
+            
+            <div class="step-card fade-in" data-step="4">
+                <div class="step-number">4</div>
+                <h3 style="color: #d97706; font-size: 1.8rem; margin-bottom: 20px;">Scale & Automate</h3>
+                <p style="color: #ecf0f1; line-height: 1.7;">Set up fulfillment systems that run themselves while you sleep. Work 2-3 hours a day maximum while the system prints money 24/7 from customers worldwide.</p>
+            </div>
+
+            <div class="step-card fade-in" data-step="5">
+                <div class="step-number">5</div>
+                <h3 style="color: #d97706; font-size: 1.8rem; margin-bottom: 20px;">Profit & Expand</h3>
+                <p style="color: #ecf0f1; line-height: 1.7;">Multiple income streams and advanced scaling strategies. Build an empire of profitable shops that generate consistent revenue while you enjoy complete location freedom.</p>
             </div>
         </div>
-    </section>
+        
+        <div style="text-align: center; margin-top: 60px;">
+            <a href="#signup" class="cta-button">Give Me This System Now</a>
+            <a href="#faq" class="cta-button secondary">I Have Questions</a>
+        </div>
+    </div>
+</section>
 
-    <!-- Enhanced FAQ Section -->
+<!-- Enhanced FAQ Section -->
 <section class="faq-section" id="faq">
     <div class="container">
         <h2 class="section-title fade-in">Your Questions Answered</h2>
@@ -1701,8 +1599,58 @@ function animateCounter(id, target, prefix = '', suffix = '') {
     </div>
 </section>
 
+<!-- Enhanced Final CTA Section -->
+<section class="final-cta" id="signup">
+    <div class="cta-bg"></div>
+    <div class="container">
+        <div class="final-cta-content">
+            <div class="urgency-badge">
+                🎯 Only <span id="spots-left">87</span> Spots Left Out Of 100
+            </div>
+            
+            <h2>Claim Your FREE Spot Now</h2>
+            <p>Join the first 100 Filipinos to get exclusive access to the ePro Formula system that's already made my students over $2 million.</p>
+            
+            <div class="signup-form">
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <h3 style="color: white; font-size: 1.8rem; margin-bottom: 15px;">🇵🇭 FREE Training For Philippines</h3>
+                    <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Limited to first 100 people only!</p>
+                    <p style="color: #f59e0b; font-weight: 700; margin-top: 10px;">
+                        <span id="claimed-spots">13</span> spots claimed • <span id="student-counter">87</span> spots remaining
+                    </p>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" class="form-input" placeholder="Enter your email address" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="tel" class="form-input" placeholder="Enter your phone number" required>
+                </div>
+                
+                <button class="cta-button" style="width: 100%; margin: 20px 0;">
+                    🎯 SECURE MY FREE SPOT NOW
+                </button>
+                
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; text-align: center; margin-top: 15px;">
+                    ✅ Instant access • ✅ No credit card required • ✅ 100% Free
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Disclaimer -->
+<section class="disclaimer">
+    <div class="container">
+        <p><strong>Income Disclaimer:</strong> The income claims presented are not intended to serve as a guarantee of income. Success depends on individual effort, market conditions, and execution of strategies. Past performance does not guarantee future results.</p>
+        <br>
+        <p><strong>Legal Disclaimer:</strong> This training is for educational purposes only. We are not responsible for any business decisions made based on this information. Always consult with professionals before making significant business investments.</p>
+    </div>
+</section>
+
 <script>
-// FAQ Fix
+// FAQ functionality
 function toggleFAQ(button) {
     const answer = button.nextElementSibling;
     const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
@@ -1724,7 +1672,7 @@ function toggleFAQ(button) {
     }
 }
 
-// Numbers Animation Fix
+// Animate counters on page load
 window.addEventListener('load', function() {
     animateCounter('counter1', 2000000, '$', 'M+');
     animateCounter('counter2', 200, '', '+');
@@ -1758,7 +1706,7 @@ function animateCounter(id, target, prefix = '', suffix = '') {
     }, 20);
 }
 
-// Form submission
+// Form submission handling
 document.addEventListener('DOMContentLoaded', function() {
     const formButton = document.querySelector('.signup-form .cta-button');
     if (formButton) {
@@ -1781,17 +1729,18 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.background = '#27ae60';
             this.style.transform = 'scale(1.05)';
             
+            // Update counters
             const claimedSpots = document.getElementById('claimed-spots');
             const currentClaimed = parseInt(claimedSpots.textContent);
             claimedSpots.textContent = currentClaimed + 1;
             
             const counter = document.getElementById('student-counter');
             const currentCount = parseInt(counter.textContent);
-            counter.textContent = currentCount + 1;
+            counter.textContent = currentCount - 1;
             
-            const urgencyBadge = document.querySelector('.urgency-badge');
-            const spotsLeft = 100 - (currentClaimed + 1);
-            urgencyBadge.textContent = `🎯 Only ${spotsLeft} Spots Left Out Of 100`;
+            const spotsLeft = document.getElementById('spots-left');
+            const currentLeft = parseInt(spotsLeft.textContent);
+            spotsLeft.textContent = currentLeft - 1;
             
             setTimeout(() => {
                 alert('🎉 CONGRATULATIONS! You\'ve secured your FREE spot in ePro Formula. Check your email within the next 5 minutes for instant access to the training!');
@@ -1799,6 +1748,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Header scroll effect
+window.addEventListener('scroll', function() {
+    const header = document.getElementById('header');
+    if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
 </script>
-</body>
-</html>
