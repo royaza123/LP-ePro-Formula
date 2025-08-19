@@ -1090,6 +1090,35 @@
         <!-- Desktop Navigation -->
         <nav class="nav-menu">
             <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#proof" class="nav-link">Proof</a>
+                <a href="case-studies.html" class="nav-link active">Success Stories</a>
+                <a href="index.html#system" class="nav-link">The System</a>
+                <a href="index.html#faq" class="nav-link">FAQ</a>
+            </div>
+            <a href="index.html#signup" class="header-cta">Get Started Free</a>
+        </nav>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">🏠 Home</a>
+            <a href="index.html#proof" class="mobile-nav-link">💰 Proof</a>
+            <a href="case-studies.html" class="mobile-nav-link active">🏆 Success Stories</a>
+            <a href="index.html#system" class="mobile-nav-link">⚡ The System</a>
+            <a href="index.html#faq" class="mobile-nav-link">❓ FAQ</a>
+        </div>
+        <a href="index.html#signup" class="mobile-cta">🎯 Get Started Free</a>
+    </div>
+</header>
+        
+        <!-- Desktop Navigation -->
+        <nav class="nav-menu">
+            <div class="nav-links">
                 <a href="index.html" class="nav-link active">Home</a>
                 <a href="#proof" class="nav-link">Proof</a>
                 <a href="case-studies.html" class="nav-link">Success Stories</a>
@@ -2065,324 +2094,28 @@
                 existingPreview.remove();
             }
         }
+        // Mobile menu toggle
+document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenu.classList.toggle('active');
+    
+    if (mobileMenu.classList.contains('active')) {
+        this.innerHTML = '✕';
+    } else {
+        this.innerHTML = '☰';
+    }
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(e) {
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileToggle = document.getElementById('mobileMenuToggle');
+    
+    if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+        mobileMenu.classList.remove('active');
+        mobileToggle.innerHTML = '☰';
+    }
+});
     </script>
 </body>
-</html>In-depth success stories with real numbers and strategies</p>
-            
-            <div class="filter-tabs fade-in">
-                <div class="filter-tab active" data-filter="all">All Stories</div>
-                <div class="filter-tab" data-filter="beginners">Beginners</div>
-                <div class="filter-tab" data-filter="advanced">Advanced</div>
-                <div class="filter-tab" data-filter="philippines">Philippines</div>
-                <div class="filter-tab" data-filter="six-figure">Six Figure</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Admin Upload Section (Hidden by default) -->
-    <section class="admin-section" id="adminSection" style="display: none;">
-        <div class="container">
-            <h2 class="section-title">Add New Content</h2>
-            
-            <!-- Video Upload -->
-            <div class="upload-container">
-                <h3 style="color: #d97706; margin-bottom: 20px;">Add YouTube Case Study</h3>
-                <div class="upload-form">
-                    <div class="form-group">
-                        <label>Student Name:</label>
-                        <input type="text" id="studentName" class="upload-input" placeholder="Enter student name">
-                    </div>
-                    <div class="form-group">
-                        <label>Result Description:</label>
-                        <input type="text" id="resultDesc" class="upload-input" placeholder="e.g., ₱85,000 in First Month">
-                    </div>
-                    <div class="form-group">
-                        <label>YouTube URL:</label>
-                        <input type="url" id="youtubeUrl" class="upload-input" placeholder="https://www.youtube.com/watch?v=VIDEO_ID">
-                    </div>
-                    <div class="form-group">
-                        <label>Category Tag:</label>
-                        <select id="videoCategory" class="upload-input">
-                            <option value="Beginner Success">Beginner Success</option>
-                            <option value="Advanced Results">Advanced Results</option>
-                            <option value="Philippines Success">Philippines Success</option>
-                            <option value="Six Figure Success">Six Figure Success</option>
-                            <option value="Record Breaker">Record Breaker</option>
-                            <option value="Zero to Hero">Zero to Hero</option>
-                            <option value="Empire Builder">Empire Builder</option>
-                        </select>
-                    </div>
-                    <button class="upload-btn" onclick="addYouTubeVideo()">Add YouTube Case Study</button>
-                </div>
-            </div>
-
-            <!-- Photo Upload -->
-            <div class="upload-container" style="margin-top: 50px;">
-                <h3 style="color: #d97706; margin-bottom: 20px;">Upload Result Screenshots</h3>
-                <div class="upload-form">
-                    <div class="form-group">
-                        <label>Method 1: Drag & Drop Mass Upload (Up to 200 photos):</label>
-                        <div id="dragDropArea" class="drag-drop-area">
-                            <div class="drag-drop-content">
-                                <div style="font-size: 3rem; margin-bottom: 20px;">📸</div>
-                                <p>Drag & Drop up to 200 photos here</p>
-                                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">or click to browse files</p>
-                            </div>
-                            <input type="file" id="photoFile" accept="image/*" multiple style="display: none;">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group" style="margin-top: 30px;">
-                        <label>Method 2: GitHub Repository Upload:</label>
-                        <div class="github-upload-info">
-                            <p style="color: #d97706; margin-bottom: 15px;">For permanent hosting on GitHub:</p>
-                            <ol style="color: rgba(255,255,255,0.8); line-height: 1.8;">
-                                <li>Create a folder called <code>images/results/</code> in your repository</li>
-                                <li><strong>Just drag ALL 200+ photos</strong> to that folder (any filenames work!)</li>
-                                <li>GitHub will upload them with their original names</li>
-                                <li>Use "Auto-Detect All Photos" to load everything automatically</li>
-                            </ol>
-                            <div style="background: rgba(217, 119, 6, 0.1); padding: 15px; border-radius: 8px; margin: 15px 0;">
-                                <p style="color: #d97706; font-weight: bold; margin-bottom: 10px;">✨ No Renaming Needed!</p>
-                                <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem;">
-                                    Keep original names like:<br>
-                                    <code>Screenshot_2024_01_15.png</code><br>
-                                    <code>IMG_20240115_earnings.jpg</code><br>
-                                    <code>dashboard_results_jan.jpeg</code><br>
-                                    <em>The system will find them all automatically!</em>
-                                </p>
-                            </div>
-                            <input type="text" id="githubPath" class="upload-input" placeholder="images/results/" value="images/results/">
-                            <button class="upload-btn" onclick="autoDetectAllPhotos()" style="margin-top: 10px;">🔍 Auto-Detect All Photos</button>
-                            <button class="upload-btn" onclick="loadFromGitHub()" style="margin-top: 10px; background: rgba(217, 119, 6, 0.3);">Load Specific Names</button>
-                        </div>
-                    </div>
-                    
-                    <button class="upload-btn" onclick="uploadPhotos()">Add All Screenshots (Drag & Drop)</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Admin Toggle Button -->
-    <button class="admin-toggle" onclick="toggleAdmin()" title="Admin Panel">⚙️</button>
-
-    <!-- Video Case Studies -->
-    <section class="video-section">
-        <div class="container">
-            <div class="video-grid" id="videoGrid">
-                <!-- Video Case Study 1 - Nikita -->
-                <div class="video-card fade-in" data-category="beginners">
-                    <div class="video-thumbnail">
-                        <iframe class="youtube-video" 
-                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen
-                                style="width: 100%; height: 100%; border-radius: 15px;">
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <div class="student-name">Nikita</div>
-                        <div class="student-result">$3,000 First Month - From Cashier to Entrepreneur</div>
-                        <span class="case-study-tag">Zero Experience Success</span>
-                    </div>
-                </div>
-
-                <!-- Video Case Study 2 - Beeri -->
-                <div class="video-card fade-in" data-category="beginners six-figure">
-                    <div class="video-thumbnail">
-                        <iframe class="youtube-video" 
-                                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen
-                                style="width: 100%; height: 100%; border-radius: 15px;">
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <div class="student-name">Beeri</div>
-                        <div class="student-result">$1,500 First Month - 16 Years Old Empire Builder</div>
-                        <span class="case-study-tag">Teen Success Story</span>
-                    </div>
-                </div>
-
-                <!-- Placeholder Video Case Studies (Edit These Later) -->
-                <div class="video-card fade-in" data-category="advanced">
-                    <div class="video-thumbnail">
-                        <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); height: 100%; display: flex; align-items: center; justify-content: center; color: #d97706; font-weight: bold; border-radius: 15px;">
-                            Coming Soon
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <div class="student-name">Case Study #3</div>
-                        <div class="student-result">Coming Soon</div>
-                        <span class="case-study-tag">Edit This Later</span>
-                    </div>
-                </div>
-
-                <div class="video-card fade-in" data-category="advanced">
-                    <div class="video-thumbnail">
-                        <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); height: 100%; display: flex; align-items: center; justify-content: center; color: #d97706; font-weight: bold; border-radius: 15px;">
-                            Coming Soon
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <div class="student-name">Case Study #4</div>
-                        <div class="student-result">Coming Soon</div>
-                        <span class="case-study-tag">Edit This Later</span>
-                    </div>
-                </div>
-
-                <div class="video-card fade-in" data-category="philippines">
-                    <div class="video-thumbnail">
-                        <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); height: 100%; display: flex; align-items: center; justify-content: center; color: #d97706; font-weight: bold; border-radius: 15px;">
-                            Coming Soon
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <div class="student-name">Case Study #5</div>
-                        <div class="student-result">Coming Soon</div>
-                        <span class="case-study-tag">Edit This Later</span>
-                    </div>
-                </div>
-
-                <div class="video-card fade-in" data-category="six-figure">
-                    <div class="video-thumbnail">
-                        <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); height: 100%; display: flex; align-items: center; justify-content: center; color: #d97706; font-weight: bold; border-radius: 15px;">
-                            Coming Soon
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <div class="student-name">Case Study #6</div>
-                        <div class="student-result">Coming Soon</div>
-                        <span class="case-study-tag">Edit This Later</span>
-                    </div>
-                </div>
-
-                <div class="video-card fade-in" data-category="beginners">
-                    <div class="video-thumbnail">
-                        <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); height: 100%; display: flex; align-items: center; justify-content: center; color: #d97706; font-weight: bold; border-radius: 15px;">
-                            Coming Soon
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <div class="student-name">Case Study #7</div>
-                        <div class="student-result">Coming Soon</div>
-                        <span class="case-study-tag">Edit This Later</span>
-                    </div>
-                </div>
-
-                <div class="video-card fade-in" data-category="advanced">
-                    <div class="video-thumbnail">
-                        <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); height: 100%; display: flex; align-items: center; justify-content: center; color: #d97706; font-weight: bold; border-radius: 15px;">
-                            Coming Soon
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <div class="student-name">Case Study #8</div>
-                        <div class="student-result">Coming Soon</div>
-                        <span class="case-study-tag">Edit This Later</span>
-                    </div>
-                </div>
-
-                <div class="video-card fade-in" data-category="philippines">
-                    <div class="video-thumbnail">
-                        <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); height: 100%; display: flex; align-items: center; justify-content: center; color: #d97706; font-weight: bold; border-radius: 15px;">
-                            Coming Soon
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <div class="student-name">Case Study #9</div>
-                        <div class="student-result">Coming Soon</div>
-                        <span class="case-study-tag">Edit This Later</span>
-                    </div>
-                </div>
-
-                <div class="video-card fade-in" data-category="six-figure">
-                    <div class="video-thumbnail">
-                        <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); height: 100%; display: flex; align-items: center; justify-content: center; color: #d97706; font-weight: bold; border-radius: 15px;">
-                            Coming Soon
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <div class="student-name">Case Study #10</div>
-                        <div class="student-result">Coming Soon</div>
-                        <span class="case-study-tag">Edit This Later</span>
-                    </div>
-                </div>
-            </div>
-
-                <!-- Video Case Study 2 -->
-                <div class="video-card fade-in" data-category="advanced six-figure">
-                    <div class="video-thumbnail">
-                        <div class="video-overlay"></div>
-                        <div class="play-button"></div>
-                    </div>
-                    <div class="video-info">
-                        <div class="student-name">Juan Dela Cruz</div>
-                        <div class="student-result">₱300,000 Monthly Revenue</div>
-                        <span class="case-study-tag">Six Figure Success</span>
-                    </div>
-                </div>
-
-                <!-- Video Case Study 3 -->
-                <div class="video-card fade-in" data-category="beginners philippines">
-                    <div class="video-thumbnail">
-                        <div class="video-overlay"></div>
-                        <div class="play-button"></div>
-                    </div>
-                    <div class="video-info">
-                        <div class="student-name">Ana Rodriguez</div>
-                        <div class="student-result">From ₱0 to ₱150,000</div>
-                        <span class="case-study-tag">Zero to Hero</span>
-                    </div>
-                </div>
-
-                <!-- Video Case Study 4 -->
-                <div class="video-card fade-in" data-category="advanced six-figure">
-                    <div class="video-thumbnail">
-                        <div class="video-overlay"></div>
-                        <div class="play-button"></div>
-                    </div>
-                    <div class="video-info">
-                        <div class="student-name">Carlos Mendoza</div>
-                        <div class="student-result">₱500,000+ Multi-Shop Owner</div>
-                        <span class="case-study-tag">Empire Builder</span>
-                    </div>
-                </div>
-
-                <!-- Video Case Study 5 -->
-                <div class="video-card fade-in" data-category="beginners">
-                    <div class="video-thumbnail">
-                        <div class="video-overlay"></div>
-                        <div class="play-button"></div>
-                    </div>
-                    <div class="video-info">
-                        <div class="student-name">Elena Tan</div>
-                        <div class="student-result">₱200,000 in 90 Days</div>
-                        <span class="case-study-tag">Fast Track Success</span>
-                    </div>
-                </div>
-
-                <!-- Video Case Study 6 -->
-                <div class="video-card fade-in" data-category="advanced philippines">
-                    <div class="video-thumbnail">
-                        <div class="video-overlay"></div>
-                        <div class="play-button"></div>
-                    </div>
-                    <div class="video-info">
-                        <div class="student-name">Miguel Torres</div>
-                        <div class="student-result">₱750,000 Breakthrough</div>
-                        <span class="case-study-tag">Record Breaker</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Results Gallery -->
-    <section class="gallery-section">
-        <div class="container">
-            <h2 class="section-title fade-in">Results Gallery</h2>
-            <p class="section-subtitle fade-in">
+</html>
