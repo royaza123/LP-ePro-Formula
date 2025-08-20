@@ -577,10 +577,13 @@
 
         .image-card img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: auto;
+            min-height: 150px;
+            object-fit: contain;
             transition: all 0.3s ease;
             cursor: pointer;
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
         }
 
         .image-card:hover img {
@@ -1497,7 +1500,7 @@
                         <input type="tel" class="form-input" placeholder="Enter your phone number" required>
                     </div>
                     
-                    <button class="cta-button" style="width: 100%; margin: 20px 0;">
+                    <button class="form-submit-btn">
                         🎯 SECURE MY FREE SPOT NOW
                     </button>
                     
@@ -1583,7 +1586,7 @@
 
         // Form submission handling
         document.addEventListener('DOMContentLoaded', function() {
-            const formButton = document.querySelector('.signup-form .cta-button');
+            const formButton = document.querySelector('.form-submit-btn');
             if (formButton) {
                 formButton.addEventListener('click', function(e) {
                     e.preventDefault();
