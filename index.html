@@ -1296,51 +1296,322 @@
     </section>
 
     <!-- Enhanced Metrics Section -->
-    <section class="metrics-section" id="proof">
-        <div class="metrics-bg"></div>
-        <div class="container">
-            <h2 class="section-title fade-in">Don't Believe Me? Look at This...</h2>
-            <p class="section-subtitle fade-in">My students are quietly building empires while everyone else struggles with local competition</p>
-            
-            <div class="metrics-grid">
-                <div class="metric-card fade-in" data-delay="0">
-                    <div class="metric-image">[Total Student Revenue Screenshot]</div>
-                    <div class="metric-number" id="counter1">$2M+</div>
-                    <p class="metric-text">Total Student Profits</p>
-                </div>
-                
-                <div class="metric-card fade-in" data-delay="200">
-                    <div class="metric-image">[Success Stories Compilation]</div>
-                    <div class="metric-number" id="counter2">200+</div>
-                    <p class="metric-text">Students Success</p>
-                </div>
-                
-                <div class="metric-card fade-in" data-delay="400">
-                    <div class="metric-image">[SEO Rankings Dashboard]</div>
-                    <div class="metric-number" id="counter3">95%</div>
-                    <p class="metric-text">SEO Success Rate</p>
-                </div>
-                
-                <div class="metric-card fade-in" data-delay="600">
-                    <div class="metric-image">[Profitable Niches Map]</div>
-                    <div class="metric-number" id="counter4">500+</div>
-                    <p class="metric-text">Profitable Niches Found</p>
-                </div>
-                
-                <div class="metric-card fade-in" data-delay="800">
-                    <div class="metric-image">[Profit Margin Analysis]</div>
-                    <div class="metric-number" id="counter5">55%</div>
-                    <p class="metric-text">Profit Margins</p>
-                </div>
+    <!-- Enhanced Metrics Section -->
+<section class="metrics-section" id="proof">
+    <div class="metrics-bg"></div>
+    <div class="container">
+        <h2 class="section-title fade-in">Don't Believe Me? Look at This...</h2>
+        <p class="section-subtitle fade-in">My students are quietly building empires while everyone else struggles with local competition</p>
+        
+        <div class="metrics-grid">
+            <div class="metric-card fade-in" data-delay="0">
+                <div class="metric-image">[Total Student Revenue Screenshot]</div>
+                <div class="metric-number" id="counter1">$2M+</div>
+                <p class="metric-text">Total Student Profits</p>
             </div>
             
-            <div style="text-align: center;">
-                <a href="#signup" class="cta-button">I Want These Results</a>
-                <a href="#testimonials" class="cta-button secondary">Show Me The Secret</a>
+            <div class="metric-card fade-in" data-delay="200">
+                <div class="metric-image">[Success Stories Compilation]</div>
+                <div class="metric-number" id="counter2">200+</div>
+                <p class="metric-text">Students Success</p>
+            </div>
+            
+            <div class="metric-card fade-in" data-delay="400">
+                <div class="metric-image">[SEO Rankings Dashboard]</div>
+                <div class="metric-number" id="counter3">95%</div>
+                <p class="metric-text">SEO Success Rate</p>
+            </div>
+            
+            <div class="metric-card fade-in" data-delay="600">
+                <div class="metric-image">[Profitable Niches Map]</div>
+                <div class="metric-number" id="counter4">500+</div>
+                <p class="metric-text">Profitable Niches Found</p>
+            </div>
+            
+            <div class="metric-card fade-in" data-delay="800">
+                <div class="metric-image">[Profit Margin Analysis]</div>
+                <div class="metric-number" id="counter5">55%</div>
+                <p class="metric-text">Profit Margins</p>
+            </div>
+            
+            <div class="metric-card fade-in" data-delay="1000">
+                <div class="metric-image">[Premium Product Reviews Dashboard]</div>
+                <div class="metric-number" id="counter6">
+                    <span style="color: #f59e0b;">⭐⭐⭐⭐⭐</span><br>
+                    <span style="font-size: 3rem;">4.7</span>
+                </div>
+                <p class="metric-text">High-End Products Average Review</p>
             </div>
         </div>
-    </section>
+        
+        <div style="text-align: center;">
+            <a href="#signup" class="cta-button">I Want These Results</a>
+            <a href="#testimonials" class="cta-button secondary">Show Me The Secret</a>
+        </div>
+    </div>
+</section>
 
+<style>
+/* Enhanced Metrics Section */
+.metrics-section {
+    background: #0a0a0a;
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.metrics-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(217,119,6,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: 900;
+    letter-spacing: -2px;
+    position: relative;
+    z-index: 2;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #d97706;
+    margin-bottom: 80px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin: 80px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.metric-card {
+    background: rgba(255,255,255,0.05);
+    padding: 50px 30px;
+    border-radius: 20px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(217, 119, 6, 0.2);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+}
+
+.metric-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(217, 119, 6, 0.3);
+    background: rgba(255,255,255,0.1);
+}
+
+.metric-number {
+    font-size: 4.5rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px;
+    line-height: 1;
+    counter-reset: number;
+}
+
+.metric-text {
+    font-size: 1.3rem;
+    color: #ecf0f1;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.metric-image {
+    width: 100%;
+    height: 200px;
+    background: #1a1a2e;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d97706;
+    font-size: 1.1rem;
+    border: 2px dashed rgba(217, 119, 6, 0.3);
+}
+
+/* CTA Buttons */
+.cta-button {
+    background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+    color: white;
+    padding: 20px 40px;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin: 15px 15px 15px 0;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(217, 119, 6, 0.6);
+}
+
+.cta-button.secondary {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(217, 119, 6, 0.8);
+    color: #d97706;
+    backdrop-filter: blur(10px);
+}
+
+.cta-button.secondary:hover {
+    background: rgba(217, 119, 6, 0.1);
+    color: white;
+    border-color: #d97706;
+}
+
+/* Fade in animation */
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Enhanced hover effects */
+.metric-card:hover .metric-number {
+    transform: scale(1.1);
+    text-shadow: 0 0 20px rgba(217, 119, 6, 0.8);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .metric-number {
+        font-size: 3rem;
+    }
+    
+    .cta-button {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        margin: 10px 5px;
+    }
+}
+</style>
+
+<script>
+// Animate counters on page load
+window.addEventListener('load', function() {
+    animateCounter('counter1', 2000000, '$', 'M+');
+    animateCounter('counter2', 200, '', '+');
+    animateCounter('counter3', 95, '', '%');
+    animateCounter('counter4', 500, '', '+');
+    animateCounter('counter5', 55, '', '%');
+    // Special handling for the 5-star rating counter
+    animateStarRating('counter6');
+});
+
+function animateCounter(id, target, prefix = '', suffix = '') {
+    const element = document.getElementById(id);
+    if (!element) return;
+    
+    let current = 0;
+    const increment = target / 100;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+        
+        let displayValue;
+        if (target >= 1000000) {
+            displayValue = prefix + (current / 1000000).toFixed(1) + suffix;
+        } else {
+            displayValue = prefix + Math.floor(current) + suffix;
+        }
+        
+        element.textContent = displayValue;
+    }, 20);
+}
+
+function animateStarRating(id) {
+    const element = document.getElementById(id);
+    if (!element) return;
+    
+    let current = 0;
+    const target = 4.7;
+    const increment = 0.1;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+        
+        element.innerHTML = `
+            <span style="color: #f59e0b;">⭐⭐⭐⭐⭐</span><br>
+            <span style="font-size: 3rem;">${current.toFixed(1)}</span>
+        `;
+    }, 50);
+}
+</script>
+    
     <!-- Testimonials Carousel Section -->
     <section class="testimonials-section" id="testimonials">
         <div class="container">
