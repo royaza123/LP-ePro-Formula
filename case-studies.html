@@ -1496,16 +1496,27 @@
                     </div>
                     
                     <div class="form-group">
-                        <input type="email" class="form-input" placeholder="Enter your email address" required>
+                        <input type="email" 
+                               id="proofEmail" 
+                               placeholder="Enter your email address" 
+                               required
+                               style="width: 100%; padding: 18px 25px; border: 2px solid rgba(255,255,255,0.3); border-radius: 15px; background: rgba(255,255,255,0.1); color: white; font-size: 1.2rem; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: all 0.3s ease; box-sizing: border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; outline: none; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
                     </div>
                     
                     <div class="form-group">
-                        <input type="tel" class="form-input" placeholder="Enter your phone number" required>
+                        <input type="tel" 
+                               id="proofPhone" 
+                               placeholder="Enter your phone number" 
+                               required
+                               style="width: 100%; padding: 18px 25px; border: 2px solid rgba(255,255,255,0.3); border-radius: 15px; background: rgba(255,255,255,0.1); color: white; font-size: 1.2rem; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: all 0.3s ease; box-sizing: border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; outline: none; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
                     </div>
                     
-                    <button class="form-submit-btn">
-                        🎯 SECURE MY FREE SPOT NOW
-                    </button>
+                    <div class="form-group">
+                        <button id="proofSubmitBtn"
+                                style="width: 100%; padding: 18px 40px; border: none; border-radius: 15px; background: linear-gradient(135deg, #d97706 0%, #92400e 100%); color: white; font-size: 1.2rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4); transition: all 0.3s ease; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; outline: none; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
+                            🎯 SECURE MY FREE SPOT NOW
+                        </button>
+                    </div>
                     
                     <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; text-align: center; margin-top: 15px;">
                         ✅ Instant access • ✅ No credit card required • ✅ 100% Free
@@ -1589,12 +1600,12 @@
 
         // Form submission handling
         document.addEventListener('DOMContentLoaded', function() {
-            const formButton = document.querySelector('.form-submit-btn');
+            const formButton = document.getElementById('proofSubmitBtn');
             if (formButton) {
                 formButton.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const email = document.querySelector('input[type="email"]').value;
-                    const phone = document.querySelector('input[type="tel"]').value;
+                    const email = document.getElementById('proofEmail').value;
+                    const phone = document.getElementById('proofPhone').value;
                     
                     if (!email || !phone) {
                         alert('Please fill in both email and phone number to secure your FREE spot!');
