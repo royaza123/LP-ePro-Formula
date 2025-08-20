@@ -577,13 +577,10 @@
 
         .image-card img {
             width: 100%;
-            height: auto;
-            min-height: 150px;
-            object-fit: contain;
+            height: 200px;
+            object-fit: cover;
             transition: all 0.3s ease;
             cursor: pointer;
-            background: rgba(0,0,0,0.2);
-            border-radius: 10px;
         }
 
         .image-card:hover img {
@@ -723,9 +720,13 @@
         }
 
         .lightbox-content {
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 95%;
+            max-height: 95%;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
         .lightbox img {
@@ -735,12 +736,13 @@
             max-height: 100%;
             border-radius: 10px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            object-fit: contain;
         }
 
         .lightbox-close {
             position: absolute;
-            top: -40px;
-            right: 0;
+            top: -60px;
+            right: -20px;
             color: white;
             font-size: 3rem;
             font-weight: bold;
@@ -753,6 +755,7 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+            z-index: 10001;
         }
 
         .lightbox-close:hover {
