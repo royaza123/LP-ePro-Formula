@@ -219,141 +219,142 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(217, 119, 6, 0.6);
         }
-/* Navigation Styles */
-.nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
 
-.nav-links {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-}
+        /* Navigation Styles */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
 
-.nav-link {
-    color: rgba(255,255,255,0.8);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    position: relative;
-    padding: 8px 0;
-}
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
 
-.nav-link:hover {
-    color: #d97706;
-    transform: translateY(-1px);
-}
+        .nav-link {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 0;
+        }
 
-.nav-link.active {
-    color: #d97706;
-    font-weight: 600;
-}
+        .nav-link:hover {
+            color: #d97706;
+            transform: translateY(-1px);
+        }
 
-.nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
-    border-radius: 1px;
-    animation: slideIn 0.3s ease;
-}
+        .nav-link.active {
+            color: #d97706;
+            font-weight: 600;
+        }
 
-@keyframes slideIn {
-    from { width: 0; }
-    to { width: 100%; }
-}
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            border-radius: 1px;
+            animation: slideIn 0.3s ease;
+        }
 
-/* Mobile Menu Styles */
-.mobile-menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: #d97706;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 5px;
-    transition: all 0.3s ease;
-}
+        @keyframes slideIn {
+            from { width: 0; }
+            to { width: 100%; }
+        }
 
-.mobile-menu-toggle:hover {
-    transform: scale(1.1);
-}
+        /* Mobile Menu Styles */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #d97706;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+            transition: all 0.3s ease;
+        }
 
-.mobile-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgba(0,0,0,0.95);
-    backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(217, 119, 6, 0.3);
-    padding: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-}
+        .mobile-menu-toggle:hover {
+            transform: scale(1.1);
+        }
 
-.mobile-menu.active {
-    display: block;
-    animation: slideDown 0.3s ease;
-}
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(217, 119, 6, 0.3);
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
 
-@keyframes slideDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+        .mobile-menu.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
 
-.mobile-nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 20px;
-}
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-.mobile-nav-link {
-    color: rgba(255,255,255,0.8);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1.1rem;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    transition: all 0.3s ease;
-}
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
 
-.mobile-nav-link:hover,
-.mobile-nav-link.active {
-    color: #d97706;
-    padding-left: 10px;
-}
+        .mobile-nav-link {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
 
-.mobile-cta {
-    width: 100%;
-    text-align: center;
-    background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
-    color: white;
-    padding: 15px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    display: block;
-    margin-top: 10px;
-}
+        .mobile-nav-link:hover,
+        .mobile-nav-link.active {
+            color: #d97706;
+            padding-left: 10px;
+        }
 
-/* Responsive Updates */
-@media (max-width: 768px) {
-    .nav-menu {
-        display: none;
-    }
-    
-    .mobile-menu-toggle {
-        display: block;
-    }
-}
+        .mobile-cta {
+            width: 100%;
+            text-align: center;
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+            margin-top: 10px;
+        }
+
+        /* Responsive Updates */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+        }
 
         /* Hero Section */
         .hero {
@@ -644,6 +645,12 @@
             color: #d97706;
             font-size: 1.1rem;
             border: 2px dashed rgba(217, 119, 6, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .metric-image:hover {
+            border-color: #d97706;
+            box-shadow: 0 10px 30px rgba(217, 119, 6, 0.4);
         }
 
         /* Testimonials Section */
@@ -674,12 +681,12 @@
 
         .testimonials-track {
             display: flex;
-            animation: scroll-testimonials 60s linear infinite;
+            animation: scroll-testimonials 20s linear infinite;
             gap: 30px;
         }
 
         .testimonial-box {
-            min-width: 280px;
+            min-width: 320px;
             background: rgba(255,255,255,0.05);
             border-radius: 20px;
             padding: 25px;
@@ -708,13 +715,6 @@
             border-radius: 50%;
             border: 2px solid #d97706;
             box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
-            background: linear-gradient(135deg, #d97706, #92400e);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
         }
 
         .student-info h4 {
@@ -736,31 +736,33 @@
 
         .result-pic {
             width: 100%;
-            height: 150px;
+            height: 220px;
             border-radius: 15px;
             border: 2px solid rgba(217, 119, 6, 0.3);
             margin-bottom: 15px;
             transition: all 0.3s ease;
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #d97706;
-            font-weight: bold;
-            font-size: 0.9rem;
+            object-fit: contain;
+            object-position: center;
+            background: #000;
+            padding: 12px;
+            box-sizing: border-box;
+            cursor: pointer;
         }
 
         .result-pic:hover {
             border-color: #d97706;
-            box-shadow: 0 10px 30px rgba(217, 119, 6, 0.4);
+            box-shadow: 0 15px 35px rgba(217, 119, 6, 0.5);
+            transform: scale(1.03);
+            background: #111;
         }
 
         .result-text {
             color: #f59e0b;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin: 0;
             text-shadow: 0 2px 10px rgba(217, 119, 6, 0.3);
+            letter-spacing: 0.5px;
         }
 
         @keyframes scroll-testimonials {
@@ -774,6 +776,35 @@
 
         .testimonials-carousel:hover .testimonials-track {
             animation-play-state: paused;
+        }
+
+        /* Zoom functionality */
+        .result-pic.zoomed {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.5);
+            z-index: 9999;
+            max-width: 90vw;
+            max-height: 90vh;
+            background: #000;
+            border: 3px solid #d97706;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+        }
+
+        .zoom-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.9);
+            z-index: 9998;
+            display: none;
+        }
+
+        .zoom-overlay.active {
+            display: block;
         }
 
         /* Story Section Enhanced */
@@ -867,7 +898,7 @@
             box-shadow: 0 10px 30px rgba(217, 119, 6, 0.4);
         }
 
-        /* FAQ Section Enhanced */
+        /* FAQ Section - COMPLETELY REBUILT */
         .faq-section {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             padding: 120px 0;
@@ -923,21 +954,23 @@
             margin-left: 20px;
         }
         
-        .faq-question.active::after {
+        .faq-question.open::after {
             transform: rotate(45deg);
         }
         
         .faq-answer {
-            padding: 0 30px;
             max-height: 0;
             overflow: hidden;
-            transition: all 0.4s ease;
             background: rgba(0,0,0,0.3);
+            transition: max-height 0.3s ease;
         }
         
-        .faq-answer.active {
+        .faq-answer.open {
+            max-height: 1000px;
+        }
+        
+        .faq-answer-content {
             padding: 30px;
-            max-height: 500px;
         }
         
         .faq-answer p {
@@ -1167,7 +1200,7 @@
             }
 
             .testimonial-box {
-                min-width: 250px;
+                min-width: 280px;
             }
             
             .profile-pic {
@@ -1176,7 +1209,12 @@
             }
             
             .result-pic {
-                height: 120px;
+                height: 200px;
+                padding: 10px;
+            }
+
+            .result-text {
+                font-size: 1.1rem;
             }
         }
         
@@ -1217,38 +1255,38 @@
 </head>
 <body>
     <!-- Header -->
-<header class="header" id="header">
-    <div class="container">
-        <a href="index.html" class="logo">ePro <span class="formula">FORMULA</span></a>
-        
-        <!-- Desktop Navigation -->
-        <nav class="nav-menu">
-            <div class="nav-links">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="case-studies.html" class="nav-link">Proof</a>
-                <a href="#testimonials" class="nav-link">Success Stories</a>
-                <a href="#system" class="nav-link">The System</a>
-                <a href="#faq" class="nav-link">FAQ</a>
-            </div>
-            <a href="#signup" class="header-cta">Get Started Free</a>
-        </nav>
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo">ePro <span class="formula">FORMULA</span></a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-menu">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="case-studies.html" class="nav-link">Proof</a>
+                    <a href="#testimonials" class="nav-link">Success Stories</a>
+                    <a href="#system" class="nav-link">The System</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
+                </div>
+                <a href="#signup" class="header-cta">Get Started Free</a>
+            </nav>
 
-        <!-- Mobile Menu Toggle -->
-        <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-nav-links">
-            <a href="index.html" class="mobile-nav-link active">🏠 Home</a>
-            <a href="case-studies.html" class="mobile-nav-link">💰 Proof</a>
-            <a href="#testimonials" class="mobile-nav-link">🏆 Success Stories</a>
-            <a href="#system" class="mobile-nav-link">⚡ The System</a>
-            <a href="#faq" class="mobile-nav-link">❓ FAQ</a>
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
         </div>
-        <a href="#signup" class="mobile-cta">🎯 Get Started Free</a>
-    </div>
-</header>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-nav-links">
+                <a href="index.html" class="mobile-nav-link active">🏠 Home</a>
+                <a href="case-studies.html" class="mobile-nav-link">💰 Proof</a>
+                <a href="#testimonials" class="mobile-nav-link">🏆 Success Stories</a>
+                <a href="#system" class="mobile-nav-link">⚡ The System</a>
+                <a href="#faq" class="mobile-nav-link">❓ FAQ</a>
+            </div>
+            <a href="#signup" class="mobile-cta">🎯 Get Started Free</a>
+        </div>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -1294,823 +1332,277 @@
             </div>
         </div>
     </section>
-<!-- Enhanced Metrics Section -->
-<section class="metrics-section" id="proof">
-    <div class="metrics-bg"></div>
-    <div class="container">
-        <h2 class="section-title fade-in">Don't Believe Me? Look at This...</h2>
-        <p class="section-subtitle fade-in">My students are quietly building empires while everyone else struggles with local competition</p>
-        
-        <div class="metrics-grid">
-            <div class="metric-card fade-in" data-delay="0">
-                <img src="79K.jpg" alt="Total Student Revenue Screenshot" class="metric-image" style="object-fit: cover;">
-                <div class="metric-number" id="counter1">$2M+</div>
-                <p class="metric-text">Total Student Profits</p>
-                <p style="font-size: 0.9rem; color: #f59e0b; margin-top: 10px; opacity: 0.8;">
-                    <small>*Example shown: ₪78,188 (~$22,998.67 USD)</small>
-                </p>
+
+    <!-- Enhanced Metrics Section -->
+    <section class="metrics-section" id="proof">
+        <div class="metrics-bg"></div>
+        <div class="container">
+            <h2 class="section-title fade-in">Don't Believe Me? Look at This...</h2>
+            <p class="section-subtitle fade-in">My students are quietly building empires while everyone else struggles with local competition</p>
+            
+            <div class="metrics-grid">
+                <div class="metric-card fade-in" data-delay="0">
+                    <img src="79K.jpg" alt="Total Student Revenue Screenshot" class="metric-image" style="object-fit: cover;">
+                    <div class="metric-number" id="counter1">$2M+</div>
+                    <p class="metric-text">Total Student Profits</p>
+                    <p style="font-size: 0.9rem; color: #f59e0b; margin-top: 10px; opacity: 0.8;">
+                        <small>*Example shown: ₪78,188 (~$22,998.67 USD)</small>
+                    </p>
+                </div>
+                
+                <div class="metric-card fade-in" data-delay="200">
+                    <img src="happy students.jpg" alt="Success Stories Compilation" class="metric-image" style="object-fit: cover;">
+                    <div class="metric-number" id="counter2">200+</div>
+                    <p class="metric-text">Students Success</p>
+                </div>
+                
+                <div class="metric-card fade-in" data-delay="400">
+                    <img src="seo.jpg" alt="SEO Rankings Dashboard" class="metric-image" style="object-fit: cover;">
+                    <div class="metric-number" id="counter3">95%</div>
+                    <p class="metric-text">SEO Success Rate</p>
+                </div>
+                
+                <div class="metric-card fade-in" data-delay="600">
+                    <img src="niche.jpg" alt="Profitable Niches Map" class="metric-image" style="object-fit: cover;">
+                    <div class="metric-number" id="counter4">500+</div>
+                    <p class="metric-text">Profitable Niches Found</p>
+                </div>
+                
+                <div class="metric-card fade-in" data-delay="800">
+                    <img src="profit.jpg" alt="Profit Margin Analysis" class="metric-image" style="object-fit: cover;">
+                    <div class="metric-number" id="counter5">55%</div>
+                    <p class="metric-text">Profit Margins</p>
+                </div>
+                
+                <div class="metric-card fade-in" data-delay="1000">
+                    <img src="review.jpg" alt="Premium Product Reviews Dashboard" class="metric-image" style="object-fit: cover;">
+                    <div class="metric-number" id="counter6">
+                        <span style="color: #f59e0b; font-size: 1.2rem; display: block; line-height: 1.2; margin-bottom: 10px;">⭐⭐⭐⭐⭐</span>
+                        <span style="font-size: 3rem;">4.7</span>
+                    </div>
+                    <p class="metric-text">High-End Products Average Review</p>
+                </div>
             </div>
             
-            <div class="metric-card fade-in" data-delay="200">
-                <img src="happy students.jpg" alt="Success Stories Compilation" class="metric-image" style="object-fit: cover;">
-                <div class="metric-number" id="counter2">200+</div>
-                <p class="metric-text">Students Success</p>
-            </div>
-            
-            <div class="metric-card fade-in" data-delay="400">
-                <img src="seo.jpg" alt="SEO Rankings Dashboard" class="metric-image" style="object-fit: cover;">
-                <div class="metric-number" id="counter3">95%</div>
-                <p class="metric-text">SEO Success Rate</p>
-            </div>
-            
-            <div class="metric-card fade-in" data-delay="600">
-                <img src="niche.jpg" alt="Profitable Niches Map" class="metric-image" style="object-fit: cover;">
-                <div class="metric-number" id="counter4">500+</div>
-                <p class="metric-text">Profitable Niches Found</p>
-            </div>
-            
-            <div class="metric-card fade-in" data-delay="800">
-                <img src="profit.jpg" alt="Profit Margin Analysis" class="metric-image" style="object-fit: cover;">
-                <div class="metric-number" id="counter5">55%</div>
-                <p class="metric-text">Profit Margins</p>
-            </div>
-            
-            <div class="metric-card fade-in" data-delay="1000">
-                <img src="review.jpg" alt="Premium Product Reviews Dashboard" class="metric-image" style="object-fit: cover;">
-                <div class="metric-number" id="counter6">
-                    <span style="color: #f59e0b; font-size: 1.2rem; display: block; line-height: 1.2; margin-bottom: 10px;">⭐⭐⭐⭐⭐</span>
-                    <span style="font-size: 3rem;">4.7</span>
-                </div>
-                <p class="metric-text">High-End Products Average Review</p>
-            </div>
-        </div>
-        
-        <div style="text-align: center;">
-            <a href="#signup" class="cta-button">I Want These Results</a>
-            <a href="#testimonials" class="cta-button secondary">Show Me The Secret</a>
-        </div>
-    </div>
-</section>
-
-<style>
-/* Enhanced Metrics Section */
-.metrics-section {
-    background: #0a0a0a;
-    padding: 120px 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.metrics-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(217,119,6,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-}
-
-.section-title {
-    text-align: center;
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    color: #ffffff;
-    font-weight: 900;
-    letter-spacing: -2px;
-    position: relative;
-    z-index: 2;
-}
-
-.section-subtitle {
-    text-align: center;
-    font-size: 1.4rem;
-    color: #d97706;
-    margin-bottom: 80px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    z-index: 2;
-}
-
-.metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    margin: 80px 0;
-    position: relative;
-    z-index: 2;
-}
-
-.metric-card {
-    background: rgba(255,255,255,0.05);
-    padding: 50px 30px;
-    border-radius: 20px;
-    text-align: center;
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(217, 119, 6, 0.2);
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.metric-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
-}
-
-.metric-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(217, 119, 6, 0.3);
-    background: rgba(255,255,255,0.1);
-}
-
-.metric-number {
-    font-size: 4.5rem;
-    font-weight: 900;
-    background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 15px;
-    line-height: 1;
-    counter-reset: number;
-}
-
-.metric-text {
-    font-size: 1.3rem;
-    color: #ecf0f1;
-    font-weight: 600;
-    opacity: 0.9;
-}
-
-.metric-image {
-    width: 100%;
-    height: 200px;
-    background: #1a1a2e;
-    border-radius: 15px;
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #d97706;
-    font-size: 1.1rem;
-    border: 2px dashed rgba(217, 119, 6, 0.3);
-    transition: all 0.3s ease;
-}
-
-.metric-image:hover {
-    border-color: #d97706;
-    box-shadow: 0 10px 30px rgba(217, 119, 6, 0.4);
-}
-
-/* CTA Buttons */
-.cta-button {
-    background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
-    color: white;
-    padding: 20px 40px;
-    font-size: 1.3rem;
-    border: none;
-    border-radius: 35px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    margin: 15px 15px 15px 0;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s ease;
-}
-
-.cta-button:hover::before {
-    left: 100%;
-}
-
-.cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(217, 119, 6, 0.6);
-}
-
-.cta-button.secondary {
-    background: rgba(255,255,255,0.1);
-    border: 2px solid rgba(217, 119, 6, 0.8);
-    color: #d97706;
-    backdrop-filter: blur(10px);
-}
-
-.cta-button.secondary:hover {
-    background: rgba(217, 119, 6, 0.1);
-    color: white;
-    border-color: #d97706;
-}
-
-/* Fade in animation */
-.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-    transition: all 0.8s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Enhanced hover effects */
-.metric-card:hover .metric-number {
-    transform: scale(1.1);
-    text-shadow: 0 0 20px rgba(217, 119, 6, 0.8);
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .section-title {
-        font-size: 2.5rem;
-    }
-    
-    .metric-number {
-        font-size: 3rem;
-    }
-    
-    .cta-button {
-        padding: 15px 30px;
-        font-size: 1.1rem;
-        margin: 10px 5px;
-    }
-}
-</style>
-
-<script>
-// Animate counters on page load
-window.addEventListener('load', function() {
-    animateCounter('counter1', 2000000, '$', 'M+');
-    animateCounter('counter2', 200, '', '+');
-    animateCounter('counter3', 95, '', '%');
-    animateCounter('counter4', 500, '', '+');
-    animateCounter('counter5', 55, '', '%');
-    // Special handling for the 5-star rating counter
-    animateStarRating('counter6');
-});
-
-function animateCounter(id, target, prefix = '', suffix = '') {
-    const element = document.getElementById(id);
-    if (!element) return;
-    
-    let current = 0;
-    const increment = target / 100;
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            current = target;
-            clearInterval(timer);
-        }
-        
-        let displayValue;
-        if (target >= 1000000) {
-            displayValue = prefix + (current / 1000000).toFixed(1) + suffix;
-        } else {
-            displayValue = prefix + Math.floor(current) + suffix;
-        }
-        
-        element.textContent = displayValue;
-    }, 20);
-}
-
-function animateStarRating(id) {
-    const element = document.getElementById(id);
-    if (!element) return;
-    
-    let current = 0;
-    const target = 4.7;
-    const increment = 0.1;
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            current = target;
-            clearInterval(timer);
-        }
-        
-        element.innerHTML = `
-            <span style="color: #f59e0b; font-size: 1.2rem; display: block; line-height: 1.2; margin-bottom: 10px;">⭐⭐⭐⭐⭐</span>
-            <span style="font-size: 3rem;">${current.toFixed(1)}</span>
-        `;
-    }, 50);
-}
-</script>
-    
-<!-- Testimonials Carousel Section -->
-<!-- Testimonials Carousel Section -->
-<section class="testimonials-section" id="testimonials">
-    <div class="container">
-        <h2 class="section-title fade-in">Real Students, Real Results</h2>
-        <p class="section-subtitle fade-in">See what happens when ordinary people follow the ePro Formula</p>
-        
-        <div class="testimonials-carousel">
-            <div class="testimonials-track">
-                <div class="testimonial-box">
-                    <div class="profile-section">
-                        <img src="images/students./IMG-20250820-WA0050.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
-                        <div class="student-info">
-                            <h4>Daniel Mizrahi</h4>
-                            <p>Tel Aviv, Israel</p>
-                        </div>
-                    </div>
-                    <div class="result-section">
-                        <img src="images/results/notable results/1,368.50 דולר ביום.jpg" alt="Earnings Screenshot" class="result-pic">
-                        <p class="result-text">"$1,368.50 in a DAY!"</p>
-                    </div>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="profile-section">
-                        <img src="images/students./ניקיטה.png" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
-                        <div class="student-info">
-                            <h4>Nikita Ohayon</h4>
-                            <p>Jerusalem, Israel</p>
-                        </div>
-                    </div>
-                    <div class="result-section">
-                        <img src="images/results/notable results/2,182.10 דולר בחודש.jpg" alt="Revenue Dashboard" class="result-pic">
-                        <p class="result-text">"$2,182.10 MONTHLY!"</p>
-                    </div>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="profile-section">
-                        <img src="images/students./בארי.png" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
-                        <div class="student-info">
-                            <h4>Bari Goldstein</h4>
-                            <p>Haifa, Israel</p>
-                        </div>
-                    </div>
-                    <div class="result-section">
-                        <img src="images/results/notable results/2,500 דולר בחודש.jpg" alt="Profit Report" class="result-pic">
-                        <p class="result-text">"$2,500 MONTHLY!"</p>
-                    </div>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="profile-section">
-                        <img src="images/students./עומריקי.png" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
-                        <div class="student-info">
-                            <h4>Omer Rikanati</h4>
-                            <p>Netanya, Israel</p>
-                        </div>
-                    </div>
-                    <div class="result-section">
-                        <img src="images/results/notable results/2,688.75 בחודש.jpg" alt="Bank Statement" class="result-pic">
-                        <p class="result-text">"$2,688.75 MONTHLY!"</p>
-                    </div>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="profile-section">
-                        <img src="images/students./דנה'לה שלי.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
-                        <div class="student-info">
-                            <h4>Daniella Shapira</h4>
-                            <p>Rishon LeZion, Israel</p>
-                        </div>
-                    </div>
-                    <div class="result-section">
-                        <img src="images/results/notable results/2,800 דולר בחודש.jpg" alt="Success Metrics" class="result-pic">
-                        <p class="result-text">"$2,800 MONTHLY!"</p>
-                    </div>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="profile-section">
-                        <img src="images/students./מנוש.png" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
-                        <div class="student-info">
-                            <h4>Menashe Levy</h4>
-                            <p>Ashdod, Israel</p>
-                        </div>
-                    </div>
-                    <div class="result-section">
-                        <img src="images/results/notable results/297.63 דולר ביום.jpg" alt="Earnings Screenshot" class="result-pic">
-                        <p class="result-text">"$297.63 in a DAY!"</p>
-                    </div>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="profile-section">
-                        <img src="images/students./נתנאל.png" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
-                        <div class="student-info">
-                            <h4>Nathanel Ben-David</h4>
-                            <p>Beer Sheva, Israel</p>
-                        </div>
-                    </div>
-                    <div class="result-section">
-                        <img src="images/results/notable results/3,000 דולר בחודש.jpg" alt="Revenue Dashboard" class="result-pic">
-                        <p class="result-text">"$3,000 MONTHLY!"</p>
-                    </div>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="profile-section">
-                        <img src="images/students./IMG-20250820-WA0051.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
-                        <div class="student-info">
-                            <h4>Sarah Avraham</h4>
-                            <p>Petah Tikva, Israel</p>
-                        </div>
-                    </div>
-                    <div class="result-section">
-                        <img src="images/results/notable results/3,500 דולר בחודש.jpg" alt="Profit Report" class="result-pic">
-                        <p class="result-text">"$3,500 MONTHLY!"</p>
-                    </div>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="profile-section">
-                        <img src="images/students./IMG-20250820-WA0052.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
-                        <div class="student-info">
-                            <h4>Yosef Katz</h4>
-                            <p>Ramat Gan, Israel</p>
-                        </div>
-                    </div>
-                    <div class="result-section">
-                        <img src="images/results/notable results/325 דולר ביום.jpg" alt="Bank Statement" class="result-pic">
-                        <p class="result-text">"$325 in a DAY!"</p>
-                    </div>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="profile-section">
-                        <img src="images/students./IMG-20250820-WA0053.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
-                        <div class="student-info">
-                            <h4>Maya Rosenberg</h4>
-                            <p>Herzliya, Israel</p>
-                        </div>
-                    </div>
-                    <div class="result-section">
-                        <img src="images/results/notable results/377 דולר ביום.jpg" alt="Success Metrics" class="result-pic">
-                        <p class="result-text">"$377 in a DAY!"</p>
-                    </div>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="profile-section">
-                        <img src="images/students./IMG-20250820-WA0054.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
-                        <div class="student-info">
-                            <h4>Avi Rosen</h4>
-                            <p>Eilat, Israel</p>
-                        </div>
-                    </div>
-                    <div class="result-section">
-                        <img src="images/results/notable results/4,000 דולר בחודש.jpg" alt="Earnings Screenshot" class="result-pic">
-                        <p class="result-text">"$4,000 MONTHLY!"</p>
-                    </div>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="profile-section">
-                        <img src="images/students./IMG-20250820-WA0055.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
-                        <div class="student-info">
-                            <h4>Rachel Cohen</h4>
-                            <p>Kfar Saba, Israel</p>
-                        </div>
-                    </div>
-                    <div class="result-section">
-                        <img src="images/results/notable results/4,346.22 דולר בשבוע.jpg" alt="Revenue Dashboard" class="result-pic">
-                        <p class="result-text">"$4,346.22 in a WEEK!"</p>
-                    </div>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="profile-section">
-                        <img src="images/students./WhatsApp Image 2025-08-20 at 20.15.15_401b5108.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
-                        <div class="student-info">
-                            <h4>Itay Rosha</h4>
-                            <p>Rehovot, Israel</p>
-                        </div>
-                    </div>
-                    <div class="result-section">
-                        <img src="images/results/notable results/4,500 דולר בחודש.jpg" alt="Profit Report" class="result-pic">
-                        <p class="result-text">"$4,500 MONTHLY!"</p>
-                    </div>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="profile-section">
-                        <img src="images/students./WhatsApp Image 2025-08-20 at 20.22.49_12609e59.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
-                        <div class="student-info">
-                            <h4>Sapir Cohen</h4>
-                            <p>Tel Aviv, Israel</p>
-                        </div>
-                    </div>
-                    <div class="result-section">
-                        <img src="images/results/notable results/5,388 דולר בחודש.jpg" alt="Profit Report" class="result-pic">
-                        <p class="result-text">"$5,388 MONTHLY!"</p>
-                    </div>
-                </div>
+            <div style="text-align: center;">
+                <a href="#signup" class="cta-button">I Want These Results</a>
+                <a href="#testimonials" class="cta-button secondary">Show Me The Secret</a>
             </div>
         </div>
-        
-        <div style="text-align: center; margin-top: 60px; position: relative; z-index: 10;">
-            <a href="#signup" class="cta-button">I Want Results Like These</a>
-            <a href="#story" class="cta-button secondary">Show Me How</a>
+    </section>
+
+    <!-- Testimonials Carousel Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <h2 class="section-title fade-in">Real Students, Real Results</h2>
+            <p class="section-subtitle fade-in">See what happens when ordinary people follow the ePro Formula</p>
+            
+            <div class="testimonials-carousel">
+                <div class="testimonials-track">
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./IMG-20250820-WA0050.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Daniel Mizrahi</h4>
+                                <p>Tel Aviv, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/1,368.50 דולר ביום.jpg" alt="Earnings Screenshot" class="result-pic">
+                            <p class="result-text">"$1,368.50 in a DAY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./ניקיטה.png" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Nikita Ohayon</h4>
+                                <p>Jerusalem, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/2,182.10 דולר בחודש.jpg" alt="Revenue Dashboard" class="result-pic">
+                            <p class="result-text">"$2,182.10 MONTHLY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./בארי.png" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Bari Goldstein</h4>
+                                <p>Haifa, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/2,500 דולר בחודש.jpg" alt="Profit Report" class="result-pic">
+                            <p class="result-text">"$2,500 MONTHLY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./עומריקי.png" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Omer Rikanati</h4>
+                                <p>Netanya, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/2,688.75 בחודש.jpg" alt="Bank Statement" class="result-pic">
+                            <p class="result-text">"$2,688.75 MONTHLY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./דנה'לה שלי.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Daniella Shapira</h4>
+                                <p>Rishon LeZion, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/2,800 דולר בחודש.jpg" alt="Success Metrics" class="result-pic">
+                            <p class="result-text">"$2,800 MONTHLY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./מנוש.png" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Menashe Levy</h4>
+                                <p>Ashdod, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/297.63 דולר ביום.jpg" alt="Earnings Screenshot" class="result-pic">
+                            <p class="result-text">"$297.63 in a DAY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./נתנאל.png" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Nathanel Ben-David</h4>
+                                <p>Beer Sheva, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/3,000 דולר בחודש.jpg" alt="Revenue Dashboard" class="result-pic">
+                            <p class="result-text">"$3,000 MONTHLY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./IMG-20250820-WA0051.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Sarah Avraham</h4>
+                                <p>Petah Tikva, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/3,500 דולר בחודש.jpg" alt="Profit Report" class="result-pic">
+                            <p class="result-text">"$3,500 MONTHLY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./IMG-20250820-WA0052.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Yosef Katz</h4>
+                                <p>Ramat Gan, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/325 דולר ביום.jpg" alt="Bank Statement" class="result-pic">
+                            <p class="result-text">"$325 in a DAY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./IMG-20250820-WA0053.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Maya Rosenberg</h4>
+                                <p>Herzliya, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/377 דולר ביום.jpg" alt="Success Metrics" class="result-pic">
+                            <p class="result-text">"$377 in a DAY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./IMG-20250820-WA0054.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Avi Rosen</h4>
+                                <p>Eilat, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/4,000 דולר בחודש.jpg" alt="Earnings Screenshot" class="result-pic">
+                            <p class="result-text">"$4,000 MONTHLY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./IMG-20250820-WA0055.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Rachel Cohen</h4>
+                                <p>Kfar Saba, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/4,346.22 דולר בשבוע.jpg" alt="Revenue Dashboard" class="result-pic">
+                            <p class="result-text">"$4,346.22 in a WEEK!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./WhatsApp Image 2025-08-20 at 20.15.15_401b5108.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Itay Rosha</h4>
+                                <p>Rehovot, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/4,500 דולר בחודש.jpg" alt="Profit Report" class="result-pic">
+                            <p class="result-text">"$4,500 MONTHLY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./WhatsApp Image 2025-08-20 at 20.22.49_12609e59.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Sapir Cohen</h4>
+                                <p>Tel Aviv, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/5,388 דולר בחודש.jpg" alt="Profit Report" class="result-pic">
+                            <p class="result-text">"$5,388 MONTHLY!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px; position: relative; z-index: 10;">
+                <a href="#signup" class="cta-button">I Want Results Like These</a>
+                <a href="#story" class="cta-button secondary">Show Me How</a>
+            </div>
         </div>
-    </div>
-</section>
-
-<style>
-/* Enhanced Testimonials Section for Clear Number Visibility */
-.testimonials-section {
-    background: #0a0a0a;
-    padding: 120px 0;
-    color: white;
-    position: relative;
-}
-
-.testimonials-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="testimonials-grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(217,119,6,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23testimonials-grid)"/></svg>');
-    z-index: 1;
-}
-
-.testimonials-carousel {
-    overflow: hidden;
-    margin: 60px 0;
-    position: relative;
-    z-index: 2;
-}
-
-.testimonials-track {
-    display: flex;
-    animation: scroll-testimonials 20s linear infinite;
-    gap: 30px;
-}
-
-.testimonial-box {
-    min-width: 320px; /* Slightly wider for better readability */
-    background: rgba(255,255,255,0.05);
-    border-radius: 20px;
-    padding: 25px;
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(217, 119, 6, 0.2);
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-}
-
-.testimonial-box:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(217, 119, 6, 0.3);
-    background: rgba(255,255,255,0.1);
-}
-
-.profile-section {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    gap: 15px;
-}
-
-.profile-pic {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 2px solid #d97706;
-    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
-}
-
-.student-info h4 {
-    color: #ffffff;
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-}
-
-.student-info p {
-    color: #d97706;
-    font-size: 0.9rem;
-    margin: 0;
-}
-
-.result-section {
-    text-align: center;
-}
-
-/* Optimized for clear number visibility */
-.result-pic {
-    width: 100%;
-    height: 220px; /* Increased height for better number visibility */
-    border-radius: 15px;
-    border: 2px solid rgba(217, 119, 6, 0.3);
-    margin-bottom: 15px;
-    transition: all 0.3s ease;
-    object-fit: contain; /* Shows entire image without cropping */
-    object-position: center; /* Centers the image */
-    background: #000; /* Pure black background for maximum contrast */
-    padding: 12px; /* More padding for better spacing */
-    box-sizing: border-box;
-    cursor: pointer;
-}
-
-.result-pic:hover {
-    border-color: #d97706;
-    box-shadow: 0 15px 35px rgba(217, 119, 6, 0.5);
-    transform: scale(1.03); /* Slight zoom for better number viewing */
-    background: #111; /* Slightly lighter on hover */
-}
-
-.result-text {
-    color: #f59e0b;
-    font-weight: 700;
-    font-size: 1.2rem; /* Slightly larger text */
-    margin: 0;
-    text-shadow: 0 2px 10px rgba(217, 119, 6, 0.3);
-    letter-spacing: 0.5px; /* Better letter spacing */
-}
-
-@keyframes scroll-testimonials {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-.testimonials-carousel:hover .testimonials-track {
-    animation-play-state: paused;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .testimonial-box {
-        min-width: 280px;
-    }
-    
-    .result-pic {
-        height: 200px; /* Slightly smaller on mobile but still readable */
-        padding: 10px;
-    }
-    
-    .profile-pic {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .result-text {
-        font-size: 1.1rem;
-    }
-}
-
-/* Add click-to-zoom functionality */
-.result-pic.zoomed {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1.5);
-    z-index: 9999;
-    max-width: 90vw;
-    max-height: 90vh;
-    background: #000;
-    border: 3px solid #d97706;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
-}
-
-.zoom-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.9);
-    z-index: 9998;
-    display: none;
-}
-
-.zoom-overlay.active {
-    display: block;
-}
-</style>
-
-<script>
-// Add click-to-zoom functionality for better number viewing
-document.addEventListener('DOMContentLoaded', function() {
-    const resultPics = document.querySelectorAll('.result-pic');
-    
-    resultPics.forEach(pic => {
-        pic.addEventListener('click', function() {
-            // Create overlay
-            const overlay = document.createElement('div');
-            overlay.className = 'zoom-overlay active';
-            document.body.appendChild(overlay);
-            
-            // Zoom the image
-            this.classList.add('zoomed');
-            document.body.style.overflow = 'hidden';
-            
-            // Close on overlay click
-            overlay.addEventListener('click', function() {
-                pic.classList.remove('zoomed');
-                document.body.removeChild(overlay);
-                document.body.style.overflow = 'auto';
-            });
-            
-            // Close on escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && pic.classList.contains('zoomed')) {
-                    pic.classList.remove('zoomed');
-                    if (document.body.contains(overlay)) {
-                        document.body.removeChild(overlay);
-                    }
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        });
-    });
-});
-
-// Mobile Menu Toggle
-document.getElementById('mobileMenuToggle').addEventListener('click', function() {
-    const mobileMenu = document.getElementById('mobileMenu');
-    mobileMenu.classList.toggle('active');
-});
-
-// Header scroll effect
-window.addEventListener('scroll', function() {
-    const header = document.getElementById('header');
-    if (window.scrollY > 100) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
-
-// Scroll animations
-function isElementInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
-function isElementPartiallyInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-        rect.bottom >= 0 &&
-        rect.right >= 0 &&
-        rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.left <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
-function handleScrollAnimations() {
-    const elements = document.querySelectorAll('.fade-in');
-    elements.forEach(element => {
-        if (isElementPartiallyInViewport(element)) {
-            element.classList.add('visible');
-        }
-    });
-}
-
-// Run on load and scroll
-window.addEventListener('load', handleScrollAnimations);
-window.addEventListener('scroll', handleScrollAnimations);
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
+    </section>
     
     <!-- Enhanced Story Section -->
     <section class="story-section" id="story">
@@ -2183,7 +1675,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         </div>
     </section>
 
-     <!-- Enhanced FAQ Section -->
+    <!-- COMPLETELY REBUILT FAQ Section -->
     <section class="faq-section" id="faq">
         <div class="container">
             <h2 class="section-title fade-in">Your Questions Answered</h2>
@@ -2191,47 +1683,57 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             
             <div class="faq-container">
                 <div class="faq-item fade-in">
-                    <button class="faq-question" type="button">
+                    <button class="faq-question" onclick="toggleFAQNew(1)">
                         How much money do I need to start this system?
                     </button>
-                    <div class="faq-answer">
-                        <p>You can start with as little as ₱5,000-₱6,000 ($100) for your first product tests. But here's the BEAUTIFUL part about dropshipping - this money is GUARANTEED to come back because you're buying products AFTER customers already paid you! Unlike traditional businesses needing hundreds of thousands for inventory, warehouses, or employees, this system requires minimal upfront investment. You only pay suppliers AFTER customers buy from you. No inventory risk, no storage costs, no employee salaries. Most of my students started with under ₱10,000 and were profitable within their first month.</p>
+                    <div class="faq-answer" id="faq-1">
+                        <div class="faq-answer-content">
+                            <p>You can start with as little as ₱5,000-₱6,000 ($100) for your first product tests. But here's the BEAUTIFUL part about dropshipping - this money is GUARANTEED to come back because you're buying products AFTER customers already paid you! Unlike traditional businesses needing hundreds of thousands for inventory, warehouses, or employees, this system requires minimal upfront investment. You only pay suppliers AFTER customers buy from you. No inventory risk, no storage costs, no employee salaries. Most of my students started with under ₱10,000 and were profitable within their first month.</p>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="faq-item fade-in">
-                    <button class="faq-question" type="button">
+                    <button class="faq-question" onclick="toggleFAQNew(2)">
                         Do I need any experience to start making money with this?
                     </button>
-                    <div class="faq-answer">
-                        <p>ABSOLUTELY NOT! Listen, if you're asking this question, you're already overthinking it. This system is specifically designed for complete beginners. I've taught 200+ people this exact method, and most started with ZERO experience. No technical skills, no design abilities, no business background needed. The beauty of Etsy dropshipping is its simplicity - if you can browse Facebook, you can do this. I'll walk you through everything step-by-step, and you'll be shocked how fast you pick it up. Stop letting "inexperience" hold you back from financial freedom.</p>
+                    <div class="faq-answer" id="faq-2">
+                        <div class="faq-answer-content">
+                            <p>ABSOLUTELY NOT! Listen, if you're asking this question, you're already overthinking it. This system is specifically designed for complete beginners. I've taught 200+ people this exact method, and most started with ZERO experience. No technical skills, no design abilities, no business background needed. The beauty of Etsy dropshipping is its simplicity - if you can browse Facebook, you can do this. I'll walk you through everything step-by-step, and you'll be shocked how fast you pick it up. Stop letting "inexperience" hold you back from financial freedom.</p>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="faq-item fade-in">
-                    <button class="faq-question" type="button">
+                    <button class="faq-question" onclick="toggleFAQNew(3)">
                         How much time does this actually take per day?
                     </button>
-                    <div class="faq-answer">
-                        <p>I personally work 2-3 hours maximum per day, managing multiple shops making ₱500,000+ monthly. When starting, invest 2-3 hours daily for the first few weeks while learning and setting up. Once your shops run smoothly, scale back to 1-2 hours of maintenance work. The system is designed to be mostly automated - customers order, suppliers ship directly, Etsy handles payments. Perfect for busy people, students, OFWs, or anyone wanting location independence. This isn't about working harder, it's about working SMARTER.</p>
+                    <div class="faq-answer" id="faq-3">
+                        <div class="faq-answer-content">
+                            <p>I personally work 2-3 hours maximum per day, managing multiple shops making ₱500,000+ monthly. When starting, invest 2-3 hours daily for the first few weeks while learning and setting up. Once your shops run smoothly, scale back to 1-2 hours of maintenance work. The system is designed to be mostly automated - customers order, suppliers ship directly, Etsy handles payments. Perfect for busy people, students, OFWs, or anyone wanting location independence. This isn't about working harder, it's about working SMARTER.</p>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="faq-item fade-in">
-                    <button class="faq-question" type="button">
+                    <button class="faq-question" onclick="toggleFAQNew(4)">
                         Is this really free for the first 100 people?
                     </button>
-                    <div class="faq-answer">
-                        <p>Yes, completely FREE! I'm launching in the Philippines for the first time and want to share this life-changing opportunity with the first 100 Filipinos. This free training reveals the fundamentals of the ePro Formula system and shows you exactly how to get started. It's my way of giving back to the country that's become my home and helping Filipino entrepreneurs achieve the financial freedom they deserve. Just enter your email and phone to secure your spot before they're gone.</p>
+                    <div class="faq-answer" id="faq-4">
+                        <div class="faq-answer-content">
+                            <p>Yes, completely FREE! I'm launching in the Philippines for the first time and want to share this life-changing opportunity with the first 100 Filipinos. This free training reveals the fundamentals of the ePro Formula system and shows you exactly how to get started. It's my way of giving back to the country that's become my home and helping Filipino entrepreneurs achieve the financial freedom they deserve. Just enter your email and phone to secure your spot before they're gone.</p>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="faq-item fade-in">
-                    <button class="faq-question" type="button">
+                    <button class="faq-question" onclick="toggleFAQNew(5)">
                         Will this work everywhere in the world?
                     </button>
-                    <div class="faq-answer">
-                        <p>This system works EVERYWHERE! Etsy is a global marketplace where you're selling to customers worldwide, primarily in the US, UK, Canada, and Australia. Your location is completely irrelevant - you could be in Manila, Cebu, Davao, or a remote island with internet connection. Filipinos actually have MASSIVE advantages: lower cost of living means higher profit margins, incredible English skills for customer service, strong work ethic, and almost zero competition since very few Filipinos know about this goldmine. The internet has no borders - your success depends on following the system, not your zip code.</p>
+                    <div class="faq-answer" id="faq-5">
+                        <div class="faq-answer-content">
+                            <p>This system works EVERYWHERE! Etsy is a global marketplace where you're selling to customers worldwide, primarily in the US, UK, Canada, and Australia. Your location is completely irrelevant - you could be in Manila, Cebu, Davao, or a remote island with internet connection. Filipinos actually have MASSIVE advantages: lower cost of living means higher profit margins, incredible English skills for customer service, strong work ethic, and almost zero competition since very few Filipinos know about this goldmine. The internet has no borders - your success depends on following the system, not your zip code.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2242,56 +1744,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         </div>
     </section>
 
-<script>
-// FAQ Accordion Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', function() {
-            const faqItem = this.parentNode;
-            const faqAnswer = faqItem.querySelector('.faq-answer');
-            
-            // Close all other FAQ items
-            faqQuestions.forEach(otherQuestion => {
-                if (otherQuestion !== this) {
-                    otherQuestion.classList.remove('active');
-                    otherQuestion.parentNode.querySelector('.faq-answer').classList.remove('active');
-                }
-            });
-            
-            // Toggle current FAQ item
-            this.classList.toggle('active');
-            faqAnswer.classList.toggle('active');
-        });
-    });
-});
-</script>
-<script>
-// FAQ Accordion Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', function() {
-            const faqItem = this.parentNode;
-            const faqAnswer = faqItem.querySelector('.faq-answer');
-            
-            // Close all other FAQ items
-            faqQuestions.forEach(otherQuestion => {
-                if (otherQuestion !== this) {
-                    otherQuestion.classList.remove('active');
-                    otherQuestion.parentNode.querySelector('.faq-answer').classList.remove('active');
-                }
-            });
-            
-            // Toggle current FAQ item
-            this.classList.toggle('active');
-            faqAnswer.classList.toggle('active');
-        });
-    });
-});
-</script>
     <!-- Enhanced Final CTA Section -->
     <section class="final-cta" id="signup">
         <div class="cta-bg"></div>
@@ -2343,37 +1795,31 @@ document.addEventListener('DOMContentLoaded', function() {
     </section>
 
     <script>
-        // FAQ functionality
-        function toggleFAQ(button) {
-            const answer = button.nextElementSibling;
-            const isOpen = answer.classList.contains('active');
-            
-            // Close all FAQs
-            document.querySelectorAll('.faq-answer').forEach(ans => {
-                ans.classList.remove('active');
-                ans.style.maxHeight = '0px';
-                ans.style.padding = '0 30px';
-            });
-            document.querySelectorAll('.faq-question').forEach(q => {
-                q.classList.remove('active');
-            });
-            
-            // Open this one if it was closed
-            if (!isOpen) {
-                answer.classList.add('active');
-                answer.style.maxHeight = '500px';
-                answer.style.padding = '30px';
-                button.classList.add('active');
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
-        }
+        });
 
         // Animate counters on page load
         window.addEventListener('load', function() {
-            animateCounter('counter1', 2000000, ' , 'M+');
+            animateCounter('counter1', 2000000, ', 'M+');
             animateCounter('counter2', 200, '', '+');
             animateCounter('counter3', 95, '', '%');
             animateCounter('counter4', 500, '', '+');
             animateCounter('counter5', 55, '', '%');
+            // Special handling for the 5-star rating counter
+            animateStarRating('counter6');
         });
 
         function animateCounter(id, target, prefix = '', suffix = '') {
@@ -2401,9 +1847,125 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 20);
         }
 
-                    });
+        function animateStarRating(id) {
+            const element = document.getElementById(id);
+            if (!element) return;
+            
+            let current = 0;
+            const target = 4.7;
+            const increment = 0.1;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                
+                element.innerHTML = `
+                    <span style="color: #f59e0b; font-size: 1.2rem; display: block; line-height: 1.2; margin-bottom: 10px;">⭐⭐⭐⭐⭐</span>
+                    <span style="font-size: 3rem;">${current.toFixed(1)}</span>
+                `;
+            }, 50);
+        }
 
-            // Form submission handling
+        // Add click-to-zoom functionality for better number viewing
+        document.addEventListener('DOMContentLoaded', function() {
+            const resultPics = document.querySelectorAll('.result-pic');
+            
+            resultPics.forEach(pic => {
+                pic.addEventListener('click', function() {
+                    // Create overlay
+                    const overlay = document.createElement('div');
+                    overlay.className = 'zoom-overlay active';
+                    document.body.appendChild(overlay);
+                    
+                    // Zoom the image
+                    this.classList.add('zoomed');
+                    document.body.style.overflow = 'hidden';
+                    
+                    // Close on overlay click
+                    overlay.addEventListener('click', function() {
+                        pic.classList.remove('zoomed');
+                        document.body.removeChild(overlay);
+                        document.body.style.overflow = 'auto';
+                    });
+                    
+                    // Close on escape key
+                    document.addEventListener('keydown', function(e) {
+                        if (e.key === 'Escape' && pic.classList.contains('zoomed')) {
+                            pic.classList.remove('zoomed');
+                            if (document.body.contains(overlay)) {
+                                document.body.removeChild(overlay);
+                            }
+                            document.body.style.overflow = 'auto';
+                        }
+                    });
+                });
+            });
+        });
+
+        // Simple and reliable FAQ toggle function
+        function toggleFAQ(button) {
+            const answer = button.nextElementSibling;
+            const isOpen = answer.classList.contains('active');
+            
+            // Close all FAQs first
+            document.querySelectorAll('.faq-answer').forEach(ans => {
+                ans.classList.remove('active');
+                ans.style.maxHeight = '0px';
+                ans.style.padding = '0 30px';
+                ans.style.opacity = '0';
+            });
+            document.querySelectorAll('.faq-question').forEach(q => {
+                q.classList.remove('active');
+            });
+            
+            // If this one was closed, open it
+            if (!isOpen) {
+                answer.classList.add('active');
+                answer.style.maxHeight = '500px';
+                answer.style.padding = '30px';
+                answer.style.opacity = '1';
+                button.classList.add('active');
+            }
+        }
+
+        // Scroll animations
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function isElementPartiallyInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.bottom >= 0 &&
+                rect.right >= 0 &&
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.left <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                if (isElementPartiallyInViewport(element)) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Run on load and scroll
+        window.addEventListener('load', handleScrollAnimations);
+        window.addEventListener('scroll', handleScrollAnimations);
+
+        // Form submission handling
         document.addEventListener('DOMContentLoaded', function() {
             const formButton = document.querySelector('.signup-form .cta-button');
             if (formButton) {
@@ -2443,16 +2005,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         alert('🎉 CONGRATULATIONS! You\'ve secured your FREE spot in ePro Formula. Check your email within the next 5 minutes for instant access to the training!');
                     }, 1000);
                 });
-            }
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
             }
         });
 
