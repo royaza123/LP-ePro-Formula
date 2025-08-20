@@ -405,7 +405,7 @@
 
         .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
             margin: 60px 0;
             position: relative;
@@ -529,9 +529,10 @@
 
         .image-card img {
             width: 100%;
-            height: 300px;
+            height: 200px;
             object-fit: cover;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .image-card:hover img {
