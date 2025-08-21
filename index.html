@@ -961,14 +961,14 @@
         }
         
         .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            background: rgba(0,0,0,0.3);
-            transition: max-height 0.3s ease;
+        max-height: 0;
+        overflow: hidden;
+        background: rgba(0,0,0,0.3);
+        transition: max-height 0.4s ease-out;
         }
-        
+
         .faq-answer.open {
-            max-height: 1000px;
+        max-height: 500px;
         }
         
         .faq-answer-content {
@@ -2105,15 +2105,14 @@
             });
         });
 
-        // BRAND NEW FAQ FUNCTION - THIS WILL WORK!
         function toggleFAQNew(faqNumber) {
-            // Get the specific FAQ elements
-            const question = document.querySelector(`button[onclick="toggleFAQNew(${faqNumber})"]`);
-            const answer = document.getElementById(`faq-${faqNumber}`);
-            
-            // Check if this FAQ is currently open
-            const isOpen = answer.classList.contains('open');
-            
+    // Get the specific FAQ elements
+    const question = document.querySelector(`button[onclick="toggleFAQNew(${faqNumber})"]`);
+    const answer = document.getElementById(`faq-${faqNumber}`);
+    
+    // Check if this FAQ is currently open
+    const isOpen = answer.classList.contains('open');
+    
             // Close ALL FAQs first
             for (let i = 1; i <= 5; i++) {
                 const q = document.querySelector(`button[onclick="toggleFAQNew(${i})"]`);
@@ -2123,6 +2122,13 @@
                     a.classList.remove('open');
                 }
             }
+            
+            // If this FAQ was closed, open it
+            if (!isOpen) {
+                question.classList.add('open');
+                answer.classList.add('open');
+            }
+        }
             
             // If this FAQ was closed, open it
             if (!isOpen) {
