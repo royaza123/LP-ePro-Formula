@@ -2013,7 +2013,7 @@
 
         // Animate counters on page load
         window.addEventListener('load', function() {
-            animateCounter('counter1', 2000000, ', 'M+');
+            animateCounter('counter1', 2000000, '', 'M+');
             animateCounter('counter2', 200, '', '+');
             animateCounter('counter3', 95, '', '%');
             animateCounter('counter4', 500, '', '+');
@@ -2105,30 +2105,21 @@
             });
         });
 
+        // FIXED FAQ FUNCTION - This will work!
         function toggleFAQNew(faqNumber) {
-    // Get the specific FAQ elements
-    const question = document.querySelector(`button[onclick="toggleFAQNew(${faqNumber})"]`);
-    const answer = document.getElementById(`faq-${faqNumber}`);
-    
-    // Check if this FAQ is currently open
-    const isOpen = answer.classList.contains('open');
-    
-            // Close ALL FAQs first
-            for (let i = 1; i <= 5; i++) {
-                const q = document.querySelector(`button[onclick="toggleFAQNew(${i})"]`);
-                const a = document.getElementById(`faq-${i}`);
-                if (q && a) {
-                    q.classList.remove('open');
-                    a.classList.remove('open');
-                }
-            }
+            const answer = document.getElementById('faq-' + faqNumber);
+            const question = answer.previousElementSibling;
             
-            // If this FAQ was closed, open it
-            if (!isOpen) {
-                question.classList.add('open');
-                answer.classList.add('open');
-            }
-        }
+            // Check if this FAQ is currently open
+            const isOpen = answer.classList.contains('open');
+            
+            // Close ALL FAQs first
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                item.classList.remove('open');
+            });
+            document.querySelectorAll('.faq-question').forEach(item => {
+                item.classList.remove('open');
+            });
             
             // If this FAQ was closed, open it
             if (!isOpen) {
