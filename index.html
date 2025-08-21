@@ -681,12 +681,14 @@
 
         .testimonials-track {
             display: flex;
-            animation: scroll-testimonials 20s linear infinite;
+            animation: scroll-testimonials 100s linear infinite;
             gap: 30px;
+            width: calc(350px * 28 + 30px * 27);
         }
 
         .testimonial-box {
             min-width: 320px;
+            width: 320px;
             background: rgba(255,255,255,0.05);
             border-radius: 20px;
             padding: 25px;
@@ -770,7 +772,7 @@
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(-50%);
+                transform: translateX(calc(-320px * 14 - 30px * 14));
             }
         }
 
@@ -1399,6 +1401,7 @@
             
             <div class="testimonials-carousel">
                 <div class="testimonials-track">
+                    <!-- First set of testimonials -->
                     <div class="testimonial-box">
                         <div class="profile-section">
                             <img src="images/students./IMG-20250820-WA0050.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
@@ -1521,6 +1524,278 @@
                         </div>
                         <div class="result-section">
                             <img src="images/results/notable results/325 דולר ביום.jpg" alt="Bank Statement" class="result-pic">
+                            <p class="result-text">"$325 in a DAY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./IMG-20250820-WA0053.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Maya Rosenberg</h4>
+                                <p>Herzliya, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/377 דולר ביום.jpg" alt="Success Metrics" class="result-pic">
+                            <p class="result-text">"$377 in a DAY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./IMG-20250820-WA0054.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Avi Rosen</h4>
+                                <p>Eilat, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/4,000 דולר בחודש.jpg" alt="Earnings Screenshot" class="result-pic">
+                            <p class="result-text">"$4,000 MONTHLY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./IMG-20250820-WA0055.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Rachel Cohen</h4>
+                                <p>Kfar Saba, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/4,346.22 דולר בשבוע.jpg" alt="Revenue Dashboard" class="result-pic">
+                            <p class="result-text">"$4,346.22 in a WEEK!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./WhatsApp Image 2025-08-20 at 20.15.15_401b5108.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Itay Rosha</h4>
+                                <p>Rehovot, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/4,500 דולר בחודש.jpg" alt="Profit Report" class="result-pic">
+                            <p class="result-text">"$4,500 MONTHLY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./WhatsApp Image 2025-08-20 at 20.22.49_12609e59.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Sapir Cohen</h4>
+                                <p>Tel Aviv, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/5,388 דולר בחודש.jpg" alt="Profit Report" class="result-pic">
+                            <p class="result-text">"$5,388 MONTHLY!"</p>
+                        </div>
+                    </div>
+
+                    <!-- DUPLICATE SET FOR INFINITE SCROLL -->
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./IMG-20250820-WA0050.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Daniel Mizrahi</h4>
+                                <p>Tel Aviv, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/1,368.50 דולר ביום.jpg" alt="Earnings Screenshot" class="result-pic">
+                            <p class="result-text">"$1,368.50 in a DAY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./ניקיטה.png" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Nikita Ohayon</h4>
+                                <p>Jerusalem, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/2,182.10 דולר בחודש.jpg" alt="Revenue Dashboard" class="result-pic">
+                            <p class="result-text">"$2,182.10 MONTHLY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./בארי.png" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Bari Goldstein</h4>
+                                <p>Haifa, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/2,500 דולר בחודש.jpg" alt="Profit Report" class="result-pic">
+                            <p class="result-text">"$2,500 MONTHLY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./עומריקי.png" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Omer Rikanati</h4>
+                                <p>Netanya, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/2,688.75 בחודש.jpg" alt="Bank Statement" class="result-pic">
+                            <p class="result-text">"$2,688.75 MONTHLY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./דנה'לה שלי.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Daniella Shapira</h4>
+                                <p>Rishon LeZion, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/2,800 דולר בחודש.jpg" alt="Success Metrics" class="result-pic">
+                            <p class="result-text">"$2,800 MONTHLY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./מנוש.png" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Menashe Levy</h4>
+                                <p>Ashdod, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/297.63 דולר ביום.jpg" alt="Earnings Screenshot" class="result-pic">
+                            <p class="result-text">"$297.63 in a DAY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./נתנאל.png" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Nathanel Ben-David</h4>
+                                <p>Beer Sheva, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/3,000 דולר בחודש.jpg" alt="Revenue Dashboard" class="result-pic">
+                            <p class="result-text">"$3,000 MONTHLY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./IMG-20250820-WA0051.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Sarah Avraham</h4>
+                                <p>Petah Tikva, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/3,500 דולר בחודש.jpg" alt="Profit Report" class="result-pic">
+                            <p class="result-text">"$3,500 MONTHLY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./IMG-20250820-WA0052.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Yosef Katz</h4>
+                                <p>Ramat Gan, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/325 דולר ביום.jpg" alt="Bank Statement" class="result-pic">
+                            <p class="result-text">"$325 in a DAY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./IMG-20250820-WA0053.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Maya Rosenberg</h4>
+                                <p>Herzliya, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/377 דולר ביום.jpg" alt="Success Metrics" class="result-pic">
+                            <p class="result-text">"$377 in a DAY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./IMG-20250820-WA0054.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Avi Rosen</h4>
+                                <p>Eilat, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/4,000 דולר בחודש.jpg" alt="Earnings Screenshot" class="result-pic">
+                            <p class="result-text">"$4,000 MONTHLY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./IMG-20250820-WA0055.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Rachel Cohen</h4>
+                                <p>Kfar Saba, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/4,346.22 דולר בשבוע.jpg" alt="Revenue Dashboard" class="result-pic">
+                            <p class="result-text">"$4,346.22 in a WEEK!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./WhatsApp Image 2025-08-20 at 20.15.15_401b5108.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Itay Rosha</h4>
+                                <p>Rehovot, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/4,500 דולר בחודש.jpg" alt="Profit Report" class="result-pic">
+                            <p class="result-text">"$4,500 MONTHLY!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-box">
+                        <div class="profile-section">
+                            <img src="images/students./WhatsApp Image 2025-08-20 at 20.22.49_12609e59.jpg" alt="Student Profile" class="profile-pic" style="object-fit: cover; border-radius: 50%;">
+                            <div class="student-info">
+                                <h4>Sapir Cohen</h4>
+                                <p>Tel Aviv, Israel</p>
+                            </div>
+                        </div>
+                        <div class="result-section">
+                            <img src="images/results/notable results/5,388 דולר בחודש.jpg" alt="Profit Report" class="result-pic">
+                            <p class="result-text">"$5,388 MONTHLY!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>-pic">
                             <p class="result-text">"$325 in a DAY!"</p>
                         </div>
                     </div>
@@ -1905,29 +2180,29 @@
             });
         });
 
-        // Simple and reliable FAQ toggle function
-        function toggleFAQ(button) {
-            const answer = button.nextElementSibling;
-            const isOpen = answer.classList.contains('active');
+        // BRAND NEW FAQ FUNCTION - THIS WILL WORK!
+        function toggleFAQNew(faqNumber) {
+            // Get the specific FAQ elements
+            const question = document.querySelector(`button[onclick="toggleFAQNew(${faqNumber})"]`);
+            const answer = document.getElementById(`faq-${faqNumber}`);
             
-            // Close all FAQs first
-            document.querySelectorAll('.faq-answer').forEach(ans => {
-                ans.classList.remove('active');
-                ans.style.maxHeight = '0px';
-                ans.style.padding = '0 30px';
-                ans.style.opacity = '0';
-            });
-            document.querySelectorAll('.faq-question').forEach(q => {
-                q.classList.remove('active');
-            });
+            // Check if this FAQ is currently open
+            const isOpen = answer.classList.contains('open');
             
-            // If this one was closed, open it
+            // Close ALL FAQs first
+            for (let i = 1; i <= 5; i++) {
+                const q = document.querySelector(`button[onclick="toggleFAQNew(${i})"]`);
+                const a = document.getElementById(`faq-${i}`);
+                if (q && a) {
+                    q.classList.remove('open');
+                    a.classList.remove('open');
+                }
+            }
+            
+            // If this FAQ was closed, open it
             if (!isOpen) {
-                answer.classList.add('active');
-                answer.style.maxHeight = '500px';
-                answer.style.padding = '30px';
-                answer.style.opacity = '1';
-                button.classList.add('active');
+                question.classList.add('open');
+                answer.classList.add('open');
             }
         }
 
