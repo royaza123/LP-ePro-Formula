@@ -2016,6 +2016,29 @@
             }
         });
 
+        // FIXED FAQ FUNCTION - ADD THIS!
+        function toggleFAQNew(faqNumber) {
+            const answer = document.getElementById('faq-' + faqNumber);
+            const question = answer.previousElementSibling;
+            
+            // Check if this FAQ is currently open
+            const isOpen = answer.classList.contains('open');
+            
+            // Close ALL FAQs first
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                item.classList.remove('open');
+            });
+            document.querySelectorAll('.faq-question').forEach(item => {
+                item.classList.remove('open');
+            });
+            
+            // If this FAQ was closed, open it
+            if (!isOpen) {
+                question.classList.add('open');
+                answer.classList.add('open');
+            }
+        }
+
         // Animate counters on page load
         window.addEventListener('load', function() {
             animateCounter('counter1', 2000000, '', 'M+');
@@ -2033,3 +2056,171 @@
             
             let current = 0;
             const increment = target / 100;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                
+                let displayValue;
+                if (target >= 1000000) {
+                    displayValue = prefix + (current / 1000000).toFixed(1) + suffix;
+                } else {
+                    displayValue = prefix + Math.floor(current) + suffix;
+                }
+                
+                element.textContent = displayValue;
+            }, 20);
+        }
+
+        function animateStarRating(id) {
+            const element = document.getElementById(id);
+            if (!element) return;
+            
+            let current = 0;
+            const target = 4.7;
+            const increment = 0.1;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                
+                element.innerHTML = `
+                    <span style="color: #f59e0b; font-size: 1.2rem; display: block; line-height: 1.2; margin-bottom: 10px;">⭐⭐⭐⭐⭐</span>
+                    <span style="font-size: 3rem;">${current.toFixed(1)}</span>
+                `;
+            }, 50);
+        }
+
+        // Add click-to-zoom functionality for better number viewing
+        document.addEventListener('DOMContentLoaded', function() {
+            const resultPics = document.querySelectorAll('.result-pic');
+            
+            resultPics.forEach(pic => {
+                pic.addEventListener('click', function() {
+                    // Create overlay
+                    const overlay = document.createElement('div');
+                    overlay.className = 'zoom-overlay active';
+                    document.body.appendChild(overlay);
+                    
+                    // Zoom the image
+                    this.classList.add('zoomed');
+                    document.body.style.overflow = 'hidden';
+                    
+                    // Close on overlay click
+                    overlay.addEventListener('click', function() {
+                        pic.classList.remove('zoomed');
+                        document.body.removeChild(overlay);
+                        document.body.style.overflow = 'auto';
+                    });
+                    
+                    // Close on escape key
+                    document.addEventListener('keydown', function(e) {
+                        if (e.key === 'Escape' && pic.classList.contains('zoomed')) {
+                            pic.classList.remove('zoomed');
+                            if (document.body.contains(overlay)) {
+                                document.body.removeChild(overlay);
+                            }
+                            document.body.style.overflow = 'auto';
+                        }
+                    });
+                });
+            });
+        });
+
+        // Scroll animations
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function isElementPartiallyInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.bottom >= 0 &&
+                rect.right >= 0 &&
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.left <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                if (isElementPartiallyInViewport(element)) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Run on load and scroll
+        window.addEventListener('load', handleScrollAnimations);
+        window.addEventListener('scroll', handleScrollAnimations);
+
+        // Form submission handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const formButton = document.querySelector('.signup-form .cta-button');
+            if (formButton) {
+                formButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const email = document.querySelector('input[type="email"]').value;
+                    const phone = document.querySelector('input[type="tel"]').value;
+                    
+                    if (!email || !phone) {
+                        alert('Please fill in both email and phone number to secure your FREE spot!');
+                        return;
+                    }
+                    
+                    if (!email.includes('@')) {
+                        alert('Please enter a valid email address.');
+                        return;
+                    }
+                    
+                    this.textContent = 'SPOT SECURED! 🎉';
+                    this.style.background = '#27ae60';
+                    this.style.transform = 'scale(1.05)';
+                    
+                    // Update counters
+                    const claimedSpots = document.getElementById('claimed-spots');
+                    const currentClaimed = parseInt(claimedSpots.textContent);
+                    claimedSpots.textContent = currentClaimed + 1;
+                    
+                    const counter = document.getElementById('student-counter');
+                    const currentCount = parseInt(counter.textContent);
+                    counter.textContent = currentCount - 1;
+                    
+                    const spotsLeft = document.getElementById('spots-left');
+                    const currentLeft = parseInt(spotsLeft.textContent);
+                    spotsLeft.textContent = currentLeft - 1;
+                    
+                    setTimeout(() => {
+                        alert('🎉 CONGRATULATIONS! You\'ve secured your FREE spot in ePro Formula. Check your email within the next 5 minutes for instant access to the training!');
+                    }, 1000);
+                });
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
