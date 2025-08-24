@@ -786,33 +786,60 @@
             animation-play-state: paused;
         }
 
-        /* Zoom functionality */
+      /* Zoom functionality */
         .result-pic.zoomed {
             position: fixed;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) scale(1.5);
+            transform: translate(-50%, -50%);
             z-index: 9999;
             max-width: 90vw;
             max-height: 90vh;
+            width: auto;
+            height: auto;
             background: #000;
             border: 3px solid #d97706;
             box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            border-radius: 15px;
+            padding: 10px;
+            object-fit: contain;
+            cursor: pointer;
         }
-
+        
         .zoom-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.95);
             z-index: 9998;
             display: none;
+            cursor: pointer;
         }
-
+        
         .zoom-overlay.active {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .zoom-close-hint {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            color: white;
+            background: rgba(217, 119, 6, 0.9);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            z-index: 10000;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Story Section Enhanced */
@@ -2096,38 +2123,69 @@
             }, 50);
         }
 
-        // Add click-to-zoom functionality for better number viewing
+        // Enhanced click-to-zoom functionality
         document.addEventListener('DOMContentLoaded', function() {
             const resultPics = document.querySelectorAll('.result-pic');
+            let currentZoomedImage = null;
+            let currentOverlay = null;
             
             resultPics.forEach(pic => {
-                pic.addEventListener('click', function() {
+                pic.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
                     // Create overlay
                     const overlay = document.createElement('div');
                     overlay.className = 'zoom-overlay active';
-                    document.body.appendChild(overlay);
                     
-                    // Zoom the image
-                    this.classList.add('zoomed');
+                    // Create close hint
+                    const closeHint = document.createElement('div');
+                    closeHint.className = 'zoom-close-hint';
+                    closeHint.innerHTML = '✕ Click anywhere to close';
+                    
+                    // Clone the image for zooming
+                    const zoomedImg = this.cloneNode(true);
+                    zoomedImg.classList.add('zoomed');
+                    zoomedImg.style.cursor = 'pointer';
+                    
+                    // Add elements to page
+                    overlay.appendChild(zoomedImg);
+                    overlay.appendChild(closeHint);
+                    document.body.appendChild(overlay);
                     document.body.style.overflow = 'hidden';
                     
+                    // Store references
+                    currentZoomedImage = zoomedImg;
+                    currentOverlay = overlay;
+                    
+                    // Close function
+                    function closeZoom() {
+                        if (currentOverlay && document.body.contains(currentOverlay)) {
+                            document.body.removeChild(currentOverlay);
+                            document.body.style.overflow = 'auto';
+                            currentZoomedImage = null;
+                            currentOverlay = null;
+                        }
+                    }
+                    
                     // Close on overlay click
-                    overlay.addEventListener('click', function() {
-                        pic.classList.remove('zoomed');
-                        document.body.removeChild(overlay);
-                        document.body.style.overflow = 'auto';
-                    });
+                    overlay.addEventListener('click', closeZoom);
                     
                     // Close on escape key
-                    document.addEventListener('keydown', function(e) {
-                        if (e.key === 'Escape' && pic.classList.contains('zoomed')) {
-                            pic.classList.remove('zoomed');
-                            if (document.body.contains(overlay)) {
-                                document.body.removeChild(overlay);
-                            }
-                            document.body.style.overflow = 'auto';
+                    const escapeHandler = function(e) {
+                        if (e.key === 'Escape') {
+                            closeZoom();
+                            document.removeEventListener('keydown', escapeHandler);
                         }
-                    });
+                    };
+                    document.addEventListener('keydown', escapeHandler);
+                    
+                    // Auto-close after 10 seconds
+                    setTimeout(() => {
+                        if (currentOverlay) {
+                            closeZoom();
+                        }
+                    }, 10000);
                 });
             });
         });
