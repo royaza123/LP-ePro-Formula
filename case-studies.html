@@ -1956,6 +1956,8 @@
                                required
                                style="width: 100%; padding: 18px 25px; border: 2px solid rgba(255,255,255,0.3); border-radius: 15px; background: rgba(255,255,255,0.1); color: white; font-size: 1.2rem; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: all 0.3s ease; box-sizing: border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; outline: none; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
                     </div>
+
+                    
                     
                     <div class="form-group">
                         <button id="proofSubmitBtn"
@@ -2050,11 +2052,12 @@
             if (formButton) {
                 formButton.addEventListener('click', function(e) {
                     e.preventDefault();
+                    const firstName = document.getElementById('proofFirstName').value.trim();
                     const email = document.getElementById('proofEmail').value.trim();
                     const phone = document.getElementById('proofPhone').value.trim();
                     
-                    if (!email || !phone) {
-                        alert('Please fill in both email and phone number to secure your FREE spot!');
+                    if (!firstName || !email) {
+                        alert('Please fill in your first name and email address to secure your FREE spot!');
                         return;
                     }
                     
@@ -2076,23 +2079,21 @@
                             'Content-Type': 'application/json',
                         },
                         body: JSON.stringify({
+                            firstName: firstName,
                             email: email,
-                            phone: phone,
+                            phone: phone || '',
                             source: 'case_studies_page',
                             timestamp: new Date().toISOString()
                         })
                     })
                     .then(response => {
                         if (response.ok) {
-                            // Success - redirect to thank you page
                             this.textContent = 'SPOT SECURED! 🎉';
                             this.style.background = '#27ae60';
                             this.style.transform = 'scale(1.05)';
                             this.style.opacity = '1';
                             
                             setTimeout(() => {
-                                // TODO: Redirect to thank you page when ready
-                                // window.location.href = 'thankyou.html';
                                 alert('🎉 CONGRATULATIONS! Your spot is secured. Thank you page coming soon!');
                             }, 1500);
                         } else {
@@ -2101,7 +2102,6 @@
                     })
                     .catch(error => {
                         console.error('Error:', error);
-                        // Reset button on error
                         this.textContent = originalText;
                         this.disabled = false;
                         this.style.opacity = '1';
