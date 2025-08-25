@@ -2230,39 +2230,70 @@
             if (formButton) {
                 formButton.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const email = document.querySelector('input[type="email"]').value;
-                    const phone = document.querySelector('input[type="tel"]').value;
+                    const email = document.querySelector('input[type="email"]').value.trim();
+                    const phone = document.querySelector('input[type="tel"]').value.trim();
                     
                     if (!email || !phone) {
                         alert('Please fill in both email and phone number to secure your FREE spot!');
                         return;
                     }
                     
-                    if (!email.includes('@')) {
+                    if (!email.includes('@') || !email.includes('.')) {
                         alert('Please enter a valid email address.');
                         return;
                     }
                     
-                    this.textContent = 'SPOT SECURED! 🎉';
-                    this.style.background = '#27ae60';
-                    this.style.transform = 'scale(1.05)';
+                    // Show loading state
+                    const originalText = this.textContent;
+                    this.textContent = 'SECURING YOUR SPOT...';
+                    this.disabled = true;
+                    this.style.opacity = '0.7';
                     
-                    // Update counters
-                    const claimedSpots = document.getElementById('claimed-spots');
-                    const currentClaimed = parseInt(claimedSpots.textContent);
-                    claimedSpots.textContent = currentClaimed + 1;
-                    
-                    const counter = document.getElementById('student-counter');
-                    const currentCount = parseInt(counter.textContent);
-                    counter.textContent = currentCount - 1;
-                    
-                    const spotsLeft = document.getElementById('spots-left');
-                    const currentLeft = parseInt(spotsLeft.textContent);
-                    spotsLeft.textContent = currentLeft - 1;
-                    
-                    setTimeout(() => {
-                        alert('🎉 CONGRATULATIONS! You\'ve secured your FREE spot in ePro Formula. Check your email within the next 5 minutes for instant access to the training!');
-                    }, 1000);
+                    // Send to Make.com webhook
+                    fetch('https://hook.eu2.make.com/uy29olvlhoccpxch6ivc9rxfuot0r2g9', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            email: email,
+                            phone: phone,
+                            source: 'index_page',
+                            timestamp: new Date().toISOString()
+                        })
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            // Success - redirect to thank you page
+                            this.textContent = 'SPOT SECURED! 🎉';
+                            this.style.background = '#27ae60';
+                            this.style.transform = 'scale(1.05)';
+                            this.style.opacity = '1';
+                            
+                            // Update counters
+                            const spotsLeft = document.getElementById('spots-left');
+                            if (spotsLeft) {
+                                const currentLeft = parseInt(spotsLeft.textContent);
+                                spotsLeft.textContent = Math.max(0, currentLeft - 1);
+                            }
+                            
+                            setTimeout(() => {
+                                // TODO: Redirect to thank you page when ready
+                                // window.location.href = 'thankyou.html';
+                                alert('🎉 CONGRATULATIONS! Your spot is secured. Thank you page coming soon!');
+                            }, 1500);
+                        } else {
+                            throw new Error('Network response was not ok');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        // Reset button on error
+                        this.textContent = originalText;
+                        this.disabled = false;
+                        this.style.opacity = '1';
+                        alert('Something went wrong. Please try again or contact support.');
+                    });
                 });
             }
         });
