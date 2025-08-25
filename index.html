@@ -2230,11 +2230,12 @@
             if (formButton) {
                 formButton.addEventListener('click', function(e) {
                     e.preventDefault();
+                    const firstName = document.querySelector('input[type="text"]').value.trim();
                     const email = document.querySelector('input[type="email"]').value.trim();
                     const phone = document.querySelector('input[type="tel"]').value.trim();
                     
-                    if (!email || !phone) {
-                        alert('Please fill in both email and phone number to secure your FREE spot!');
+                    if (!firstName || !email) {
+                        alert('Please fill in your first name and email address to secure your FREE spot!');
                         return;
                     }
                     
@@ -2256,8 +2257,9 @@
                             'Content-Type': 'application/json',
                         },
                         body: JSON.stringify({
+                            firstName: firstName,
                             email: email,
-                            phone: phone,
+                            phone: phone || '', // Optional field
                             source: 'index_page',
                             timestamp: new Date().toISOString()
                         })
