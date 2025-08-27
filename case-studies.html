@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- PERFORMANCE OPTIMIZATIONS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
+    <!-- Preload critical images -->
+    <link rel="preload" href="images/results/IMG-20250706-WA0041.webp" as="image" type="image/webp">
+    <link rel="preload" href="images/results/IMG-20250706-WA0045.webp" as="image" type="image/webp">
+    <link rel="preload" href="images/results/IMG-20250706-WA0086.webp" as="image" type="image/webp">
     <title>ePro Formula - Proof of Success</title>
     <!-- Favicon Links -->
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -2184,8 +2194,17 @@
 
         // Run on load and scroll
         window.addEventListener('load', handleScrollAnimations);
-        window.addEventListener('scroll', handleScrollAnimations);
-
+        // THROTTLED SCROLL HANDLING
+let scrollTimeout;
+function throttledScroll() {
+    if (scrollTimeout) return;
+    scrollTimeout = setTimeout(() => {
+        handleScrollAnimations();
+        scrollTimeout = null;
+    }, 16); // 60fps
+}
+window.addEventListener('scroll', throttledScroll, { passive: true });
+        
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -2213,7 +2232,51 @@
             });
 
             document.querySelectorAll('img[loading="lazy"]').forEach(img => {
-                imageObserver.observe(img);
+                // OPTIMIZED LAZY LOADING
+if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.classList.add('loaded');
+                img.style.transition = 'opacity 0.3s ease';
+                img.style.opacity = '1';
+                observer.unobserve(img);
+            }
+        });
+    }, {
+        rootMargin: '50px 0px', // Start loading 50px before entering viewport
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        img.style.opacity = '0'; // Start hidden
+        imageObserver.observe(img);
+    });
+}
+
+// PRELOAD NEXT BATCH ON SCROLL
+let nextBatchPreloaded = false;
+document.addEventListener('scroll', () => {
+    if (!nextBatchPreloaded && window.scrollY > window.innerHeight * 0.5) {
+        // Preload next 10 images
+        const nextImages = document.querySelectorAll('.image-card:nth-child(n+11):nth-child(-n+20) img');
+        nextImages.forEach(img => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = img.src;
+            document.head.appendChild(link);
+        });
+        nextBatchPreloaded = true;
+    }
+}, { passive: true });
+    // SERVICE WORKER REGISTRATION
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => console.log('SW registered'))
+                    .catch(error => console.log('SW registration failed'));
             });
         }
     </script>
