@@ -2295,29 +2295,28 @@
                         })
                     })
                     .then(response => {
-                        if (response.ok) {
-                            // Success - redirect to thank you page
-                            this.textContent = 'SPOT SECURED! 🎉';
-                            this.style.background = '#27ae60';
-                            this.style.transform = 'scale(1.05)';
-                            this.style.opacity = '1';
-                            
-                            // Update counters
-                            const spotsLeft = document.getElementById('spots-left');
-                            if (spotsLeft) {
-                                const currentLeft = parseInt(spotsLeft.textContent);
-                                spotsLeft.textContent = Math.max(0, currentLeft - 1);
-                            }
-                            
-                            setTimeout(() => {
-                                // TODO: Redirect to thank you page when ready
-                                // window.location.href = 'thankyou.html';
-                                alert('🎉 CONGRATULATIONS! Your spot is secured. Thank you page coming soon!');
-                            }, 1500);
-                        } else {
-                            throw new Error('Network response was not ok');
+                    if (response.ok) {
+                        // Success - redirect to thank you page
+                        this.textContent = 'SPOT SECURED! 🎉';
+                        this.style.background = '#27ae60';
+                        this.style.transform = 'scale(1.05)';
+                        this.style.opacity = '1';
+                        
+                        // Update counters
+                        const spotsLeft = document.getElementById('spots-left');
+                        if (spotsLeft) {
+                            const currentLeft = parseInt(spotsLeft.textContent);
+                            spotsLeft.textContent = Math.max(0, currentLeft - 1);
                         }
-                    })
+                        
+                        setTimeout(() => {
+                            window.location.href = 'https://aetophis.systeme.io/freecourse';
+                        }, 1500);
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+
                     .catch(error => {
                         console.error('Error:', error);
                         // Reset button on error
