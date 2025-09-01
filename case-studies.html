@@ -47,6 +47,17 @@
             box-sizing: border-box;
         }
         
+        /* Preload header styles */
+        .header {
+            will-change: transform;
+            transform: translateZ(0);
+        }
+        
+        .header .container {
+            will-change: transform;
+            transform: translateZ(0);
+        }
+                
         html {
             scroll-behavior: smooth;
         }
@@ -2816,9 +2827,9 @@
                     this.style.transform = 'scale(1.05)';
                     this.style.opacity = '1';
                     
-                    setTimeout(() => {
-                        alert('Your spot is secured. Thank you page coming soon!');
-                    }, 1500);
+                   setTimeout(() => {
+                    window.location.href = 'https://aetophis.systeme.io/freecourse';
+                }, 1500);
                 } else {
                     throw new Error('Network response was not ok');
                 }
