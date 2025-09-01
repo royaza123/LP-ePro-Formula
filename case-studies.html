@@ -10,9 +10,7 @@
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     
     <!-- Preload critical images -->
-    <link rel="preload" href="images/results/IMG-20250706-WA0003.webp" as="image" type="image/webp">
-    <link rel="preload" href="images/results/IMG-20250706-WA0045.webp" as="image" type="image/webp">
-    <link rel="preload" href="images/results/IMG-20250706-WA0086.webp" as="image" type="image/webp">
+    <link rel="preload" href="#" as="image" type="image/webp">
     <title>ePro Formula - Proof of Success</title>
     <!-- Favicon Links -->
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -41,41 +39,43 @@
     </script>
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        /* Preload header styles */
-        .header {
-            will-change: transform;
-            transform: translateZ(0);
-        }
-        
-        .header .container {
-            will-change: transform;
-            transform: translateZ(0);
-        }
-                
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: #000;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+       
+       /* Critical path optimization */
+       .header, .proof-hero, .hero-bg, .floating-particles {
+           will-change: transform;
+           transform: translateZ(0);
+           backface-visibility: hidden;
+       }
 
+       /* Optimize particles */
+       .particle {
+           will-change: transform, opacity;
+           transform: translateZ(0);
+       }
+       
+       html {
+           scroll-behavior: smooth;
+       }
+       
+       body {
+           font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+           line-height: 1.6;
+           color: #2c3e50;
+           background: #000;
+           overflow-x: hidden;
+       }
+       
+       .container {
+           max-width: 1200px;
+           margin: 0 auto;
+           padding: 0 20px;
+       }
+        
         /* Enhanced Animated Background */
         .hero-bg {
             position: absolute;
@@ -97,7 +97,7 @@
             position: absolute;
             background: radial-gradient(circle, rgba(217, 119, 6, 0.8) 0%, rgba(217, 119, 6, 0.1) 100%);
             border-radius: 50%;
-            animation: float 12s infinite ease-in-out;
+            animation: float 8s infinite linear;
             box-shadow: 0 0 20px rgba(217, 119, 6, 0.3);
         }
         
