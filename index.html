@@ -1312,39 +1312,40 @@
 </style>
 </head>
 <body>
+    
     <!-- Header -->
-    <header class="header" id="header">
-        <div class="container">
-            <a href="index.html" class="logo">ePro <span class="formula">FORMULA</span></a>
-            
-            <!-- Desktop Navigation -->
-            <nav class="nav-menu">
-                <div class="nav-links">
-                    <a href="index.html" class="nav-link active">Home</a>
-                    <a href="case-studies.html" class="nav-link">Proof</a>
-                    <a href="#testimonials" class="nav-link">Success Stories</a>
-                    <a href="#system" class="nav-link">The System</a>
-                    <a href="#faq" class="nav-link">FAQ</a>
-                </div>
-                <a href="#signup" class="header-cta">Get Started Free</a>
-            </nav>
-
-            <!-- Mobile Menu Toggle -->
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="mobile-nav-links">
-                <a href="index.html" class="mobile-nav-link active">🏠 Home</a>
-                <a href="case-studies.html" class="mobile-nav-link">💰 Proof</a>
-                <a href="#testimonials" class="mobile-nav-link">🏆 Success Stories</a>
-                <a href="#system" class="mobile-nav-link">⚡ The System</a>
-                <a href="#faq" class="mobile-nav-link">❓ FAQ</a>
+<header class="header" id="header">
+    <div class="container">
+        <a href="index.html" class="logo">ePro <span class="formula">FORMULA</span></a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="nav-menu">
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="case-studies.html" class="nav-link">Proof</a>
+                <a href="#testimonials" class="nav-link">Success Stories</a>
+                <a href="#system" class="nav-link">The System</a>
+                <a href="#faq" class="nav-link">FAQ</a>
             </div>
-            <a href="#signup" class="mobile-cta">🎯 Get Started Free</a>
+            <a href="#signup" class="header-cta">Get Started Free</a>
+        </nav>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link active">🏠 Home</a>
+            <a href="case-studies.html" class="mobile-nav-link">💰 Proof</a>
+            <a href="#testimonials" class="mobile-nav-link">🏆 Success Stories</a>
+            <a href="#system" class="mobile-nav-link">⚡ The System</a>
+            <a href="#faq" class="mobile-nav-link">❓ FAQ</a>
         </div>
-    </header>
+        <a href="#signup" class="mobile-cta">🎯 Get Started Free</a>
+    </div>
+</header>
 
 <!-- Hero Section -->
 <section class="hero">
@@ -1397,7 +1398,7 @@
 .video-placeholder-custom {
     width: 100%;
     height: 400px;
-    background: url('https://i.ibb.co/sqj4Tkh/vimeo-thumb.jpg') center center no-repeat;
+    background: #000 center center no-repeat; /* gets replaced dynamically by Vimeo thumbnail */
     background-size: cover;
     border-radius: 15px;
     display: flex;
@@ -1469,22 +1470,36 @@
 
 <script src="https://player.vimeo.com/api/player.js"></script>
 <script>
+// Load Vimeo thumbnail dynamically
+document.addEventListener("DOMContentLoaded", function() {
+  fetch("https://vimeo.com/api/oembed.json?url=https://vimeo.com/1115385139")
+    .then(res => res.json())
+    .then(data => {
+      const placeholder = document.getElementById("heroVideoPlaceholder");
+      if (placeholder) {
+        placeholder.style.backgroundImage = `url('${data.thumbnail_url}')`;
+        placeholder.style.backgroundSize = "cover";
+        placeholder.style.backgroundPosition = "center";
+      }
+    });
+});
+
 function playVimeoVideo() {
-    const videoContainer = document.querySelector('.video-container');
-    
-    // Create a responsive wrapper for the iframe
-    videoContainer.innerHTML = `
-        <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; border-radius: 15px; overflow: hidden;">
-            <iframe src="https://player.vimeo.com/video/1115385139?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
-                    frameborder="0"
-                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px;"
-                    allowfullscreen
-                    title="The Video That Might Change Your Life...">
-            </iframe>
-        </div>
-    `;
+  const videoContainer = document.querySelector('.video-container');
+  
+  // Replace placeholder with responsive Vimeo player
+  videoContainer.innerHTML = `
+    <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; border-radius: 15px; overflow: hidden;">
+      <iframe src="https://player.vimeo.com/video/1115385139?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              referrerpolicy="strict-origin-when-cross-origin"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px;"
+              allowfullscreen
+              title="The Video That Might Change Your Life...">
+      </iframe>
+    </div>
+  `;
 }
 </script>
     
