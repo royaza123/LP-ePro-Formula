@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ePro Formula - Free Course for Philippines</title>
+    
+    <!-- Analytics -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "t0vwoh8vuf");
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2PCJJ337XT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2PCJJ337XT');
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #000;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* EXISTING BACKGROUND CODE - KEEP EXACTLY AS IS */
+        .hero-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.8) 0%, rgba(217, 119, 6, 0.1) 100%);
+            border-radius: 50%;
+            animation: float 12s infinite ease-in-out;
+            box-shadow: 0 0 20px rgba(217, 119, 6, 0.3);
+        }
+        
+        .particle:nth-child(1) { width: 8px; height: 8px; left: 10%; animation-delay: 0s; animation-duration: 8s; }
+        .particle:nth-child(2) { width: 12px; height: 12px; left: 20%; animation-delay: 1.5s; animation-duration: 10s; }
+        .particle:nth-child(3) { width: 6px; height: 6px; left: 30%; animation-delay: 3s; animation-duration: 9s; }
+        .particle:nth-child(4) { width: 10px; height: 10px; left: 40%; animation-delay: 4.5s; animation-duration: 11s; }
+        .particle:nth-child(5) { width: 14px; height: 14px; left: 50%; animation-delay: 6s; animation-duration: 7s; }
+        .particle:nth-child(6) { width: 7px; height: 7px; left: 60%; animation-delay: 7.5s; animation-duration: 12s; }
+        .particle:nth-child(7) { width: 11px; height: 11px; left: 70%; animation-delay: 9s; animation-duration: 8s; }
+        .particle:nth-child(8) { width: 9px; height: 9px; left: 80%; animation-delay: 10.5s; animation-duration: 10s; }
+        .particle:nth-child(9) { width: 13px; height: 13px; left: 85%; animation-delay: 2s; animation-duration: 9s; }
+        .particle:nth-child(10) { width: 5px; height: 5px; left: 90%; animation-delay: 3.5s; animation-duration: 11s; }
+        
+        @keyframes float {
+            0% { 
+                transform: translateY(100vh) rotate(0deg) scale(0.5); 
+                opacity: 0; 
+                box-shadow: 0 0 5px rgba(217, 119, 6, 0.1);
+            }
+            5% { 
+                opacity: 1; 
+                box-shadow: 0 0 15px rgba(217, 119, 6, 0.3);
+            }
+            50% { 
+                transform: translateY(50vh) rotate(180deg) scale(1.2); 
+                opacity: 1; 
+                box-shadow: 0 0 25px rgba(217, 119, 6, 0.5);
+            }
+            95% { 
+                opacity: 1; 
+                box-shadow: 0 0 15px rgba(217, 119, 6, 0.3);
+            }
+            100% { 
+                transform: translateY(-100px) rotate(360deg) scale(0.5); 
+                opacity: 0;
+                box-shadow: 0 0 5px rgba(217, 119, 6, 0.1);
+            }
+        }
+
+        /* Money symbols floating animation - KEEP EXACTLY AS IS */
+        .money-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .money-symbol {
+            position: absolute;
+            font-size: 24px;
+            color: rgba(217, 119, 6, 0.6);
+            animation: moneyFloat 15s infinite linear;
+            text-shadow: 0 0 10px rgba(217, 119, 6, 0.8);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(150vh);
+        }
+
+        .money-symbol:nth-child(1) { left: 5%; animation-delay: 0s; }
+        .money-symbol:nth-child(2) { left: 15%; animation-delay: 3s; }
+        .money-symbol:nth-child(3) { left: 25%; animation-delay: 6s; }
+        .money-symbol:nth-child(4) { left: 35%; animation-delay: 9s; }
+        .money-symbol:nth-child(5) { left: 45%; animation-delay: 12s; }
+
+        .money-symbol:nth-child(1)::before { content: '$'; }
+        .money-symbol:nth-child(2)::before { content: '₱'; }
+        .money-symbol:nth-child(3)::before { content: '$'; }
+        .money-symbol:nth-child(4)::before { content: '₱'; }
+        .money-symbol:nth-child(5)::before { content: '$'; }
+
+        @keyframes moneyFloat {
+            0% { 
+                transform: translateY(150vh) rotate(0deg); 
+                opacity: 0; 
+                visibility: hidden;
+                font-size: 16px;
+            }
+            8% { 
+                opacity: 0; 
+                visibility: visible;
+                font-size: 20px;
+            }
+            20% { 
+                opacity: 0.8; 
+                visibility: visible;
+                font-size: 24px;
+            }
+            50% { 
+                transform: translateY(50vh) rotate(180deg); 
+                opacity: 1; 
+                visibility: visible;
+                font-size: 32px;
+            }
+            80% { 
+                opacity: 0.8; 
+                visibility: visible;
+                font-size: 24px;
+            }
+            92% { 
+                opacity: 0; 
+                visibility: visible;
+                font-size: 20px;
+            }
+            100% { 
+                transform: translateY(-150px) rotate(360deg); 
+                opacity: 0;
+                visibility: hidden;
+                font-size: 16px;
+            }
+        }
+
+        /* MAIN CONTENT */
+        .main-content {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            padding: 60px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* LEFT SIDE - Title and Video */
+        .left-content {
+            text-align: center;
+        }
+
+        .main-title {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 40px;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #ffffff 0%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Video Section */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-placeholder:hover {
+            background: linear-gradient(135deg, #111 0%, #2a2a2a 100%);
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(217, 119, 6, 0.4);
+            margin-bottom: 15px;
+        }
+
+        .play-button:hover {
+            transform: scale(1.15);
+            box-shadow: 0 15px 40px rgba(217, 119, 6, 0.6);
+        }
+
+        .play-button::after {
+            content: '▶';
+            color: white;
+            font-size: 2rem;
+            margin-left: 5px;
+        }
+
+        /* RIGHT SIDE - Lead Form */
+        .right-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lead-form {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 25px;
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1.1rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            font-family: inherit;
+            outline: none;
+        }
+
+        .form-input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .form-input:focus {
+            border-color: #d97706;
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 0 20px rgba(217, 119, 6, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4);
+            position: relative;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(217, 119, 6, 0.6);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .form-footer p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        /* Messages */
+        .message {
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-weight: 600;
+            text-align: center;
+            display: none;
+        }
+
+        .success-message {
+            background: rgba(39, 174, 96, 0.2);
+            border: 1px solid #27ae60;
+            color: #27ae60;
+        }
+
+        .error-message {
+            background: rgba(231, 76, 60, 0.2);
+            border: 1px solid #e74c3c;
+            color: #e74c3c;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px 0;
+            }
+
+            .main-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+                margin-bottom: 30px;
+            }
+
+            .lead-form {
+                padding: 30px 25px;
+            }
+
+            .submit-btn {
+                padding: 16px;
+                font-size: 1.1rem;
+            }
+
+            .main-content {
+                padding: 30px 0;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- EXISTING BACKGROUND - KEEP EXACTLY AS IS -->
+    <div class="hero-bg">
+        <div class="floating-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="money-particles">
+            <div class="money-symbol"></div>
+            <div class="money-symbol"></div>
+            <div class="money-symbol"></div>
+            <div class="money-symbol"></div>
+            <div class="money-symbol"></div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <div class="main-content">
+            <!-- LEFT SIDE: Title and Video -->
+            <div class="left-content">
+                <h1 class="main-title">Free Course For Philippines</h1>
+                
+                <div class="video-container">
+                    <div class="video-placeholder" onclick="playVideo()">
+                        <div class="play-button"></div>
+                        <p>Click to play video</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE: Lead Form -->
+            <div class="right-content">
+                <div class="lead-form">
+                    <form id="leadForm">
+                        <div class="form-group">
+                            <label class="form-label" for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="first_name" class="form-input" placeholder="Enter your first name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Phone Number (Optional)</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="Enter your phone number">
+                        </div>
+                        
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            🚀 GET FREE ACCESS
+                        </button>
+                        
+                        <div class="form-footer">
+                            <p>✅ Free • ✅ No credit card required</p>
+                        </div>
+                        
+                        <div class="message success-message" id="successMessage">
+                            ✅ Success! Redirecting you to the course...
+                        </div>
+                        <div class="message error-message" id="errorMessage">
+                            ❌ Something went wrong. Please try again.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Video functionality
+        function playVideo() {
+            const videoContainer = document.querySelector('.video-container');
+            // Replace YOUR_VIDEO_ID with your actual YouTube video ID
+            videoContainer.innerHTML = `
+                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1" 
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 20px;"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            `;
+        }
+
+        // Make.com webhook form submission
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const firstName = document.getElementById('firstName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const submitBtn = document.getElementById('submitBtn');
+            const successMsg = document.getElementById('successMessage');
+            const errorMsg = document.getElementById('errorMessage');
+            
+            // Validation
+            if (!firstName || !email) {
+                errorMsg.textContent = '❌ Please fill in your first name and email address.';
+                errorMsg.style.display = 'block';
+                successMsg.style.display = 'none';
+                return;
+            }
+            
+            if (!email.includes('@') || !email.includes('.')) {
+                errorMsg.textContent = '❌ Please enter a valid email address.';
+                errorMsg.style.display = 'block';
+                successMsg.style.display = 'none';
+                return;
+            }
+            
+            // Show loading state
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = '⏳ SECURING SPOT...';
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.7';
+            
+            // Hide previous messages
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
+            
+            // Send to Make.com webhook
+            fetch('https://hook.eu2.make.com/uy29olvlhoccpxch6ivc9rxfuot0r2g9', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    firstName: firstName,
+                    email: email,
+                    phone: phone || '',
+                    source: 'clean_landing_page',
+                    timestamp: new Date().toISOString()
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success - show message and redirect
+                    submitBtn.textContent = '✅ SUCCESS!';
+                    submitBtn.style.background = '#27ae60';
+                    submitBtn.style.opacity = '1';
+                    successMsg.style.display = 'block';
+                    
+                    setTimeout(() => {
+                        window.location.href = 'https://aetophis.systeme.io/freecourse';
+                    }, 2000);
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Reset button on error
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                errorMsg.textContent = '❌ Something went wrong. Please try again.';
+                errorMsg.style.display = 'block';
+            });
+        });
+
+        // Form interaction effects
+        document.querySelectorAll('.form-input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'translateY(-2px)';
+                this.parentElement.style.transition = 'all 0.3s ease';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
