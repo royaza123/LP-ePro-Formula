@@ -48,7 +48,7 @@
             padding: 0 20px;
         }
 
-        /* EXISTING BACKGROUND CODE - KEEP EXACTLY AS IS */
+        /* BACKGROUND ANIMATIONS */
         .hero-bg {
             position: fixed;
             top: 0;
@@ -111,7 +111,7 @@
             }
         }
 
-        /* Money symbols floating animation - KEEP EXACTLY AS IS */
+        /* Money symbols floating animation */
         .money-particles {
             position: absolute;
             width: 100%;
@@ -229,8 +229,7 @@
         .video-container {
             position: relative;
             width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding: 56.25% 0 0 0;
             background: rgba(255,255,255,0.1);
             border-radius: 20px;
             backdrop-filter: blur(15px);
@@ -240,13 +239,23 @@
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
-        .video-placeholder {
+        .video-iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            border: none;
+            border-radius: 20px;
+        }
+
+        .custom-play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -254,10 +263,18 @@
             color: #ccc;
             cursor: pointer;
             transition: all 0.3s ease;
+            z-index: 2;
+            border-radius: 20px;
         }
 
-        .video-placeholder:hover {
-            background: linear-gradient(135deg, #111 0%, #2a2a2a 100%);
+        .custom-play-overlay:hover {
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);
+        }
+
+        .custom-play-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
         }
 
         .play-button {
@@ -456,7 +473,7 @@
     </style>
 </head>
 <body>
-    <!-- EXISTING BACKGROUND - KEEP EXACTLY AS IS -->
+    <!-- BACKGROUND ANIMATIONS -->
     <div class="hero-bg">
         <div class="floating-particles">
             <div class="particle"></div>
@@ -487,7 +504,16 @@
                 <h1 class="main-title">Free Course For Philippines</h1>
                 
                 <div class="video-container">
-                    <div class="video-placeholder" onclick="playVideo()">
+                    <iframe 
+                        id="vimeoPlayer"
+                        class="video-iframe"
+                        src="https://player.vimeo.com/video/1115385139?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" 
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        title="The Video That'll might Change Your Life...">
+                    </iframe>
+                    <div class="custom-play-overlay" id="playOverlay">
                         <div class="play-button"></div>
                         <p>Click to play video</p>
                     </div>
@@ -533,23 +559,39 @@
         </div>
     </div>
 
-    <script>
-<script>
-    // Video functionality
-            function playVideo() {
-                const videoContainer = document.querySelector('.video-container');
-                videoContainer.innerHTML = `
-                    <iframe src="https://player.vimeo.com/video/1115385139?autoplay=1&title=0&byline=0&portrait=0"
-                            style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:20px;"
-                            frameborder="0"
-                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                            allowfullscreen>
-                    </iframe>
-                `;
-            }
-        </script>
+    <!-- Load Vimeo Player API -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
     
-        // Make.com webhook form submission
+    <script>
+        // Video functionality
+        const iframe = document.getElementById('vimeoPlayer');
+        const playOverlay = document.getElementById('playOverlay');
+        const player = new Vimeo.Player(iframe);
+
+        // Function to play video and hide overlay
+        function playVideo() {
+            player.play().then(function() {
+                // Video started playing successfully
+                playOverlay.classList.add('hidden');
+            }).catch(function(error) {
+                console.log('Error playing video:', error);
+            });
+        }
+
+        // Add click event to overlay
+        playOverlay.addEventListener('click', playVideo);
+
+        // Optional: Listen for video events
+        player.on('play', function() {
+            playOverlay.classList.add('hidden');
+        });
+
+        player.on('pause', function() {
+            // Optionally show overlay again when paused
+            // playOverlay.classList.remove('hidden');
+        });
+
+        // Form submission functionality
         document.getElementById('leadForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
