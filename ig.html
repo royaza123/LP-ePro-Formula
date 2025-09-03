@@ -21,6 +21,9 @@
       gtag('js', new Date());
       gtag('config', 'G-2PCJJ337XT');
     </script>
+
+    <!-- Systeme.io Form Script -->
+    <script id="form-script-tag-20275046" src="https://aetophis.systeme.io/public/remote/page/32837793e86d6d81347bc99b5e41aef27d4f1d56.js"></script>
     
     <style>
         * {
@@ -523,23 +526,23 @@
             <!-- RIGHT SIDE: Lead Form -->
             <div class="right-content">
                 <div class="lead-form">
-                    <form id="leadForm">
+                    <form method="post" action="https://systeme.io/embedded/32837793/subscription" id="leadForm">
                         <div class="form-group">
                             <label class="form-label" for="firstName">First Name *</label>
-                            <input type="text" id="firstName" name="first_name" class="form-input" placeholder="Enter your first name" required>
+                            <input type="text" name="first_name" class="form-input" placeholder="Enter your first name" required>
                         </div>
                         
                         <div class="form-group">
                             <label class="form-label" for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email address" required>
+                            <input type="email" name="email" class="form-input" placeholder="Enter your email address" required>
                         </div>
                         
                         <div class="form-group">
                             <label class="form-label" for="phone">Phone Number (Optional)</label>
-                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="Enter your phone number">
+                            <input type="tel" name="phone_number" class="form-input" placeholder="Enter your phone number">
                         </div>
                         
-                        <button type="submit" class="submit-btn" id="submitBtn">
+                        <button type="submit" class="submit-btn">
                             🚀 GET FREE ACCESS
                         </button>
                         
@@ -589,82 +592,6 @@
         player.on('pause', function() {
             // Optionally show overlay again when paused
             // playOverlay.classList.remove('hidden');
-        });
-
-        // Form submission functionality
-        document.getElementById('leadForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const firstName = document.getElementById('firstName').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const submitBtn = document.getElementById('submitBtn');
-            const successMsg = document.getElementById('successMessage');
-            const errorMsg = document.getElementById('errorMessage');
-            
-            // Validation
-            if (!firstName || !email) {
-                errorMsg.textContent = '❌ Please fill in your first name and email address.';
-                errorMsg.style.display = 'block';
-                successMsg.style.display = 'none';
-                return;
-            }
-            
-            if (!email.includes('@') || !email.includes('.')) {
-                errorMsg.textContent = '❌ Please enter a valid email address.';
-                errorMsg.style.display = 'block';
-                successMsg.style.display = 'none';
-                return;
-            }
-            
-            // Show loading state
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = '⏳ SECURING SPOT...';
-            submitBtn.disabled = true;
-            submitBtn.style.opacity = '0.7';
-            
-            // Hide previous messages
-            successMsg.style.display = 'none';
-            errorMsg.style.display = 'none';
-            
-            // Send to Make.com webhook
-            fetch('https://hook.eu2.make.com/uy29olvlhoccpxch6ivc9rxfuot0r2g9', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    firstName: firstName,
-                    email: email,
-                    phone: phone || '',
-                    source: 'clean_landing_page',
-                    timestamp: new Date().toISOString()
-                })
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Success - show message and redirect
-                    submitBtn.textContent = '✅ SUCCESS!';
-                    submitBtn.style.background = '#27ae60';
-                    submitBtn.style.opacity = '1';
-                    successMsg.style.display = 'block';
-                    
-                    setTimeout(() => {
-                        window.location.href = 'https://eproformula.com/freecourse.html';
-                    }, 2000);
-                } else {
-                    throw new Error('Network response was not ok');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                // Reset button on error
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                submitBtn.style.opacity = '1';
-                errorMsg.textContent = '❌ Something went wrong. Please try again.';
-                errorMsg.style.display = 'block';
-            });
         });
 
         // Form interaction effects
