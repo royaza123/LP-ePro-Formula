@@ -1394,62 +1394,68 @@
     </div>
 </section>
 
-    <!-- Enhanced Metrics Section -->
-    <section class="metrics-section" id="proof">
-        <div class="metrics-bg"></div>
-        <div class="container">
-            <h2 class="section-title fade-in">Don't Believe Me? Look at This</h2>
-            <p class="section-subtitle fade-in">My students build money empires. While Others struggle for scraps.</p>
-            <div class="metrics-grid">
-                <div class="metric-card fade-in" data-delay="0">
-                    <img src="79K.jpg" alt="Total Student Revenue Screenshot" class="metric-image" style="object-fit: cover;">
-                    <div class="metric-number" id="counter1">$2M+</div>
-                    <p class="metric-text">Total Student Money</p>
-                    <p style="font-size: 0.9rem; color: #f59e0b; margin-top: 10px; opacity: 0.8;">
-                        <small>*Example shown: ₪78,188 (~$22,998.67 USD)</small>
-                    </p>
-                </div>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-bg">
+        <div class="floating-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="money-particles">
+            <div class="money-symbol"></div>
+            <div class="money-symbol"></div>
+            <div class="money-symbol"></div>
+            <div class="money-symbol"></div>
+            <div class="money-symbol"></div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text fade-in">
+                <div class="hero-badge">🇵🇭 THE SECRET IS NOW IN THE PHILIPPINES</div>
+                <h1>The Secret System That Made Students $2M+</h1>
+                <p class="subtitle">Everyone fights for small money on Facebook and Shopee. My students make big money. They use a <span class="story-highlight">$6 billion market</span>. Almost NO Filipinos know this. This changes everything.</p>
                 
-                <div class="metric-card fade-in" data-delay="200">
-                    <img src="happy students.jpg" alt="Success Stories Compilation" class="metric-image" style="object-fit: cover;">
-                    <div class="metric-number" id="counter2">200+</div>
-                    <p class="metric-text">Students Wins</p>
-                </div>
-                
-                <div class="metric-card fade-in" data-delay="400">
-                    <img src="seo.jpg" alt="SEO Rankings Dashboard" class="metric-image" style="object-fit: cover;">
-                    <div class="metric-number" id="counter3">95%</div>
-                    <p class="metric-text">optimised key-words Rate</p>
-                </div>
-                
-                <div class="metric-card fade-in" data-delay="600">
-                    <img src="niche.jpg" alt="Profitable Niches Map" class="metric-image" style="object-fit: cover;">
-                    <div class="metric-number" id="counter4">500+</div>
-                    <p class="metric-text">Profitable shops</p>
-                </div>
-                
-                <div class="metric-card fade-in" data-delay="800">
-                    <img src="profit.jpg" alt="Profit Margin Analysis" class="metric-image" style="object-fit: cover;">
-                    <div class="metric-number" id="counter5">55%</div>
-                    <p class="metric-text">Profit Margine</p>
-                </div>
-                
-                <div class="metric-card fade-in" data-delay="1000">
-                    <img src="review.jpg" alt="Premium Product Reviews Dashboard" class="metric-image" style="object-fit: cover;">
-                    <div class="metric-number" id="counter6">
-                        <span style="color: #f59e0b; font-size: 1.2rem; display: block; line-height: 1.2; margin-bottom: 10px;">⭐⭐⭐⭐⭐</span>
-                        <span style="font-size: 3rem;">4.7</span>
-                    </div>
-                    <p class="metric-text">High-End Products Review</p>
-                </div>
+                <a href="case-studies.html" class="cta-button">Show Me Proof</a>
+                <a href="#signup" class="cta-button secondary">I Want In</a>
             </div>
             
-            <div style="text-align: center;">
-                <a href="#signup" class="cta-button">I Want These Results</a>
-                <a href="#testimonials" class="cta-button secondary">Show Me The Secret</a>
+            <!-- Vimeo Video with Play Button -->
+            <div class="video-container">
+                <div class="video-placeholder" onclick="playVimeoVideo()" 
+                     style="background-image: url('https://i.ibb.co/sqj4Tkh/vimeo-thumb.jpg'); background-size: cover; background-position: center;">
+                    <div class="play-button"></div>
+                    <p style="color:#fff; margin-top:10px; font-weight:600;">Click to play video</p>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+function playVimeoVideo() {
+    const videoContainer = document.querySelector('.video-container');
+    videoContainer.innerHTML = `
+        <iframe src="https://player.vimeo.com/video/1115385139?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                style="position:absolute; top:0; left:0; width:100%; height:100%; border-radius:20px;"
+                title="The Video That Might Change Your Life...">
+        </iframe>
+    `;
+}
+</script>
 
     <!-- Testimonials Carousel Section -->
 <section class="testimonials-section" id="testimonials">
