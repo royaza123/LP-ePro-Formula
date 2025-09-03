@@ -1381,12 +1381,11 @@
                 <a href="#signup" class="cta-button secondary">I Want In</a>
             </div>
             
-            <!-- Vimeo Video with Thumbnail -->
+            <!-- Vimeo Video Container -->
             <div class="video-container">
-                <div class="video-placeholder" id="heroVideoPlaceholder" onclick="playVimeoVideo()">
-                    <div class="video-overlay"></div>
+                <div class="video-placeholder-custom" id="heroVideoPlaceholder" onclick="playVimeoVideo()">
                     <div class="play-button"></div>
-                    <p style="color:#fff; margin-top:10px; font-weight:600; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Click to play video</p>
+                    <p style="color:#fff; margin-top:10px; font-weight:600; text-shadow: 0 2px 4px rgba(0,0,0,0.8); position: relative; z-index: 3;">Click to play video</p>
                 </div>
             </div>
         </div>
@@ -1394,16 +1393,26 @@
 </section>
 
 <style>
-/* Override the existing video placeholder styles to show thumbnail */
-#heroVideoPlaceholder {
-    background: url('https://i.ibb.co/sqj4Tkh/vimeo-thumb.jpg') center center !important;
-    background-size: cover !important;
+/* Custom video placeholder that overrides everything */
+.video-placeholder-custom {
+    width: 100%;
+    height: 400px;
+    background: url('https://i.ibb.co/sqj4Tkh/vimeo-thumb.jpg') center center no-repeat;
+    background-size: cover;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
     position: relative;
+    overflow: hidden;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/* Add a subtle overlay to make text more readable */
-.video-overlay {
+.video-placeholder-custom::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -1414,22 +1423,47 @@
     z-index: 1;
 }
 
-/* Ensure play button and text are above overlay */
-#heroVideoPlaceholder .play-button,
-#heroVideoPlaceholder p {
+.video-placeholder-custom:hover {
+    transform: scale(1.02);
+}
+
+.video-placeholder-custom:hover::before {
+    background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.2) 100%);
+}
+
+.video-placeholder-custom .play-button,
+.video-placeholder-custom p {
     position: relative;
     z-index: 2;
 }
 
-/* Add hover effect for better UX */
-#heroVideoPlaceholder:hover {
-    transform: scale(1.02);
-    transition: transform 0.3s ease;
+/* Make sure the iframe takes full size when video plays */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 15px;
 }
 
-#heroVideoPlaceholder:hover .video-overlay {
-    background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.2) 100%);
-    transition: background 0.3s ease;
+/* Ensure video container has proper aspect ratio */
+.video-container {
+    position: relative;
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .video-placeholder-custom {
+        height: 250px;
+    }
 }
 </style>
 
@@ -1437,18 +1471,23 @@
 <script>
 function playVimeoVideo() {
     const videoContainer = document.querySelector('.video-container');
+    
+    // Create a responsive wrapper for the iframe
     videoContainer.innerHTML = `
-        <iframe src="https://player.vimeo.com/video/1115385139?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
-                frameborder="0"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                style="position:absolute; top:0; left:0; width:100%; height:100%; border-radius:20px;"
-                title="The Video That Might Change Your Life...">
-        </iframe>
+        <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; border-radius: 15px; overflow: hidden;">
+            <iframe src="https://player.vimeo.com/video/1115385139?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479"
+                    frameborder="0"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px;"
+                    allowfullscreen
+                    title="The Video That Might Change Your Life...">
+            </iframe>
+        </div>
     `;
 }
 </script>
-
+    
     <!-- Testimonials Carousel Section -->
 <section class="testimonials-section" id="testimonials">
     <div class="container">
