@@ -10,9 +10,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-    <style>
-           
-        <!-- Microsoft Clarity -->
+
+    <!-- Microsoft Clarity -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -21,7 +20,7 @@
         })(window, document, "clarity", "script", "t0vwoh8vuf");
     </script>
 
-        <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2PCJJ337XT"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -30,7 +29,11 @@
     
       gtag('config', 'G-2PCJJ337XT');
     </script>
-        
+
+    <!-- Systeme.io Form Script -->
+    <script id="form-script-tag-20275046" src="https://aetophis.systeme.io/public/remote/page/32837793e86d6d81347bc99b5e41aef27d4f1d56.js"></script>
+    
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -2074,21 +2077,15 @@ function playVimeoVideo() {
                         </p>
                     </div>
                     
-                    <div class="form-group">
-                    <input type="text" class="form-input" placeholder="Enter your first name" required>
-                </div>
-                
-                    <div class="form-group">
-                    <input type="email" class="form-input" placeholder="Enter your email address" required>
-                </div>
-                
-                    <div class="form-group">
-                    <input type="tel" class="form-input" placeholder="Enter your phone number (optional)">
-                </div>
-                    
-                    <button class="cta-button" style="width: 100%; margin: 20px 0;">
-                        🎯 SECURE MY FREE SPOT NOW
-                    </button>
+                    <form method="post" action="https://systeme.io/embedded/32837793/subscription"> 
+                      <input type="text" name="first_name" placeholder="First Name" class="form-input" />
+                      <input type="email" name="email" placeholder="Email" required class="form-input" />
+                      <input type="tel" name="phone_number" placeholder="Phone Number" class="form-input" />
+                      
+                      <div class="f-row">
+                        <button type="submit" class="cta-button" style="width: 100%; margin: 20px 0;">🎯 SECURE MY FREE SPOT NOW</button>
+                      </div>
+                    </form>
                     
                     <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; text-align: center; margin-top: 15px;">
                         ✅ Quick access • ✅ No credit card needed • ✅ 100% Free
@@ -2306,81 +2303,6 @@ function playVimeoVideo() {
         window.addEventListener('load', handleScrollAnimations);
         window.addEventListener('scroll', handleScrollAnimations);
 
-        // Form submission handling
-        document.addEventListener('DOMContentLoaded', function() {
-            const formButton = document.querySelector('.signup-form .cta-button');
-            if (formButton) {
-                formButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const firstName = document.querySelector('input[type="text"]').value.trim();
-                    const email = document.querySelector('input[type="email"]').value.trim();
-                    const phone = document.querySelector('input[type="tel"]').value.trim();
-                    
-                    if (!firstName || !email) {
-                        alert('Please fill in your first name and email address to secure your FREE spot!');
-                        return;
-                    }
-                    
-                    if (!email.includes('@') || !email.includes('.')) {
-                        alert('Please enter a valid email address.');
-                        return;
-                    }
-                    
-                    // Show loading state
-                    const originalText = this.textContent;
-                    this.textContent = 'SECURING YOUR SPOT...';
-                    this.disabled = true;
-                    this.style.opacity = '0.7';
-                    
-                    // Send to Make.com webhook
-                    fetch('https://hook.eu2.make.com/uy29olvlhoccpxch6ivc9rxfuot0r2g9', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            firstName: firstName,
-                            email: email,
-                            phone: phone || '', // Optional field
-                            source: 'index_page',
-                            timestamp: new Date().toISOString()
-                        })
-                    })
-                    .then(response => {
-                    if (response.ok) {
-                        // Success - redirect to thank you page
-                        this.textContent = 'SPOT SECURED! 🎉';
-                        this.style.background = '#27ae60';
-                        this.style.transform = 'scale(1.05)';
-                        this.style.opacity = '1';
-                        
-                        // Update counters
-                        const spotsLeft = document.getElementById('spots-left');
-                        if (spotsLeft) {
-                            const currentLeft = parseInt(spotsLeft.textContent);
-                            spotsLeft.textContent = Math.max(0, currentLeft - 1);
-                        }
-                        
-                        setTimeout(() => {
-                            window.location.href = 'https://eproformula.com/freecourse.html';
-                        }, 1500);
-                    } else {
-                        throw new Error('Network response was not ok');
-                    }
-                })
-
-                    .catch(error => {
-                        console.error('Error:', error);
-                        // Reset button on error
-                        this.textContent = originalText;
-                        this.disabled = false;
-                        this.style.opacity = '1';
-                        alert('Something went wrong. Please try again or contact support.');
-                    });
-                });
-            }
-        });
-
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -2393,7 +2315,7 @@ function playVimeoVideo() {
                     });
                 }
             });
-        });
+        }); 
         function playVideo() {
     const videoContainer = document.querySelector('.video-container');
     videoContainer.innerHTML = `
@@ -2407,3 +2329,5 @@ function playVimeoVideo() {
     `;
 }
     </script>
+</body>
+</html>
