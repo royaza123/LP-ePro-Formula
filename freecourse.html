@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to ePro Formula - You're In!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #000;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Progress Indicator */
+        .progress-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(217, 119, 6, 0.2);
+            z-index: 999;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Floating Action Bar */
+        .floating-action-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            padding: 15px 25px;
+            border-radius: 50px;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(217, 119, 6, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: pulse 3s infinite;
+        }
+
+        .floating-action-bar.hidden {
+            display: none;
+        }
+
+        .action-btn-small {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 18px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            pointer-events: auto;
+            width: 100%;
+            text-align: center;
+        }
+
+        .action-btn-small:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.05);
+        }
+
+        /* Welcome Video Section */
+        .welcome-video-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 80px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-video-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="videopattern" width="15" height="15" patternUnits="userSpaceOnUse"><circle cx="7.5" cy="7.5" r="0.8" fill="rgba(217,119,6,0.08)"/></pattern></defs><rect width="100" height="100" fill="url(%23videopattern)"/></svg>');
+            animation: bgMove 20s linear infinite;
+        }
+
+        @keyframes bgMove {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-15px) translateY(-15px); }
+        }
+
+        .video-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .success-badge {
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 5px 15px rgba(217, 119, 6, 0.3);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .video-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-weight: 900;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #ffffff 0%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .video-subtitle {
+            font-size: 1.3rem;
+            color: #f8f9fa;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* Quick Access Nav */
+        .quick-nav {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            margin: 30px 0 50px 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .nav-item {
+            background: rgba(217, 119, 6, 0.2);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(217, 119, 6, 0.4);
+        }
+
+        .nav-item:hover {
+            background: rgba(217, 119, 6, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .welcome-video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .video-embed {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 15px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-embed .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-embed .video-placeholder:hover {
+            background: linear-gradient(135deg, #111 0%, #2a2a2a 100%);
+        }
+
+        .video-embed .play-button {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(217, 119, 6, 0.4);
+            margin-bottom: 15px;
+        }
+
+        .video-embed .play-button:hover {
+            transform: scale(1.15);
+            box-shadow: 0 15px 40px rgba(217, 119, 6, 0.6);
+        }
+
+        .video-embed .play-button::after {
+            content: '▶';
+            color: white;
+            font-size: 2rem;
+            margin-left: 5px;
+        }
+
+        .video-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+            background: #000 !important;
+        }
+
+        /* Teaser Cards */
+        .teaser-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .teaser-card {
+            background: rgba(217, 119, 6, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            text-align: center;
+        }
+
+        .teaser-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .teaser-title {
+            color: #d97706;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .teaser-text {
+            color: #ecf0f1;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Course Section */
+        .course-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 80px 0;
+            color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-weight: 900;
+            letter-spacing: -2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #d97706;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Accordion Styles */
+        .accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .accordion-item {
+            background: rgba(255,255,255,0.05);
+            margin-bottom: 15px;
+            border-radius: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(217, 119, 6, 0.2);
+        }
+
+        .accordion-header {
+            padding: 25px;
+            background: transparent;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: rgba(217, 119, 6, 0.1);
+        }
+
+        .accordion-header::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: #d97706;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active::after {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .accordion-content.active {
+            max-height: 600px;
+        }
+
+        .accordion-body {
+            padding: 25px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-placeholder:hover {
+            background: linear-gradient(135deg, #111 0%, #2a2a2a 100%);
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(217, 119, 6, 0.4);
+            margin-bottom: 15px;
+        }
+
+        .play-button:hover {
+            transform: scale(1.15);
+            box-shadow: 0 15px 40px rgba(217, 119, 6, 0.6);
+        }
+
+        .play-button::after {
+            content: '▶';
+            color: white;
+            font-size: 2rem;
+            margin-left: 5px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Missions Section */
+        .missions-section {
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            padding: 80px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .missions-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="missionpattern" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="2" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23missionpattern)"/></svg>');
+            animation: bgMoveMissions 25s linear infinite;
+        }
+
+        @keyframes bgMoveMissions {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-30px) translateY(-30px); }
+        }
+
+        .missions-urgency {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-weight: 700;
+            border: 2px solid rgba(255,255,255,0.5);
+            animation: urgentPulse 2s infinite;
+        }
+
+        @keyframes urgentPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .missions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mission-card {
+            background: rgba(255,255,255,0.15);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .mission-number {
+            background: rgba(255,255,255,0.3);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin: 0 auto 20px;
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+
+        .mission-title {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .mission-description {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .download-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 12px 25px;
+            border: 2px solid rgba(255,255,255,0.8);
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Community Section */
+        .community-section {
+            background: #0a0a0a;
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .community-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="communitygrid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(217,119,6,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23communitygrid)"/></svg>');
+        }
+
+        .community-urgency {
+            background: rgba(217, 119, 6, 0.2);
+            color: #f59e0b;
+            padding: 15px 30px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-weight: 700;
+            border: 2px solid rgba(217, 119, 6, 0.5);
+            animation: urgentPulse 2s infinite;
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin: 50px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .community-card {
+            background: rgba(255,255,255,0.05);
+            padding: 40px 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(217, 119, 6, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .community-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(217, 119, 6, 0.3);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .community-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .community-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #d97706;
+        }
+
+        .community-description {
+            margin-bottom: 25px;
+            line-height: 1.6;
+            opacity: 0.9;
+            color: #ecf0f1;
+        }
+
+        .join-btn {
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4);
+        }
+
+        .join-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(217, 119, 6, 0.6);
+        }
+
+        .clickable-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            font-size: inherit;
+            transition: all 0.3s ease;
+            pointer-events: auto !important;
+            z-index: 999;
+            position: relative;
+        }
+
+        .clickable-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-btn {
+            background: #25D366 !important;
+            color: #fff !important;
+            padding: 15px 25px !important;
+            border-radius: 25px !important;
+            font-weight: 700 !important;
+            display: inline-block !important;
+            margin-right: 10px !important;
+            cursor: pointer !important;
+            border: none !important;
+            font-family: inherit !important;
+            font-size: inherit !important;
+            pointer-events: auto !important;
+            z-index: 999 !important;
+            position: relative !important;
+        }
+
+        .messenger-btn {
+            background: #0084FF !important;
+            color: #fff !important;
+            padding: 15px 25px !important;
+            border-radius: 25px !important;
+            font-weight: 700 !important;
+            display: inline-block !important;
+            cursor: pointer !important;
+            border: none !important;
+            font-family: inherit !important;
+            font-size: inherit !important;
+            pointer-events: auto !important;
+            z-index: 999 !important;
+            position: relative !important;
+        }
+        @media (max-width: 768px) {
+            .video-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .missions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .community-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .teaser-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-action-bar {
+                padding: 10px 15px;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Indicator -->
+    <div class="progress-indicator">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Welcome Video Section -->
+    <section class="welcome-video-section">
+        <div class="container">
+            <div class="video-content">
+                <div class="success-badge">🇵🇭 Welcome You're In</div>
+                <h1 class="video-title">Welcome to ePro Formula!</h1>
+                <p class="video-subtitle">This is not like other courses. This will help you make a lot more money.</p>
+                
+                <!-- Quick Navigation -->
+                <div class="quick-nav">
+                    <div class="nav-grid">
+                        <a href="#course" class="nav-item">🎥 Watch Course</a>
+                        <a href="#missions" class="nav-item">📋 Get Tasks</a>
+                        <a href="#community" class="nav-item">💬 Join Community</a>
+                    </div>
+                </div>
+                
+                <div class="welcome-video-container">
+                    <div class="video-embed">
+                        <div class="video-placeholder" onclick="playWelcomeVideo(this, '1115385176')">
+                            <div class="play-button"></div>
+                            <p>Click to play Welcome Video</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teaser Cards -->
+                <div class="teaser-cards">
+                    <div class="teaser-card">
+                        <div class="teaser-icon">📋</div>
+                        <div class="teaser-title">5 Action Tasks</div>
+                        <div class="teaser-text">Easy exact steps to help you learn and earn. Download them below!</div>
+                    </div>
+                    <div class="teaser-card">
+                        <div class="teaser-icon">💬</div>
+                        <div class="teaser-title">Daily Help</div>
+                        <div class="teaser-text">I alone answer your questions every day! Join WhatsApp and Messenger below!</div>
+                    </div>
+                    <div class="teaser-card">
+                        <div class="teaser-icon">⚡</div>
+                        <div class="teaser-title">Special Updates</div>
+                        <div class="teaser-text">Secret tips only for our students. Get them in our private groups!<br><br>Weekly Google Meet lives where I answer all your Questions and explain more about Etsy!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Course Content Section -->
+<section class="course-section" id="course">
+    <div class="container">
+        <h2 class="section-title">Your Complete Training</h2>
+        <p class="section-subtitle">Every lesson will help you make more money. Watch them in order.</p>
+        
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(1)">
+                    <span>Lesson 1: A Business for Everyone</span>
+                </button>
+                <div class="accordion-content" id="accordion-1">
+                    <div class="accordion-body">
+                        <div class="video-container">
+                            <div class="video-placeholder" onclick="playVideo(this, '1115184890')">
+                                <div class="play-button"></div>
+                                <p>Click to play video</p>
+                            </div>
+                        </div>
+                        <p style="color: #ecf0f1;">Learn why this Etsy business works for people from any country. Your products matter, not where you live. No more Asian pay ceiling</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(2)">
+                    <span>Lesson 2: Think Like Americans</span>
+                </button>
+                <div class="accordion-content" id="accordion-2">
+                    <div class="accordion-body">
+                        <div class="video-container">
+                            <div class="video-placeholder" onclick="playVideo(this, '1115184934')">
+                                <div class="play-button"></div>
+                                <p>Click to play video</p>
+                            </div>
+                        </div>
+                        <p style="color: #ecf0f1;">Learn secret tools that show what Americans want to buy. Know what they want before they do.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(3)">
+                    <span>Lesson 3: Real People Making Money</span>
+                </button>
+                <div class="accordion-content" id="accordion-3">
+                    <div class="accordion-body">
+                        <div class="video-container">
+                            <div class="video-placeholder" onclick="playVideo(this, '1115184829')">
+                                <div class="play-button"></div>
+                                <p>Click to play video</p>
+                            </div>
+                        </div>
+                        <p style="color: #ecf0f1;">See students who make more money than doctors from sitting in their underpants at home. Learn why simple products work best.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(4)">
+                    <span>Lesson 4: The China Secret</span>
+                </button>
+                <div class="accordion-content" id="accordion-4">
+                    <div class="accordion-body">
+                        <div class="video-container">
+                            <div class="video-placeholder" onclick="playVideo(this, '1115184712')">
+                                <div class="play-button"></div>
+                                <p>Click to play video</p>
+                            </div>
+                        </div>
+                        <p style="color: #ecf0f1;">Learn how to buy products for cheap prices while they pay twice more. This trick helps you ACTUALLY earn</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-header" onclick="toggleAccordion(5)">
+                    <span>Lesson 5: Build Your Money Business</span>
+                </button>
+                <div class="accordion-content" id="accordion-5">
+                    <div class="accordion-body">
+                        <div class="video-container">
+                            <div class="video-placeholder" onclick="playVideo(this, '1115184764')">
+                                <div class="play-button"></div>
+                                <p>Click to play video</p>
+                            </div>
+                        </div>
+                        <p style="color: #ecf0f1;">Learn why one shop gives you side money... Learn how many shops give you FREEDOM.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <!-- Tasks Section -->
+<section class="missions-section" id="missions">
+    <div class="container">
+        <div style="text-align: center;">
+            <div class="missions-urgency">
+                🚨 IMPORTANT: Get ALL 5 Tasks Below
+            </div>
+        </div>
+        <h2 class="section-title">Your Action Plan</h2>
+        <p class="section-subtitle">Learning without doing is useless. These tasks help you make money.</p>
+        
+        <div class="missions-grid">
+            <div class="mission-card">
+                <div class="mission-number">1</div>
+                <h3 class="mission-title">Business Basics</h3>
+                <p class="mission-description">Learn the main things that help sellers win. This is your base for everything else.</p>
+                <a href="https://drive.google.com/uc?export=download&id=1aDbjoENplGYL6QVWl8xeg-i0odQommz6" class="download-btn">Get Task 1</a>
+            </div>
+            <div class="mission-card">
+                <div class="mission-number">2</div>
+                <h3 class="mission-title">American Market Tips</h3>
+                <p class="mission-description">Learn exactly how my best students find products that sell fast. Skip this and stay stuck.</p>
+                <a href="https://drive.google.com/uc?export=download&id=1E42HkLWLgfRuRRwGLK4ftR5zYa4VYjuB" class="download-btn">Get Task 2</a>
+            </div>
+            <div class="mission-card">
+                <div class="mission-number">3</div>
+                <h3 class="mission-title">Success Study</h3>
+                <p class="mission-description">Study what makes winners win before you start. Learn from others who won and lost.</p>
+                <a href="https://drive.google.com/uc?export=download&id=121nqy6dqGQmhzZThZaH7Q6oE-T2Z2J_j" class="download-btn">Get Task 3</a>
+            </div>
+            <div class="mission-card">
+                <div class="mission-number">4</div>
+                <h3 class="mission-title">Supply Chain Help</h3>
+                <p class="mission-description">Build good supplier friends without costly mistakes. This guide saves you money.</p>
+                <a href="https://drive.google.com/uc?export=download&id=1swqaqW-YUJ69JEYLL_kboOk214W2CZCf" class="download-btn">Get Task 4</a>
+            </div>
+            <div class="mission-card">
+                <div class="mission-number">5</div>
+                <h3 class="mission-title">Scale to Freedom Plan</h3>
+                <p class="mission-description">Learn how to go from one shop to many income streams. See how top sellers do it.</p>
+                <a href="https://drive.google.com/uc?export=download&id=1q0K0kW3uXrP-ujvwXmOmA5OtGwfAtGe1" class="download-btn">Get Task 5</a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <h3 style="color: white; font-size: 1.5rem; margin-bottom: 15px;">⚡ Next Step: Join The Community</h3>
+            <p style="color: rgba(255,255,255,0.9); margin-bottom: 20px;">Don't study alone! Get daily support from me and other successful students.</p>
+            <button class="clickable-btn" onclick="scrollToCommunity()">👇 Join Below</button>
+        </div>
+    </div>
+</section>
+
+    <!-- Community Section -->
+    <section class="community-section" id="community">
+        <div class="container">
+            <div style="text-align: center;">
+                <div class="community-urgency">
+                    🚨 FINAL STEP: Join Both Groups Now
+                </div>
+            </div>
+            <h2 class="section-title">Our Community Team. With Weekly Lives, Live support, Q&A's</h2>
+            <p class="section-subtitle">Don't try this alone. Join many winning students who get daily one on one help.</p>
+            
+            <div style="background: rgba(217, 119, 6, 0.1); padding: 30px; border-radius: 20px; margin-bottom: 50px; text-align: center;">
+                <h3 style="color: #d97706;">🎯 Why You MUST Join Both:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 25px;">
+                    <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px;">
+                        <h4 style="color: #f59e0b;">📱 WhatsApp = Human Help</h4>
+                        <p style="color: #ecf0f1;">Daily voice answers from me. Real community of winning students. Weekly lives</p>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 15px;">
+                        <h4 style="color: #f59e0b;">⚡ Messenger = AI + Special Tips</h4>
+                        <p style="color: #ecf0f1;">Instant AI helper plus special tricks not shared anywhere else.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="community-grid">
+                <div class="community-card">
+                    <div class="community-icon">📱</div>
+                    <h3 class="community-title">WhatsApp Success Circle</h3>
+                    <p class="community-description"><strong>Your direct line to me and other winning students.</strong> I answer every question with daily voice messages. Real community. Real help. Real results.</p>
+                    <div style="background: rgba(217, 119, 6, 0.2); padding: 15px; border-radius: 10px; margin: 20px 0;">
+                        <div style="font-weight: 700; color: #f59e0b; margin-bottom: 8px;">✅ What You Get:</div>
+                        <ul style="color: #ecf0f1; margin-left: 5px; padding-left: 15px;">
+                            <li>Daily voice replies from me</li>
+                            <li>Student success parties</li>
+                            <li>Quick problem help</li>
+                            <li>Community support</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/message/ZGE4FAHJCSLXK1" class="join-btn">🚀 Join WhatsApp Now</a>
+                </div>
+
+                <div class="community-card">
+                    <div class="community-icon">⚡</div>
+                    <h3 class="community-title">Messenger VIP Access</h3>
+                    <p class="community-description"><strong>Your AI helper plus special content.</strong> Smart tricks, insider updates, and chances you won't see anywhere else.</p>
+                    <div style="background: rgba(217, 119, 6, 0.2); padding: 15px; border-radius: 10px; margin: 20px 0;">
+                        <div style="font-weight: 700; color: #f59e0b; margin-bottom: 8px;">✅ What You Get:</div>
+                        <ul style="color: #ecf0f1; margin-left: 5px; padding-left: 15px;">
+                            <li>24/7 AI helper trained on Etsy</li>
+                            <li>Special smart tricks</li>
+                            <li>Early access to new content</li>
+                            <li>VIP chances</li>
+                        </ul>
+                    </div>
+                    <a href="https://m.me/700274389844832?ref=w43675680" class="join-btn">🎯 Join Messenger VIP</a>
+                </div>
+            </div>
+
+            <div style="margin-top: 50px;">
+                <h3 style="color: #d97706; text-align:center;">🏆 Success Plan:</h3>
+                <p style="color:#ecf0f1; text-align:center;"><strong>Join BOTH groups right now.</strong> WhatsApp for daily questions and community help. Messenger for special content and AI help. Together they give you the complete success system.</p>
+                <div style="text-align: center; margin-top:15px;">
+                    <button class="whatsapp-btn" onclick="openWhatsApp()">📱 WhatsApp</button>
+                    <button class="messenger-btn" onclick="openMessenger()">⚡ Messenger</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Play welcome video function - UPDATED
+        function playWelcomeVideo(element, videoId) {
+            const videoContainer = element.parentElement;
+            videoContainer.innerHTML = `
+                <iframe src="https://player.vimeo.com/video/${videoId}?badge=0&autopause=0&controls=1&autoplay=1&player_id=0&app_id=58479" 
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 15px;"
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                </iframe>
+            `;
+        }
+
+        // Play video function with Vimeo support
+        function playVideo(element, videoId) {
+            const videoContainer = element.parentElement;
+            videoContainer.innerHTML = `
+                <iframe src="https://player.vimeo.com/video/${videoId}?badge=0&autopause=0&controls=1&autoplay=1&player_id=0&app_id=58479" 
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 10px;"
+                        frameborder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                </iframe>
+            `;
+        }
+
+         // ORIGINAL ACCORDION FUNCTION - EXACTLY AS IT WAS
+        function toggleAccordion(id) {
+            const content = document.getElementById('accordion-' + id);
+            const header = content.previousElementSibling;
+            
+            // Check if this accordion is currently open
+            const isOpen = content.classList.contains('active');
+            
+            // Close all accordions first
+            for (let i = 1; i <= 5; i++) {
+                const otherContent = document.getElementById('accordion-' + i);
+                const otherHeader = otherContent.previousElementSibling;
+                otherContent.classList.remove('active');
+                otherHeader.classList.remove('active');
+            }
+            
+            // If this accordion was closed, open it
+            if (!isOpen) {
+                content.classList.add('active');
+                header.classList.add('active');
+            }
+        }
+
+        // Progress tracking
+        function updateProgress() {
+            const scrolled = window.pageYOffset;
+            const maxHeight = document.body.scrollHeight - window.innerHeight;
+            const progress = (scrolled / maxHeight) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        // Scroll to community section
+        function scrollToCommunity() {
+            const element = document.getElementById('community');
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Open WhatsApp
+        function openWhatsApp() {
+            window.open('https://wa.me/message/ZGE4FAHJCSLXK1', '_blank');
+        }
+
+        // Open Messenger  
+        function openMessenger() {
+            window.open('https://m.me/700274389844832?ref=w43675680', '_blank');
+        }
+
+        // Smooth scroll to section
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Scroll event listeners
+        window.addEventListener('scroll', function() {
+            updateProgress();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        }); 
+    </script>
+</body>
+</html>
