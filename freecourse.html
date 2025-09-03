@@ -758,52 +758,52 @@
     </div>
 
     <!-- Welcome Video Section -->
-    <section class="welcome-video-section">
-        <div class="container">
-            <div class="video-content">
-                <div class="success-badge">🇵🇭 Welcome You're In</div>
-                <h1 class="video-title">Welcome to ePro Formula!</h1>
-                <p class="video-subtitle">This is not like other courses. This will help you make a lot more money.</p>
-                
-                <!-- Quick Navigation -->
-                <div class="quick-nav">
-                    <div class="nav-grid">
-                        <a href="#course" class="nav-item">🎥 Watch Course</a>
-                        <a href="#missions" class="nav-item">📋 Get Tasks</a>
-                        <a href="#community" class="nav-item">💬 Join Community</a>
-                    </div>
+<section class="welcome-video-section">
+    <div class="container">
+        <div class="video-content">
+            <div class="success-badge">🇵🇭 Welcome You're In</div>
+            <h1 class="video-title">Welcome to ePro Formula!</h1>
+            <p class="video-subtitle">This is not like other courses. This will help you make a lot more money.</p>
+            
+            <!-- Quick Navigation -->
+            <div class="quick-nav">
+                <div class="nav-grid">
+                    <a href="#course" class="nav-item">🎥 Watch Course</a>
+                    <a href="#missions" class="nav-item">📋 Get Tasks</a>
+                    <a href="#community" class="nav-item">💬 Join Community</a>
                 </div>
-                
-                <div class="welcome-video-container">
-                    <div class="video-embed">
-                        <div class="video-placeholder" onclick="playWelcomeVideo(this, '1115385176')">
-                            <div class="play-button"></div>
-                            <p>Click to play Welcome Video</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Teaser Cards -->
-                <div class="teaser-cards">
-                    <div class="teaser-card">
-                        <div class="teaser-icon">📋</div>
-                        <div class="teaser-title">5 Action Tasks</div>
-                        <div class="teaser-text">Easy exact steps to help you learn and earn. Download them below!</div>
-                    </div>
-                    <div class="teaser-card">
-                        <div class="teaser-icon">💬</div>
-                        <div class="teaser-title">Daily Help</div>
-                        <div class="teaser-text">I alone answer your questions every day! Join WhatsApp and Messenger below!</div>
-                    </div>
-                    <div class="teaser-card">
-                        <div class="teaser-icon">⚡</div>
-                        <div class="teaser-title">Special Updates</div>
-                        <div class="teaser-text">Secret tips only for our students. Get them in our private groups!<br><br>Weekly Google Meet lives where I answer all your Questions and explain more about Etsy!</div>
+            </div>
+            
+            <div class="welcome-video-container">
+                <div class="video-embed">
+                    <div class="video-placeholder" onclick="playWelcomeVideo(this, '1115385176')">
+                        <div class="play-button"></div>
+                        <p>Click to play Welcome Video</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Teaser Cards -->
+            <div class="teaser-cards">
+                <div class="teaser-card">
+                    <div class="teaser-icon">📋</div>
+                    <div class="teaser-title">5 Action Tasks</div>
+                    <div class="teaser-text">Easy exact steps to help you learn and earn. Download them below!</div>
+                </div>
+                <div class="teaser-card">
+                    <div class="teaser-icon">💬</div>
+                    <div class="teaser-title">Daily Help</div>
+                    <div class="teaser-text">I alone answer your questions every day! Join WhatsApp and Messenger below!</div>
+                </div>
+                <div class="teaser-card">
+                    <div class="teaser-icon">⚡</div>
+                    <div class="teaser-title">Special Updates</div>
+                    <div class="teaser-text">Secret tips only for our students. Get them in our private groups!<br><br>Weekly Google Meet lives where I answer all your Questions and explain more about Etsy!</div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
 <!-- Course Content Section -->
 <section class="course-section" id="course">
@@ -899,8 +899,7 @@
         </div>
     </div>
 </section>
-
-
+    
   <!-- Tasks Section -->
 <section class="missions-section" id="missions">
     <div class="container">
@@ -1134,5 +1133,25 @@
             });
         }); 
     </script>
+    <!-- Vimeo Thumbnails Script -->
+<script>
+function setVimeoThumbnails() {
+  document.querySelectorAll('.video-placeholder').forEach(el => {
+    // Grab the Vimeo ID from onclick="playVideo(this, '123456')"
+    const match = el.getAttribute('onclick').match(/'(\d+)'/);
+    if (match) {
+      const id = match[1];
+      fetch(`https://vimeo.com/api/v2/video/${id}.json`)
+        .then(res => res.json())
+        .then(data => {
+          el.style.backgroundImage = `url(${data[0].thumbnail_large})`;
+          el.style.backgroundSize = "cover";
+          el.style.backgroundPosition = "center";
+        });
+    }
+  });
+}
+document.addEventListener("DOMContentLoaded", setVimeoThumbnails);
+</script>
 </body>
 </html>
