@@ -227,6 +227,11 @@
                 transform: translateY(0);
             }
         }
+          
+        footer {
+              position: relative;
+              z-index: 20; /* higher than .hero-bg (1) and .main-content (10) */
+            }
 
         /* Video Section */
         .video-container {
@@ -471,11 +476,13 @@
             .main-content {
                 padding: 30px 0;
                 gap: 30px;
+
             }
         }
     </style>
 </head>
 <body>
+    
     <!-- BACKGROUND ANIMATIONS -->
     <div class="hero-bg">
         <div class="floating-particles">
