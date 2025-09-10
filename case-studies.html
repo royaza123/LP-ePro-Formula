@@ -2794,7 +2794,7 @@ function playVimeo(el) {
                     <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Only for the first 100 people!! (Check all your inbox, might take a few minutes)</p>
                 </div>
                 
-                <form method="post" action="https://systeme.io/embedded/32837793/subscription">
+                <form id="leadForm">
                     <input type="text" 
                            name="first_name" 
                            placeholder="Enter your first name" 
@@ -2812,13 +2812,12 @@ function playVimeo(el) {
                            placeholder="Enter your phone number (optional)" 
                            style="width: 100%; padding: 18px 25px; border: 2px solid rgba(255,255,255,0.3); border-radius: 15px; background: rgba(255,255,255,0.1); color: white; font-size: 1.2rem; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: all 0.3s ease; box-sizing: border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; outline: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; margin-bottom: 20px;">
                     
-                    <div class="f-row">
-                        <button type="submit"
-                                style="width: 100%; padding: 18px 40px; border: none; border-radius: 15px; background: linear-gradient(135deg, #d97706 0%, #92400e 100%); color: white; font-size: 1.2rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4); transition: all 0.3s ease; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; outline: none; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
-                            🎯 GET MY FREE SPOT NOW
-                        </button>
-                    </div>
-                </form>
+                   <div class="f-row">
+                    <button type="submit" id="submitBtn"
+                            style="width: 100%; padding: 18px 40px; border: none; border-radius: 15px; background: linear-gradient(135deg, #d97706 0%, #92400e 100%); color: white; font-size: 1.2rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4); transition: all 0.3s ease; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; outline: none; -webkit-appearance: none; -moz-appearance: none; appearance: none;">
+                        🎯 GET MY FREE SPOT NOW
+                    </button>
+                </div>
                 
                 <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; text-align: center; margin-top: 15px;">
                     ✅ Instant access • ✅ No credit card required • ✅ 100% Free
@@ -2977,6 +2976,49 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 document.addEventListener('DOMContentLoaded', function() {
     // Add a small delay to ensure all elements are rendered
     setTimeout(handleScrollAnimations, 100);
+});
+    // Form submission handler
+document.getElementById('leadForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.getElementById('submitBtn');
+    const originalText = submitBtn.innerHTML;
+    
+    // Disable button and show loading
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '⏳ Submitting...';
+    
+    // Get form data
+    const formData = {
+        first_name: document.querySelector('input[name="first_name"]').value,
+        email: document.querySelector('input[name="email"]').value,
+        phone_number: document.querySelector('input[name="phone_number"]').value
+    };
+    
+    // Send to Make.com webhook
+    fetch('https://hook.eu2.make.com/eej09atxu1ewm9ivjdn81vpcwzqmrt39', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => {
+        if (response.ok) {
+            // Success - redirect or show success message
+            window.location.href = 'freecourse.html';
+        } else {
+            throw new Error('Network response was not ok');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Something went wrong. Please try again.');
+        
+        // Re-enable button
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+    });
 });
 </script>
 </body>
