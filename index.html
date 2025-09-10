@@ -54,9 +54,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
       gtag('config', 'G-2PCJJ337XT');
     </script>
-
-    <!-- Systeme.io Form Script -->
-    <script id="form-script-tag-20275046" src="https://aetophis.systeme.io/public/remote/page/32837793e86d6d81347bc99b5e41aef27d4f1d56.js"></script>
     
     <style>
         * {
@@ -2107,13 +2104,13 @@ function playVimeoVideo() {
                         </p>
                     </div>
                     
-                    <form method="post" action="https://systeme.io/embedded/32837793/subscription"> 
+                    <form id="leadForm"> 
                       <input type="text" name="first_name" placeholder="First Name" class="form-input" />
                       <input type="email" name="email" placeholder="Email" required class="form-input" />
                       <input type="tel" name="phone_number" placeholder="Phone Number (optional)" class="form-input" />
                       
                       <div class="f-row">
-                        <button type="submit" class="cta-button" style="width: 100%; margin: 20px 0;">🎯 SECURE MY FREE SPOT NOW</button>
+                        <button type="submit" id="submitBtn" class="cta-button" style="width: 100%; margin: 20px 0;">🎯 SECURE MY FREE SPOT NOW</button>
                       </div>
                     </form>
                     
@@ -2136,7 +2133,7 @@ function playVimeoVideo() {
   <p>Contact: <a href="mailto:aetophis@aetophis.com" style="color:#f59e0b;">aetophis@aetophis.com</a></p>
 </footer>
 
-    <script>
+<script>
         // Mobile Menu Toggle
         document.getElementById('mobileMenuToggle').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobileMenu');
@@ -2299,6 +2296,47 @@ function playVimeoVideo() {
                     }, 10000);
                 });
             });
+
+            // Form submission handler
+            const leadForm = document.getElementById('leadForm');
+            if (leadForm) {
+                leadForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const submitBtn = document.getElementById('submitBtn');
+                    const originalText = submitBtn.innerHTML;
+                    
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '⏳ Submitting...';
+                    
+                    const formData = {
+                        first_name: document.querySelector('input[name="first_name"]').value,
+                        email: document.querySelector('input[name="email"]').value,
+                        phone_number: document.querySelector('input[name="phone_number"]').value
+                    };
+                    
+                    fetch('https://hook.eu2.make.com/eej09atxu1ewm9ivjdn81vpcwzqmrt39', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formData)
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            window.location.href = 'freecourse.html';
+                        } else {
+                            throw new Error('Network response was not ok');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Something went wrong. Please try again.');
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalText;
+                    });
+                });
+            }
         });
 
         // Scroll animations
@@ -2360,6 +2398,6 @@ function playVimeoVideo() {
         </div>
     `;
 }
-    </script>
+</script>
 </body>
 </html>
