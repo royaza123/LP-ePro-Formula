@@ -2134,193 +2134,206 @@ function playVimeoVideo() {
 </footer>
 
 <script>
-        // Mobile Menu Toggle
-        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('active');
+    // Mobile Menu Toggle
+    document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.classList.toggle('active');
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // FIXED FAQ FUNCTION
+    function toggleFAQNew(faqNumber) {
+        const answer = document.getElementById('faq-' + faqNumber);
+        const question = answer.previousElementSibling;
+
+        // Check if this FAQ is currently open
+        const isOpen = answer.classList.contains('open');
+
+        // Close ALL FAQs first
+        document.querySelectorAll('.faq-answer').forEach(item => {
+            item.classList.remove('open');
+        });
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.classList.remove('open');
         });
 
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
+        // If this FAQ was closed, open it
+        if (!isOpen) {
+            question.classList.add('open');
+            answer.classList.add('open');
+        }
+    }
+
+    // Animate counters on page load
+    window.addEventListener('load', function() {
+        animateCounter('counter1', 2000000, '', 'M+');
+        animateCounter('counter2', 200, '', '+');
+        animateCounter('counter3', 95, '', '%');
+        animateCounter('counter4', 500, '', '+');
+        animateCounter('counter5', 55, '', '%');
+        // Special handling for the 5-star rating counter
+        animateStarRating('counter6');
+    });
+
+    function animateCounter(id, target, prefix = '', suffix = '') {
+        const element = document.getElementById(id);
+        if (!element) return;
+
+        let current = 0;
+        const increment = target / 100;
+
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+
+            let displayValue;
+            if (target >= 1000000) {
+                displayValue = prefix + (current / 1000000).toFixed(1) + suffix;
             } else {
-                header.classList.remove('scrolled');
+                displayValue = prefix + Math.floor(current) + suffix;
             }
-        });
 
-        // FIXED FAQ FUNCTION - ADD THIS!
-        function toggleFAQNew(faqNumber) {
-            const answer = document.getElementById('faq-' + faqNumber);
-            const question = answer.previousElementSibling;
-            
-            // Check if this FAQ is currently open
-            const isOpen = answer.classList.contains('open');
-            
-            // Close ALL FAQs first
-            document.querySelectorAll('.faq-answer').forEach(item => {
-                item.classList.remove('open');
-            });
-            document.querySelectorAll('.faq-question').forEach(item => {
-                item.classList.remove('open');
-            });
-            
-            // If this FAQ was closed, open it
-            if (!isOpen) {
-                question.classList.add('open');
-                answer.classList.add('open');
+            element.textContent = displayValue;
+        }, 20);
+    }
+
+    function animateStarRating(id) {
+        const element = document.getElementById(id);
+        if (!element) return;
+
+        let current = 0;
+        const target = 4.7;
+        const increment = 0.1;
+
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
             }
-        }
 
-        // Animate counters on page load
-        window.addEventListener('load', function() {
-            animateCounter('counter1', 2000000, '', 'M+');
-            animateCounter('counter2', 200, '', '+');
-            animateCounter('counter3', 95, '', '%');
-            animateCounter('counter4', 500, '', '+');
-            animateCounter('counter5', 55, '', '%');
-            // Special handling for the 5-star rating counter
-            animateStarRating('counter6');
-        });
+            element.innerHTML = `
+            <span style="color: #f59e0b; font-size: 1.2rem; display: block; line-height: 1.2; margin-bottom: 10px;">⭐⭐⭐⭐⭐</span>
+            <span style="font-size: 3rem;">${current.toFixed(1)}</span>
+        `;
+        }, 50);
+    }
 
-        function animateCounter(id, target, prefix = '', suffix = '') {
-            const element = document.getElementById(id);
-            if (!element) return;
-            
-            let current = 0;
-            const increment = target / 100;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                
-                let displayValue;
-                if (target >= 1000000) {
-                    displayValue = prefix + (current / 1000000).toFixed(1) + suffix;
-                } else {
-                    displayValue = prefix + Math.floor(current) + suffix;
-                }
-                
-                element.textContent = displayValue;
-            }, 20);
-        }
+    // Enhanced click-to-zoom functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const resultPics = document.querySelectorAll('.result-pic');
+        let currentZoomedImage = null;
+        let currentOverlay = null;
 
-        function animateStarRating(id) {
-            const element = document.getElementById(id);
-            if (!element) return;
-            
-            let current = 0;
-            const target = 4.7;
-            const increment = 0.1;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                
-                element.innerHTML = `
-                    <span style="color: #f59e0b; font-size: 1.2rem; display: block; line-height: 1.2; margin-bottom: 10px;">⭐⭐⭐⭐⭐</span>
-                    <span style="font-size: 3rem;">${current.toFixed(1)}</span>
-                `;
-            }, 50);
-        }
+        resultPics.forEach(pic => {
+            pic.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
 
-        // Enhanced click-to-zoom functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const resultPics = document.querySelectorAll('.result-pic');
-            let currentZoomedImage = null;
-            let currentOverlay = null;
-            
-            resultPics.forEach(pic => {
-                pic.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    // Create overlay
-                    const overlay = document.createElement('div');
-                    overlay.className = 'zoom-overlay active';
-                    
-                    // Create close hint
-                    const closeHint = document.createElement('div');
-                    closeHint.className = 'zoom-close-hint';
-                    closeHint.innerHTML = '✕ Click anywhere to close';
-                    
-                    // Clone the image for zooming
-                    const zoomedImg = this.cloneNode(true);
-                    zoomedImg.classList.add('zoomed');
-                    zoomedImg.style.cursor = 'pointer';
-                    
-                    // Add elements to page
-                    overlay.appendChild(zoomedImg);
-                    overlay.appendChild(closeHint);
-                    document.body.appendChild(overlay);
-                    document.body.style.overflow = 'hidden';
-                    
-                    // Store references
-                    currentZoomedImage = zoomedImg;
-                    currentOverlay = overlay;
-                    
-                    // Close function
-                    function closeZoom() {
-                        if (currentOverlay && document.body.contains(currentOverlay)) {
-                            document.body.removeChild(currentOverlay);
-                            document.body.style.overflow = 'auto';
-                            currentZoomedImage = null;
-                            currentOverlay = null;
-                        }
+                // Create overlay
+                const overlay = document.createElement('div');
+                overlay.className = 'zoom-overlay active';
+
+                // Create close hint
+                const closeHint = document.createElement('div');
+                closeHint.className = 'zoom-close-hint';
+                closeHint.innerHTML = '✕ Click anywhere to close';
+
+                // Clone the image for zooming
+                const zoomedImg = this.cloneNode(true);
+                zoomedImg.classList.add('zoomed');
+                zoomedImg.style.cursor = 'pointer';
+
+                // Add elements to page
+                overlay.appendChild(zoomedImg);
+                overlay.appendChild(closeHint);
+                document.body.appendChild(overlay);
+                document.body.style.overflow = 'hidden';
+
+                // Store references
+                currentZoomedImage = zoomedImg;
+                currentOverlay = overlay;
+
+                // Close function
+                function closeZoom() {
+                    if (currentOverlay && document.body.contains(currentOverlay)) {
+                        document.body.removeChild(currentOverlay);
+                        document.body.style.overflow = 'auto';
+                        currentZoomedImage = null;
+                        currentOverlay = null;
                     }
-                    
-                    // Close on overlay click
-                    overlay.addEventListener('click', closeZoom);
-                    
-                    // Close on escape key
-                    const escapeHandler = function(e) {
-                        if (e.key === 'Escape') {
-                            closeZoom();
-                            document.removeEventListener('keydown', escapeHandler);
-                        }
-                    };
-                    document.addEventListener('keydown', escapeHandler);
-                    
-                    // Auto-close after 10 seconds
-                    setTimeout(() => {
-                        if (currentOverlay) {
-                            closeZoom();
-                        }
-                    }, 10000);
-                });
-            });
+                }
 
-            // Form submission handler
-            const leadForm = document.getElementById('leadForm');
-            if (leadForm) {
-                leadForm.addEventListener('submit', function(e) {
+                // Close on overlay click
+                overlay.addEventListener('click', closeZoom);
+
+                // Close on escape key
+                const escapeHandler = function(e) {
+                    if (e.key === 'Escape') {
+                        closeZoom();
+                        document.removeEventListener('keydown', escapeHandler);
+                    }
+                };
+                document.addEventListener('keydown', escapeHandler);
+
+                // Auto-close after 10 seconds
+                setTimeout(() => {
+                    if (currentOverlay) {
+                        closeZoom();
+                    }
+                }, 10000);
+            });
+        });
+
+        // New function for email validation
+        function isValidEmail(email) {
+            const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            return regex.test(email);
+        }
+
+        // Form submission handler
+        const leadForm = document.getElementById('leadForm');
+        if (leadForm) {
+            leadForm.addEventListener('submit', function(e) {
+                const emailInput = document.querySelector('input[name="email"]');
+                if (!isValidEmail(emailInput.value)) {
                     e.preventDefault();
-                    
-                    const submitBtn = document.getElementById('submitBtn');
-                    const originalText = submitBtn.innerHTML;
-                    
-                    submitBtn.disabled = true;
-                    submitBtn.innerHTML = '⏳ Submitting...';
-                    
-                    const formData = {
-                        email: document.querySelector('input[name="email"]').value,
-                        event: 'user_email_capture',
-                        video_name: '',
-                        progress: '',
-                        page: window.location.pathname,
-                        timestamp: new Date().toISOString(),
-                        first_name: document.querySelector('input[name="first_name"]').value,
-                        phone_number: document.querySelector('input[name="phone_number"]').value
-                    };
-                    
-                    fetch('https://hook.eu2.make.com/eej09atxu1ewm9ivjdn81vpcwzqmrt39', {
+                    alert("Please enter a valid email address.");
+                    return;
+                }
+
+                e.preventDefault();
+
+                const submitBtn = document.getElementById('submitBtn');
+                const originalText = submitBtn.innerHTML;
+
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '⏳ Submitting...';
+
+                const formData = {
+                    email: emailInput.value,
+                    event: 'user_email_capture',
+                    video_name: '',
+                    progress: '',
+                    page: window.location.pathname,
+                    timestamp: new Date().toISOString(),
+                    first_name: document.querySelector('input[name="first_name"]').value,
+                    phone_number: document.querySelector('input[name="phone_number"]').value
+                };
+
+                fetch('https://hook.eu2.make.com/eej09atxu1ewm9ivjdn81vpcwzqmrt39', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -2340,69 +2353,70 @@ function playVimeoVideo() {
                         submitBtn.disabled = false;
                         submitBtn.innerHTML = originalText;
                     });
+            });
+        }
+    });
+
+    // Scroll animations
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    function isElementPartiallyInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.bottom >= 0 &&
+            rect.right >= 0 &&
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.left <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    function handleScrollAnimations() {
+        const elements = document.querySelectorAll('.fade-in');
+        elements.forEach(element => {
+            if (isElementPartiallyInViewport(element)) {
+                element.classList.add('visible');
+            }
+        });
+    }
+
+    // Run on load and scroll
+    window.addEventListener('load', handleScrollAnimations);
+    window.addEventListener('scroll', handleScrollAnimations);
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
             }
         });
+    });
 
-        // Scroll animations
-        function isElementInViewport(el) {
-            const rect = el.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
-        }
-
-        function isElementPartiallyInViewport(el) {
-            const rect = el.getBoundingClientRect();
-            return (
-                rect.bottom >= 0 &&
-                rect.right >= 0 &&
-                rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.left <= (window.innerWidth || document.documentElement.clientWidth)
-            );
-        }
-
-        function handleScrollAnimations() {
-            const elements = document.querySelectorAll('.fade-in');
-            elements.forEach(element => {
-                if (isElementPartiallyInViewport(element)) {
-                    element.classList.add('visible');
-                }
-            });
-        }
-
-        // Run on load and scroll
-        window.addEventListener('load', handleScrollAnimations);
-        window.addEventListener('scroll', handleScrollAnimations);
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        }); 
-        function playVideo() {
-    const videoContainer = document.querySelector('.video-container');
-    videoContainer.innerHTML = `
+    function playVideo() {
+        const videoContainer = document.querySelector('.video-container');
+        videoContainer.innerHTML = `
         <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; border-radius: 15px; overflow: hidden;">
-            <iframe src="https://www.youtube.com/embed/rZsRSU7rbhM?autoplay=1" 
+            <iframe src="https://www.youtube.com/embed/rZsRSU7rbhM?autoplay=1"
                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 15px;"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
             </iframe>
         </div>
     `;
-}
+    }
 </script>
 </body>
 </html>
