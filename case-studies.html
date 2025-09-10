@@ -2936,13 +2936,17 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = true;
             submitBtn.innerHTML = '⏳ Submitting...';
             
-           const formData = {
-            first_name: document.querySelector('input[name="first_name"]').value,
-            email: document.querySelector('input[name="email"]').value,
-            phone_number: document.querySelector('input[name="phone_number"]').value,
-            event: 'form_submission',
-            timestamp: new Date().toISOString()
-        };
+            // Get form data
+            const formData = {
+                email: document.querySelector('input[name="email"]').value,
+                event: 'user_email_capture',
+                video_name: '',
+                progress: '',
+                page: window.location.pathname,
+                timestamp: new Date().toISOString(),
+                first_name: document.querySelector('input[name="first_name"]').value,
+                phone_number: document.querySelector('input[name="phone_number"]').value
+            };
             
             // Send to Make.com webhook
             fetch('https://hook.eu2.make.com/eej09atxu1ewm9ivjdn81vpcwzqmrt39', {
@@ -3023,3 +3027,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Initialize scroll animations on page load
 setTimeout(handleScrollAnimations, 100);
 </script>
+</body>
+</html>
