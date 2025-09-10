@@ -609,72 +609,85 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Load Vimeo Player API -->
     <script src="https://player.vimeo.com/api/player.js"></script>
     
- <script>
-        // Video functionality
-        const iframe = document.getElementById('vimeoPlayer');
-        const playOverlay = document.getElementById('playOverlay');
-        const player = new Vimeo.Player(iframe);
+<script>
+    // Video functionality
+    const iframe = document.getElementById('vimeoPlayer');
+    const playOverlay = document.getElementById('playOverlay');
+    const player = new Vimeo.Player(iframe);
 
-        // Function to play video and hide overlay
-        function playVideo() {
-            player.play().then(function() {
-                // Video started playing successfully
-                playOverlay.classList.add('hidden');
-            }).catch(function(error) {
-                console.log('Error playing video:', error);
-            });
-        }
-
-        // Add click event to overlay
-        playOverlay.addEventListener('click', playVideo);
-
-        // Optional: Listen for video events
-        player.on('play', function() {
+    // Function to play video and hide overlay
+    function playVideo() {
+        player.play().then(function() {
+            // Video started playing successfully
             playOverlay.classList.add('hidden');
+        }).catch(function(error) {
+            console.log('Error playing video:', error);
+        });
+    }
+
+    // Add click event to overlay
+    playOverlay.addEventListener('click', playVideo);
+
+    // Optional: Listen for video events
+    player.on('play', function() {
+        playOverlay.classList.add('hidden');
+    });
+
+    player.on('pause', function() {
+        // Optionally show overlay again when paused
+        // playOverlay.classList.remove('hidden');
+    });
+
+    // Form interaction effects
+    document.querySelectorAll('.form-input').forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.style.transform = 'translateY(-2px)';
+            this.parentElement.style.transition = 'all 0.3s ease';
         });
 
-        player.on('pause', function() {
-            // Optionally show overlay again when paused
-            // playOverlay.classList.remove('hidden');
+        input.addEventListener('blur', function() {
+            this.parentElement.style.transform = 'translateY(0)';
         });
+    });
 
-        // Form interaction effects
-        document.querySelectorAll('.form-input').forEach(input => {
-            input.addEventListener('focus', function() {
-                this.parentElement.style.transform = 'translateY(-2px)';
-                this.parentElement.style.transition = 'all 0.3s ease';
-            });
-            
-            input.addEventListener('blur', function() {
-                this.parentElement.style.transform = 'translateY(0)';
-            });
-        });
+    // New function for email validation
+    function isValidEmail(email) {
+        const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return regex.test(email);
+    }
 
-        // Form submission handler
-        document.addEventListener('DOMContentLoaded', function() {
-            const leadForm = document.getElementById('leadForm');
-            if (leadForm) {
-                leadForm.addEventListener('submit', function(e) {
+    // Form submission handler
+    document.addEventListener('DOMContentLoaded', function() {
+        const leadForm = document.getElementById('leadForm');
+        if (leadForm) {
+            leadForm.addEventListener('submit', function(e) {
+                const emailInput = document.querySelector('input[name="email"]');
+                if (!isValidEmail(emailInput.value)) {
                     e.preventDefault();
-                    
-                    const submitBtn = document.getElementById('submitBtn');
-                    const originalText = submitBtn.innerHTML;
-                    
-                    submitBtn.disabled = true;
-                    submitBtn.innerHTML = '⏳ Submitting...';
-                    
-                    const formData = {
-                        email: document.querySelector('input[name="email"]').value,
-                        event: 'user_email_capture',
-                        video_name: '',
-                        progress: '',
-                        page: window.location.pathname,
-                        timestamp: new Date().toISOString(),
-                        first_name: document.querySelector('input[name="first_name"]').value,
-                        phone_number: document.querySelector('input[name="phone_number"]').value
-                    };
-                    
-                    fetch('https://hook.eu2.make.com/eej09atxu1ewm9ivjdn81vpcwzqmrt39', {
+                    alert("Please enter a valid email address.");
+                    return;
+                }
+
+                e.preventDefault();
+
+                const submitBtn = document.getElementById('submitBtn');
+                const originalText = submitBtn.innerHTML;
+
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '⏳ Submitting...';
+
+                const formData = {
+                    email: emailInput.value,
+                    event: 'user_email_capture',
+                    video_name: '',
+                    progress: '',
+                    page: window.location.pathname,
+                    timestamp: new Date().toISOString(),
+                    first_name: document.querySelector('input[name="first_name"]').value,
+                    phone_number: document.querySelector('input[name="phone_number"]').value
+                };
+
+                fetch('https://hook.eu2.make.com/eej09atxu1ewm9ivjdn81vpcwzqmrt39', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -694,9 +707,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         submitBtn.disabled = false;
                         submitBtn.innerHTML = originalText;
                     });
-                });
-            }
-        });
+            });
+        }
+    });
 </script>
 </body>
 </html>
