@@ -2936,12 +2936,13 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = true;
             submitBtn.innerHTML = '⏳ Submitting...';
             
-            // Get form data
-            const formData = {
-                first_name: document.querySelector('input[name="first_name"]').value,
-                email: document.querySelector('input[name="email"]').value,
-                phone_number: document.querySelector('input[name="phone_number"]').value
-            };
+           const formData = {
+            first_name: document.querySelector('input[name="first_name"]').value,
+            email: document.querySelector('input[name="email"]').value,
+            phone_number: document.querySelector('input[name="phone_number"]').value,
+            event: 'form_submission',
+            timestamp: new Date().toISOString()
+        };
             
             // Send to Make.com webhook
             fetch('https://hook.eu2.make.com/eej09atxu1ewm9ivjdn81vpcwzqmrt39', {
