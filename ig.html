@@ -609,7 +609,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Load Vimeo Player API -->
     <script src="https://player.vimeo.com/api/player.js"></script>
     
-    <script>
+ <script>
         // Video functionality
         const iframe = document.getElementById('vimeoPlayer');
         const playOverlay = document.getElementById('playOverlay');
@@ -664,13 +664,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     submitBtn.innerHTML = '⏳ Submitting...';
                     
                     const formData = {
-                    first_name: document.querySelector('input[name="first_name"]').value,
-                    email: document.querySelector('input[name="email"]').value,
-                    phone_number: document.querySelector('input[name="phone_number"]').value,
-                    event: 'form_submission',
-                    timestamp: new Date().toISOString()
-                };
-                                    
+                        email: document.querySelector('input[name="email"]').value,
+                        event: 'user_email_capture',
+                        video_name: '',
+                        progress: '',
+                        page: window.location.pathname,
+                        timestamp: new Date().toISOString(),
+                        first_name: document.querySelector('input[name="first_name"]').value,
+                        phone_number: document.querySelector('input[name="phone_number"]').value
+                    };
+                    
                     fetch('https://hook.eu2.make.com/eej09atxu1ewm9ivjdn81vpcwzqmrt39', {
                         method: 'POST',
                         headers: {
