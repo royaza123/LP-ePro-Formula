@@ -2343,16 +2343,8 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => {
             if (response.ok) {
-                // 👇 change behavior per page
-                if (window.location.pathname.includes("index.html") ||
-                    window.location.pathname.includes("ig.html")) {
-                    window.location.href = 'freecourse.html';
-                } else if (window.location.pathname.includes("case-studies")) {
-                    alert("✅ Thanks! You’re signed up for the free course.");
-                } else {
-                    // fallback
-                    window.location.href = 'freecourse.html';
-                }
+                // ✅ Always redirect to freecourse.html
+                window.location.href = 'freecourse.html';
             } else {
                 throw new Error('Network response was not ok');
             }
