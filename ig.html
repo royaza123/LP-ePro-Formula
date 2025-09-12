@@ -656,60 +656,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         return regex.test(email);
     }
 
-    // Form submission handler
-    document.addEventListener('DOMContentLoaded', function() {
-        const leadForm = document.getElementById('leadForm');
-        if (leadForm) {
-            leadForm.addEventListener('submit', function(e) {
-                const emailInput = document.querySelector('input[name="email"]');
-                if (!isValidEmail(emailInput.value)) {
-                    e.preventDefault();
-                    alert("Please enter a valid email address.");
-                    return;
-                }
+document.addEventListener('DOMContentLoaded', function() {
+    const leadForm = document.getElementById('leadForm');
+    if (!leadForm) return;
 
-                e.preventDefault();
+    leadForm.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-                const submitBtn = document.getElementById('submitBtn');
-                const originalText = submitBtn.innerHTML;
-
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '⏳ Submitting...';
-
-                const formData = {
-                    email: emailInput.value,
-                    event: 'user_email_capture',
-                    video_name: '',
-                    progress: '',
-                    page: window.location.pathname,
-                    timestamp: new Date().toISOString(),
-                    first_name: document.querySelector('input[name="first_name"]').value,
-                    phone_number: document.querySelector('input[name="phone_number"]').value
-                };
-
-                fetch('https://hook.eu2.make.com/eej09atxu1ewm9ivjdn81vpcwzqmrt39', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(formData)
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            window.location.href = 'freecourse.html';
-                        } else {
-                            throw new Error('Network response was not ok');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Something went wrong. Please try again.');
-                        submitBtn.disabled = false;
-                        submitBtn.innerHTML = originalText;
-                    });
-            });
+        const emailInput = document.querySelector('input[name="email"]');
+        if (!emailInput || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(emailInput.value)) {
+            alert("Please enter a valid email address.");
+            return;
         }
+
+        const submitBtn = document.getElementById('submitBtn');
+        const originalText = submitBtn.innerHTML;
+
+        // Disable button and show loading
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '⏳ Submitting...';
+
+        // Build payload
+        const formData = {
+            email: emailInput.value,
+            event: 'user_email_capture',
+            video_name: '',
+            progress: '',
+            page: window.location.pathname,
+            timestamp: new Date().toISOString(),
+            first_name: document.querySelector('input[name="first_name"]')?.value || '',
+            phone_number: document.querySelector('input[name="phone_number"]')?.value || ''
+        };
+
+        // Send to n8n webhook
+        fetch('https://aetophisn8n.app.n8n.cloud/webhook/data-collector', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+            if (response.ok) {
+                // 👇 change behavior per page
+                if (window.location.pathname.includes("index.html") ||
+                    window.location.pathname.includes("ig.html")) {
+                    window.location.href = 'freecourse.html';
+                } else if (window.location.pathname.includes("case-studies")) {
+                    alert("✅ Thanks! You’re signed up for the free course.");
+                } else {
+                    // fallback
+                    window.location.href = 'freecourse.html';
+                }
+            } else {
+                throw new Error('Network response was not ok');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Something went wrong. Please try again.');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+        });
     });
+});
 </script>
 </body>
 </html>
