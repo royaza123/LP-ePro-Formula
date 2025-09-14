@@ -2999,19 +2999,17 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => {
             if (response.ok) {
-                console.log('n8n approved - redirecting to course');
-                // Only redirect after n8n processes successfully
+                console.log('Success - redirecting to course');
+                // Redirect to course
                 window.location.href = 'freecourse.html';
             } else {
-                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                throw new Error(`Server error: ${response.status}`);
             }
         })
         .catch(error => {
-            console.error('n8n failed:', error);
-            // Reset button on failure - DON'T redirect
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalText;
-            alert('Something went wrong. Please try again in a moment.');
+            console.error('Submission error:', error);
+            // Still redirect - don't block users for technical issues
+            window.location.href = 'freecourse.html';
         });
 
         // Also fire GTM event (backup tracking)
