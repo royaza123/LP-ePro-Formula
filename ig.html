@@ -656,7 +656,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         return regex.test(email);
     }
 
-// Updated Form Handler for all ePro Formula pages
+// Updated Form Handler for ig.html - ONLY redirect after n8n success
 document.addEventListener('DOMContentLoaded', function() {
     const leadForm = document.getElementById('leadForm');
     if (!leadForm) return;
@@ -668,9 +668,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const firstNameInput = document.querySelector('input[name="first_name"]');
         const phoneInput = document.querySelector('input[name="phone_number"]');
         
-        // Validate email
-        if (!emailInput || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(emailInput.value)) {
-            alert("Please enter a valid email address.");
+        // Basic email validation (very lenient)
+        if (!emailInput || !emailInput.value.includes('@') || emailInput.value.length < 5) {
+            alert("Please enter an email address.");
             return;
         }
 
@@ -681,40 +681,19 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.disabled = true;
         submitBtn.innerHTML = '⏳ Submitting...';
 
-        // 1. First, fire the GTM event
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-            event: 'user_email_capture',
-            user_email: emailInput.value,
-            first_name: firstNameInput ? firstNameInput.value : '',
-            phone_number: phoneInput ? phoneInput.value : '',
-            page: window.location.pathname,
-            timestamp: new Date().toISOString()
-        });
-
-        // 2. Also dispatch custom event for backup GTM trigger
-        const customEvent = new CustomEvent('emailCaptured', {
-            detail: {
-                email: emailInput.value,
-                firstName: firstNameInput ? firstNameInput.value : '',
-                phone: phoneInput ? phoneInput.value : ''
-            }
-        });
-        document.dispatchEvent(customEvent);
-
-        // 3. Build payload for direct webhook call (as backup)
+        // Build payload for n8n
         const formData = {
-            email: emailInput.value,
+            email: emailInput.value.trim(),
             event: 'user_email_capture',
             video_name: '',
             progress: '',
             page: window.location.pathname,
             timestamp: new Date().toISOString(),
-            first_name: firstNameInput ? firstNameInput.value : '',
-            phone_number: phoneInput ? phoneInput.value : ''
+            first_name: firstNameInput ? firstNameInput.value.trim() : '',
+            phone_number: phoneInput ? phoneInput.value.trim() : ''
         };
 
-        // 4. Send to n8n webhook directly (backup method)
+        // Send to n8n webhook - WAIT for response before redirecting
         fetch('https://aetophisn8n.app.n8n.cloud/webhook/data-collector', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -722,17 +701,30 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => {
             if (response.ok) {
-                console.log('Direct webhook call successful');
-                // Redirect to freecourse.html
+                console.log('n8n approved - redirecting to course');
+                // Only redirect after n8n processes successfully
                 window.location.href = 'freecourse.html';
             } else {
-                throw new Error('Network response was not ok');
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
             }
         })
         .catch(error => {
-            console.error('Direct webhook failed:', error);
-            // Still redirect even if direct call fails (GTM should handle it)
-            window.location.href = 'freecourse.html';
+            console.error('n8n failed:', error);
+            // Reset button on failure - DON'T redirect
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+            alert('Something went wrong. Please try again in a moment.');
+        });
+
+        // Also fire GTM event (backup tracking)
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: 'user_email_capture',
+            email: emailInput.value.trim(),
+            first_name: firstNameInput ? firstNameInput.value.trim() : '',
+            phone_number: phoneInput ? phoneInput.value.trim() : '',
+            page: window.location.pathname,
+            timestamp: new Date().toISOString()
         });
     });
 });
