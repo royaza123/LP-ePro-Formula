@@ -3056,6 +3056,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+document.getElementById('signup-form').addEventListener('submit', async function(e) {
+  e.preventDefault(); // Stop the default form submission
+  
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData);
+  
+  try {
+    const response = await fetch('YOUR_N8N_WEBHOOK_URL', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    });
+    
+    if (response.ok) {
+      // Redirect to thank-you page
+      window.location.href = 'YOUR_SYSTEME_IO_THANK_YOU_URL';
+    } else {
+      alert('Something went wrong. Please try again.');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Connection error. Please try again.');
+  }
+});
 </script>
 </body>
 </html>
