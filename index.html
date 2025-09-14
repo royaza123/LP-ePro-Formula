@@ -2303,6 +2303,7 @@ function playVimeoVideo() {
             return regex.test(email);
         }
 
+// Updated Form Handler for all ePro Formula pages
 document.addEventListener('DOMContentLoaded', function() {
     const leadForm = document.getElementById('leadForm');
     if (!leadForm) return;
@@ -2311,6 +2312,10 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
 
         const emailInput = document.querySelector('input[name="email"]');
+        const firstNameInput = document.querySelector('input[name="first_name"]');
+        const phoneInput = document.querySelector('input[name="phone_number"]');
+        
+        // Validate email
         if (!emailInput || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(emailInput.value)) {
             alert("Please enter a valid email address.");
             return;
@@ -2323,7 +2328,28 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.disabled = true;
         submitBtn.innerHTML = '⏳ Submitting...';
 
-        // Build payload
+        // 1. First, fire the GTM event
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: 'user_email_capture',
+            user_email: emailInput.value,
+            first_name: firstNameInput ? firstNameInput.value : '',
+            phone_number: phoneInput ? phoneInput.value : '',
+            page: window.location.pathname,
+            timestamp: new Date().toISOString()
+        });
+
+        // 2. Also dispatch custom event for backup GTM trigger
+        const customEvent = new CustomEvent('emailCaptured', {
+            detail: {
+                email: emailInput.value,
+                firstName: firstNameInput ? firstNameInput.value : '',
+                phone: phoneInput ? phoneInput.value : ''
+            }
+        });
+        document.dispatchEvent(customEvent);
+
+        // 3. Build payload for direct webhook call (as backup)
         const formData = {
             email: emailInput.value,
             event: 'user_email_capture',
@@ -2331,11 +2357,11 @@ document.addEventListener('DOMContentLoaded', function() {
             progress: '',
             page: window.location.pathname,
             timestamp: new Date().toISOString(),
-            first_name: document.querySelector('input[name="first_name"]')?.value || '',
-            phone_number: document.querySelector('input[name="phone_number"]')?.value || ''
+            first_name: firstNameInput ? firstNameInput.value : '',
+            phone_number: phoneInput ? phoneInput.value : ''
         };
 
-        // Send to n8n webhook
+        // 4. Send to n8n webhook directly (backup method)
         fetch('https://aetophisn8n.app.n8n.cloud/webhook/data-collector', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -2343,21 +2369,21 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => {
             if (response.ok) {
-                // ✅ Always redirect to freecourse.html
+                console.log('Direct webhook call successful');
+                // Redirect to freecourse.html
                 window.location.href = 'freecourse.html';
             } else {
                 throw new Error('Network response was not ok');
             }
         })
         .catch(error => {
-            console.error('Error:', error);
-            alert('Something went wrong. Please try again.');
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalText;
+            console.error('Direct webhook failed:', error);
+            // Still redirect even if direct call fails (GTM should handle it)
+            window.location.href = 'freecourse.html';
         });
     });
 });
-
+        
     // Scroll animations
     function isElementInViewport(el) {
         const rect = el.getBoundingClientRect();
