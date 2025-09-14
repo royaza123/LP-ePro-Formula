@@ -2134,289 +2134,215 @@ function playVimeoVideo() {
 </footer>
 
 <script>
-    // Mobile Menu Toggle
-    document.getElementById('mobileMenuToggle').addEventListener('click', function() {
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileMenu.classList.toggle('active');
-    });
+// ===============================================
+// COMPLETE FORM HANDLER FOR EPROFORMULA
+// Replace ALL existing JavaScript with this code
+// Works on: index.html, ig.html, case-studies.html
+// ===============================================
 
-    // Header scroll effect
-    window.addEventListener('scroll', function() {
-        const header = document.getElementById('header');
-        if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // FIXED FAQ FUNCTION
-    function toggleFAQNew(faqNumber) {
-        const answer = document.getElementById('faq-' + faqNumber);
-        const question = answer.previousElementSibling;
-
-        // Check if this FAQ is currently open
-        const isOpen = answer.classList.contains('open');
-
-        // Close ALL FAQs first
-        document.querySelectorAll('.faq-answer').forEach(item => {
-            item.classList.remove('open');
-        });
-        document.querySelectorAll('.faq-question').forEach(item => {
-            item.classList.remove('open');
-        });
-
-        // If this FAQ was closed, open it
-        if (!isOpen) {
-            question.classList.add('open');
-            answer.classList.add('open');
-        }
-    }
-
-    // Animate counters on page load
-    window.addEventListener('load', function() {
-        animateCounter('counter1', 2000000, '', 'M+');
-        animateCounter('counter2', 200, '', '+');
-        animateCounter('counter3', 95, '', '%');
-        animateCounter('counter4', 500, '', '+');
-        animateCounter('counter5', 55, '', '%');
-        // Special handling for the 5-star rating counter
-        animateStarRating('counter6');
-    });
-
-    function animateCounter(id, target, prefix = '', suffix = '') {
-        const element = document.getElementById(id);
-        if (!element) return;
-
-        let current = 0;
-        const increment = target / 100;
-
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
-
-            let displayValue;
-            if (target >= 1000000) {
-                displayValue = prefix + (current / 1000000).toFixed(1) + suffix;
-            } else {
-                displayValue = prefix + Math.floor(current) + suffix;
-            }
-
-            element.textContent = displayValue;
-        }, 20);
-    }
-
-    function animateStarRating(id) {
-        const element = document.getElementById(id);
-        if (!element) return;
-
-        let current = 0;
-        const target = 4.7;
-        const increment = 0.1;
-
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
-
-            element.innerHTML = `
-            <span style="color: #f59e0b; font-size: 1.2rem; display: block; line-height: 1.2; margin-bottom: 10px;">⭐⭐⭐⭐⭐</span>
-            <span style="font-size: 3rem;">${current.toFixed(1)}</span>
-        `;
-        }, 50);
-    }
-
-    // Enhanced click-to-zoom functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const resultPics = document.querySelectorAll('.result-pic');
-        let currentZoomedImage = null;
-        let currentOverlay = null;
-
-        resultPics.forEach(pic => {
-            pic.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                // Create overlay
-                const overlay = document.createElement('div');
-                overlay.className = 'zoom-overlay active';
-
-                // Create close hint
-                const closeHint = document.createElement('div');
-                closeHint.className = 'zoom-close-hint';
-                closeHint.innerHTML = '✕ Click anywhere to close';
-
-                // Clone the image for zooming
-                const zoomedImg = this.cloneNode(true);
-                zoomedImg.classList.add('zoomed');
-                zoomedImg.style.cursor = 'pointer';
-
-                // Add elements to page
-                overlay.appendChild(zoomedImg);
-                overlay.appendChild(closeHint);
-                document.body.appendChild(overlay);
-                document.body.style.overflow = 'hidden';
-
-                // Store references
-                currentZoomedImage = zoomedImg;
-                currentOverlay = overlay;
-
-                // Close function
-                function closeZoom() {
-                    if (currentOverlay && document.body.contains(currentOverlay)) {
-                        document.body.removeChild(currentOverlay);
-                        document.body.style.overflow = 'auto';
-                        currentZoomedImage = null;
-                        currentOverlay = null;
-                    }
-                }
-
-                // Close on overlay click
-                overlay.addEventListener('click', closeZoom);
-
-                // Close on escape key
-                const escapeHandler = function(e) {
-                    if (e.key === 'Escape') {
-                        closeZoom();
-                        document.removeEventListener('keydown', escapeHandler);
-                    }
-                };
-                document.addEventListener('keydown', escapeHandler);
-
-                // Auto-close after 10 seconds
-                setTimeout(() => {
-                    if (currentOverlay) {
-                        closeZoom();
-                    }
-                }, 10000);
-            });
-        });
-
-        // New function for email validation
-        function isValidEmail(email) {
-            const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-            return regex.test(email);
-        }
-
-// Universal Form Handler - Use this same code on all pages (index, ig, case-studies)
 document.addEventListener('DOMContentLoaded', function() {
+    
+    // ===============================================
+    // FORM SUBMISSION HANDLER
+    // ===============================================
     const leadForm = document.getElementById('leadForm');
-    if (!leadForm) return;
-
-    leadForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const emailInput = document.querySelector('input[name="email"]');
-        const firstNameInput = document.querySelector('input[name="first_name"]');
-        const phoneInput = document.querySelector('input[name="phone_number"]');
-        const submitBtn = document.getElementById('submitBtn');
-        const originalText = submitBtn.innerHTML;
-        
-        // Clear any previous error messages
-        const existingError = document.querySelector('.error-message');
-        if (existingError) {
-            existingError.remove();
-        }
-
-        // Function to show error message
-        function showError(message) {
-            const errorDiv = document.createElement('div');
-            errorDiv.className = 'error-message';
-            errorDiv.style.cssText = 'color: red; font-size: 14px; margin-top: 10px; text-align: center;';
-            errorDiv.textContent = message;
-            leadForm.appendChild(errorDiv);
+    
+    if (leadForm) {
+        leadForm.addEventListener('submit', async function(e) {
+            e.preventDefault(); // Prevent default form submission
             
-            // Reset button
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalText;
-        }
-
-        // Basic validation
-        if (!emailInput || emailInput.value.trim().length < 3) {
-            showError("Please enter your email address.");
-            return;
-        }
-        
-        const email = emailInput.value.trim().toLowerCase();
-        
-        // Check for obviously invalid emails
-        if (!email.includes('@')) {
-            showError("Please enter a valid email address (missing @).");
-            return;
-        }
-        
-        if (email.includes('..') || email.startsWith('@') || email.endsWith('@')) {
-            showError("Please enter a valid email address.");
-            return;
-        }
-        
-        if (email === 'test@test.com' || email.includes('fake') || email === 'email@email.com') {
-            showError("Please enter your real email address.");
-            return;
-        }
-
-        // Disable button and show loading
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '⏳ Submitting...';
-
-        // Build payload for n8n
-        const formData = {
-            email: emailInput.value.trim(),
-            event: 'user_email_capture',
-            video_name: '',
-            progress: '',
-            page: window.location.pathname,
-            timestamp: new Date().toISOString(),
-            first_name: firstNameInput ? firstNameInput.value.trim() : '',
-            phone_number: phoneInput ? phoneInput.value.trim() : ''
-        };
-
-        // Send to n8n webhook
-        fetch('https://aetophisn8n.app.n8n.cloud/webhook/data-collector', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-        })
-        .then(response => {
-            console.log('Webhook response:', response.status);
-            // Always redirect - don't block users for technical issues
-            window.location.href = 'freecourse.html';
-        })
-        .catch(error => {
-            console.error('Webhook error:', error);
-            // Still redirect even if webhook fails
-            window.location.href = 'freecourse.html';
+            // Get form elements
+            const emailInput = document.querySelector('input[name="email"]');
+            const firstNameInput = document.querySelector('input[name="first_name"]');
+            const phoneInput = document.querySelector('input[name="phone_number"]');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            // Store original button text
+            const originalText = submitBtn ? submitBtn.innerHTML : 'Submit';
+            
+            // Clear any previous error messages
+            const existingError = document.querySelector('.error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+            
+            // Clear any previous success messages
+            const existingSuccess = document.querySelector('.success-message');
+            if (existingSuccess) {
+                existingSuccess.remove();
+            }
+            
+            // ===============================================
+            // HELPER FUNCTIONS
+            // ===============================================
+            
+            // Show error message
+            function showError(message) {
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                errorDiv.style.cssText = 'color: #ff0000; font-size: 14px; margin-top: 10px; text-align: center; padding: 10px; background: #ffe6e6; border-radius: 5px;';
+                errorDiv.textContent = message;
+                leadForm.appendChild(errorDiv);
+                
+                // Reset button
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                }
+                
+                // Remove error after 5 seconds
+                setTimeout(() => {
+                    errorDiv.remove();
+                }, 5000);
+            }
+            
+            // Show success message
+            function showSuccess(message) {
+                const successDiv = document.createElement('div');
+                successDiv.className = 'success-message';
+                successDiv.style.cssText = 'color: #00aa00; font-size: 14px; margin-top: 10px; text-align: center; padding: 10px; background: #e6ffe6; border-radius: 5px;';
+                successDiv.textContent = message;
+                leadForm.appendChild(successDiv);
+            }
+            
+            // Validate email format
+            function isValidEmail(email) {
+                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return regex.test(email);
+            }
+            
+            // ===============================================
+            // VALIDATION
+            // ===============================================
+            
+            // Check if email input exists and has value
+            if (!emailInput || !emailInput.value || emailInput.value.trim().length < 3) {
+                showError("Please enter your email address.");
+                return;
+            }
+            
+            const email = emailInput.value.trim().toLowerCase();
+            const firstName = firstNameInput ? firstNameInput.value.trim() : '';
+            const phone = phoneInput ? phoneInput.value.trim() : '';
+            
+            // Validate email format
+            if (!isValidEmail(email)) {
+                showError("Please enter a valid email address.");
+                return;
+            }
+            
+            // Check for test emails
+            const testEmails = ['test@test.com', 'fake@fake.com', 'email@email.com', 'example@example.com'];
+            if (testEmails.includes(email) || email.includes('fake') || email.includes('test@')) {
+                showError("Please enter your real email address.");
+                return;
+            }
+            
+            // Check first name if field exists
+            if (firstNameInput && firstName.length > 0 && firstName.length < 2) {
+                showError("Please enter a valid first name.");
+                return;
+            }
+            
+            // ===============================================
+            // PREPARE AND SEND DATA
+            // ===============================================
+            
+            // Disable submit button and show loading
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '⏳ Processing...';
+            }
+            
+            // Build payload for n8n webhook
+            const payload = {
+                email: email,
+                first_name: firstName,
+                phone_number: phone,
+                event: 'user_email_capture',
+                page: window.location.pathname,
+                timestamp: new Date().toISOString(),
+                source: window.location.hostname,
+                referrer: document.referrer || 'direct'
+            };
+            
+            // Send to n8n webhook
+            try {
+                const response = await fetch('https://aetophisn8n.app.n8n.cloud/webhook/data-collector', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload)
+                });
+                
+                // Check if webhook was successful
+                if (response.ok) {
+                    console.log('✅ Form submitted successfully');
+                    
+                    // Track in Google Tag Manager (if available)
+                    if (window.dataLayer) {
+                        window.dataLayer.push({
+                            event: 'user_email_capture',
+                            email: email,
+                            first_name: firstName,
+                            phone_number: phone,
+                            page: window.location.pathname
+                        });
+                    }
+                    
+                    // Show success message briefly
+                    showSuccess('Success! Redirecting to your free course...');
+                    
+                    // Redirect after short delay
+                    setTimeout(() => {
+                        window.location.href = 'https://eproformula.com/freecourse.html';
+                    }, 1000);
+                    
+                } else {
+                    console.error('❌ Webhook returned error:', response.status);
+                    
+                    // Still redirect even if webhook fails (don't lose the lead)
+                    showSuccess('Redirecting to your free course...');
+                    setTimeout(() => {
+                        window.location.href = 'https://eproformula.com/freecourse.html';
+                    }, 1500);
+                }
+                
+            } catch (error) {
+                console.error('❌ Network error:', error);
+                
+                // Still redirect even on network error (don't lose the lead)
+                showSuccess('Redirecting to your free course...');
+                setTimeout(() => {
+                    window.location.href = 'https://eproformula.com/freecourse.html';
+                }, 1500);
+            }
         });
-
-        // Also fire GTM event (backup tracking)
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-            event: 'user_email_capture',
-            email: emailInput.value.trim(),
-            first_name: firstNameInput ? firstNameInput.value.trim() : '',
-            phone_number: phoneInput ? phoneInput.value.trim() : '',
-            page: window.location.pathname,
-            timestamp: new Date().toISOString()
+    }
+    
+    // ===============================================
+    // SMOOTH SCROLL FOR ANCHOR LINKS
+    // ===============================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== '#') {
+                const target = document.querySelector(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
         });
     });
-});
-        
-    // Scroll animations
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    }
-
+    
+    // ===============================================
+    // FADE-IN ANIMATIONS ON SCROLL
+    // ===============================================
     function isElementPartiallyInViewport(el) {
         const rect = el.getBoundingClientRect();
         return (
@@ -2426,7 +2352,7 @@ document.addEventListener('DOMContentLoaded', function() {
             rect.left <= (window.innerWidth || document.documentElement.clientWidth)
         );
     }
-
+    
     function handleScrollAnimations() {
         const elements = document.querySelectorAll('.fade-in');
         elements.forEach(element => {
@@ -2435,63 +2361,128 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
-    // Run on load and scroll
+    
+    // Run animations on load and scroll
     window.addEventListener('load', handleScrollAnimations);
     window.addEventListener('scroll', handleScrollAnimations);
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    function playVideo() {
-        const videoContainer = document.querySelector('.video-container');
-        videoContainer.innerHTML = `
-        <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; border-radius: 15px; overflow: hidden;">
-            <iframe src="https://www.youtube.com/embed/rZsRSU7rbhM?autoplay=1"
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 15px;"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-            </iframe>
-        </div>
-    ;
-    }
-
-document.getElementById('signup-form').addEventListener('submit', async function(e) {
-  e.preventDefault(); // Stop the default form submission
-  
-  const formData = new FormData(this);
-  const data = Object.fromEntries(formData);
-  
-  try {
-    const response = await fetch('https://aetophisn8n.app.n8n.cloud/webhook/data-collector', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data)
-    });
     
-    if (response.ok) {
-      // Redirect to thank-you page
-      window.location.href = 'eproformula.com/freecourse';
-    } else {
-      alert('Something went wrong. Please try again.');
+    // ===============================================
+    // VIDEO PLAYER FUNCTION (if needed)
+    // ===============================================
+    window.playVideo = function() {
+        const videoContainer = document.querySelector('.video-container');
+        if (videoContainer) {
+            videoContainer.innerHTML = `
+                <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; border-radius: 15px; overflow: hidden;">
+                    <iframe src="https://www.youtube.com/embed/rZsRSU7rbhM?autoplay=1"
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 15px;"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            `;
+        }
+    };
+    
+    // ===============================================
+    // DEBUG MODE (Remove in production)
+    // ===============================================
+    // Uncomment the lines below to enable debug logging
+    /*
+    console.log('📋 Form Handler Loaded');
+    console.log('📍 Current Page:', window.location.pathname);
+    console.log('🔍 Form Found:', leadForm ? 'Yes' : 'No');
+    */
+});
+
+// ===============================================
+// GOOGLE TAG MANAGER EVENT LISTENER
+// Captures GTM events and forwards to n8n
+// ===============================================
+(function() {
+    // Helper function to get user email
+    function getUserEmail() {
+        // Try multiple sources for email
+        if (window.userEmail) return window.userEmail;
+        
+        // Check dataLayer for email
+        if (window.dataLayer) {
+            for (let i = window.dataLayer.length - 1; i >= 0; i--) {
+                if (window.dataLayer[i].email) return window.dataLayer[i].email;
+                if (window.dataLayer[i].user_email) return window.dataLayer[i].user_email;
+            }
+        }
+        
+        // Check localStorage
+        const storedEmail = localStorage.getItem('user_email');
+        if (storedEmail) return storedEmail;
+        
+        return '';
     }
-  } catch (error) {
-    console.error('Error:', error);
-    alert('Connection error. Please try again.');
-  }
+    
+    // Send event to n8n webhook
+    function sendEventToWebhook(eventData) {
+        const payload = {
+            email: eventData.email || eventData.user_email || getUserEmail(),
+            event: eventData.event,
+            video_name: eventData.video_name || eventData.lesson || '',
+            progress: eventData.progress ? String(eventData.progress).replace('%', '') : '',
+            page: eventData.page || window.location.pathname || '',
+            timestamp: new Date().toISOString()
+        };
+        
+        // Only send if we have email and event
+        if (payload.email && payload.event) {
+            fetch('https://aetophisn8n.app.n8n.cloud/webhook/data-collector', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).catch(error => {
+                console.log('Event webhook failed:', error);
+            });
+        }
+    }
+    
+    // List of events to track
+    const trackedEvents = [
+        'user_email_capture',
+        'video_play',
+        'video_complete',
+        'video_progress',
+        'whatsapp_click',
+        'messenger_click',
+        'button_click',
+        'link_click'
+    ];
+    
+    // Override dataLayer.push to intercept events
+    if (window.dataLayer) {
+        const originalPush = window.dataLayer.push;
+        window.dataLayer.push = function() {
+            const result = originalPush.apply(window.dataLayer, arguments);
+            
+            // Check each pushed item
+            for (let i = 0; i < arguments.length; i++) {
+                const item = arguments[i];
+                if (item.event && trackedEvents.includes(item.event)) {
+                    sendEventToWebhook(item);
+                }
+            }
+            
+            return result;
+        };
+    }
+})();
+
+// ===============================================
+// STORE EMAIL IN LOCALSTORAGE
+// For persistence across pages
+// ===============================================
+window.addEventListener('beforeunload', function() {
+    const emailInput = document.querySelector('input[name="email"]');
+    if (emailInput && emailInput.value) {
+        localStorage.setItem('user_email', emailInput.value.trim());
+    }
 });
 </script>
 </body>
