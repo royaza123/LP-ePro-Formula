@@ -656,7 +656,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         return regex.test(email);
     }
 
-// Updated Form Handler for ig.html - ONLY redirect after n8n success
+// Universal Form Handler - Use this same code on all pages (index, ig, case-studies)
 document.addEventListener('DOMContentLoaded', function() {
     const leadForm = document.getElementById('leadForm');
     if (!leadForm) return;
@@ -667,15 +667,51 @@ document.addEventListener('DOMContentLoaded', function() {
         const emailInput = document.querySelector('input[name="email"]');
         const firstNameInput = document.querySelector('input[name="first_name"]');
         const phoneInput = document.querySelector('input[name="phone_number"]');
-        
-        // Basic email validation (very lenient)
-        if (!emailInput || !emailInput.value.includes('@') || emailInput.value.length < 5) {
-            alert("Please enter an email address.");
-            return;
-        }
-
         const submitBtn = document.getElementById('submitBtn');
         const originalText = submitBtn.innerHTML;
+        
+        // Clear any previous error messages
+        const existingError = document.querySelector('.error-message');
+        if (existingError) {
+            existingError.remove();
+        }
+
+        // Function to show error message
+        function showError(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.style.cssText = 'color: red; font-size: 14px; margin-top: 10px; text-align: center;';
+            errorDiv.textContent = message;
+            leadForm.appendChild(errorDiv);
+            
+            // Reset button
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+        }
+
+        // Basic validation
+        if (!emailInput || emailInput.value.trim().length < 3) {
+            showError("Please enter your email address.");
+            return;
+        }
+        
+        const email = emailInput.value.trim().toLowerCase();
+        
+        // Check for obviously invalid emails
+        if (!email.includes('@')) {
+            showError("Please enter a valid email address (missing @).");
+            return;
+        }
+        
+        if (email.includes('..') || email.startsWith('@') || email.endsWith('@')) {
+            showError("Please enter a valid email address.");
+            return;
+        }
+        
+        if (email === 'test@test.com' || email.includes('fake') || email === 'email@email.com') {
+            showError("Please enter your real email address.");
+            return;
+        }
 
         // Disable button and show loading
         submitBtn.disabled = true;
@@ -693,24 +729,20 @@ document.addEventListener('DOMContentLoaded', function() {
             phone_number: phoneInput ? phoneInput.value.trim() : ''
         };
 
-        // Send to n8n webhook - WAIT for response before redirecting
+        // Send to n8n webhook
         fetch('https://aetophisn8n.app.n8n.cloud/webhook/data-collector', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
         })
         .then(response => {
-            if (response.ok) {
-                console.log('Success - redirecting to course');
-                // Redirect to course
-                window.location.href = 'freecourse.html';
-            } else {
-                throw new Error(`Server error: ${response.status}`);
-            }
+            console.log('Webhook response:', response.status);
+            // Always redirect - don't block users for technical issues
+            window.location.href = 'freecourse.html';
         })
         .catch(error => {
-            console.error('Submission error:', error);
-            // Still redirect - don't block users for technical issues
+            console.error('Webhook error:', error);
+            // Still redirect even if webhook fails
             window.location.href = 'freecourse.html';
         });
 
