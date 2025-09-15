@@ -721,18 +721,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '⏳ Processing...';
             }
-            
-            // Build payload for n8n webhook
-            const payload = {
-                email: email,
-                first_name: firstName,
-                phone_number: phone,
-                event: 'user_email_capture',
-                page: window.location.pathname,
-                timestamp: new Date().toISOString(),
-                source: window.location.hostname,
-                referrer: document.referrer || 'direct'
-            };
         });
     }
     
@@ -798,85 +786,7 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
         }
     };
-    
-    // ===============================================
-    // DEBUG MODE (Remove in production)
-    // ===============================================
-    // Uncomment the lines below to enable debug logging
-    /*
-    console.log('📋 Form Handler Loaded');
-    console.log('📍 Current Page:', window.location.pathname);
-    console.log('🔍 Form Found:', leadForm ? 'Yes' : 'No');
-    */
 });
-
-// ===============================================
-// GOOGLE TAG MANAGER EVENT LISTENER
-// Captures GTM events and forwards to n8n
-// ===============================================
-(function() {
-    // Helper function to get user email
-    function getUserEmail() {
-        // Try multiple sources for email
-        if (window.userEmail) return window.userEmail;
-        
-        // Check dataLayer for email
-        if (window.dataLayer) {
-            for (let i = window.dataLayer.length - 1; i >= 0; i--) {
-                if (window.dataLayer[i].email) return window.dataLayer[i].email;
-                if (window.dataLayer[i].user_email) return window.dataLayer[i].user_email;
-            }
-        }
-        
-        // Check localStorage
-        const storedEmail = localStorage.getItem('user_email');
-        if (storedEmail) return storedEmail;
-        
-        return '';
-    }
-    
-    // Send event to n8n webhook
-    function sendEventToWebhook(eventData) {
-        const payload = {
-            email: eventData.email || eventData.user_email || getUserEmail(),
-            event: eventData.event,
-            video_name: eventData.video_name || eventData.lesson || '',
-            progress: eventData.progress ? String(eventData.progress).replace('%', '') : '',
-            page: eventData.page || window.location.pathname || '',
-            timestamp: new Date().toISOString()
-        };
-        
-    // List of events to track
-    const trackedEvents = [
-        'user_email_capture',
-        'video_play',
-        'video_complete',
-        'video_progress',
-        'whatsapp_click',
-        'messenger_click',
-        'button_click',
-        'link_click'
-    ];
-    
-    // Override dataLayer.push to intercept events
-    if (window.dataLayer) {
-        const originalPush = window.dataLayer.push;
-        window.dataLayer.push = function() {
-            const result = originalPush.apply(window.dataLayer, arguments);
-            
-            // Check each pushed item
-            for (let i = 0; i < arguments.length; i++) {
-                const item = arguments[i];
-                if (item.event && trackedEvents.includes(item.event)) {
-                    sendEventToWebhook(item);
-                }
-            }
-            
-            return result;
-        };
-    }
-})();
-
 // ===============================================
 // STORE EMAIL IN LOCALSTORAGE
 // For persistence across pages
