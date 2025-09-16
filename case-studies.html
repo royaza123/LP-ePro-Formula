@@ -3264,5 +3264,161 @@ window.addEventListener('beforeunload', function() {
     }
 });
 </script>
+        
+    <!-- Load Vimeo Player API -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    
+    <!-- Video Player Script -->
+    <script>
+        // Video play functionality
+        const playOverlay = document.getElementById('playOverlay');
+        const vimeoPlayer = document.getElementById('vimeoPlayer');
+        
+        playOverlay.addEventListener('click', function() {
+            this.style.display = 'none';
+            // Auto-play the video by sending play command to iframe
+            vimeoPlayer.contentWindow.postMessage('{"method":"play"}', 'https://player.vimeo.com');
+        });
+
+        // GTM Email Capture Script
+        document.addEventListener("submit", function(e) {
+            var form = e.target;
+            
+            if (form && (form.id === "leadForm" || form.classList.contains("lead-form") || form.querySelector('input[name="email"]'))) {
+                var emailInput = form.querySelector('input[name="email"]');
+                var firstNameInput = form.querySelector('input[name="first_name"]');
+                var phoneInput = form.querySelector('input[name="phone_number"]');
+                
+                if (emailInput && emailInput.value) {
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        event: "user_email_capture",
+                        email: emailInput.value,
+                        first_name: firstNameInput ? firstNameInput.value : '',
+                        phone_number: phoneInput ? phoneInput.value : '',
+                        page: window.location.pathname,
+                        timestamp: new Date().toISOString()
+                    });
+                    
+                    console.log('Email capture event fired:', emailInput.value);
+                }
+            }
+        }, true);
+
+        // Alternative approach for custom events
+        document.addEventListener('emailCaptured', function(e) {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: "user_email_capture",
+                email: e.detail.email,
+                first_name: e.detail.firstName || '',
+                phone_number: e.detail.phone || '',
+                page: window.location.pathname,
+                timestamp: new Date().toISOString()
+            });
+        });
+
+        // Force form styling after MailerLite loads (backup solution)
+        setTimeout(function() {
+            const mlInputs = document.querySelectorAll('.ml-embedded input');
+            const mlButtons = document.querySelectorAll('.ml-embedded button');
+            
+            mlInputs.forEach(input => {
+                input.style.cssText = `
+                    width: 100% !important;
+                    padding: 18px 25px !important;
+                    border: 2px solid rgba(255,255,255,0.3) !important;
+                    border-radius: 15px !important;
+                    background: rgba(255,255,255,0.1) !important;
+                    color: white !important;
+                    font-size: 1.2rem !important;
+                    backdrop-filter: blur(10px) !important;
+                    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+                    outline: none !important;
+                    box-sizing: border-box !important;
+                    margin: 0 !important;
+                `;
+            });
+            
+            mlButtons.forEach(button => {
+                button.style.cssText = `
+                    width: 100% !important;
+                    padding: 18px 40px !important;
+                    background: linear-gradient(135deg, #d97706 0%, #92400e 100%) !important;
+                    color: white !important;
+                    border: none !important;
+                    border-radius: 15px !important;
+                    font-size: 1.2rem !important;
+                    font-weight: 700 !important;
+                    text-transform: uppercase !important;
+                    cursor: pointer !important;
+                    box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4) !important;
+                    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+                    margin: 0 !important;
+                `;
+            });
+        }, 2000);
+    </script>
+    <script>
+/* Capture MailerLite email invisibly on submit and keep it for later GTM/n8n events */
+(function () {
+  // Push a one-time “email ready” event for GTM when we learn the email
+  function announce(email) {
+    try {
+      if (!email) return;
+      localStorage.setItem('ml_user_email', email);
+      window.mlUserEmail = email;               // convenience global for GTM
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'ml_email_ready' });
+    } catch (_) {}
+  }
+
+  // Attach a submit listener to the embedded ML form (class is added when the form renders)
+  function hook(formEl) {
+    if (!formEl || formEl.__mlHooked) return;
+    formEl.__mlHooked = true;
+
+    // Use capture phase so we run before ML intercepts submit
+    formEl.addEventListener('submit', function () {
+      try {
+        var emailInput =
+          formEl.querySelector('input[type="email"], input[name="email"], input[name="fields[email]"], input[name="EMAIL"]');
+        var email = emailInput && emailInput.value ? emailInput.value.trim() : '';
+        if (email) announce(email);
+      } catch (_) {}
+    }, true);
+  }
+
+  // Observe the page for the injected ML form (.ml-block-form) and hook it
+  var obs = new MutationObserver(function (mutations) {
+    for (var m of mutations) {
+      for (var n of (m.addedNodes || [])) {
+        if (n.nodeType !== 1) continue;
+        if (n.matches && (n.matches('form.ml-block-form') || n.matches('.ml-block-form form'))) {
+          hook(n.matches('form') ? n : n.querySelector('form'));
+        } else {
+          var f = n.querySelector && n.querySelector('form.ml-block-form, .ml-block-form form');
+          if (f) hook(f.matches('form') ? f : f.querySelector('form'));
+        }
+      }
+    }
+  });
+  obs.observe(document.documentElement, { childList: true, subtree: true });
+
+  // Also try hooking any form already present (in case ML loaded before us)
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('form.ml-block-form, .ml-block-form form').forEach(hook);
+    // If we already know the email from a previous visit, announce it so GTM can pick it up
+    var cached = localStorage.getItem('ml_user_email');
+    if (cached) {
+      window.mlUserEmail = cached;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'ml_email_ready_cached' });
+    }
+  });
+})();
+</script>
+</body>
+</html>
 </body>
 </html>
