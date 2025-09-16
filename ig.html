@@ -623,196 +623,265 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- RIGHT SIDE: Lead Form -->
             <div class="right-content">
                 <div class="lead-form">
-                    <div class="form-group">
-                        <label class="form-label" for="firstName">First Name *</label>
-                        <!-- MailerLite Universal -->
-                        <script>
-                            (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-                            .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-                            n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-                            (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-                            ml('account', '1551678');
-                        </script>
-                        <!-- End MailerLite Universal -->
-                        
-                        <div class="ml-embedded" data-form="TqmeQZ"></div>
-                        
-                        <!-- Custom Email Validation Script -->
-                        <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            let mailerliteSubmitted = false;
-                            let fallbackTimeout;
-                            
-                            // Email validation function
-                            function isValidEmail(email) {
-                                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                                return regex.test(email);
-                            }
-                            
-                            // Check for fake/test emails
-                            function isFakeEmail(email) {
-                                const testEmails = ['test@test.com', 'fake@fake.com', 'email@email.com', 'example@example.com'];
-                                return testEmails.includes(email.toLowerCase()) || 
-                                       email.includes('fake') || 
-                                       email.includes('test@');
-                            }
-                            
-                            // Show error message
-                            function showEmailError(message) {
-                                // Remove existing error
-                                const existingError = document.querySelector('.email-error-message');
-                                if (existingError) {
-                                    existingError.remove();
-                                }
-                                
-                                // Add new error
-                                const errorDiv = document.createElement('div');
-                                errorDiv.className = 'email-error-message';
-                                errorDiv.style.cssText = `
-                                    color: #ff4444;
-                                    background: rgba(255, 68, 68, 0.1);
-                                    border: 1px solid rgba(255, 68, 68, 0.3);
-                                    padding: 15px;
-                                    border-radius: 10px;
-                                    margin: 15px 0;
-                                    text-align: center;
-                                    font-weight: 600;
-                                    font-size: 1rem;
-                                    animation: shake 0.5s ease-in-out;
-                                `;
-                                errorDiv.textContent = message;
-                                
-                                // Add shake animation
-                                const style = document.createElement('style');
-                                style.textContent = `
-                                    @keyframes shake {
-                                        0%, 100% { transform: translateX(0); }
-                                        25% { transform: translateX(-5px); }
-                                        75% { transform: translateX(5px); }
-                                    }
-                                `;
-                                document.head.appendChild(style);
-                                
-                                const form = document.querySelector('.ml-embedded');
-                                if (form) {
-                                    form.appendChild(errorDiv);
-                                }
-                                
-                                // Remove error after 5 seconds
-                                setTimeout(() => {
-                                    if (errorDiv.parentNode) {
-                                        errorDiv.remove();
-                                    }
-                                }, 5000);
-                            }
-                            
-                            // Fallback redirect function
-                            function fallbackRedirect(email) {
-                                if (isValidEmail(email) && !isFakeEmail(email)) {
-                                    console.log('Valid email detected, redirecting to course...');
-                                    window.location.href = 'https://eproformula.com/freecourse';
-                                }
-                            }
-                            
-                            // Monitor MailerLite form submission
-                            function monitorMailerLiteForm() {
-                                const observer = new MutationObserver(function(mutations) {
-                                    mutations.forEach(function(mutation) {
-                                        if (mutation.type === 'childList') {
-                                            // Check for MailerLite success message
-                                            const successMessage = document.querySelector('.ml-form-successMessage');
-                                            if (successMessage && successMessage.style.display !== 'none') {
-                                                mailerliteSubmitted = true;
-                                                clearTimeout(fallbackTimeout);
-                                                console.log('MailerLite submission successful');
-                                                return;
-                                            }
-                                            
-                                            // Check for MailerLite form
-                                            const mlForm = document.querySelector('.ml-form-embedContainer form');
-                                            if (mlForm && !mlForm.hasAttribute('data-monitored')) {
-                                                mlForm.setAttribute('data-monitored', 'true');
-                                                
-                                                mlForm.addEventListener('submit', function(e) {
-                                                    const emailInput = mlForm.querySelector('input[type="email"]');
-                                                    
-                                                    if (emailInput) {
-                                                        const email = emailInput.value.trim().toLowerCase();
-                                                        
-                                                        // Validate email
-                                                        if (!email || email.length < 5) {
-                                                            e.preventDefault();
-                                                            showEmailError('Please enter your email address.');
-                                                            return false;
-                                                        }
-                                                        
-                                                        if (!isValidEmail(email)) {
-                                                            e.preventDefault();
-                                                            showEmailError('Please enter a valid email address.');
-                                                            return false;
-                                                        }
-                                                        
-                                                        if (isFakeEmail(email)) {
-                                                            e.preventDefault();
-                                                            showEmailError('Please enter your real email address.');
-                                                            return false;
-                                                        }
-                                                        
-                                                        // Set fallback timeout in case MailerLite fails
-                                                        fallbackTimeout = setTimeout(function() {
-                                                            if (!mailerliteSubmitted) {
-                                                                console.log('MailerLite timeout, using fallback redirect...');
-                                                                fallbackRedirect(email);
-                                                            }
-                                                        }, 10000); // 10 second timeout
-                                                    }
-                                                });
-                                            }
-                                        }
-                                    });
-                                });
-                                
-                                observer.observe(document.body, {
-                                    childList: true,
-                                    subtree: true
-                                });
-                            }
-                            
-                            // Start monitoring after a short delay to ensure MailerLite loads
-                            setTimeout(monitorMailerLiteForm, 1000);
-                            
-                            // Additional fallback: monitor URL changes for MailerLite success
-                            let currentUrl = window.location.href;
-                            setInterval(function() {
-                                if (window.location.href !== currentUrl) {
-                                    currentUrl = window.location.href;
-                                    if (currentUrl.includes('success') || currentUrl.includes('thank')) {
-                                        mailerliteSubmitted = true;
-                                        clearTimeout(fallbackTimeout);
-                                    }
-                                }
-                            }, 500);
-                        });
-                        </script>
-                        
-                        <div class="form-footer">
-                            <p>✅ Free • ✅ No credit card required</p>
-                        </div>
+                    <!-- MailerLite Universal Script -->
+                    <script>
+                      (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);};
+                      l=d.createElement(e),l.async=1,l.src=u;
+                      n=d.getElementsByTagName(e)[0];n.parentNode.insertBefore(l,n);
+                      })(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+                      ml('account', '1551678');
+                    </script>
+
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <h3 style="color: white; font-size: 1.8rem; margin-bottom: 15px; font-weight: 700;">🇵🇭 FREE Training For The Philippines</h3>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Only for the first 100 people! (Check all your inbox, might take a few minutes)</p>
+                    </div>
+
+                    <!-- Custom Styled MailerLite Form -->
+                    <div class="ml-embedded" data-form="TqmeQZ" style="position: relative; z-index: 10;"></div>
+                    
+                    <div class="form-footer" style="text-align: center; margin-top: 15px;">
+                        <p style="color: rgba(255,255,255,0.7); font-size: 0.85rem; margin: 0;">✅ Free • ✅ No credit card required</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-  <footer style="background:#111; padding:30px 20px; text-align:center; color:#aaa; font-size:0.9rem;">
-  <p>© 2025 ePro Formula. All rights reserved.</p>
-  <p>
-    <a href="/privacy" style="color:#d97706; text-decoration:none; margin:0 10px;">Privacy Policy</a> | 
-    <a href="/terms" style="color:#d97706; text-decoration:none; margin:0 10px;">Terms of Use</a> | 
-    <a href="/cookies" style="color:#d97706; text-decoration:none; margin:0 10px;">Cookie Policy</a> | 
-    <a href="/earnings-disclaimer" style="color:#d97706; text-decoration:none; margin:0 10px;">Earnings Disclaimer</a>
-  </p>
-  <p>Contact: <a href="mailto:aetophis@aetophis.com" style="color:#f59e0b;">aetophis@aetophis.com</a></p>
-</footer>
+    <footer style="background:#111; padding:30px 20px; text-align:center; color:#aaa; font-size:0.9rem; position: relative; z-index: 20;">
+      <p>© 2025 ePro Formula. All rights reserved.</p>
+      <p>
+        <a href="/privacy" style="color:#d97706; text-decoration:none; margin:0 10px;">Privacy Policy</a> | 
+        <a href="/terms" style="color:#d97706; text-decoration:none; margin:0 10px;">Terms of Use</a> | 
+        <a href="/cookies" style="color:#d97706; text-decoration:none; margin:0 10px;">Cookie Policy</a> | 
+        <a href="/earnings-disclaimer" style="color:#d97706; text-decoration:none; margin:0 10px;">Earnings Disclaimer</a>
+      </p>
+      <p>Contact: <a href="mailto:aetophis@aetophis.com" style="color:#f59e0b;">aetophis@aetophis.com</a></p>
+    </footer>
+    
+    <!-- Load Vimeo Player API -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    
+    <!-- Custom MailerLite Form Styling -->
+    <style>
+    /* Hide MailerLite default styling and apply custom design */
+    .ml-embedded .ml-form {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    }
+
+    .ml-embedded .ml-form .ml-form-fieldBody {
+        background: transparent !important;
+        padding: 0 !important;
+    }
+
+    .ml-embedded .ml-form .ml-form-fieldRow {
+        margin-bottom: 20px !important;
+        width: 100% !important;
+    }
+
+    .ml-embedded .ml-form .ml-form-field {
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    .ml-embedded .ml-form .ml-form-field input[type="text"],
+    .ml-embedded .ml-form .ml-form-field input[type="email"],
+    .ml-embedded .ml-form .ml-form-field input[type="tel"] {
+        width: 100% !important;
+        padding: 18px 25px !important;
+        border: 2px solid rgba(255,255,255,0.3) !important;
+        border-radius: 15px !important;
+        background: rgba(255,255,255,0.1) !important;
+        color: white !important;
+        font-size: 1.2rem !important;
+        backdrop-filter: blur(10px) !important;
+        transition: all 0.3s ease !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+        outline: none !important;
+        box-sizing: border-box !important;
+    }
+
+    .ml-embedded .ml-form .ml-form-field input::placeholder {
+        color: rgba(255,255,255,0.6) !important;
+    }
+
+    .ml-embedded .ml-form .ml-form-field input:focus {
+        border-color: #d97706 !important;
+        background: rgba(255,255,255,0.15) !important;
+        box-shadow: 0 0 20px rgba(217, 119, 6, 0.3) !important;
+        transform: translateY(-1px) !important;
+    }
+
+    .ml-embedded .ml-form .ml-form-submitRow {
+        margin-top: 20px !important;
+        width: 100% !important;
+    }
+
+    .ml-embedded .ml-form .ml-form-submit {
+        width: 100% !important;
+        padding: 18px !important;
+        background: linear-gradient(135deg, #d97706 0%, #92400e 100%) !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 15px !important;
+        font-size: 1.2rem !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4) !important;
+        position: relative !important;
+        overflow: hidden !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    }
+
+    .ml-embedded .ml-form .ml-form-submit::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: -100% !important;
+        width: 100% !important;
+        height: 100% !important;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent) !important;
+        transition: left 0.5s ease !important;
+    }
+
+    .ml-embedded .ml-form .ml-form-submit:hover::before {
+        left: 100% !important;
+    }
+
+    .ml-embedded .ml-form .ml-form-submit:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 12px 35px rgba(217, 119, 6, 0.6) !important;
+    }
+
+    .ml-embedded .ml-form .ml-form-submit:disabled {
+        opacity: 0.7 !important;
+        cursor: not-allowed !important;
+        transform: none !important;
+    }
+
+    /* Hide MailerLite branding */
+    .ml-embedded .ml-form .ml-form-footer {
+        display: none !important;
+    }
+
+    /* Success/Error messages */
+    .ml-embedded .ml-form .ml-form-successBody {
+        background: rgba(39, 174, 96, 0.2) !important;
+        border: 1px solid #27ae60 !important;
+        color: #27ae60 !important;
+        padding: 15px !important;
+        border-radius: 10px !important;
+        margin-top: 15px !important;
+        font-weight: 600 !important;
+        text-align: center !important;
+    }
+
+    .ml-embedded .ml-form .ml-form-errorBody {
+        background: rgba(231, 76, 60, 0.2) !important;
+        border: 1px solid #e74c3c !important;
+        color: #e74c3c !important;
+        padding: 15px !important;
+        border-radius: 10px !important;
+        margin-top: 15px !important;
+        font-weight: 600 !important;
+        text-align: center !important;
+    }
+    </style>
+
+    <script>
+    // Enhanced form handling for MailerLite
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Google Tag Manager dataLayer
+        window.dataLayer = window.dataLayer || [];
+        
+        // Listen for MailerLite form events
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.type === 'ml-form-success') {
+                // Push email capture event to dataLayer
+                window.dataLayer.push({
+                    event: "user_email_capture",
+                    email: event.data.email || 'captured_via_mailerlite',
+                    page: window.location.pathname,
+                    timestamp: new Date().toISOString()
+                });
+                
+                console.log('Email capture event fired via MailerLite');
+                
+                // Optional: redirect to thank you page after short delay
+                setTimeout(function() {
+                    // window.location.href = '/freecourse';
+                }, 2000);
+            }
+        });
+        
+        // Fallback: Listen for form submission
+        document.addEventListener('submit', function(e) {
+            var form = e.target;
+            if (form.classList.contains('ml-form')) {
+                var emailInput = form.querySelector('input[type="email"]');
+                var nameInput = form.querySelector('input[type="text"]');
+                
+                if (emailInput && emailInput.value) {
+                    window.dataLayer.push({
+                        event: "user_email_capture",
+                        email: emailInput.value,
+                        first_name: nameInput ? nameInput.value : '',
+                        page: window.location.pathname,
+                        timestamp: new Date().toISOString()
+                    });
+                    
+                    console.log('Email capture event fired (fallback):', emailInput.value);
+                }
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Vimeo video handling
+        window.playVideo = function() {
+            const videoContainer = document.querySelector('.video-container');
+            if (videoContainer) {
+                videoContainer.innerHTML = `
+                    <iframe src="https://player.vimeo.com/video/1115385139?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0"
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 20px;"
+                            allow="autoplay; fullscreen; picture-in-picture"
+                            allowfullscreen>
+                    </iframe>
+                `;
+            }
+        };
+    });
+
+    // Store email in localStorage for persistence
+    window.addEventListener('beforeunload', function() {
+        const emailInput = document.querySelector('input[type="email"]');
+        if (emailInput && emailInput.value) {
+            localStorage.setItem('user_email', emailInput.value.trim());
+        }
+    });
+    </script>
 </body>
 </html>
