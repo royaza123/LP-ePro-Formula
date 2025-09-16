@@ -1206,5 +1206,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     setupVimeoTracking('lesson4', 'Lesson 4');
     setupVimeoTracking('lesson5', 'Lesson 5');
     </script>
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Define lessons
+  const lessons = [
+    {id: "lesson1", name: "Lesson 1: A Business for Everyone"},
+    {id: "lesson2", name: "Lesson 2: Think Like Americans"},
+    {id: "lesson3", name: "Lesson 3: Real People Making Money"},
+    {id: "lesson4", name: "Lesson 4: The China Secret"},
+    {id: "lesson5", name: "Lesson 5: Build Your Money Business"}
+  ];
+
+  lessons.forEach(lesson => {
+    const iframe = document.getElementById(lesson.id);
+    if (!iframe) return;
+
+    const player = new Vimeo.Player(iframe);
+
+    player.on('play', function() {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'video_play',
+        lesson_name: lesson.name,
+        timestamp: new Date().toISOString()
+      });
+      console.log("Pushed video_play for " + lesson.name);
+    });
+  });
+});
+</script>
 </body>
 </html>
