@@ -2073,8 +2073,8 @@ function playVimeoVideo() {
         </div>
     </div>
 </section>
-
-    <!-- Enhanced Final CTA Section -->
+    
+<!-- Enhanced Final CTA Section -->
     <section class="final-cta" id="signup">
         <div class="cta-bg"></div>
         <div class="container">
@@ -2084,20 +2084,180 @@ function playVimeoVideo() {
                 </div>            
                 <h2>Claim Your FREE Spot Now</h2>
                 <p>Join the first 100 Filipinos to get access to the ePro Formula system. It already made my students over $2 million.</p>
-                    <!-- MailerLite Universal -->
-                    <script>
-                      (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);};
-                      l=d.createElement(e),l.async=1,l.src=u;
-                      n=d.getElementsByTagName(e)[0];n.parentNode.insertBefore(l,n);
-                      })(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-                      ml('account', '1551678');
-                    </script>
-                    <!-- End MailerLite Universal -->
+                
+                <!-- MailerLite Universal -->
+                <script>
+                    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+                    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+                    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+                    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+                    ml('account', '1551678');
+                </script>
+                <!-- End MailerLite Universal -->
+                
                 <div class="ml-embedded" data-form="TqmeQZ"></div>
-                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; text-align: center; margin-top: 15px;">
-                        ✅ Quick access • ✅ No credit card needed • ✅ 100% Free
-                    </p>
-                </div>
+                
+                <!-- Custom Email Validation Script -->
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    let mailerliteSubmitted = false;
+                    let fallbackTimeout;
+                    
+                    // Email validation function
+                    function isValidEmail(email) {
+                        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        return regex.test(email);
+                    }
+                    
+                    // Check for fake/test emails
+                    function isFakeEmail(email) {
+                        const testEmails = ['test@test.com', 'fake@fake.com', 'email@email.com', 'example@example.com'];
+                        return testEmails.includes(email.toLowerCase()) || 
+                               email.includes('fake') || 
+                               email.includes('test@');
+                    }
+                    
+                    // Show error message
+                    function showEmailError(message) {
+                        // Remove existing error
+                        const existingError = document.querySelector('.email-error-message');
+                        if (existingError) {
+                            existingError.remove();
+                        }
+                        
+                        // Add new error
+                        const errorDiv = document.createElement('div');
+                        errorDiv.className = 'email-error-message';
+                        errorDiv.style.cssText = `
+                            color: #ff4444;
+                            background: rgba(255, 68, 68, 0.1);
+                            border: 1px solid rgba(255, 68, 68, 0.3);
+                            padding: 15px;
+                            border-radius: 10px;
+                            margin: 15px 0;
+                            text-align: center;
+                            font-weight: 600;
+                            font-size: 1rem;
+                            animation: shake 0.5s ease-in-out;
+                        `;
+                        errorDiv.textContent = message;
+                        
+                        // Add shake animation
+                        const style = document.createElement('style');
+                        style.textContent = `
+                            @keyframes shake {
+                                0%, 100% { transform: translateX(0); }
+                                25% { transform: translateX(-5px); }
+                                75% { transform: translateX(5px); }
+                            }
+                        `;
+                        document.head.appendChild(style);
+                        
+                        const form = document.querySelector('.ml-embedded');
+                        if (form) {
+                            form.appendChild(errorDiv);
+                        }
+                        
+                        // Remove error after 5 seconds
+                        setTimeout(() => {
+                            if (errorDiv.parentNode) {
+                                errorDiv.remove();
+                            }
+                        }, 5000);
+                    }
+                    
+                    // Fallback redirect function
+                    function fallbackRedirect(email) {
+                        if (isValidEmail(email) && !isFakeEmail(email)) {
+                            console.log('Valid email detected, redirecting to course...');
+                            window.location.href = 'https://eproformula.com/freecourse';
+                        }
+                    }
+                    
+                    // Monitor MailerLite form submission
+                    function monitorMailerLiteForm() {
+                        const observer = new MutationObserver(function(mutations) {
+                            mutations.forEach(function(mutation) {
+                                if (mutation.type === 'childList') {
+                                    // Check for MailerLite success message
+                                    const successMessage = document.querySelector('.ml-form-successMessage');
+                                    if (successMessage && successMessage.style.display !== 'none') {
+                                        mailerliteSubmitted = true;
+                                        clearTimeout(fallbackTimeout);
+                                        console.log('MailerLite submission successful');
+                                        return;
+                                    }
+                                    
+                                    // Check for MailerLite form
+                                    const mlForm = document.querySelector('.ml-form-embedContainer form');
+                                    if (mlForm && !mlForm.hasAttribute('data-monitored')) {
+                                        mlForm.setAttribute('data-monitored', 'true');
+                                        
+                                        mlForm.addEventListener('submit', function(e) {
+                                            const emailInput = mlForm.querySelector('input[type="email"]');
+                                            
+                                            if (emailInput) {
+                                                const email = emailInput.value.trim().toLowerCase();
+                                                
+                                                // Validate email
+                                                if (!email || email.length < 5) {
+                                                    e.preventDefault();
+                                                    showEmailError('Please enter your email address.');
+                                                    return false;
+                                                }
+                                                
+                                                if (!isValidEmail(email)) {
+                                                    e.preventDefault();
+                                                    showEmailError('Please enter a valid email address.');
+                                                    return false;
+                                                }
+                                                
+                                                if (isFakeEmail(email)) {
+                                                    e.preventDefault();
+                                                    showEmailError('Please enter your real email address.');
+                                                    return false;
+                                                }
+                                                
+                                                // Set fallback timeout in case MailerLite fails
+                                                fallbackTimeout = setTimeout(function() {
+                                                    if (!mailerliteSubmitted) {
+                                                        console.log('MailerLite timeout, using fallback redirect...');
+                                                        fallbackRedirect(email);
+                                                    }
+                                                }, 10000); // 10 second timeout
+                                            }
+                                        });
+                                    }
+                                }
+                            });
+                        });
+                        
+                        observer.observe(document.body, {
+                            childList: true,
+                            subtree: true
+                        });
+                    }
+                    
+                    // Start monitoring after a short delay to ensure MailerLite loads
+                    setTimeout(monitorMailerLiteForm, 1000);
+                    
+                    // Additional fallback: monitor URL changes for MailerLite success
+                    let currentUrl = window.location.href;
+                    setInterval(function() {
+                        if (window.location.href !== currentUrl) {
+                            currentUrl = window.location.href;
+                            if (currentUrl.includes('success') || currentUrl.includes('thank')) {
+                                mailerliteSubmitted = true;
+                                clearTimeout(fallbackTimeout);
+                            }
+                        }
+                    }, 500);
+                });
+                </script>
+                
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; text-align: center; margin-top: 15px;">
+                    ✅ Quick access • ✅ No credit card needed • ✅ 100% Free
+                </p>
             </div>
         </div>
     </section>
