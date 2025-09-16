@@ -3,33 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ePro Formula - Free Course for the Philippines</title>
-
+    <title>ePro Formula - Free Course For The Philippines</title>
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/ePro%20Formula%20Logo.jpg">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-T478W9J7');</script>
-<!-- End Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T478W9J7');</script>
+    <!-- End Google Tag Manager -->
 
-    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <!-- Open Graph -->
     <meta property="og:title" content="ePro Formula - Free Course">
     <meta property="og:description" content="Get instant access to the full free course and learn how to build a profitable Etsy business step by step.">
     <meta property="og:image" content="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/ePro%20Formula%20Logo.jpg">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://eproformula.com/freecourse">
     <meta property="og:type" content="website">
-    
-    <!-- Twitter Card (for X/Twitter) -->
+    <meta property="og:url" content="https://eproformula.com/freecourse">
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ePro Formula - Free Course">
     <meta name="twitter:description" content="Get instant access to the full free course and learn how to build a profitable Etsy business step by step.">
     <meta name="twitter:image" content="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/ePro%20Formula%20Logo.jpg">
-    
-    <!-- Analytics -->
+
+    <!-- Microsoft Clarity -->
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -37,226 +38,189 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "t0vwoh8vuf");
     </script>
-    
+
+    <!-- MailerLite Universal Script - LOAD FIRST -->
+    <script>
+        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+        ml('account', '1551678');
+    </script>
+
     <style>
+        /* RESET */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: #000;
+            color: white;
             overflow-x: hidden;
-            min-height: 100vh;
+            line-height: 1.6;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* BACKGROUND ANIMATIONS */
+        /* BACKGROUND */
         .hero-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            overflow: hidden;
-            z-index: 1;
+            background: linear-gradient(135deg, #0f0b19 0%, #1a1625 50%, #2d1b3e 100%);
+            z-index: -2;
         }
-        
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 20%, rgba(217, 119, 6, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(146, 64, 14, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        /* FLOATING PARTICLES */
         .floating-particles {
             position: absolute;
             width: 100%;
             height: 100%;
-        }
-        
-        .particle {
-            position: absolute;
-            background: radial-gradient(circle, rgba(217, 119, 6, 0.8) 0%, rgba(217, 119, 6, 0.1) 100%);
-            border-radius: 50%;
-            animation: float 12s infinite ease-in-out;
-            box-shadow: 0 0 20px rgba(217, 119, 6, 0.3);
-        }
-        
-        .particle:nth-child(1) { width: 8px; height: 8px; left: 10%; animation-delay: 0s; animation-duration: 8s; }
-        .particle:nth-child(2) { width: 12px; height: 12px; left: 20%; animation-delay: 1.5s; animation-duration: 10s; }
-        .particle:nth-child(3) { width: 6px; height: 6px; left: 30%; animation-delay: 3s; animation-duration: 9s; }
-        .particle:nth-child(4) { width: 10px; height: 10px; left: 40%; animation-delay: 4.5s; animation-duration: 11s; }
-        .particle:nth-child(5) { width: 14px; height: 14px; left: 50%; animation-delay: 6s; animation-duration: 7s; }
-        .particle:nth-child(6) { width: 7px; height: 7px; left: 60%; animation-delay: 7.5s; animation-duration: 12s; }
-        .particle:nth-child(7) { width: 11px; height: 11px; left: 70%; animation-delay: 9s; animation-duration: 8s; }
-        .particle:nth-child(8) { width: 9px; height: 9px; left: 80%; animation-delay: 10.5s; animation-duration: 10s; }
-        .particle:nth-child(9) { width: 13px; height: 13px; left: 85%; animation-delay: 2s; animation-duration: 9s; }
-        .particle:nth-child(10) { width: 5px; height: 5px; left: 90%; animation-delay: 3.5s; animation-duration: 11s; }
-        
-        @keyframes float {
-            0% { 
-                transform: translateY(100vh) rotate(0deg) scale(0.5); 
-                opacity: 0; 
-                box-shadow: 0 0 5px rgba(217, 119, 6, 0.1);
-            }
-            5% { 
-                opacity: 1; 
-                box-shadow: 0 0 15px rgba(217, 119, 6, 0.3);
-            }
-            50% { 
-                transform: translateY(50vh) rotate(180deg) scale(1.2); 
-                opacity: 1; 
-                box-shadow: 0 0 25px rgba(217, 119, 6, 0.5);
-            }
-            95% { 
-                opacity: 1; 
-                box-shadow: 0 0 15px rgba(217, 119, 6, 0.3);
-            }
-            100% { 
-                transform: translateY(-100px) rotate(360deg) scale(0.5); 
-                opacity: 0;
-                box-shadow: 0 0 5px rgba(217, 119, 6, 0.1);
-            }
+            overflow: hidden;
+            z-index: -1;
         }
 
-        /* Money symbols floating animation */
+        .particle {
+            position: absolute;
+            background: rgba(217, 119, 6, 0.3);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        .particle:nth-child(1) { width: 4px; height: 4px; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 6px; height: 6px; left: 20%; animation-delay: 2s; }
+        .particle:nth-child(3) { width: 3px; height: 3px; left: 30%; animation-delay: 4s; }
+        .particle:nth-child(4) { width: 5px; height: 5px; left: 40%; animation-delay: 6s; }
+        .particle:nth-child(5) { width: 4px; height: 4px; left: 50%; animation-delay: 8s; }
+        .particle:nth-child(6) { width: 7px; height: 7px; left: 60%; animation-delay: 10s; }
+        .particle:nth-child(7) { width: 3px; height: 3px; left: 70%; animation-delay: 12s; }
+        .particle:nth-child(8) { width: 5px; height: 5px; left: 80%; animation-delay: 14s; }
+        .particle:nth-child(9) { width: 4px; height: 4px; left: 90%; animation-delay: 16s; }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* MONEY PARTICLES */
         .money-particles {
             position: absolute;
             width: 100%;
             height: 100%;
-            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
         }
 
         .money-symbol {
             position: absolute;
+            color: rgba(217, 119, 6, 0.2);
             font-size: 24px;
-            color: rgba(217, 119, 6, 0.6);
-            animation: moneyFloat 15s infinite linear;
-            text-shadow: 0 0 10px rgba(217, 119, 6, 0.8);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(150vh);
+            font-weight: bold;
+            animation: floatMoney 25s infinite linear;
         }
 
-        .money-symbol:nth-child(1) { left: 5%; animation-delay: 0s; }
-        .money-symbol:nth-child(2) { left: 15%; animation-delay: 3s; }
-        .money-symbol:nth-child(3) { left: 25%; animation-delay: 6s; }
-        .money-symbol:nth-child(4) { left: 35%; animation-delay: 9s; }
-        .money-symbol:nth-child(5) { left: 45%; animation-delay: 12s; }
+        .money-symbol:nth-child(1) { left: 15%; animation-delay: 0s; }
+        .money-symbol:nth-child(2) { left: 35%; animation-delay: 5s; }
+        .money-symbol:nth-child(3) { left: 55%; animation-delay: 10s; }
+        .money-symbol:nth-child(4) { left: 75%; animation-delay: 15s; }
+        .money-symbol:nth-child(5) { left: 25%; animation-delay: 20s; }
 
-        .money-symbol:nth-child(1)::before { content: '$'; }
-        .money-symbol:nth-child(2)::before { content: '₱'; }
-        .money-symbol:nth-child(3)::before { content: '$'; }
-        .money-symbol:nth-child(4)::before { content: '₱'; }
-        .money-symbol:nth-child(5)::before { content: '$'; }
+        .money-symbol:nth-child(1)::after { content: '₱'; }
+        .money-symbol:nth-child(2)::after { content: '$'; }
+        .money-symbol:nth-child(3)::after { content: '€'; }
+        .money-symbol:nth-child(4)::after { content: '£'; }
+        .money-symbol:nth-child(5)::after { content: '¥'; }
 
-        @keyframes moneyFloat {
-            0% { 
-                transform: translateY(150vh) rotate(0deg); 
-                opacity: 0; 
-                visibility: hidden;
-                font-size: 16px;
-            }
-            8% { 
-                opacity: 0; 
-                visibility: visible;
-                font-size: 20px;
-            }
-            20% { 
-                opacity: 0.8; 
-                visibility: visible;
-                font-size: 24px;
-            }
-            50% { 
-                transform: translateY(50vh) rotate(180deg); 
-                opacity: 1; 
-                visibility: visible;
-                font-size: 32px;
-            }
-            80% { 
-                opacity: 0.8; 
-                visibility: visible;
-                font-size: 24px;
-            }
-            92% { 
-                opacity: 0; 
-                visibility: visible;
-                font-size: 20px;
-            }
-            100% { 
-                transform: translateY(-150px) rotate(360deg); 
-                opacity: 0;
-                visibility: hidden;
-                font-size: 16px;
-            }
+        @keyframes floatMoney {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(180deg); opacity: 0; }
         }
 
-        /* MAIN CONTENT */
-        .main-content {
-            position: relative;
-            z-index: 10;
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* LAYOUT */
+        .container {
             min-height: 100vh;
-            padding: 60px 0;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
             align-items: center;
+            padding: 60px 0;
         }
 
-        /* LEFT SIDE - Title and Video */
+        /* LEFT SIDE - Video */
         .left-content {
-            text-align: center;
+            animation: slideInLeft 1s ease-out;
         }
 
         .main-title {
-            color: white;
             font-size: 3.5rem;
             font-weight: 900;
-            margin-bottom: 40px;
-            line-height: 1.1;
-            letter-spacing: -2px;
-            background: linear-gradient(135deg, #ffffff 0%, #d97706 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #d97706 50%, #92400e 100%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 1s ease-out;
+            margin-bottom: 40px;
+            line-height: 1.2;
+            text-align: center;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-          
-        footer {
-              position: relative;
-              z-index: 20; /* higher than .hero-bg (1) and .main-content (10) */
-            }
-
-        /* Video Section */
         .video-container {
             position: relative;
             width: 100%;
-            padding: 56.25% 0 0 0;
-            background: rgba(255,255,255,0.1);
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
             border-radius: 20px;
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(217, 119, 6, 0.3);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
             overflow: hidden;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.4);
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
@@ -267,7 +231,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             width: 100%;
             height: 100%;
             border: none;
-            border-radius: 20px;
         }
 
         .custom-play-overlay {
@@ -276,26 +239,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
+            background: rgba(0,0,0,0.7);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #ccc;
             cursor: pointer;
             transition: all 0.3s ease;
             z-index: 2;
-            border-radius: 20px;
         }
 
-        .custom-play-overlay:hover {
-            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);
-        }
-
-        .custom-play-overlay.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
+        .custom-play-overlay p {
+            color: white;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            font-weight: 600;
         }
 
         .play-button {
@@ -306,13 +264,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(217, 119, 6, 0.4);
-            margin-bottom: 15px;
+            animation: pulse 2s infinite;
         }
 
-        .play-button:hover {
+        .custom-play-overlay:hover .play-button {
             transform: scale(1.15);
             box-shadow: 0 15px 40px rgba(217, 119, 6, 0.6);
         }
@@ -329,6 +285,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: flex;
             align-items: center;
             justify-content: center;
+            animation: slideInRight 1s ease-out;
         }
 
         .lead-form {
@@ -343,86 +300,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             animation: fadeInUp 1s ease-out 0.4s both;
         }
 
-        .form-group {
-            margin-bottom: 20px;
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
         }
 
-        .form-label {
-            display: block;
+        .form-header h3 {
             color: white;
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 1rem;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 16px 20px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 12px;
-            background: rgba(255,255,255,0.1);
-            color: white;
-            font-size: 1.1rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            font-family: inherit;
-            outline: none;
-        }
-
-        .form-input::placeholder {
-            color: rgba(255,255,255,0.6);
-        }
-
-        .form-input:focus {
-            border-color: #d97706;
-            background: rgba(255,255,255,0.15);
-            box-shadow: 0 0 20px rgba(217, 119, 6, 0.3);
-            transform: translateY(-1px);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.2rem;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4);
-            position: relative;
-            overflow: hidden;
-            margin-top: 10px;
         }
 
-        .submit-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .submit-btn:hover::before {
-            left: 100%;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(217, 119, 6, 0.6);
-        }
-
-        .submit-btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
+        .form-header p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
         }
 
         .form-footer {
@@ -436,26 +328,155 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin: 0;
         }
 
-        /* Messages */
-        .message {
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 15px;
-            font-weight: 600;
-            text-align: center;
-            display: none;
+        /* MAILERLITE FORM STYLING - CRITICAL OVERRIDES */
+        .ml-embedded .ml-form {
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            box-shadow: none !important;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
         }
 
-        .success-message {
-            background: rgba(39, 174, 96, 0.2);
-            border: 1px solid #27ae60;
-            color: #27ae60;
+        .ml-embedded .ml-form .ml-form-fieldBody {
+            background: transparent !important;
+            padding: 0 !important;
         }
 
-        .error-message {
-            background: rgba(231, 76, 60, 0.2);
-            border: 1px solid #e74c3c;
-            color: #e74c3c;
+        .ml-embedded .ml-form .ml-form-fieldRow {
+            margin-bottom: 20px !important;
+            width: 100% !important;
+        }
+
+        .ml-embedded .ml-form .ml-form-field {
+            margin: 0 !important;
+            width: 100% !important;
+        }
+
+        /* INPUT FIELDS - STRONGEST OVERRIDES */
+        .ml-embedded .ml-form .ml-form-field input[type="text"],
+        .ml-embedded .ml-form .ml-form-field input[type="email"],
+        .ml-embedded .ml-form .ml-form-field input[type="tel"],
+        .ml-embedded .ml-form input {
+            width: 100% !important;
+            padding: 18px 25px !important;
+            border: 2px solid rgba(255,255,255,0.3) !important;
+            border-radius: 15px !important;
+            background: rgba(255,255,255,0.1) !important;
+            color: white !important;
+            font-size: 1.2rem !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            transition: all 0.3s ease !important;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+            outline: none !important;
+            box-sizing: border-box !important;
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+            appearance: none !important;
+            margin: 0 !important;
+        }
+
+        .ml-embedded .ml-form .ml-form-field input::placeholder,
+        .ml-embedded .ml-form input::placeholder {
+            color: rgba(255,255,255,0.6) !important;
+        }
+
+        .ml-embedded .ml-form .ml-form-field input:focus,
+        .ml-embedded .ml-form input:focus {
+            border-color: #d97706 !important;
+            background: rgba(255,255,255,0.15) !important;
+            box-shadow: 0 0 20px rgba(217, 119, 6, 0.3) !important;
+            transform: translateY(-1px) !important;
+        }
+
+        /* SUBMIT BUTTON - STRONGEST OVERRIDES */
+        .ml-embedded .ml-form .ml-form-submitRow {
+            margin-top: 20px !important;
+            width: 100% !important;
+        }
+
+        .ml-embedded .ml-form .ml-form-submit,
+        .ml-embedded .ml-form button {
+            width: 100% !important;
+            padding: 18px 40px !important;
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%) !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 15px !important;
+            font-size: 1.2rem !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4) !important;
+            position: relative !important;
+            overflow: hidden !important;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+            outline: none !important;
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+            appearance: none !important;
+            margin: 0 !important;
+        }
+
+        .ml-embedded .ml-form .ml-form-submit::before,
+        .ml-embedded .ml-form button::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: -100% !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent) !important;
+            transition: left 0.5s ease !important;
+        }
+
+        .ml-embedded .ml-form .ml-form-submit:hover::before,
+        .ml-embedded .ml-form button:hover::before {
+            left: 100% !important;
+        }
+
+        .ml-embedded .ml-form .ml-form-submit:hover,
+        .ml-embedded .ml-form button:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 12px 35px rgba(217, 119, 6, 0.6) !important;
+        }
+
+        .ml-embedded .ml-form .ml-form-submit:disabled,
+        .ml-embedded .ml-form button:disabled {
+            opacity: 0.7 !important;
+            cursor: not-allowed !important;
+            transform: none !important;
+        }
+
+        /* Hide MailerLite branding */
+        .ml-embedded .ml-form .ml-form-footer {
+            display: none !important;
+        }
+
+        /* Success/Error messages */
+        .ml-embedded .ml-form .ml-form-successBody {
+            background: rgba(39, 174, 96, 0.2) !important;
+            border: 1px solid #27ae60 !important;
+            color: #27ae60 !important;
+            padding: 15px !important;
+            border-radius: 10px !important;
+            margin-top: 15px !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+        }
+
+        .ml-embedded .ml-form .ml-form-errorBody {
+            background: rgba(231, 76, 60, 0.2) !important;
+            border: 1px solid #e74c3c !important;
+            color: #e74c3c !important;
+            padding: 15px !important;
+            border-radius: 10px !important;
+            margin-top: 15px !important;
+            font-weight: 600 !important;
+            text-align: center !important;
         }
 
         /* Mobile Responsive */
@@ -481,30 +502,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 padding: 30px 25px;
             }
 
-            .submit-btn {
-                padding: 16px;
-                font-size: 1.1rem;
-            }
-
             .main-content {
                 padding: 30px 0;
                 gap: 30px;
+            }
 
+            .ml-embedded .ml-form .ml-form-field input[type="text"],
+            .ml-embedded .ml-form .ml-form-field input[type="email"],
+            .ml-embedded .ml-form .ml-form-field input[type="tel"],
+            .ml-embedded .ml-form input {
+                padding: 16px 20px !important;
+                font-size: 1.1rem !important;
+            }
+
+            .ml-embedded .ml-form .ml-form-submit,
+            .ml-embedded .ml-form button {
+                padding: 16px 30px !important;
+                font-size: 1.1rem !important;
             }
         }
     </style>
 </head>
 <body>
-
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T478W9J7"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T478W9J7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <!-- BACKGROUND ANIMATIONS -->
     <div class="hero-bg">
         <div class="floating-particles">
-            <div class="particle"></div>
             <div class="particle"></div>
             <div class="particle"></div>
             <div class="particle"></div>
@@ -527,20 +554,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- MAIN CONTENT -->
     <div class="container">
         <div class="main-content">
-            <!-- LEFT SIDE: Title and Video -->
+            <!-- LEFT SIDE - Video -->
             <div class="left-content">
                 <h1 class="main-title">Free Course For The Philippines</h1>
-                
                 <div class="video-container">
-                    <iframe 
-                        id="vimeoPlayer"
-                        class="video-iframe"
-                        src="https://player.vimeo.com/video/1115385139?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479" 
-                        frameborder="0" 
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        title="The Video That'll might Change Your Life...">
-                    </iframe>
+                    <iframe id="vimeoPlayer" class="video-iframe"
+                        src="https://player.vimeo.com/video/1115385139?title=0&byline=0&portrait=0&badge=0"
+                        allow="autoplay; fullscreen; picture-in-picture"
+                        title="The Video That'll might Change Your Life..."></iframe>
                     <div class="custom-play-overlay" id="playOverlay">
                         <div class="play-button"></div>
                         <p>Click to play video</p>
@@ -548,340 +569,130 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ePro Formula - Free Course for the Philippines</title>
-
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-T478W9J7');</script>
-  <!-- End Google Tag Manager -->
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="ePro Formula - Free Course">
-  <meta property="og:description" content="Get instant access to the full free course and learn how to build a profitable Etsy business step by step.">
-  <meta property="og:image" content="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/ePro%20Formula%20Logo.jpg">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://eproformula.com/freecourse">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ePro Formula - Free Course">
-  <meta name="twitter:description" content="Get instant access to the full free course and learn how to build a profitable Etsy business step by step.">
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/ePro%20Formula%20Logo.jpg">
-
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "t0vwoh8vuf");
-  </script>
-
-  <style>
-    /* all your CSS from before (background, particles, video, form box styling, responsiveness, etc.) */
-  </style>
-</head>
-<body>
-
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T478W9J7"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
-  <!-- BACKGROUND ANIMATIONS -->
-  <div class="hero-bg">
-    <div class="floating-particles"><div class="particle"></div> … </div>
-    <div class="money-particles"><div class="money-symbol"></div> … </div>
-  </div>
-
-  <!-- MAIN CONTENT -->
-  <div class="container">
-    <div class="main-content">
-      <!-- LEFT SIDE -->
-      <div class="left-content">
-        <h1 class="main-title">Free Course For The Philippines</h1>
-        <div class="video-container">
-          <iframe id="vimeoPlayer" class="video-iframe"
-            src="https://player.vimeo.com/video/1115385139?title=0&byline=0&portrait=0&badge=0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            title="The Video That'll might Change Your Life..."></iframe>
-          <div class="custom-play-overlay" id="playOverlay">
-            <div class="play-button"></div>
-            <p>Click to play video</p>
-          </div>
-        </div>
-      </div>
-
-<!-- RIGHT SIDE: Lead Form -->
+            <!-- RIGHT SIDE - Lead Form -->
             <div class="right-content">
                 <div class="lead-form">
-                    <!-- MailerLite Universal -->
-                    <script>
-                        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-                        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-                        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-                        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-                        ml('account', '1551678');
-                    </script>
-                    <!-- End MailerLite Universal -->
-                    <div style="text-align: center; margin-bottom: 30px;">
-                        <h3 style="color: white; font-size: 1.8rem; margin-bottom: 15px; font-weight: 700;">🇵🇭 FREE Training For The Philippines</h3>
-                        <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Only for the first 100 people! (Check all your inbox, might take a few minutes)</p>
+                    <div class="form-header">
+                        <h3>🇵🇭 FREE Training For The Philippines</h3>
+                        <p>Only for the first 100 people!<br>(Check all your inbox, might take a few minutes)</p>
                     </div>
 
-                    <!-- Custom Styled MailerLite Form -->
-                    <div class="ml-embedded" data-form="TqmeQZ" style="position: relative; z-index: 10;"></div>
+                    <!-- MailerLite Form -->
+                    <div class="ml-embedded" data-form="TqmeQZ"></div>
                     
-                    <div class="form-footer" style="text-align: center; margin-top: 15px;">
-                        <p style="color: rgba(255,255,255,0.7); font-size: 0.85rem; margin: 0;">✅ Free • ✅ No credit card required</p>
+                    <div class="form-footer">
+                        <p>✅ Free • ✅ No credit card required</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- FOOTER -->
     <footer style="background:#111; padding:30px 20px; text-align:center; color:#aaa; font-size:0.9rem; position: relative; z-index: 20;">
-      <p>© 2025 ePro Formula. All rights reserved.</p>
-      <p>
-        <a href="/privacy" style="color:#d97706; text-decoration:none; margin:0 10px;">Privacy Policy</a> | 
-        <a href="/terms" style="color:#d97706; text-decoration:none; margin:0 10px;">Terms of Use</a> | 
-        <a href="/cookies" style="color:#d97706; text-decoration:none; margin:0 10px;">Cookie Policy</a> | 
-        <a href="/earnings-disclaimer" style="color:#d97706; text-decoration:none; margin:0 10px;">Earnings Disclaimer</a>
-      </p>
-      <p>Contact: <a href="mailto:aetophis@aetophis.com" style="color:#f59e0b;">aetophis@aetophis.com</a></p>
+        <p>© 2025 ePro Formula. All rights reserved.</p>
+        <p>
+            <a href="/privacy" style="color:#d97706; text-decoration:none; margin:0 10px;">Privacy Policy</a> | 
+            <a href="/terms" style="color:#d97706; text-decoration:none; margin:0 10px;">Terms of Use</a> | 
+            <a href="/cookies" style="color:#d97706; text-decoration:none; margin:0 10px;">Cookie Policy</a> | 
+            <a href="/earnings-disclaimer" style="color:#d97706; text-decoration:none; margin:0 10px;">Earnings Disclaimer</a>
+        </p>
+        <p>Contact: <a href="mailto:aetophis@aetophis.com" style="color:#f59e0b;">aetophis@aetophis.com</a></p>
     </footer>
     
     <!-- Load Vimeo Player API -->
     <script src="https://player.vimeo.com/api/player.js"></script>
     
-    <!-- Custom MailerLite Form Styling -->
-    <style>
-    /* Hide MailerLite default styling and apply custom design */
-    .ml-embedded .ml-form {
-        background: transparent !important;
-        border: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        box-shadow: none !important;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-    }
-
-    .ml-embedded .ml-form .ml-form-fieldBody {
-        background: transparent !important;
-        padding: 0 !important;
-    }
-
-    .ml-embedded .ml-form .ml-form-fieldRow {
-        margin-bottom: 20px !important;
-        width: 100% !important;
-    }
-
-    .ml-embedded .ml-form .ml-form-field {
-        margin: 0 !important;
-        width: 100% !important;
-    }
-
-    .ml-embedded .ml-form .ml-form-field input[type="text"],
-    .ml-embedded .ml-form .ml-form-field input[type="email"],
-    .ml-embedded .ml-form .ml-form-field input[type="tel"] {
-        width: 100% !important;
-        padding: 18px 25px !important;
-        border: 2px solid rgba(255,255,255,0.3) !important;
-        border-radius: 15px !important;
-        background: rgba(255,255,255,0.1) !important;
-        color: white !important;
-        font-size: 1.2rem !important;
-        backdrop-filter: blur(10px) !important;
-        transition: all 0.3s ease !important;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-        outline: none !important;
-        box-sizing: border-box !important;
-    }
-
-    .ml-embedded .ml-form .ml-form-field input::placeholder {
-        color: rgba(255,255,255,0.6) !important;
-    }
-
-    .ml-embedded .ml-form .ml-form-field input:focus {
-        border-color: #d97706 !important;
-        background: rgba(255,255,255,0.15) !important;
-        box-shadow: 0 0 20px rgba(217, 119, 6, 0.3) !important;
-        transform: translateY(-1px) !important;
-    }
-
-    .ml-embedded .ml-form .ml-form-submitRow {
-        margin-top: 20px !important;
-        width: 100% !important;
-    }
-
-    .ml-embedded .ml-form .ml-form-submit {
-        width: 100% !important;
-        padding: 18px !important;
-        background: linear-gradient(135deg, #d97706 0%, #92400e 100%) !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 15px !important;
-        font-size: 1.2rem !important;
-        font-weight: 700 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.5px !important;
-        cursor: pointer !important;
-        transition: all 0.3s ease !important;
-        box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4) !important;
-        position: relative !important;
-        overflow: hidden !important;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-    }
-
-    .ml-embedded .ml-form .ml-form-submit::before {
-        content: '' !important;
-        position: absolute !important;
-        top: 0 !important;
-        left: -100% !important;
-        width: 100% !important;
-        height: 100% !important;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent) !important;
-        transition: left 0.5s ease !important;
-    }
-
-    .ml-embedded .ml-form .ml-form-submit:hover::before {
-        left: 100% !important;
-    }
-
-    .ml-embedded .ml-form .ml-form-submit:hover {
-        transform: translateY(-2px) !important;
-        box-shadow: 0 12px 35px rgba(217, 119, 6, 0.6) !important;
-    }
-
-    .ml-embedded .ml-form .ml-form-submit:disabled {
-        opacity: 0.7 !important;
-        cursor: not-allowed !important;
-        transform: none !important;
-    }
-
-    /* Hide MailerLite branding */
-    .ml-embedded .ml-form .ml-form-footer {
-        display: none !important;
-    }
-
-    /* Success/Error messages */
-    .ml-embedded .ml-form .ml-form-successBody {
-        background: rgba(39, 174, 96, 0.2) !important;
-        border: 1px solid #27ae60 !important;
-        color: #27ae60 !important;
-        padding: 15px !important;
-        border-radius: 10px !important;
-        margin-top: 15px !important;
-        font-weight: 600 !important;
-        text-align: center !important;
-    }
-
-    .ml-embedded .ml-form .ml-form-errorBody {
-        background: rgba(231, 76, 60, 0.2) !important;
-        border: 1px solid #e74c3c !important;
-        color: #e74c3c !important;
-        padding: 15px !important;
-        border-radius: 10px !important;
-        margin-top: 15px !important;
-        font-weight: 600 !important;
-        text-align: center !important;
-    }
-    </style>
-
+    <!-- Video Player Script -->
     <script>
-    // Enhanced form handling for MailerLite
-    document.addEventListener('DOMContentLoaded', function() {
-        // Initialize Google Tag Manager dataLayer
-        window.dataLayer = window.dataLayer || [];
+        // Video play functionality
+        const playOverlay = document.getElementById('playOverlay');
+        const vimeoPlayer = document.getElementById('vimeoPlayer');
         
-        // Listen for MailerLite form events
-        window.addEventListener('message', function(event) {
-            if (event.data && event.data.type === 'ml-form-success') {
-                // Push email capture event to dataLayer
-                window.dataLayer.push({
-                    event: "user_email_capture",
-                    email: event.data.email || 'captured_via_mailerlite',
-                    page: window.location.pathname,
-                    timestamp: new Date().toISOString()
-                });
-                
-                console.log('Email capture event fired via MailerLite');
-                
-                // Optional: redirect to thank you page after short delay
-                setTimeout(function() {
-                    // window.location.href = '/freecourse';
-                }, 2000);
-            }
+        playOverlay.addEventListener('click', function() {
+            this.style.display = 'none';
+            // Auto-play the video by sending play command to iframe
+            vimeoPlayer.contentWindow.postMessage('{"method":"play"}', 'https://player.vimeo.com');
         });
-        
-        // Fallback: Listen for form submission
-        document.addEventListener('submit', function(e) {
+
+        // GTM Email Capture Script
+        document.addEventListener("submit", function(e) {
             var form = e.target;
-            if (form.classList.contains('ml-form')) {
-                var emailInput = form.querySelector('input[type="email"]');
-                var nameInput = form.querySelector('input[type="text"]');
+            
+            if (form && (form.id === "leadForm" || form.classList.contains("lead-form") || form.querySelector('input[name="email"]'))) {
+                var emailInput = form.querySelector('input[name="email"]');
+                var firstNameInput = form.querySelector('input[name="first_name"]');
+                var phoneInput = form.querySelector('input[name="phone_number"]');
                 
                 if (emailInput && emailInput.value) {
+                    window.dataLayer = window.dataLayer || [];
                     window.dataLayer.push({
                         event: "user_email_capture",
                         email: emailInput.value,
-                        first_name: nameInput ? nameInput.value : '',
+                        first_name: firstNameInput ? firstNameInput.value : '',
+                        phone_number: phoneInput ? phoneInput.value : '',
                         page: window.location.pathname,
                         timestamp: new Date().toISOString()
                     });
                     
-                    console.log('Email capture event fired (fallback):', emailInput.value);
+                    console.log('Email capture event fired:', emailInput.value);
                 }
             }
-        });
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId && targetId !== '#') {
-                    const target = document.querySelector(targetId);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
+        }, true);
+
+        // Alternative approach for custom events
+        document.addEventListener('emailCaptured', function(e) {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: "user_email_capture",
+                email: e.detail.email,
+                first_name: e.detail.firstName || '',
+                phone_number: e.detail.phone || '',
+                page: window.location.pathname,
+                timestamp: new Date().toISOString()
             });
         });
-        
-        // Vimeo video handling
-        window.playVideo = function() {
-            const videoContainer = document.querySelector('.video-container');
-            if (videoContainer) {
-                videoContainer.innerHTML = `
-                    <iframe src="https://player.vimeo.com/video/1115385139?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0"
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 20px;"
-                            allow="autoplay; fullscreen; picture-in-picture"
-                            allowfullscreen>
-                    </iframe>
-                `;
-            }
-        };
-    });
 
-    // Store email in localStorage for persistence
-    window.addEventListener('beforeunload', function() {
-        const emailInput = document.querySelector('input[type="email"]');
-        if (emailInput && emailInput.value) {
-            localStorage.setItem('user_email', emailInput.value.trim());
-        }
-    });
+        // Force form styling after MailerLite loads (backup solution)
+        setTimeout(function() {
+            const mlInputs = document.querySelectorAll('.ml-embedded input');
+            const mlButtons = document.querySelectorAll('.ml-embedded button');
+            
+            mlInputs.forEach(input => {
+                input.style.cssText = `
+                    width: 100% !important;
+                    padding: 18px 25px !important;
+                    border: 2px solid rgba(255,255,255,0.3) !important;
+                    border-radius: 15px !important;
+                    background: rgba(255,255,255,0.1) !important;
+                    color: white !important;
+                    font-size: 1.2rem !important;
+                    backdrop-filter: blur(10px) !important;
+                    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+                    outline: none !important;
+                    box-sizing: border-box !important;
+                    margin: 0 !important;
+                `;
+            });
+            
+            mlButtons.forEach(button => {
+                button.style.cssText = `
+                    width: 100% !important;
+                    padding: 18px 40px !important;
+                    background: linear-gradient(135deg, #d97706 0%, #92400e 100%) !important;
+                    color: white !important;
+                    border: none !important;
+                    border-radius: 15px !important;
+                    font-size: 1.2rem !important;
+                    font-weight: 700 !important;
+                    text-transform: uppercase !important;
+                    cursor: pointer !important;
+                    box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4) !important;
+                    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+                    margin: 0 !important;
+                `;
+            });
+        }, 2000);
     </script>
 </body>
 </html>
