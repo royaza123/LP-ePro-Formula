@@ -694,5 +694,64 @@
             });
         }, 2000);
     </script>
+    <script>
+/* Capture MailerLite email invisibly on submit and keep it for later GTM/n8n events */
+(function () {
+  // Push a one-time “email ready” event for GTM when we learn the email
+  function announce(email) {
+    try {
+      if (!email) return;
+      localStorage.setItem('ml_user_email', email);
+      window.mlUserEmail = email;               // convenience global for GTM
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'ml_email_ready' });
+    } catch (_) {}
+  }
+
+  // Attach a submit listener to the embedded ML form (class is added when the form renders)
+  function hook(formEl) {
+    if (!formEl || formEl.__mlHooked) return;
+    formEl.__mlHooked = true;
+
+    // Use capture phase so we run before ML intercepts submit
+    formEl.addEventListener('submit', function () {
+      try {
+        var emailInput =
+          formEl.querySelector('input[type="email"], input[name="email"], input[name="fields[email]"], input[name="EMAIL"]');
+        var email = emailInput && emailInput.value ? emailInput.value.trim() : '';
+        if (email) announce(email);
+      } catch (_) {}
+    }, true);
+  }
+
+  // Observe the page for the injected ML form (.ml-block-form) and hook it
+  var obs = new MutationObserver(function (mutations) {
+    for (var m of mutations) {
+      for (var n of (m.addedNodes || [])) {
+        if (n.nodeType !== 1) continue;
+        if (n.matches && (n.matches('form.ml-block-form') || n.matches('.ml-block-form form'))) {
+          hook(n.matches('form') ? n : n.querySelector('form'));
+        } else {
+          var f = n.querySelector && n.querySelector('form.ml-block-form, .ml-block-form form');
+          if (f) hook(f.matches('form') ? f : f.querySelector('form'));
+        }
+      }
+    }
+  });
+  obs.observe(document.documentElement, { childList: true, subtree: true });
+
+  // Also try hooking any form already present (in case ML loaded before us)
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('form.ml-block-form, .ml-block-form form').forEach(hook);
+    // If we already know the email from a previous visit, announce it so GTM can pick it up
+    var cached = localStorage.getItem('ml_user_email');
+    if (cached) {
+      window.mlUserEmail = cached;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'ml_email_ready_cached' });
+    }
+  });
+})();
+</script>
 </body>
 </html>
