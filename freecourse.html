@@ -1038,10 +1038,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <li>Community support</li>
                         </ul>
                     </div>
-                    <a href="https://wa.me/63XXXXXXXXXX" target="_blank"
-                   onclick="dataLayer.push({event:'whatsapp_join', email: window.ml_user_email || ''});">
-                   Join WhatsApp
-                </a>
+                    <a href="https://wa.me/63XXXXXXXXXX" target="_blank" class="join-btn whatsapp-btn"
+                       onclick="dataLayer.push({event:'whatsapp_join', email: window.ml_user_email || ''}); setTimeout(()=>{window.open(this.href,'_blank');},300); return false;">
+                       Join WhatsApp
+                    </a>
                 </div>
 
                 <div class="community-card">
@@ -1057,8 +1057,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <li>VIP chances</li>
                         </ul>
                     </div>
-                    <a href="https://m.me/yourpage" target="_blank"
-               onclick="dataLayer.push({event:'messenger_join', email: window.ml_user_email || ''});">
+                    <a href="https://m.me/yourpage" target="_blank" class="join-btn messenger-btn"
+               onclick="dataLayer.push({event:'messenger_join', email: window.ml_user_email || ''}); setTimeout(()=>{window.open(this.href,'_blank');},300); return false;">
                Join Messenger
             </a>
             </div>
