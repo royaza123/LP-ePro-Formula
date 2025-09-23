@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Start Here — PSYTHA-90</title>
+  <meta name="description" content="Roy's live build log from Cebu — receipts, training, and community." />
+  <meta property="og:title" content="Start Here — PSYTHA-90" />
+  <meta property="og:description" content="Live build from Cebu: free 1‑pager, 10‑min ₱50k day, Telegram (first 100 free)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="" />
+  <meta name="theme-color" content="#111111" />
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --card: #111;
+      --text: #f2f2f2;
+      --muted: #bdbdbd;
+      --accent: #F1641E;
+      --accent-2: #ff8a3d;
+      --radius: 20px;
+      --shadow: 0 8px 30px rgba(0,0,0,.35);
+    }
+    * { box-sizing: border-box; }
+    html, body { background: var(--bg); color: var(--text); margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji"; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 28px 18px 80px; }
+    header { text-align: center; margin-top: 8px; margin-bottom: 22px; }
+    .avatar {
+      width: 92px; height: 92px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: inline-flex; align-items: center; justify-content: center;
+      color: #111; font-weight: 800; font-size: 28px; box-shadow: var(--shadow);
+    }
+    h1 { font-size: 26px; margin: 14px 0 6px; letter-spacing: 0.2px; }
+    p.sub { margin: 0; color: var(--muted); font-size: 14px; }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      margin: 18px 0 22px;
+    }
+    .cta { display: grid; gap: 12px; margin-top: 8px; }
+    a.btn {
+      display: flex; align-items: center; justify-content: space-between;
+      text-decoration: none; color: var(--text);
+      background: #121212;
+      border: 1px solid rgba(255,255,255,.08);
+      padding: 16px 16px; border-radius: 16px;
+      transition: transform .06s ease, border-color .2s ease, background .2s ease;
+    }
+    a.btn:hover { transform: translateY(-1px); border-color: rgba(241,100,30,.6); background: #151515; }
+    .btn .l { display:flex; align-items:center; gap: 12px; font-size: 16px; }
+    .btn .r { color: var(--muted); font-size: 13px; }
+    .tagbar { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag { background: rgba(241,100,30,.12); color: #ffd1bd; border: 1px solid rgba(241,100,30,.25); padding: 6px 10px; border-radius: 999px; font-size: 12px; }
+    .foot { margin-top: 16px; color: var(--muted); font-size: 12px; text-align: center; }
+    .disclaimer {
+      margin-top: 10px; font-size: 12px; color: var(--muted);
+      border-left: 3px solid rgba(255,255,255,.1); padding-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="avatar">RA</div>
+      <h1>PSYTHA‑90 — Start Here</h1>
+      <p class="sub">Live build log from Cebu. Not advice — receipts + systems only.</p>
+      <div style="height:8px"></div>
+      <div class="tagbar">
+        <span class="tag">Cebu</span>
+        <span class="tag">Builder’s Log</span>
+        <span class="tag">Daily Receipts</span>
+        <span class="tag">First 100 Free</span>
+      </div>
+    </header>
+
+    <section class="card">
+      <div>
+        <div style="font-size:11px;padding:4px 8px;border:1px solid rgba(255,255,255,.16);border-radius:999px;display:inline-block;background:rgba(255,255,255,.05)">Free today</div>
+        <h2 style="margin:8px 0 6px;font-size:20px;">7 Beliefs That Kept Us Broke</h2>
+        <p class="sub">1‑page PDF + a 10‑minute plan to make your first ₱1k.</p>
+      </div>
+      <div class="cta">
+        <a class="btn" href="https://example.com/7-beliefs.pdf" target="_blank" rel="noopener">
+          <span class="l">📄 Free 1‑pager</span>
+          <span class="r">opens PDF</span>
+        </a>
+        <a class="btn" href="https://vimeo.com/your-video" target="_blank" rel="noopener">
+          <span class="l">👀 Watch my ₱50k day (10‑min)</span>
+          <span class="r">Vimeo</span>
+        </a>
+        <a class="btn" href="https://t.me/yourgroup" target="_blank" rel="noopener">
+          <span class="l">📱 Join the live Telegram (first 100 free)</span>
+          <span class="r">Telegram</span>
+        </a>
+        <a class="btn" href="https://example.com/3-day" target="_blank" rel="noopener">
+          <span class="l">🎯 3‑Day ₱10k Challenge</span>
+          <span class="r">info</span>
+        </a>
+        <a class="btn" href="https://eproformula.com" target="_blank" rel="noopener">
+          <span class="l">🎥 ePro Formula (advanced)</span>
+          <span class="r">site</span>
+        </a>
+      </div>
+      <p class="disclaimer">My results are not typical. Costs included. This is a documentation project, not advice.</p>
+    </section>
+
+    <div class="foot">
+      © <span id="y"></span> Roy — PSYTHA‑90. Built for mobile. Cebu 🇵🇭
+    </div>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
