@@ -1523,145 +1523,602 @@ function playVimeoVideo() {
 }
 </script>
     
-    <!-- Testimonials Carousel Section -->
+ <!-- Video Testimonials Carousel Section -->
 <section class="testimonials-section" id="testimonials">
     <div class="container">
         <h2 class="section-title fade-in">Real Students, Real Results</h2>
         <p class="section-subtitle fade-in">See what happens when people follow ePro Formula</p>
         
         <div class="testimonials-carousel">
-            <div class="testimonials-track">
-                <!-- First set of testimonials -->
-                <div class="testimonial-box">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://player.vimeo.com/video/1122849599?badge=0&autopause=0&player_id=0&app_id=58479"
-                            frameborder="0"
-                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            title="Nikita, 22, University student, 3K USD monthly in 3 months">
-                        </iframe>
-                    </div>
-                    <p class="result-text">"3K USD monthly in 3 months"</p>
-                </div>
+            <div class="testimonials-track" id="testimonialsTrack">
                 
+                <!-- Video 1: Nikita -->
                 <div class="testimonial-box">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://player.vimeo.com/video/1122862062?badge=0&autopause=0&player_id=0&app_id=58479"
-                            frameborder="0"
-                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            title="Noam, 19, Solider, 2K USD monthly">
-                        </iframe>
+                    <div class="video-thumbnail-container" 
+                         data-video-id="1122849599"
+                         onclick="openVideoModal(this)">
+                        <img class="video-thumbnail" 
+                             src="https://i.vimeocdn.com/video/1122849599_640x360.jpg" 
+                             alt="Nikita's Story">
+                        <div class="video-play-overlay">
+                            <div class="video-play-button"></div>
+                        </div>
                     </div>
-                    <p class="result-text">"2K USD monthly from the army!"</p>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://player.vimeo.com/video/1122846985?badge=0&autopause=0&player_id=0&app_id=58479"
-                            frameborder="0"
-                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            title="Ido, 19, 7K USD IN 2 WEEKS WHILE IN THE ARMY">
-                        </iframe>
-                    </div>
-                    <p class="result-text">"7K USD in 2 WEEKS!"</p>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://player.vimeo.com/video/1122845750?badge=0&autopause=0&player_id=0&app_id=58479"
-                            frameborder="0"
-                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            title="Gedalia, 25, 10K USD MONTHLY">
-                        </iframe>
-                    </div>
-                    <p class="result-text">"10K USD MONTHLY in 3 months!"</p>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://player.vimeo.com/video/1122844273?badge=0&autopause=0&player_id=0&app_id=58479"
-                            frameborder="0"
-                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            title="Beeri, 16, 5K USD montly">
-                        </iframe>
-                    </div>
-                    <p class="result-text">"5K USD monthly - 16 years old!"</p>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://player.vimeo.com/video/1122842339?badge=0&autopause=0&player_id=0&app_id=58479"
-                            frameborder="0"
-                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            title="Idan, 28, making 3K USD in just 5 months">
-                        </iframe>
-                    </div>
-                    <p class="result-text">"3K USD with 3 shops!"</p>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://player.vimeo.com/video/1122865368?badge=0&autopause=0&player_id=0&app_id=58479"
-                            frameborder="0"
-                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            title="Netanel, 19, 6K USD monthly">
-                        </iframe>
-                    </div>
-                    <p class="result-text">"6K USD - Quit Ikea for Etsy!"</p>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://player.vimeo.com/video/1122865324?badge=0&autopause=0&player_id=0&app_id=58479"
-                            frameborder="0"
-                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            title="Eden, 27, 6K USD monthly">
-                        </iframe>
-                    </div>
-                    <p class="result-text">"6K USD - Paying wedding with Etsy!"</p>
-                </div>
-                
-                <div class="testimonial-box">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://player.vimeo.com/video/1122865827?badge=0&autopause=0&player_id=0&app_id=58479"
-                            frameborder="0"
-                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            title="Paul, 56, GM Muay-Thai">
-                        </iframe>
-                    </div>
-                    <p class="result-text">"Quitting gym to move to Thailand!"</p>
+                    <p class="result-text">Nikita, 22, University student, 3K USD monthly in 3 months</p>
                 </div>
 
-                <!-- DUPLICATE SET FOR INFINITE SCROLL -->
+                <!-- Video 2: Noam -->
                 <div class="testimonial-box">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://player.vimeo.com/video/1122849599?badge=0&autopause=0&player_id=0&app_id=58479"
-                            frameborder="0"
-                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            title="Nikita, 22, University student, 3K USD monthly in 3 months">
-                        </iframe>
+                    <div class="video-thumbnail-container" 
+                         data-video-id="1122862062"
+                         onclick="openVideoModal(this)">
+                        <img class="video-thumbnail" 
+                             src="https://i.vimeocdn.com/video/1122862062_640x360.jpg" 
+                             alt="Noam's Story">
+                        <div class="video-play-overlay">
+                            <div class="video-play-button"></div>
+                        </div>
                     </div>
-                    <p class="result-text">"3K USD monthly in 3 months"</p>
+                    <p class="result-text">Noam, 19, Soldier, 2K USD monthly, making a yearly salary in the army from Etsy</p>
                 </div>
+
+                <!-- Video 3: Ido -->
+                <div class="testimonial-box">
+                    <div class="video-thumbnail-container" 
+                         data-video-id="1122846985"
+                         onclick="openVideoModal(this)">
+                        <img class="video-thumbnail" 
+                             src="https://i.vimeocdn.com/video/1122846985_640x360.jpg" 
+                             alt="Ido's Story">
+                        <div class="video-play-overlay">
+                            <div class="video-play-button"></div>
+                        </div>
+                    </div>
+                    <p class="result-text">Ido, 19, 7K USD IN 2 WEEKS WHILE IN THE ARMY</p>
+                </div>
+
+                <!-- Video 4: Gedalia -->
+                <div class="testimonial-box">
+                    <div class="video-thumbnail-container" 
+                         data-video-id="1122845750"
+                         onclick="openVideoModal(this)">
+                        <img class="video-thumbnail" 
+                             src="https://i.vimeocdn.com/video/1122845750_640x360.jpg" 
+                             alt="Gedalia's Story">
+                        <div class="video-play-overlay">
+                            <div class="video-play-button"></div>
+                        </div>
+                    </div>
+                    <p class="result-text">Gedalia, 25, 10K USD MONTHLY, in 3 MONTHS OF WORK</p>
+                </div>
+
+                <!-- Video 5: Beeri -->
+                <div class="testimonial-box">
+                    <div class="video-thumbnail-container" 
+                         data-video-id="1122844273"
+                         onclick="openVideoModal(this)">
+                        <img class="video-thumbnail" 
+                             src="https://i.vimeocdn.com/video/1122844273_640x360.jpg" 
+                             alt="Beeri's Story">
+                        <div class="video-play-overlay">
+                            <div class="video-play-button"></div>
+                        </div>
+                    </div>
+                    <p class="result-text">Beeri, 16, 5K USD monthly in THREE MONTHS IN 16 YEAR OLD!</p>
+                </div>
+
+                <!-- Video 6: Idan -->
+                <div class="testimonial-box">
+                    <div class="video-thumbnail-container" 
+                         data-video-id="1122842339"
+                         onclick="openVideoModal(this)">
+                        <img class="video-thumbnail" 
+                             src="https://i.vimeocdn.com/video/1122842339_640x360.jpg" 
+                             alt="Idan's Story">
+                        <div class="video-play-overlay">
+                            <div class="video-play-button"></div>
+                        </div>
+                    </div>
+                    <p class="result-text">Idan, 28, making 3K USD in just 5 months, with Three shops</p>
+                </div>
+
+                <!-- Video 7: Netanel -->
+                <div class="testimonial-box">
+                    <div class="video-thumbnail-container" 
+                         data-video-id="1122865368"
+                         onclick="openVideoModal(this)">
+                        <img class="video-thumbnail" 
+                             src="https://i.vimeocdn.com/video/1122865368_640x360.jpg" 
+                             alt="Netanel's Story">
+                        <div class="video-play-overlay">
+                            <div class="video-play-button"></div>
+                        </div>
+                    </div>
+                    <p class="result-text">Netanel, 19, 6K USD monthly, Quit his Chef job from Ikea Using Etsy's Money</p>
+                </div>
+
+                <!-- Video 8: Eden -->
+                <div class="testimonial-box">
+                    <div class="video-thumbnail-container" 
+                         data-video-id="1122865324"
+                         onclick="openVideoModal(this)">
+                        <img class="video-thumbnail" 
+                             src="https://i.vimeocdn.com/video/1122865324_640x360.jpg" 
+                             alt="Eden's Story">
+                        <div class="video-play-overlay">
+                            <div class="video-play-button"></div>
+                        </div>
+                    </div>
+                    <p class="result-text">Eden, 27, 6K USD monthly, Paying her wedding with Etsy Money</p>
+                </div>
+
+                <!-- Video 9: Paul -->
+                <div class="testimonial-box">
+                    <div class="video-thumbnail-container" 
+                         data-video-id="1122865827"
+                         onclick="openVideoModal(this)">
+                        <img class="video-thumbnail" 
+                             src="https://i.vimeocdn.com/video/1122865827_640x360.jpg" 
+                             alt="Paul's Story">
+                        <div class="video-play-overlay">
+                            <div class="video-play-button"></div>
+                        </div>
+                    </div>
+                    <p class="result-text">Paul, 56, GM Muay-Thai, Quitting his owned Gym with Etsy Money and moving to Thailand</p>
+                </div>
+
+                <!-- DUPLICATE FOR INFINITE SCROLL -->
+                
+                <!-- Video 1: Nikita (duplicate) -->
+                <div class="testimonial-box">
+                    <div class="video-thumbnail-container" 
+                         data-video-id="1122849599"
+                         onclick="openVideoModal(this)">
+                        <img class="video-thumbnail" 
+                             src="https://i.vimeocdn.com/video/1122849599_640x360.jpg" 
+                             alt="Nikita's Story">
+                        <div class="video-play-overlay">
+                            <div class="video-play-button"></div>
+                        </div>
+                    </div>
+                    <p class="result-text">Nikita, 22, University student, 3K USD monthly in 3 months</p>
+                </div>
+
+                <!-- Video 2: Noam (duplicate) -->
+                <div class="testimonial-box">
+                    <div class="video-thumbnail-container" 
+                         data-video-id="1122862062"
+                         onclick="openVideoModal(this)">
+                        <img class="video-thumbnail" 
+                             src="https://i.vimeocdn.com/video/1122862062_640x360.jpg" 
+                             alt="Noam's Story">
+                        <div class="video-play-overlay">
+                            <div class="video-play-button"></div>
+                        </div>
+                    </div>
+                    <p class="result-text">Noam, 19, Soldier, 2K USD monthly, making a yearly salary in the army from Etsy</p>
+                </div>
+
+                <!-- Video 3: Ido (duplicate) -->
+                <div class="testimonial-box">
+                    <div class="video-thumbnail-container" 
+                         data-video-id="1122846985"
+                         onclick="openVideoModal(this)">
+                        <img class="video-thumbnail" 
+                             src="https://i.vimeocdn.com/video/1122846985_640x360.jpg" 
+                             alt="Ido's Story">
+                        <div class="video-play-overlay">
+                            <div class="video-play-button"></div>
+                        </div>
+                    </div>
+                    <p class="result-text">Ido, 19, 7K USD IN 2 WEEKS WHILE IN THE ARMY</p>
+                </div>
+
+                <!-- Video 4: Gedalia (duplicate) -->
+                <div class="testimonial-box">
+                    <div class="video-thumbnail-container" 
+                         data-video-id="1122845750"
+                         onclick="openVideoModal(this)">
+                        <img class="video-thumbnail" 
+                             src="https://i.vimeocdn.com/video/1122845750_640x360.jpg" 
+                             alt="Gedalia's Story">
+                        <div class="video-play-overlay">
+                            <div class="video-play-button"></div>
+                        </div>
+                    </div>
+                    <p class="result-text">Gedalia, 25, 10K USD MONTHLY, in 3 MONTHS OF WORK</p>
+                </div>
+
+                <!-- Video 5: Beeri (duplicate) -->
+                <div class="testimonial-box">
+                    <div class="video-thumbnail-container" 
+                         data-video-id="1122844273"
+                         onclick="openVideoModal(this)">
+                        <img class="video-thumbnail" 
+                             src="https://i.vimeocdn.com/video/1122844273_640x360.jpg" 
+                             alt="Beeri's Story">
+                        <div class="video-play-overlay">
+                            <div class="video-play-button"></div>
+                        </div>
+                    </div>
+                    <p class="result-text">Beeri, 16, 5K USD monthly in THREE MONTHS IN 16 YEAR OLD!</p>
+                </div>
+
+                <!-- Video 6: Idan (duplicate) -->
+                <div class="testimonial-box">
+                    <div class="video-thumbnail-container" 
+                         data-video-id="1122842339"
+                         onclick="openVideoModal(this)">
+                        <img class="video-thumbnail" 
+                             src="https://i.vimeocdn.com/video/1122842339_640x360.jpg" 
+                             alt="Idan's Story">
+                        <div class="video-play-overlay">
+                            <div class="video-play-button"></div>
+                        </div>
+                    </div>
+                    <p class="result-text">Idan, 28, making 3K USD in just 5 months, with Three shops</p>
+                </div>
+
+                <!-- Video 7: Netanel (duplicate) -->
+                <div class="testimonial-box">
+                    <div class="video-thumbnail-container" 
+                         data-video-id="1122865368"
+                         onclick="openVideoModal(this)">
+                        <img class="video-thumbnail" 
+                             src="https://i.vimeocdn.com/video/1122865368_640x360.jpg" 
+                             alt="Netanel's Story">
+                        <div class="video-play-overlay">
+                            <div class="video-play-button"></div>
+                        </div>
+                    </div>
+                    <p class="result-text">Netanel, 19, 6K USD monthly, Quit his Chef job from Ikea Using Etsy's Money</p>
+                </div>
+
+                <!-- Video 8: Eden (duplicate) -->
+                <div class="testimonial-box">
+                    <div class="video-thumbnail-container" 
+                         data-video-id="1122865324"
+                         onclick="openVideoModal(this)">
+                        <img class="video-thumbnail" 
+                             src="https://i.vimeocdn.com/video/1122865324_640x360.jpg" 
+                             alt="Eden's Story">
+                        <div class="video-play-overlay">
+                            <div class="video-play-button"></div>
+                        </div>
+                    </div>
+                    <p class="result-text">Eden, 27, 6K USD monthly, Paying her wedding with Etsy Money</p>
+                </div>
+
+                <!-- Video 9: Paul (duplicate) -->
+                <div class="testimonial-box">
+                    <div class="video-thumbnail-container" 
+                         data-video-id="1122865827"
+                         onclick="openVideoModal(this)">
+                        <img class="video-thumbnail" 
+                             src="https://i.vimeocdn.com/video/1122865827_640x360.jpg" 
+                             alt="Paul's Story">
+                        <div class="video-play-overlay">
+                            <div class="video-play-button"></div>
+                        </div>
+                    </div>
+                    <p class="result-text">Paul, 56, GM Muay-Thai, Quitting his owned Gym with Etsy Money and moving to Thailand</p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 60px; position: relative; z-index: 10;">
+            <a href="#signup" class="cta-button">I Want Results Like These</a>
+            <a href="#story" class="cta-button secondary">Show Me How</a>
+        </div>
+    </div>
+</section>
+
+<!-- Video Modal -->
+<div class="video-modal" id="videoModal">
+    <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+    <div class="video-modal-content" id="videoModalContent">
+        <!-- Video iframe will be inserted here -->
+    </div>
+</div>
+
+<style>
+/* Testimonials Section */
+.testimonials-section {
+    background: #0a0a0a;
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonials-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="testimonials-grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(217,119,6,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23testimonials-grid)"/></svg>');
+    z-index: 1;
+}
+
+.testimonials-carousel {
+    overflow: hidden;
+    margin: 60px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.testimonials-track {
+    display: flex;
+    animation: scroll-testimonials 90s linear infinite;
+    gap: 25px;
+    width: calc(280px * 18 + 25px * 17);
+}
+
+.testimonial-box {
+    min-width: 280px;
+    width: 280px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 20px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(217, 119, 6, 0.2);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.testimonial-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(217, 119, 6, 0.3);
+    background: rgba(255,255,255,0.08);
+}
+
+.video-thumbnail-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    cursor: pointer;
+    background: #000;
+}
+
+.video-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.video-thumbnail-container:hover .video-thumbnail {
+    transform: scale(1.05);
+}
+
+.video-play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.4);
+    transition: background 0.3s ease;
+}
+
+.video-thumbnail-container:hover .video-play-overlay {
+    background: rgba(0,0,0,0.6);
+}
+
+.video-play-button {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
+    transition: all 0.3s ease;
+}
+
+.video-thumbnail-container:hover .video-play-button {
+    transform: scale(1.15);
+    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.6);
+}
+
+.video-play-button::after {
+    content: '▶';
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 3px;
+}
+
+.result-text {
+    color: #f59e0b;
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0;
+    text-align: center;
+    line-height: 1.4;
+}
+
+@keyframes scroll-testimonials {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-280px * 9 - 25px * 9));
+    }
+}
+
+.testimonials-carousel:hover .testimonials-track {
+    animation-play-state: paused;
+}
+
+/* Video Modal */
+.video-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.95);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.video-modal.active {
+    display: flex;
+}
+
+.video-modal-content {
+    position: relative;
+    width: 90vw;
+    max-width: 500px;
+    aspect-ratio: 9 / 16;
+}
+
+.video-modal-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: rgba(217, 119, 6, 0.9);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10001;
+}
+
+.video-modal-close:hover {
+    background: #d97706;
+    transform: scale(1.1);
+}
+
+.video-modal iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .testimonial-box {
+        min-width: 250px;
+        width: 250px;
+    }
+
+    .video-modal-content {
+        width: 95vw;
+    }
+    
+    .video-modal-close {
+        top: -60px;
+        right: 10px;
+    }
+}
+</style>
+
+<script>
+// Open video modal and pause carousel
+function openVideoModal(element) {
+    const videoId = element.getAttribute('data-video-id');
+    const modal = document.getElementById('videoModal');
+    const content = document.getElementById('videoModalContent');
+    const track = document.getElementById('testimonialsTrack');
+    
+    // Pause carousel
+    track.style.animationPlayState = 'paused';
+    
+    // Create iframe with 9:16 aspect ratio (padding: 177.78%)
+    content.innerHTML = `
+        <div style="padding:177.78% 0 0 0;position:relative;">
+            <iframe src="https://player.vimeo.com/video/${videoId}?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1" 
+                    frameborder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:10px;">
+            </iframe>
+        </div>
+    `;
+    
+    // Show modal
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Close video modal and resume carousel
+function closeVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const content = document.getElementById('videoModalContent');
+    const track = document.getElementById('testimonialsTrack');
+    
+    // Clear video
+    content.innerHTML = '';
+    
+    // Resume carousel
+    track.style.animationPlayState = 'running';
+    
+    // Hide modal
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Close on escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeVideoModal();
+    }
+});
+
+// Close when clicking outside video
+document.getElementById('videoModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeVideoModal();
+    }
+});
+
+// Load video thumbnails from Vimeo API
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.video-thumbnail-container').forEach(container => {
+        const videoId = container.getAttribute('data-video-id');
+        const img = container.querySelector('.video-thumbnail');
+        
+        // Load thumbnail from Vimeo API
+        fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoId}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.thumbnail_url) {
+                    img.src = data.thumbnail_url;
+                }
+            })
+            .catch(() => {
+                console.log('Could not load thumbnail for video:', videoId);
+            });
+    });
+});
+</script>
     
     <!-- Enhanced Story Section -->
     <section class="story-section" id="story">
