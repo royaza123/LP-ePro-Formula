@@ -479,6 +479,230 @@
             text-align: center !important;
         }
 
+        /* TESTIMONIALS SECTION */
+        .testimonials-section {
+            background: #0a0a0a;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="testimonials-grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(217,119,6,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23testimonials-grid)"/></svg>');
+            z-index: 1;
+        }
+
+        .testimonials-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #d97706;
+            margin-bottom: 50px;
+        }
+
+        .testimonials-carousel {
+            overflow: hidden;
+            margin: 40px 0;
+        }
+
+        .testimonials-track {
+            display: flex;
+            animation: scroll-testimonials 80s linear infinite;
+            gap: 20px;
+            width: calc(250px * 12 + 20px * 11);
+        }
+
+        .testimonial-box {
+            min-width: 250px;
+            width: 250px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 18px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(217, 119, 6, 0.2);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .testimonial-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(217, 119, 6, 0.3);
+            background: rgba(255,255,255,0.08);
+        }
+
+        .video-thumbnail-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 12px;
+            cursor: pointer;
+            background: #000;
+        }
+
+        .video-thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            background: #000;
+            transition: transform 0.3s ease;
+        }
+
+        .video-thumbnail-container:hover .video-thumbnail {
+            transform: scale(1.05);
+        }
+
+        .video-play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.4);
+            transition: background 0.3s ease;
+        }
+
+        .video-thumbnail-container:hover .video-play-overlay {
+            background: rgba(0,0,0,0.6);
+        }
+
+        .video-play-button {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .video-thumbnail-container:hover .video-play-button {
+            transform: scale(1.15);
+            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.6);
+        }
+
+        .video-play-button::after {
+            content: '▶';
+            color: white;
+            font-size: 1.2rem;
+            margin-left: 2px;
+        }
+
+        .result-text {
+            color: #f59e0b;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 0;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        @keyframes scroll-testimonials {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-250px * 6 - 20px * 6));
+            }
+        }
+
+        .testimonials-carousel:hover .testimonials-track {
+            animation-play-state: paused;
+        }
+
+        /* Video Modal */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.95);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .video-modal.active {
+            display: flex;
+        }
+
+        .video-modal-content {
+            position: relative;
+            width: 90vw;
+            max-width: 500px;
+            aspect-ratio: 9 / 16;
+        }
+
+        .video-modal-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: rgba(217, 119, 6, 0.9);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10001;
+        }
+
+        .video-modal-close:hover {
+            background: #d97706;
+            transform: scale(1.1);
+        }
+
+        .video-modal iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         /* Mobile Responsive */
         @media (max-width: 1024px) {
             .main-content {
@@ -519,6 +743,28 @@
             .ml-embedded .ml-form button {
                 padding: 16px 30px !important;
                 font-size: 1.1rem !important;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .testimonial-box {
+                min-width: 220px;
+                width: 220px;
+            }
+
+            .video-modal-content {
+                width: 95vw;
+            }
+
+            .video-modal-close {
+                top: -60px;
+                right: 10px;
             }
         }
     </style>
@@ -588,6 +834,209 @@
         </div>
     </div>
 
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials-section">
+        <div class="testimonials-content">
+            <h2 class="section-title">Real Students, Real Results</h2>
+            <p class="section-subtitle">See what happens when people follow ePro Formula</p>
+            
+            <div class="testimonials-carousel">
+                <div class="testimonials-track" id="testimonialsTrack">
+                    
+                    <!-- Video 1: Beeri -->
+                    <div class="testimonial-box">
+                        <div class="video-thumbnail-container" 
+                             data-video-id="1122844273"
+                             onclick="openVideoModal(this)">
+                            <img class="video-thumbnail" 
+                                 src="https://i.vimeocdn.com/video/1122844273_640x360.jpg" 
+                                 alt="Beeri's Story">
+                            <div class="video-play-overlay">
+                                <div class="video-play-button"></div>
+                            </div>
+                        </div>
+                        <p class="result-text">Beeri, 16, 5K USD monthly in THREE MONTHS</p>
+                    </div>
+
+                    <!-- Video 2: Gedalia -->
+                    <div class="testimonial-box">
+                        <div class="video-thumbnail-container" 
+                             data-video-id="1122845750"
+                             onclick="openVideoModal(this)">
+                            <img class="video-thumbnail" 
+                                 src="https://i.vimeocdn.com/video/1122845750_640x360.jpg" 
+                                 alt="Gedalia's Story">
+                            <div class="video-play-overlay">
+                                <div class="video-play-button"></div>
+                            </div>
+                        </div>
+                        <p class="result-text">Gedalia, 25, 10K USD MONTHLY in 3 MONTHS</p>
+                    </div>
+
+                    <!-- Video 3: Paul -->
+                    <div class="testimonial-box">
+                        <div class="video-thumbnail-container" 
+                             data-video-id="1122865827"
+                             onclick="openVideoModal(this)">
+                            <img class="video-thumbnail" 
+                                 src="https://i.vimeocdn.com/video/1122865827_640x360.jpg" 
+                                 alt="Paul's Story">
+                            <div class="video-play-overlay">
+                                <div class="video-play-button"></div>
+                            </div>
+                        </div>
+                        <p class="result-text">Paul, 56, Quitting Gym with Etsy Money</p>
+                    </div>
+
+                    <!-- Video 4: Netanel -->
+                    <div class="testimonial-box">
+                        <div class="video-thumbnail-container" 
+                             data-video-id="1122865368"
+                             onclick="openVideoModal(this)">
+                            <img class="video-thumbnail" 
+                                 src="https://i.vimeocdn.com/video/1122865368_640x360.jpg" 
+                                 alt="Netanel's Story">
+                            <div class="video-play-overlay">
+                                <div class="video-play-button"></div>
+                            </div>
+                        </div>
+                        <p class="result-text">Netanel, 19, 6K USD monthly</p>
+                    </div>
+
+                    <!-- Video 5: Ido -->
+                    <div class="testimonial-box">
+                        <div class="video-thumbnail-container" 
+                             data-video-id="1122846985"
+                             onclick="openVideoModal(this)">
+                            <img class="video-thumbnail" 
+                                 src="https://i.vimeocdn.com/video/1122846985_640x360.jpg" 
+                                 alt="Ido's Story">
+                            <div class="video-play-overlay">
+                                <div class="video-play-button"></div>
+                            </div>
+                        </div>
+                        <p class="result-text">Ido, 19, 7K USD IN 2 WEEKS</p>
+                    </div>
+
+                    <!-- Video 6: Idan -->
+                    <div class="testimonial-box">
+                        <div class="video-thumbnail-container" 
+                             data-video-id="1122842339"
+                             onclick="openVideoModal(this)">
+                            <img class="video-thumbnail" 
+                                 src="https://i.vimeocdn.com/video/1122842339_640x360.jpg" 
+                                 alt="Idan's Story">
+                            <div class="video-play-overlay">
+                                <div class="video-play-button"></div>
+                            </div>
+                        </div>
+                        <p class="result-text">Idan, 28, 3K USD in 5 months</p>
+                    </div>
+
+                    <!-- DUPLICATE FOR INFINITE SCROLL -->
+                    
+                    <!-- Video 1: Beeri (duplicate) -->
+                    <div class="testimonial-box">
+                        <div class="video-thumbnail-container" 
+                             data-video-id="1122844273"
+                             onclick="openVideoModal(this)">
+                            <img class="video-thumbnail" 
+                                 src="https://i.vimeocdn.com/video/1122844273_640x360.jpg" 
+                                 alt="Beeri's Story">
+                            <div class="video-play-overlay">
+                                <div class="video-play-button"></div>
+                            </div>
+                        </div>
+                        <p class="result-text">Beeri, 16, 5K USD monthly in THREE MONTHS</p>
+                    </div>
+
+                    <!-- Video 2: Gedalia (duplicate) -->
+                    <div class="testimonial-box">
+                        <div class="video-thumbnail-container" 
+                             data-video-id="1122845750"
+                             onclick="openVideoModal(this)">
+                            <img class="video-thumbnail" 
+                                 src="https://i.vimeocdn.com/video/1122845750_640x360.jpg" 
+                                 alt="Gedalia's Story">
+                            <div class="video-play-overlay">
+                                <div class="video-play-button"></div>
+                            </div>
+                        </div>
+                        <p class="result-text">Gedalia, 25, 10K USD MONTHLY in 3 MONTHS</p>
+                    </div>
+
+                    <!-- Video 3: Paul (duplicate) -->
+                    <div class="testimonial-box">
+                        <div class="video-thumbnail-container" 
+                             data-video-id="1122865827"
+                             onclick="openVideoModal(this)">
+                            <img class="video-thumbnail" 
+                                 src="https://i.vimeocdn.com/video/1122865827_640x360.jpg" 
+                                 alt="Paul's Story">
+                            <div class="video-play-overlay">
+                                <div class="video-play-button"></div>
+                            </div>
+                        </div>
+                        <p class="result-text">Paul, 56, Quitting Gym with Etsy Money</p>
+                    </div>
+
+                    <!-- Video 4: Netanel (duplicate) -->
+                    <div class="testimonial-box">
+                        <div class="video-thumbnail-container" 
+                             data-video-id="1122865368"
+                             onclick="openVideoModal(this)">
+                            <img class="video-thumbnail" 
+                                 src="https://i.vimeocdn.com/video/1122865368_640x360.jpg" 
+                                 alt="Netanel's Story">
+                            <div class="video-play-overlay">
+                                <div class="video-play-button"></div>
+                            </div>
+                        </div>
+                        <p class="result-text">Netanel, 19, 6K USD monthly</p>
+                    </div>
+
+                    <!-- Video 5: Ido (duplicate) -->
+                    <div class="testimonial-box">
+                        <div class="video-thumbnail-container" 
+                             data-video-id="1122846985"
+                             onclick="openVideoModal(this)">
+                            <img class="video-thumbnail" 
+                                 src="https://i.vimeocdn.com/video/1122846985_640x360.jpg" 
+                                 alt="Ido's Story">
+                            <div class="video-play-overlay">
+                                <div class="video-play-button"></div>
+                            </div>
+                        </div>
+                        <p class="result-text">Ido, 19, 7K USD IN 2 WEEKS</p>
+                    </div>
+
+                    <!-- Video 6: Idan (duplicate) -->
+                    <div class="testimonial-box">
+                        <div class="video-thumbnail-container" 
+                             data-video-id="1122842339"
+                             onclick="openVideoModal(this)">
+                            <img class="video-thumbnail" 
+                                 src="https://i.vimeocdn.com/video/1122842339_640x360.jpg" 
+                                 alt="Idan's Story">
+                            <div class="video-play-overlay">
+                                <div class="video-play-button"></div>
+                            </div>
+                        </div>
+                        <p class="result-text">Idan, 28, 3K USD in 5 months</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <button class="video-modal-close" onclick="closeVideoModal()">&times;</button>
+        <div class="video-modal-content" id="videoModalContent">
+            <!-- Video iframe will be inserted here -->
+        </div>
+    </div>
+
     <!-- FOOTER -->
     <footer style="background:#111; padding:30px 20px; text-align:center; color:#aaa; font-size:0.9rem; position: relative; z-index: 20;">
         <p>© 2025 ePro Formula. All rights reserved.</p>
@@ -609,11 +1058,13 @@
         const playOverlay = document.getElementById('playOverlay');
         const vimeoPlayer = document.getElementById('vimeoPlayer');
         
-        playOverlay.addEventListener('click', function() {
-            this.style.display = 'none';
-            // Auto-play the video by sending play command to iframe
-            vimeoPlayer.contentWindow.postMessage('{"method":"play"}', 'https://player.vimeo.com');
-        });
+        if (playOverlay && vimeoPlayer) {
+            playOverlay.addEventListener('click', function() {
+                this.style.display = 'none';
+                // Auto-play the video by sending play command to iframe
+                vimeoPlayer.contentWindow.postMessage('{"method":"play"}', 'https://player.vimeo.com');
+            });
+        }
 
         // GTM Email Capture Script
         document.addEventListener("submit", function(e) {
@@ -693,11 +1144,96 @@
                 `;
             });
         }, 2000);
+
+        // Open video modal and pause carousel
+        function openVideoModal(element) {
+            const videoId = element.getAttribute('data-video-id');
+            const modal = document.getElementById('videoModal');
+            const content = document.getElementById('videoModalContent');
+            const track = document.getElementById('testimonialsTrack');
+            
+            // Pause carousel
+            if (track) {
+                track.style.animationPlayState = 'paused';
+            }
+            
+            // Create iframe with 9:16 aspect ratio
+            content.innerHTML = `
+                <div style="padding:177.78% 0 0 0;position:relative;">
+                    <iframe src="https://player.vimeo.com/video/${videoId}?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1" 
+                            frameborder="0" 
+                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:10px;">
+                    </iframe>
+                </div>
+            `;
+            
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close video modal and resume carousel
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const content = document.getElementById('videoModalContent');
+            const track = document.getElementById('testimonialsTrack');
+            
+            // Clear video
+            content.innerHTML = '';
+            
+            // Resume carousel
+            if (track) {
+                track.style.animationPlayState = 'running';
+            }
+            
+            // Hide modal
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeVideoModal();
+            }
+        });
+
+        // Close when clicking outside video
+        const videoModal = document.getElementById('videoModal');
+        if (videoModal) {
+            videoModal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeVideoModal();
+                }
+            });
+        }
+
+        // Load video thumbnails from Vimeo API
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.video-thumbnail-container').forEach(container => {
+                const videoId = container.getAttribute('data-video-id');
+                const img = container.querySelector('.video-thumbnail');
+                
+                // Load thumbnail from Vimeo API
+                fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoId}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.thumbnail_url) {
+                            img.src = data.thumbnail_url;
+                        }
+                    })
+                    .catch(() => {
+                        console.log('Could not load thumbnail for video:', videoId);
+                    });
+            });
+        });
     </script>
     <script>
 /* Capture MailerLite email invisibly on submit and keep it for later GTM/n8n events */
 (function () {
-  // Push a one-time “email ready” event for GTM when we learn the email
+  // Push a one-time "email ready" event for GTM when we learn the email
   function announce(email) {
     try {
       if (!email) return;
