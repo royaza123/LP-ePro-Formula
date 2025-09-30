@@ -546,6 +546,73 @@
         .form-container {
             animation: pulse 3s infinite;
         }
+
+        /* Arrow Pointer Styles */
+        .arrow-pointer {
+            text-align: center;
+            margin: 35px 0 25px;
+            display: block;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .arrow-pointer:hover {
+            transform: scale(1.05);
+        }
+
+        .arrow-pointer:hover .tap-here {
+            color: #f59e0b;
+            text-shadow: 0 0 30px rgba(217, 119, 6, 0.8);
+        }
+
+        .tap-here {
+            font-size: 1.4rem;
+            color: #d97706;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            animation: bounce 2s ease-in-out infinite;
+            text-shadow: 0 0 20px rgba(217, 119, 6, 0.5);
+        }
+
+        .arrow-line {
+            width: 4px;
+            height: 80px;
+            background: linear-gradient(180deg, #d97706 0%, transparent 100%);
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .arrow-line::after {
+            content: '▼';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #d97706;
+            font-size: 1.5rem;
+            animation: arrowBounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes arrowBounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
+        }
     </style>
 </head>
 <body>
@@ -589,6 +656,11 @@
                     It could be anything. You may think it's silly. All you have to do is <strong>type your question in the box below and click submit.</strong>
                 </p>
 
+                <a href="#form-section" class="arrow-pointer">
+                    <p class="tap-here">👇 TAP HERE TO SHARE YOUR QUESTION 👇</p>
+                    <div class="arrow-line"></div>
+                </a>
+
                 <div class="special-offer">
                     <p class="price-strike">Later sold for ₱999/month</p>
                     <p class="free-access">Get FREE Access Now</p>
@@ -628,7 +700,7 @@
             </p>
 
             <!-- Form Container -->
-            <div class="form-container">
+            <div class="form-container" id="form-section">
                 <h2 class="form-title">Share Your Question & Get Free Access</h2>
                 <p class="form-subtitle">Join the community + AI assistant + free course</p>
                 
