@@ -744,9 +744,11 @@
             // Initialize Google Tag Manager dataLayer
             window.dataLayer = window.dataLayer || [];
             
-            // Listen for MailerLite form events
+            // Method 1: Listen for MailerLite success message
             window.addEventListener('message', function(event) {
                 if (event.data && event.data.type === 'ml-form-success') {
+                    console.log('MailerLite form success detected!');
+                    
                     // Push email capture event to dataLayer
                     window.dataLayer.push({
                         event: "user_email_capture",
@@ -755,58 +757,86 @@
                         timestamp: new Date().toISOString()
                     });
                     
-                    console.log('Email capture event fired via MailerLite');
-                    
-                    // Redirect to thank you page after 1.5 seconds
+                    // Redirect to thank you page
                     setTimeout(function() {
                         window.location.href = 'https://eproformula.com/freecourse';
                     }, 1500);
                 }
             });
             
-            // Fallback: Listen for form submission
+            // Method 2: Watch for success body to appear (more reliable for embedded forms)
+            function checkForSuccessAndRedirect() {
+                var successBody = document.querySelector('.ml-form-successBody');
+                if (successBody && successBody.style.display !== 'none') {
+                    console.log('Success body detected - redirecting...');
+                    
+                    window.dataLayer.push({
+                        event: "user_email_capture",
+                        email: window.mlUserEmail || 'captured_via_mailerlite',
+                        page: window.location.pathname,
+                        timestamp: new Date().toISOString()
+                    });
+                    
+                    setTimeout(function() {
+                        window.location.href = 'https://eproformula.com/freecourse';
+                    }, 1500);
+                }
+            }
+            
+            // Check every 500ms for success message
+            var successCheckInterval = setInterval(checkForSuccessAndRedirect, 500);
+            
+            // Stop checking after 5 minutes
+            setTimeout(function() {
+                clearInterval(successCheckInterval);
+            }, 300000);
+            
+            // Method 3: Fallback form submission listener
             document.addEventListener('submit', function(e) {
                 var form = e.target;
                 if (form.classList.contains('ml-block-form')) {
+                    console.log('Form submitted detected');
+                    
                     var emailInput = form.querySelector('input[name="fields[email]"]');
                     var nameInput = form.querySelector('input[name="fields[name]"]');
                     var questionInput = form.querySelector('input[name="fields[number_one_challenge]"]');
                     var phoneInput = form.querySelector('input[name="fields[phone]"]');
                     
                     if (emailInput && emailInput.value) {
-                        // Push to dataLayer
-                        window.dataLayer.push({
-                            event: "user_email_capture",
+                        var formData = {
                             email: emailInput.value,
                             first_name: nameInput ? nameInput.value : '',
                             question: questionInput ? questionInput.value : '',
                             phone: phoneInput ? phoneInput.value : '',
                             page: window.location.pathname,
                             timestamp: new Date().toISOString()
-                        });
-                        
-                        console.log('Email capture event fired (fallback method)');
-                        
-                        // Send to n8n webhook
-                        var webhookData = {
-                            email: emailInput.value,
-                            name: nameInput ? nameInput.value : '',
-                            question: questionInput ? questionInput.value : '',
-                            phone: phoneInput ? phoneInput.value : '',
-                            page: window.location.pathname,
-                            timestamp: new Date().toISOString()
                         };
                         
-                        // Send to n8n (non-blocking)
+                        // Push to dataLayer
+                        window.dataLayer.push({
+                            event: "user_email_capture",
+                            ...formData
+                        });
+                        
+                        console.log('Email captured:', emailInput.value);
+                        
+                        // Send to n8n webhook (non-blocking)
                         fetch('https://your-n8n-webhook-url.com/webhook/mailerlite-capture', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
                             },
-                            body: JSON.stringify(webhookData)
+                            body: JSON.stringify(formData)
                         }).catch(function(error) {
                             console.log('Webhook call failed (non-critical):', error);
                         });
+                        
+                        // Set a timeout to redirect even if success detection fails
+                        setTimeout(function() {
+                            if (document.querySelector('.ml-form-successBody')) {
+                                window.location.href = 'https://eproformula.com/freecourse';
+                            }
+                        }, 2000);
                     }
                 }
             });
