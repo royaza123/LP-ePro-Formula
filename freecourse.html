@@ -13,6 +13,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T478W9J7');</script>
 <!-- End Google Tag Manager -->
 
+    <script>
+(function () {
+  // make sure dataLayer exists
+  window.dataLayer = window.dataLayer || [];
+
+  // try to recover the email and keep it around
+  try {
+    const q = new URLSearchParams(location.search);
+    let e =
+      (q.get('e') || q.get('email') || q.get('ml_email') || '').trim().toLowerCase() ||
+      (localStorage.getItem('ml_user_email') || '').trim().toLowerCase();
+
+    if (e) {
+      window.ml_user_email = e;
+      localStorage.setItem('ml_user_email', e);
+    }
+  } catch (_) {}
+})();
+</script>
+
     <<!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
     <meta property="og:title" content="ePro Formula - Free Course">
     <meta property="og:description" content="Get instant access to the full free course and learn how to build a profitable Etsy business step by step.">
@@ -1038,12 +1058,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <li>Community support</li>
                         </ul>
                     </div>
-                    <a href="https://chat.whatsapp.com/HQXRAX6xGLy9aCrAFswcnL?mode=ems_copy_t" target="_blank" class="join-btn whatsapp-btn"
-                       onclick="dataLayer.push({event:'whatsapp_join', email: window.ml_user_email || ''}); setTimeout(()=>{window.open(this.href,'_blank');},300); return false;">
-                       Join WhatsApp
-                    </a>
-                </div>
-
+                    <a
+                  href="https://chat.whatsapp.com/HQXRAX6xGLy9aCrAFswcnL?mode=ems_copy_t"
+                  target="_blank"
+                  rel="noopener"
+                  class="join-btn whatsapp-btn"
+                  onclick="return trackAndGo('whatsapp_join', this.href);"
+                >
+                  Join WhatsApp
+                </a>
                 <div class="community-card">
                     <div class="community-icon">⚡</div>
                     <h3 class="community-title">Messenger VIP Access</h3>
@@ -1057,9 +1080,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <li>VIP chances</li>
                         </ul>
                     </div>
-                    <a href="https://m.me/700274389844832?ref=w43675680" target="_blank" class="join-btn messenger-btn"
-               onclick="dataLayer.push({event:'messenger_join', email: window.ml_user_email || ''}); setTimeout(()=>{window.open(this.href,'_blank');},300); return false;">
-               Join Messenger
+            <!-- Messenger -->
+               <a
+              href="https://m.me/700274389844832?ref=w43675680"
+              target="_blank"
+              rel="noopener"
+              class="join-btn messenger-btn"
+              onclick="return trackAndGo('messenger_join', this.href);"
+            >
+              Join Messenger
             </a>
             </div>
 
@@ -1169,41 +1198,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     document.addEventListener("DOMContentLoaded", setVimeoThumbnails);
     </script>
-
-    <!-- Vimeo Tracking Script -->
-    <script src="https://player.vimeo.com/api/player.js"></script>
-    <script>
-    function setupVimeoTracking(playerId, videoName) {
-      var iframe = document.getElementById(playerId);
-      if (!iframe) return;
-      var player = new Vimeo.Player(iframe);
-
-      let milestones = [25, 50, 75];
-      let passed = {};
-
-      player.on('play', () => {
-        dataLayer.push({'event': 'video_play', 'video': videoName});
-      });
-
-      player.on('pause', () => {
-        dataLayer.push({'event': 'video_pause', 'video': videoName});
-      });
-
-      player.on('ended', () => {
-        dataLayer.push({'event': 'video_complete', 'video': videoName});
-      });
-
-      player.on('timeupdate', data => {
-        var percent = Math.round(data.percent * 100);
-        milestones.forEach(m => {
-          if (percent >= m && !passed[m]) {
-            dataLayer.push({'event': 'video_progress', 'video': videoName, 'progress': m});
-            passed[m] = true;
-          }
-        });
-      });
-    }
-
     // Attach tracking to each lesson
     setupVimeoTracking('lesson1', 'Lesson 1');
     setupVimeoTracking('lesson2', 'Lesson 2');
@@ -1214,32 +1208,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="https://player.vimeo.com/api/player.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  // Define lessons
   const lessons = [
-    {id: "lesson1", name: "Lesson 1: A Business for Everyone"},
-    {id: "lesson2", name: "Lesson 2: Think Like Americans"},
-    {id: "lesson3", name: "Lesson 3: Real People Making Money"},
-    {id: "lesson4", name: "Lesson 4: The China Secret"},
-    {id: "lesson5", name: "Lesson 5: Build Your Money Business"}
+    { id: "lesson1", name: "Lesson 1: A Business for Everyone", num: 1 },
+    { id: "lesson2", name: "Lesson 2: Think Like Americans",     num: 2 },
+    { id: "lesson3", name: "Lesson 3: Real People Making Money",  num: 3 },
+    { id: "lesson4", name: "Lesson 4: The China Secret",          num: 4 },
+    { id: "lesson5", name: "Lesson 5: Build Your Money Business", num: 5 }
   ];
 
-  lessons.forEach(lesson => {
-    const iframe = document.getElementById(lesson.id);
+  window.dataLayer = window.dataLayer || [];
+  const email = (window.ml_user_email || '').trim().toLowerCase();
+
+  lessons.forEach(({ id, name, num }) => {
+    const iframe = document.getElementById(id);
     if (!iframe) return;
 
     const player = new Vimeo.Player(iframe);
-
-    player.on('play', function() {
-      window.dataLayer = window.dataLayer || [];
+    player.on('play', function () {
+      const ev = (num === 5) ? 'video_play_lesson5' : 'video_play';
       window.dataLayer.push({
-        event: 'video_play',
-        lesson_name: lesson.name,
+        event: ev,
+        email: email,
+        lesson_name: name,
+        lesson_num: num,
+        progress: 10,
         timestamp: new Date().toISOString()
       });
-      console.log("Pushed video_play for " + lesson.name);
+      console.log("Pushed", ev, "for", name, "email:", email);
     });
   });
 });
+</script>
+<script>
+function trackAndGo(ev, url) {
+  window.dataLayer = window.dataLayer || [];
+  const email = (window.ml_user_email || '').trim().toLowerCase();
+  window.dataLayer.push({ event: ev, email });
+  setTimeout(() => { window.open(url, '_blank'); }, 250);
+  return false;
+}
 </script>
 </body>
 </html>
