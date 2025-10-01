@@ -826,12 +826,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <div class="welcome-video-container">
                 <div class="video-embed">
-                    <iframe 
-                        src="https://player.vimeo.com/video/1115385176?h=1&title=0&byline=0&portrait=0"
-                        frameborder="0"
-                        allow="autoplay; fullscreen; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
+                    <<iframe 
+                  id="welcome"
+                  src="https://player.vimeo.com/video/1115385176?h=1&api=1&player_id=welcome&title=0&byline=0&portrait=0"
+                  frameborder="0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
                 </div>
             </div>
 
@@ -1201,11 +1202,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const lessons = [
-    { id: "lesson1", name: "Lesson 1: A Business for Everyone", num: 1 },
-    { id: "lesson2", name: "Lesson 2: Think Like Americans",     num: 2 },
-    { id: "lesson3", name: "Lesson 3: Real People Making Money",  num: 3 },
-    { id: "lesson4", name: "Lesson 4: The China Secret",          num: 4 },
-    { id: "lesson5", name: "Lesson 5: Build Your Money Business", num: 5 }
+const lessons = [
+  { id: "welcome", name: "Welcome",                              num: 0 }, // <— add this
+  { id: "lesson1", name: "Lesson 1: A Business for Everyone",    num: 1 },
+  { id: "lesson2", name: "Lesson 2: Think Like Americans",       num: 2 },
+  { id: "lesson3", name: "Lesson 3: Real People Making Money",   num: 3 },
+  { id: "lesson4", name: "Lesson 4: The China Secret",           num: 4 },
+  { id: "lesson5", name: "Lesson 5: Build Your Money Business",  num: 5 }
+];
+
   ];
 
   window.dataLayer = window.dataLayer || [];
