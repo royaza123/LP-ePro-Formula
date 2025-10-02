@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -744,24 +743,41 @@ const SHEETS_SECRET = 'epro-sheets-2025'; // must match your Apps Script
 // beacon first, then fetch(keepalive) fallback
 function sendToSheetsOnce(row){
   if (!row || window.__sheetSent) return;
-  row.secret = row.secret || SHEETS_SECRET;
+  row.secret = row.secret || SHEETS_SECRET; // ensure secret
   window.__sheetSent = true;
 
+  // 1) Try beacon (no CORS checks, survives navigation)
   try {
     if (navigator.sendBeacon) {
       const ok = navigator.sendBeacon(
         SHEETS_URL,
-        new Blob([JSON.stringify(row)], { type: 'text/plain' })
+        new Blob([JSON.stringify(row)], { type: 'text/plain' }) // <- text/plain
       );
-      if (ok) return;
+      if (ok) {
+        console.log('[Sheets] beacon sent');
+        return;
+      }
     }
-  } catch {}
+  } catch (e) {
+    console.warn('[Sheets] beacon error', e);
+  }
 
-  fetch(SHEETS_URL, {
-    method: 'POST',
-    body: JSON.stringify(row),
-    keepalive: true
-  }).catch(()=>{ window.__sheetSent = false; });
+  // 2) Fallback fetch as "no-cors" (opaque response, but write succeeds)
+  try {
+    fetch(SHEETS_URL, {
+      method: 'POST',
+      // IMPORTANT: no headers (avoid preflight)
+      body: JSON.stringify(row),
+      mode: 'no-cors',        // <- prevents CORS error
+      keepalive: true,        // survive unload
+      cache: 'no-store',
+      redirect: 'follow',
+      referrerPolicy: 'no-referrer'
+    });
+  } catch (e) {
+    console.error('[Sheets] fetch failed', e);
+    window.__sheetSent = false; // allow retry if needed
+  }
 }
             
             // ===============================================
