@@ -759,36 +759,22 @@ function sendToSheetsOnce(row){
             
             // Method 1: Listen for MailerLite success message
             window.addEventListener('message', function(event) {
-              if (event.data && event.data.type === 'ml-form-success') {
-                console.log('MailerLite form success detected!');
-            
-                // Push to GTM
-                window.dataLayer.push({
-                  event: "user_email_capture",
-                  email: event.data.email || 'captured_via_mailerlite',
-                  page: window.location.pathname,
-                  timestamp: new Date().toISOString()
-                });
-            
-                // ✅ Send to Google Sheets (success path #1)
-                try {
-                  const cached = sessionStorage.getItem('ml_last_row');
-                  const row = cached ? JSON.parse(cached) : {
-                    timestamp: new Date().toISOString(),
-                    name: '',
-                    email: (event?.data?.email || window.mlUserEmail || ''),
-                    phone: '',
-                    question: document.querySelector('input[name="fields[number_one_challenge]"]')?.value || ''
-                  };
-                  row.secret = SHEETS_SECRET;
-                  sendToSheetsOnce(row);
-                } catch(_) {}
-            
-                // Redirect
-                setTimeout(function() {
-                  window.location.href = 'https://eproformula.com/freecourse';
-                }, 1500);
-              }
+                if (event.data && event.data.type === 'ml-form-success') {
+                    console.log('MailerLite form success detected!');
+                    
+                    // Push email capture event to dataLayer
+                    window.dataLayer.push({
+                        event: "user_email_capture",
+                        email: event.data.email || 'captured_via_mailerlite',
+                        page: window.location.pathname,
+                        timestamp: new Date().toISOString()
+                    });
+                    
+                    // Redirect to thank you page
+                    setTimeout(function() {
+                        window.location.href = 'https://eproformula.com/freecourse';
+                    }, 1500);
+                }
             });
             
             // Method 2: Watch for success body to appear (more reliable for embedded forms)
