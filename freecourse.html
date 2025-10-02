@@ -1137,7 +1137,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <p>Contact: <a href="mailto:aetophis@aetophis.com" style="color:#f59e0b;">aetophis@aetophis.com</a></p>
 </footer>
 
-    <!-- Play & Accordion Logic -->
+<!-- Play & Accordion Logic -->
 <script>
   // Play welcome video function (exported globally)
   window.playWelcomeVideo = function (element, videoId) {
@@ -1148,10 +1148,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (iframe.src !== want) iframe.src = want;
     try { new Vimeo.Player(iframe).play(); } catch (_) {}
   };
-</script>
 
-<!-- Play video function (reuse the existing iframe; do NOT replace innerHTML) -->
-<script>
+// Play video function (reuse the existing iframe; do NOT replace innerHTML)
 window.playVideo = function (element, videoId) {
   const targetId =
     element.getAttribute('data-target') ||
@@ -1180,7 +1178,7 @@ window.playVideo = function (element, videoId) {
   try { new Vimeo.Player(iframe).play(); } catch (_) {}
 };
 
-<!-- Accordion toggle (exported globally for inline onclick=) -->
+// Accordion toggle (exported globally for inline onclick=)
 window.toggleAccordion = function (id) {
   const content = document.getElementById('accordion-' + id);
   if (!content) return;
@@ -1204,7 +1202,7 @@ window.toggleAccordion = function (id) {
   }
 };
 
-<!-- Scroll progress bar -->
+// Scroll progress bar
 function updateProgress() {
   const scrolled = window.pageYOffset;
   const maxHeight = document.body.scrollHeight - window.innerHeight;
@@ -1214,7 +1212,7 @@ function updateProgress() {
 }
 window.addEventListener('scroll', updateProgress);
 
-<!-- Scroll helpers (exported if you call from HTML) -->
+// Scroll helpers (exported if you call from HTML)
 window.scrollToCommunity = function () {
   document.getElementById('community')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
@@ -1309,18 +1307,8 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const player = new Vimeo.Player(iframe);
       player.on("play", function () {
-      if (!email) return;
-      var ev = (num === 5) ? "video_play_lesson5" : "video_play";
-      window.dataLayer.push({
-        event: ev,
-        email: email,
-        lesson_name: name,
-        lesson_num: num,
-        progress: 10,
-        timestamp: Date.now()
-      });
-    });
-
+        if (!email) return;
+        
         // Push a single raw 'video_play'; Gatekeeper will map lesson 5 to 'video_play_lesson5'
         window.dataLayer.push({
           event: "video_play",
