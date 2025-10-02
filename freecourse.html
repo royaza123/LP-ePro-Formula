@@ -13,23 +13,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T478W9J7');</script>
 <!-- End Google Tag Manager -->
 
-    <script>
-(function () {
-  // make sure dataLayer exists
+   <script>
+(function(){
   window.dataLayer = window.dataLayer || [];
-
-  // try to recover the email and keep it around
-  try {
-    const q = new URLSearchParams(location.search);
-    let e =
-      (q.get('e') || q.get('email') || q.get('ml_email') || '').trim().toLowerCase() ||
-      (localStorage.getItem('ml_user_email') || '').trim().toLowerCase();
-
-    if (e) {
-      window.ml_user_email = e;
-      localStorage.setItem('ml_user_email', e);
+  var orig = window.dataLayer.push;
+  window.dataLayer.push = function(){
+    for (var i=0;i<arguments.length;i++){
+      var a = arguments[i];
+      if (a && typeof a === 'object' && a.event) window.__epro_last_event = a;
     }
-  } catch (_) {}
+    return orig.apply(this, arguments);
+  };
 })();
 </script>
 
@@ -1303,7 +1297,17 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const player = new Vimeo.Player(iframe);
       player.on("play", function () {
-        if (!email) return; // keep your contract: only allow plays after email exists
+      if (!email) return;
+      var ev = (num === 5) ? "video_play_lesson5" : "video_play";
+      window.dataLayer.push({
+        event: ev,
+        email: email,
+        lesson_name: name,
+        lesson_num: num,
+        progress: 10,
+        timestamp: Date.now()
+      });
+    });
 
         // Push a single raw 'video_play'; Gatekeeper will map lesson 5 to 'video_play_lesson5'
         window.dataLayer.push({
