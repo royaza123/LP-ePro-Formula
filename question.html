@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -761,23 +762,6 @@ function sendToSheetsOnce(row){
     body: JSON.stringify(row),
     keepalive: true
   }).catch(()=>{ window.__sheetSent = false; });
-}
-
-  // 2) Fallback to fetch with keepalive
-  fetch(SHEETS_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(row),
-    keepalive: true
-  })
-  .then(async (r) => {
-    const txt = await r.text().catch(()=>'');
-    console.log('[Sheets] fetch resp', r.status, txt);
-  })
-  .catch((e) => {
-    console.error('[Sheets] fetch failed', e);
-    window.__sheetSent = false; // allow retry on failure
-  });
 }
             
             // ===============================================
