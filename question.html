@@ -736,6 +736,19 @@
     <!-- Enhanced JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+        // ==== Sheets endpoint + helper ====
+const SHEETS_URL = 'https://script.google.com/a/macros/aetophis.com/s/AKfycbxaQy-PQlo3PsfeDJVhru5H6upu-ixQKWqT37xujjnb_sMbpFnh3uraaE88z9pzm7S_ug/exec';
+const SHEETS_SECRET = 'epro-sheets-2025'; // must match your Apps Script
+
+function sendToSheetsOnce(row){
+  if (!row || window.__sheetSent) return;
+  window.__sheetSent = true;
+  fetch(SHEETS_URL, {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify(row)
+  }).catch(()=>{ window.__sheetSent = false; });
+}
             
             // ===============================================
             // MAILERLITE FORM HANDLING WITH REDIRECT
