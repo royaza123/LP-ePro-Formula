@@ -1132,18 +1132,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
     <!-- Play & Accordion Logic -->
-    <script>
-        // Play welcome video function
-        function playWelcomeVideo(element, videoId) {
-          const iframe = document.getElementById('welcome');             // keep the wired iframe
-          if (!iframe) return;
-          const id = 'welcome';
-          const want = `https://player.vimeo.com/video/${videoId}?h=1&api=1&player_id=${id}&title=0&byline=0&portrait=0&autopause=0&autoplay=1`;
-          if (iframe.src !== want) iframe.src = want;                    // set src once
-          try { new Vimeo.Player(iframe).play(); } catch (_) {}
-        }
-
-      <!-- Replace your entire block (from "// Play video function" down through scroll helpers) with this: -->
+<script>
+  // Play welcome video function (exported globally)
+  window.playWelcomeVideo = function (element, videoId) {
+    const iframe = document.getElementById('welcome');
+    if (!iframe) return;
+    const id = 'welcome';
+    const want = `https://player.vimeo.com/video/${videoId}?h=1&api=1&player_id=${id}&title=0&byline=0&portrait=0&autopause=0&autoplay=1`;
+    if (iframe.src !== want) iframe.src = want;
+    try { new Vimeo.Player(iframe).play(); } catch (_) {}
+  };
+</script>
 
 <!-- Play video function (reuse the existing iframe; do NOT replace innerHTML) -->
 <script>
@@ -1242,6 +1241,29 @@ window.openMessenger = function () {
     </script>
 <!-- Vimeo SDK (load once) -->
 <script src="https://player.vimeo.com/api/player.js"></script>
+<!-- Add this helper just below the SDK include -->
+<script>
+  window.trackAndGo = function(eventName, href){
+    try {
+      window.dataLayer = window.dataLayer || [];
+      const email =
+        (window.ml_user_email || localStorage.getItem('ml_user_email') || '')
+          .replace(/\s/g,'+')            // restore '+' if it turned into spaces
+          .replace(/["\\\r\n\t]/g,'')
+          .trim()
+          .toLowerCase();
+
+      window.dataLayer.push({
+        event: eventName,                // 'whatsapp_join' or 'messenger_join'
+        email: email || null,
+        timestamp: Date.now()
+      });
+    } catch (_) {}
+    // open in new tab (matches your link target)
+    window.open(href, '_blank', 'noopener');
+    return false; // prevents default navigation so we control the open
+  };
+</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
