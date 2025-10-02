@@ -13,17 +13,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-T478W9J7');</script>
 <!-- End Google Tag Manager -->
 
-   <script>
+<script>
 (function(){
   window.dataLayer = window.dataLayer || [];
-  var orig = window.dataLayer.push;
-  window.dataLayer.push = function(){
-    for (var i=0;i<arguments.length;i++){
-      var a = arguments[i];
-      if (a && typeof a === 'object' && a.event) window.__epro_last_event = a;
-    }
-    return orig.apply(this, arguments);
+  const _push = window.dataLayer.push.bind(window.dataLayer);
+  const RELEVANT = { video_play:1, video_play_lesson5:1, whatsapp_join:1, messenger_join:1, ml_email_ready:1 };
+
+  function callGate(obj){
+    if (!obj || typeof obj !== 'object') return;
+    const name = (obj.event || '').toLowerCase().trim();
+    if (!name || name === 'epro_gate.pass') return;   // avoid recursion
+    if (!RELEVANT[name]) return;                       // only our events
+    try { window.__epro_last_event = obj; } catch(_) {}
+    try { if (typeof window.__epro_gate_process === 'function') window.__epro_gate_process(obj); } catch(e){}
+  }
+
+  window.dataLayer.push = function(...args){
+    const res = _push(...args);
+    for (const a of args) callGate(a);
+    return res;
   };
+
+  // process any events that might have been queued before this wrapper
+  try { for (const a of window.dataLayer) callGate(a); } catch(_){}
 })();
 </script>
 
