@@ -742,12 +742,42 @@ const SHEETS_SECRET = 'epro-sheets-2025'; // must match your Apps Script
 
 function sendToSheetsOnce(row){
   if (!row || window.__sheetSent) return;
+  // ensure secret is present
+  row.secret = row.secret || SHEETS_SECRET;
+
   window.__sheetSent = true;
+
+  // 1) Try beacon (survives navigation)
+  try {
+    if (navigator.sendBeacon) {
+      const ok = navigator.sendBeacon(
+        SHEETS_URL,
+        new Blob([JSON.stringify(row)], { type: 'application/json' })
+      );
+      if (ok) {
+        console.log('[Sheets] beacon sent');
+        return;
+      }
+    }
+  } catch (e) {
+    console.warn('[Sheets] beacon error', e);
+  }
+
+  // 2) Fallback to fetch with keepalive
   fetch(SHEETS_URL, {
     method: 'POST',
-    headers: {'Content-Type':'application/json'},
-    body: JSON.stringify(row)
-  }).catch(()=>{ window.__sheetSent = false; });
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(row),
+    keepalive: true
+  })
+  .then(async (r) => {
+    const txt = await r.text().catch(()=>'');
+    console.log('[Sheets] fetch resp', r.status, txt);
+  })
+  .catch((e) => {
+    console.error('[Sheets] fetch failed', e);
+    window.__sheetSent = false; // allow retry on failure
+  });
 }
             
             // ===============================================
