@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+// Bridge dataLayer → GTM gate processor
+(function () {
+  window.dataLayer = window.dataLayer || [];
+  var _push = window.dataLayer.push;
+
+  window.dataLayer.push = function () {
+    var args = Array.prototype.slice.call(arguments);
+    // push original event first (so GTM sees it), then derive pass-event
+    var res = _push.apply(this, args);
+    try {
+      for (var i = 0; i < args.length; i++) {
+        var o = args[i];
+        if (o && typeof o === 'object' && o.event) {
+          (window.__epro_gate_process || window.processGate || function(){ })(o);
+        }
+      }
+    } catch (e) {
+      console && console.error && console.error('[Gate] bridge error', e);
+    }
+    return res;
+  };
+})();
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to ePro Formula - You're In!</title>
@@ -14,31 +38,48 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 
 <script>
+// === Unified TTL shim (page-local; also works if GTM script exposes __eproTTL) ===
 (function(){
-  window.dataLayer = window.dataLayer || [];
-  const _push = window.dataLayer.push.bind(window.dataLayer);
-  const RELEVANT = { video_play:1, video_play_lesson5:1, whatsapp_join:1, messenger_join:1, ml_email_ready:1 };
+  var DEBUG = (localStorage.getItem('epro.debug') === '1');
 
-  function callGate(obj){
-    if (!obj || typeof obj !== 'object') return;
-    const name = (obj.event || '').toLowerCase().trim();
-    if (!name || name === 'epro_gate.pass') return;   // avoid recursion
-    if (!RELEVANT[name]) return;                       // only our events
-    try { window.__epro_last_event = obj; } catch(_) {}
-    try { if (typeof window.__epro_gate_process === 'function') window.__epro_gate_process(obj); } catch(e){}
-  }
+  // If GTM provided a shared TTL helper, reuse it:
+  var shared = window.__eproTTL || null;
 
-  window.dataLayer.push = function(...args){
-    const res = _push(...args);
-    for (const a of args) callGate(a);
-    return res;
+  var TTL = shared ? shared.TTL : Object.freeze({
+    STARTER_23H:      23*60*60*1000,
+    PLAY_ANY_12H:     12*60*60*1000, // lessons 1–4 (shared)
+    PLAY_L5_12H:      12*60*60*1000, // lesson 5 (separate)
+    NO_COMMUNITY_48H: 48*60*60*1000, // one-shot from registration
+    COMMUNITY_30D:    30*24*60*60*1000
+  });
+
+  var K = shared ? shared.K : {
+    starter:    ()=>'epro:ttl:starter',
+    playAny:    ()=>'epro:ttl:play_any',
+    playL5:     ()=>'epro:ttl:play_l5',
+    noComm48h:  ()=>'epro:ttl:no_community_48h',
+    community:  ()=>'epro:ttl:in_community'
   };
 
-  // process any events that might have been queued before this wrapper
-  try { for (const a of window.dataLayer) callGate(a); } catch(_){}
+  function now(){ return Date.now(); }
+  function _set(k, ms){ try{ localStorage.setItem(k, String(now()+ms)); }catch(e){} }
+  function _get(k){ var v=localStorage.getItem(k); return v?Number(v):0; }
+  function _alive(k){ return _get(k) > now(); }
+  function _clear(k){ try{ localStorage.removeItem(k);}catch(e){} }
+  function log(){ if (DEBUG) console.log('[Gate]', ...arguments); }
+
+  // Use shared functions if present; else use locals
+  window.__ttl = {
+    TTL, K,
+    set:   shared ? shared.setTTL  : _set,
+    get:   shared ? shared.getTTL  : _get,
+    alive: shared ? shared.alive   : _alive,
+    clear: shared ? shared.clear   : _clear,
+    log
+  };
 })();
 </script>
-
+    
     <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
     <meta property="og:title" content="ePro Formula - Free Course">
     <meta property="og:description" content="Get instant access to the full free course and learn how to build a profitable Etsy business step by step.">
@@ -1289,7 +1330,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   window.dataLayer = window.dataLayer || [];
-  const email = normEmail();             // IMPORTANT: Gatekeeper blocks plays without email
+  const email = normEmail();   // IMPORTANT: Gatekeeper blocks plays without email
+// Bootstrap registration (deduped by TTL: 23h)
+window.dataLayer.push({
+  event: "ml_email_ready",
+  email: email || null,
+  timestamp: Date.now()
+});
 
   const lessons = [
     { id: "welcome",  name: "Welcome",                              num: 0 },
