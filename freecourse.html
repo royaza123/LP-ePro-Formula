@@ -877,6 +877,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="accordion-body">
                         <div class="video-container">
                             <iframe 
+                                <iframe 
                           id="lesson1"
                           class="vimeo-lesson"
                           data-lesson-name="Lesson 1: A Business for Everyone"
@@ -897,13 +898,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <span>Lesson 2: Think Like Americans</span>
                 </button>
                 <div class="accordion-content" id="accordion-2">
-                <div class="accordion-content" id="accordion-2">
                     <div class="accordion-body">
                         <div class="video-container">
                             <iframe 
+                                <iframe 
                           id="lesson2"
                           class="vimeo-lesson"
                           data-lesson-name="Lesson 2: Think Like Americans"
+                          data-lesson-num="2"
                           src="https://player.vimeo.com/video/1115184934?h=1&api=1&player_id=lesson2&title=0&byline=0&portrait=0"
                           frameborder="0"
                           allow="autoplay; fullscreen; picture-in-picture"
@@ -921,13 +923,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </button>
                 <div class="accordion-content" id="accordion-3">
                     <div class="accordion-body">
-                <div class="accordion-content" id="accordion-3">
-                    <div class="accordion-body">
                         <div class="video-container">
                             <iframe 
+                               <iframe 
                           id="lesson3"
                           class="vimeo-lesson"
                           data-lesson-name="Lesson 3: Real People Making Money"
+                          data-lesson-num="3"
+                          src="https://player.vimeo.com/video/1115184829?h=1&api=1&player_id=lesson3&title=0&byline=0&portrait=0"
                           frameborder="0"
                           allow="autoplay; fullscreen; picture-in-picture"
                           allowfullscreen>
@@ -945,13 +948,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="accordion-content" id="accordion-4">
                     <div class="accordion-body">
                         <div class="video-container">
-                <div class="accordion-content" id="accordion-4">
-                    <div class="accordion-body">
-                        <div class="video-container">
                             <iframe 
+                               <iframe 
                           id="lesson4"
                           class="vimeo-lesson"
                           data-lesson-name="Lesson 4: The China Secret"
+                          data-lesson-num="4"
+                          src="https://player.vimeo.com/video/1115184712?h=1&api=1&player_id=lesson4&title=0&byline=0&portrait=0"
+                          frameborder="0"
                           allow="autoplay; fullscreen; picture-in-picture"
                           allowfullscreen>
                         </iframe>
@@ -1146,26 +1150,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         // Play video function
       function playVideo(element, videoId) {
-    }
+    f
+        // Accordion toggle
+        function toggleAccordion(id) {
+            const content = document.getElementById('accordion-' + id);
+            const header = content.previousElementSibling;
+            const isOpen = content.classList.contains('active');
 
-    // Accordion toggle
-    function toggleAccordion(id) {
-        const content = document.getElementById('accordion-' + id);
-        const header = content.previousElementSibling;
-        const isOpen = content.classList.contains('active');
+            for (let i = 1; i <= 5; i++) {
+                const otherContent = document.getElementById('accordion-' + i);
+                const otherHeader = otherContent.previousElementSibling;
+                otherContent.classList.remove('active');
+                otherHeader.classList.remove('active');
+            }
 
-        // Close all accordion items
-        document.querySelectorAll('.accordion-content').forEach(item => {
-            item.classList.remove('active');
-            item.previousElementSibling.classList.remove('active');
-        });
-
-        // If the clicked item was not already open, open it
-        if (!isOpen) {
-            content.classList.add('active');
-            header.classList.add('active');
+            if (!isOpen) {
+                content.classList.add('active');
+                header.classList.add('active');
+            }
         }
-    }
 
         // Scroll progress bar
         function updateProgress() {
