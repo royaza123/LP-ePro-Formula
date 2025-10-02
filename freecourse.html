@@ -1353,23 +1353,23 @@ window.dataLayer.push({
 
     try {
       const player = new Vimeo.Player(iframe);
-      player.on("play", function () {
-        if (!email) return;
-        
-        // Push a single raw 'video_play'; Gatekeeper will map lesson 5 to 'video_play_lesson5'
-        window.dataLayer.push({
-          event: "video_play",
-          email: email,
-          lesson_name: name,
-          lesson_num: num,
-          progress: 10,          // meets your threshold
-          timestamp: Date.now()  // numeric, not ISO string
-        });
+    player.on("play", function () {
+  if (!email) return;
+  if (num === 0) return; // ⬅️ ignore Welcome so it won't consume the 12h TTL
 
-        if (localStorage.getItem("epro.debug") === "1") {
-          console.log("[freecourse] pushed video_play", { name, num, email });
-        }
-      });
+  window.dataLayer.push({
+    event: "video_play",
+    email: email,
+    lesson_name: name,
+    lesson_num: num,
+    progress: 10,          // ≥10% so the GTM gate accepts it
+    timestamp: Date.now()
+  });
+
+  if (localStorage.getItem("epro.debug") === "1") {
+    console.log("[freecourse] pushed video_play", { name, num, email });
+  }
+});
     } catch (e) {
       console.error("[freecourse] vimeo wiring error", id, e);
     }
