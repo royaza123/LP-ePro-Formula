@@ -3,8 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eProFormula - All Links</title>
+    <title>Connect With Me - ePro FORMULA</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Connect with me and join the ePro FORMULA community. Get support, updates, and exclusive content.">
+    <meta name="keywords" content="Etsy dropshipping Philippines, ecommerce course, online business">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Connect With Me - ePro FORMULA">
+    <meta property="og:description" content="All my links in one place - community, social media, and exclusive content">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/ePro%20Formula%20Logo.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/ePro%20Formula%20Logo.jpg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         * {
             margin: 0;
@@ -12,386 +33,540 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            color: #ffffff;
             min-height: 100vh;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 600px;
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 24px;
-            padding: 40px 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(217, 119, 6, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(146, 64, 14, 0.05) 0%, transparent 50%);
+            z-index: 0;
+            pointer-events: none;
         }
 
-        .profile-section {
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(217, 119, 6, 0.3);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 15s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 18s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 22s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 16s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 20s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 19s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 2.5s; animation-duration: 17s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 4.5s; animation-duration: 21s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: 1.5s; animation-duration: 23s; }
+        .particle:nth-child(10) { left: 15%; animation-delay: 3.5s; animation-duration: 18s; }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Section */
+        .header {
             text-align: center;
             margin-bottom: 40px;
+            animation: fadeInDown 0.8s ease;
         }
 
-        .logo {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
-
-        .logo span {
-            color: white;
-            font-size: 36px;
-            font-weight: bold;
-            letter-spacing: -2px;
-        }
-
-        h1 {
-            font-size: 32px;
-            color: #1a1a2e;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .tagline {
-            color: #666;
-            font-size: 16px;
-            margin-bottom: 8px;
-            line-height: 1.5;
-        }
-
-        .tagline.highlight {
-            color: #764ba2;
-            font-weight: 600;
-            font-size: 17px;
-        }
-
-        .section {
-            margin-bottom: 35px;
-        }
-
-        .section-title {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #999;
-            margin-bottom: 15px;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .link-button {
-            display: block;
-            width: 100%;
-            padding: 16px 24px;
-            margin-bottom: 12px;
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            text-decoration: none;
-            color: #1a1a2e;
-            font-size: 16px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .link-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            border-color: #667eea;
-        }
-
-        .link-button.primary {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .link-button.primary:hover {
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
-        }
-
-        .link-button.messenger-btn {
-            background: linear-gradient(135deg, #00B2FF, #006AFF);
-            color: white;
-            border: none;
-        }
-
-        .link-button.messenger-btn:hover {
-            box-shadow: 0 8px 25px rgba(0, 106, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .link-button.whatsapp-btn {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            border: none;
-        }
-
-        .link-button.whatsapp-btn:hover {
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .link-button i {
-            font-size: 20px;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
-
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-            gap: 12px;
+        .logo-container {
             margin-bottom: 20px;
         }
 
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: #d97706;
             text-decoration: none;
-            color: #1a1a2e;
-            transition: all 0.3s ease;
-            position: relative;
+            letter-spacing: -0.5px;
+            font-family: 'Georgia', serif;
+            display: inline-block;
         }
 
-        .social-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        .logo .formula {
+            font-weight: 800;
+            color: #92400e;
         }
 
-        .social-link i {
-            font-size: 24px;
-        }
-
-        /* Social media colors on hover */
-        .social-link.youtube:hover {
-            border-color: #FF0000;
-            color: #FF0000;
-        }
-
-        .social-link.facebook:hover {
-            border-color: #1877F2;
-            color: #1877F2;
-        }
-
-        .social-link.instagram:hover {
-            border-color: #E4405F;
-            color: #E4405F;
-        }
-
-        .social-link.twitter:hover {
-            border-color: #1DA1F2;
-            color: #1DA1F2;
-        }
-
-        .social-link.tiktok:hover {
-            border-color: #000;
-            color: #000;
-        }
-
-        .podcast-grid {
-            display: grid;
-            gap: 10px;
-        }
-
-        .podcast-link {
-            display: flex;
-            align-items: center;
-            padding: 14px 20px;
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            text-decoration: none;
-            color: #1a1a2e;
-            font-size: 15px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .podcast-link:hover {
-            transform: translateX(5px);
-            border-color: #667eea;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .podcast-link i {
-            font-size: 20px;
-            margin-right: 12px;
-            color: #667eea;
+        .tagline {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 10px;
+            font-weight: 400;
         }
 
         .badge {
             display: inline-block;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.2), rgba(146, 64, 14, 0.2));
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            color: #f59e0b;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: 15px;
+            text-transform: uppercase;
+        }
+
+        /* Links Section */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .link-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px 24px;
+            text-decoration: none;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(217, 119, 6, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .link-item:hover::before {
+            left: 100%;
+        }
+
+        .link-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(217, 119, 6, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(217, 119, 6, 0.2);
+        }
+
+        /* Primary CTA Link */
+        .link-item.primary {
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-weight: 700;
+            box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4);
+        }
+
+        .link-item.primary:hover {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(217, 119, 6, 0.6);
+        }
+
+        /* Featured Link (for Messenger & WhatsApp) */
+        .link-item.featured {
+            border: 2px solid rgba(217, 119, 6, 0.4);
+            background: rgba(217, 119, 6, 0.08);
+        }
+
+        .link-item.featured:hover {
+            border-color: rgba(217, 119, 6, 0.7);
+            background: rgba(217, 119, 6, 0.12);
+        }
+
+        .link-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .link-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            width: 50px;
+            text-align: center;
+        }
+
+        .link-text {
+            text-align: left;
+        }
+
+        .link-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .link-description {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .link-item.primary .link-description {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .link-item.featured .link-description {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .link-arrow {
+            font-size: 1.3rem;
+            opacity: 0.7;
+            transition: transform 0.3s ease;
+        }
+
+        .link-item:hover .link-arrow {
+            transform: translateX(5px);
+            opacity: 1;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin: 40px 0 20px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-left: auto;
+            letter-spacing: 1.5px;
         }
 
+        /* Footer */
         .footer {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 50px;
             padding-top: 30px;
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
         }
 
-        .footer p {
-            color: #999;
-            font-size: 14px;
-            margin-bottom: 10px;
+        .footer a {
+            color: #d97706;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
-        @media (max-width: 480px) {
+        .footer a:hover {
+            color: #f59e0b;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
             .container {
-                padding: 30px 20px;
+                padding: 30px 16px 50px;
             }
-            
-            h1 {
-                font-size: 28px;
-            }
-            
-            .social-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
 
-        /* Subtle animations */
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+            .logo {
+                font-size: 2rem;
             }
-            70% {
-                box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
-            }
-        }
 
-        .link-button.primary {
-            animation: pulse 2s infinite;
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .link-item {
+                padding: 18px 20px;
+            }
+
+            .link-icon {
+                font-size: 1.5rem;
+                width: 40px;
+            }
+
+            .link-title {
+                font-size: 0.95rem;
+            }
+
+            .link-description {
+                font-size: 0.8rem;
+            }
+
+            .section-header {
+                font-size: 0.8rem;
+                margin: 30px 0 16px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Floating Particles Background -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Main Container -->
     <div class="container">
-        <!-- Profile Section -->
-        <div class="profile-section">
-            <div class="logo">
-                <span>eP</span>
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-container">
+                <div class="logo">ePro <span class="formula">FORMULA</span></div>
             </div>
-            <h1>eProFormula</h1>
-            <p class="tagline">Start & Run Your Profitable Etsy Dropshipping Shop</p>
-            <p class="tagline highlight">🇵🇭 Free Complete Training for Filipinos</p>
-            <p class="tagline" style="color: #667eea; margin-top: 10px;">Personal Support • Real Community • Proven System</p>
+            <p class="tagline">Connect with me & the community</p>
+            <div class="badge">🇵🇭 All my links in one place</div>
         </div>
 
-        <!-- Main CTAs -->
-        <div class="section">
-            <div class="section-title">Start Here</div>
-            <a href="https://eproformula.com" class="link-button primary">
-                <i class="fas fa-graduation-cap"></i>
-                FREE Etsy Dropshipping Course
-                <span class="badge">New</span>
+        <!-- Primary CTA -->
+        <div class="links">
+            <a href="https://eproformula.com/ig" class="link-item primary" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="link-text">
+                        <div class="link-title">FREE Etsy Dropshipping Course</div>
+                        <div class="link-description">Start your journey - zero cost</div>
+                    </div>
+                </div>
+                <div class="link-arrow">→</div>
             </a>
-            <a href="https://eproformula.com/case-studies" class="link-button">
-                <i class="fas fa-chart-line"></i>
-                Real Student Success Stories
-            </a>
-        </div>
 
-        <!-- Engagement Channels -->
-        <div class="section">
-            <div class="section-title">Join Our Community</div>
-            <a href="https://www.messenger.com/t/700274389844832/?ref=w43675680&messaging_source=source%3Apages%3Amessage_shortlink&source_id=1441792&recurring_notification=0" class="link-button messenger-btn" target="_blank" rel="noopener">
-                <i class="fab fa-facebook-messenger"></i>
-                Personal Support on Messenger
-            </a>
-            <a href="https://api.whatsapp.com/send/?phone=639619383648&text=Hi%2C+I+want+to+join+the+community%21&type=phone_number&app_absent=0" class="link-button whatsapp-btn" target="_blank" rel="noopener">
-                <i class="fab fa-whatsapp"></i>
-                Join WhatsApp Community
+            <a href="https://eproformula.com/case-studies" class="link-item" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="link-text">
+                        <div class="link-title">Real Student Success Stories</div>
+                        <div class="link-description">See proof from Filipino students</div>
+                    </div>
+                </div>
+                <div class="link-arrow">→</div>
             </a>
         </div>
 
-        <!-- Social Media -->
-        <div class="section">
-            <div class="section-title">Follow & Connect</div>
-            <div class="social-grid">
-                <a href="https://www.youtube.com/@eProFormula" class="social-link youtube" target="_blank" rel="noopener">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=61579629904148" class="social-link facebook" target="_blank" rel="noopener">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com/eproformula/" class="social-link instagram" target="_blank" rel="noopener">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.tiktok.com/@eproformula?is_from_webapp=1&sender_device=pc" class="social-link tiktok" target="_blank" rel="noopener">
-                    <i class="fab fa-tiktok"></i>
-                </a>
-            </div>
+        <!-- Community Section (PRIORITY) -->
+        <div class="section-header">Join the Community</div>
+        <div class="links">
+            <a href="https://www.messenger.com/t/700274389844832/?ref=w43675680&messaging_source=source%3Apages%3Amessage_shortlink&source_id=1441792&recurring_notification=0" class="link-item featured" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon"><i class="fab fa-facebook-messenger"></i></div>
+                    <div class="link-text">
+                        <div class="link-title">Personal Support on Messenger</div>
+                        <div class="link-description">Instant lessons & exclusive updates</div>
+                    </div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <a href="https://api.whatsapp.com/send/?phone=639619383648&text=Hi%2C+I+want+to+join+the+community%21&type=phone_number&app_absent=0" class="link-item featured" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div class="link-text">
+                        <div class="link-title">Join WhatsApp Community</div>
+                        <div class="link-description">Daily voice support from me personally</div>
+                    </div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
         </div>
 
-        <!-- Podcasts -->
-        <div class="section">
-            <div class="section-title">Listen to Our Podcast</div>
-            <p style="text-align: center; color: #666; font-size: 14px; margin-bottom: 15px;">
-                Life, Money, and In-Between
-            </p>
-            <div class="podcast-grid">
-                <a href="https://podcasts.apple.com/us/podcast/life-money-and-in-between/id1849374430" class="podcast-link" target="_blank" rel="noopener">
-                    <i class="fab fa-apple"></i>
-                    Apple Podcasts
-                </a>
-                <a href="https://open.spotify.com/show/4rHSxruvzTbyMrq2gLWiYj?si=7c435b7929724e94" class="podcast-link" target="_blank" rel="noopener">
-                    <i class="fab fa-spotify"></i>
-                    Spotify
-                </a>
-                <a href="https://music.amazon.com/podcasts/8c868df3-2363-4f34-8a1e-9dd8649b8878/life-money-and-inbetween" class="podcast-link" target="_blank" rel="noopener">
-                    <i class="fab fa-amazon"></i>
-                    Amazon Music
-                </a>
-                <a href="https://castbox.fm/channel/id6800235?utm_source=podcaster&utm_medium=dlink&utm_campaign=c_6800235&utm_content=Life%2C%20Money%2C%20and%20In-Between-CastBox_FM" class="podcast-link" target="_blank" rel="noopener">
-                    <i class="fas fa-podcast"></i>
-                    CastBox
-                </a>
-                <a href="https://podcastaddict.com/podcast/life-money-and-in-between/6158672" class="podcast-link" target="_blank" rel="noopener">
-                    <i class="fas fa-headphones"></i>
-                    Podcast Addict
-                </a>
-            </div>
+        <!-- Social Media Section -->
+        <div class="section-header">Follow Me</div>
+        <div class="links">
+            <a href="https://www.youtube.com/@eProFormula" class="link-item" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon"><i class="fab fa-youtube"></i></div>
+                    <div class="link-text">
+                        <div class="link-title">YouTube</div>
+                        <div class="link-description">Free training videos</div>
+                    </div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <a href="https://www.facebook.com/profile.php?id=61579629904148" class="link-item" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon"><i class="fab fa-facebook"></i></div>
+                    <div class="link-text">
+                        <div class="link-title">Facebook</div>
+                        <div class="link-description">Updates & community posts</div>
+                    </div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <a href="https://www.instagram.com/eproformula/" class="link-item" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon"><i class="fab fa-instagram"></i></div>
+                    <div class="link-text">
+                        <div class="link-title">Instagram</div>
+                        <div class="link-description">Behind the scenes</div>
+                    </div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <a href="https://www.tiktok.com/@eproformula?is_from_webapp=1&sender_device=pc" class="link-item" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon"><i class="fab fa-tiktok"></i></div>
+                    <div class="link-text">
+                        <div class="link-title">TikTok</div>
+                        <div class="link-description">Quick tips & insights</div>
+                    </div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+        </div>
+
+        <!-- Podcasts Section -->
+        <div class="section-header">Life, Money, and In-Between Podcast</div>
+        <div class="links">
+            <a href="https://podcasts.apple.com/us/podcast/life-money-and-in-between/id1849374430" class="link-item" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon"><i class="fab fa-apple"></i></div>
+                    <div class="link-text">
+                        <div class="link-title">Apple Podcasts</div>
+                        <div class="link-description">Listen on Apple Podcasts</div>
+                    </div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <a href="https://open.spotify.com/show/4rHSxruvzTbyMrq2gLWiYj?si=7c435b7929724e94" class="link-item" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon"><i class="fab fa-spotify"></i></div>
+                    <div class="link-text">
+                        <div class="link-title">Spotify</div>
+                        <div class="link-description">Stream episodes on Spotify</div>
+                    </div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <a href="https://music.amazon.com/podcasts/8c868df3-2363-4f34-8a1e-9dd8649b8878/life-money-and-inbetween" class="link-item" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon"><i class="fab fa-amazon"></i></div>
+                    <div class="link-text">
+                        <div class="link-title">Amazon Music</div>
+                        <div class="link-description">Listen on Amazon Music</div>
+                    </div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <a href="https://castbox.fm/channel/id6800235?utm_source=podcaster&utm_medium=dlink&utm_campaign=c_6800235&utm_content=Life%2C%20Money%2C%20and%20In-Between-CastBox_FM" class="link-item" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon"><i class="fas fa-podcast"></i></div>
+                    <div class="link-text">
+                        <div class="link-title">CastBox</div>
+                        <div class="link-description">Stream on CastBox</div>
+                    </div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <a href="https://podcastaddict.com/podcast/life-money-and-in-between/6158672" class="link-item" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon"><i class="fas fa-headphones"></i></div>
+                    <div class="link-text">
+                        <div class="link-title">Podcast Addict</div>
+                        <div class="link-description">Listen on Podcast Addict</div>
+                    </div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            <p>© 2024 eProFormula. All rights reserved.</p>
-            <p style="font-size: 12px; color: #bbb;">
-                Complete Etsy Dropshipping Training • eProAI Integration • Full Support
+            <p>&copy; 2024 ePro FORMULA. All rights reserved.</p>
+            <p style="margin-top: 10px;">
+                <a href="/privacy">Privacy</a> • 
+                <a href="/terms">Terms</a> • 
+                <a href="mailto:aetophis@aetophis.com">Contact</a>
             </p>
         </div>
     </div>
