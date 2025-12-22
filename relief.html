@@ -770,10 +770,11 @@
         const GOAL = 1000000; // ₱1,000,000
 
         // Mapping Database: [LinkType][IsPublic][IsScholarship]
-        const LINKS = {
+const LINKS = {
             'CORE': {
                 true:  { true: 'https://donate.stripe.com/7sYaEXduadRf6FPa3b1B60b', false: 'https://donate.stripe.com/8x214n1Ls9AZc09grz1B60i' },
-                false: { true: 'https://donate.stripe.com/8x214n1LsbJ78NX5MV1B60m', false: 'https://donate.stripe.com/14A7sLfCiaF36FPdfn1B60o' }
+                // BELOW IS THE FIX: Changed the first link in this row
+                false: { true: 'https://donate.stripe.com/6oUaEX9dU4gFc09ejr1B60l', false: 'https://donate.stripe.com/14A7sLfCiaF36FPdfn1B60o' }
             },
             'SPRINT': {
                 true:  { true: 'https://donate.stripe.com/00wbJ14XE00p5BL6QZ1B60g', false: 'https://donate.stripe.com/cNiaEX4XE8wV5BLfnv1B60j' },
