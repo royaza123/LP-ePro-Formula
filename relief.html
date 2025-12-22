@@ -144,9 +144,6 @@
             box-shadow: 0 8px 20px rgba(217, 119, 6, 0.3);
         }
 
-        /* =========================================
-           4. PROGRESS SECTION (BATTERY & STATS)
-           ========================================= */
         .progress-section {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -218,7 +215,6 @@
             background-clip: text;
         }
 
-        /* Progress Bar */
         .progress-bar-container {
             position: relative;
             margin-bottom: 20px;
@@ -284,7 +280,6 @@
             position: relative;
         }
 
-        /* Public Sheet Button */
         .public-sheet-container {
             text-align: center;
             margin-top: 30px;
@@ -307,18 +302,14 @@
             transform: translateY(-2px);
         }
 
-        /* =========================================
-           5. VIDEO SECTION (CUSTOM VIMEO PLAYER)
-           ========================================= */
         .story-section {
             text-align: center;
             margin-bottom: 50px;
         }
 
-        /* The container for the custom video player */
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%; 
             height: 0;
             overflow: hidden;
             border-radius: 20px;
@@ -329,7 +320,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        /* The clickable cover overlay */
         .video-cover {
             position: absolute;
             top: 0;
@@ -345,7 +335,6 @@
             transition: opacity 0.4s ease, visibility 0.4s;
         }
 
-        /* The Custom Orange Play Button */
         .play-btn {
             width: 90px;
             height: 90px;
@@ -358,12 +347,11 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Play Icon (Triangle) */
         .play-btn svg {
             width: 40px;
             height: 40px;
             fill: white;
-            margin-left: 5px; /* Visual adjustment */
+            margin-left: 5px; 
         }
 
         .video-wrapper:hover .play-btn {
@@ -371,7 +359,6 @@
             box-shadow: 0 0 50px rgba(217, 119, 6, 0.8);
         }
 
-        /* The actual Vimeo Iframe container (hidden until clicked) */
         .vimeo-container {
             position: absolute;
             top: 0;
@@ -386,14 +373,12 @@
             height: 100%;
         }
 
-        /* State class applied when video starts playing */
         .video-wrapper.playing .video-cover {
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
         }
 
-        /* PROOF BOX (Under video) */
         .proof-box {
             background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
             border-radius: 20px;
@@ -423,9 +408,6 @@
             font-weight: 700;
         }
 
-        /* =========================================
-           6. DONATION SECTION & CARDS
-           ========================================= */
         .donation-section {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -885,19 +867,11 @@
     <script src="https://player.vimeo.com/api/player.js"></script>
 
     <script>
-        // ===============================================
-        // 1. CONFIGURATION
-        // ===============================================
-        
-        // !!! PASTE YOUR NEW PUBLIC READER SCRIPT URL HERE !!!
-        const APPS_SCRIPT_URL = 'PASTE_YOUR_NEW_SCRIPT_URL_HERE';
+
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxg3U2JtDVHNg54g6VUXLd7ySlNNP5uTjUFh9VVo_o-kz1LHK_S9iS4WeJU-mLNAyT8/exec';
         
         const GOAL = 1000000;
 
-        // ===============================================
-        // 2. VIMEO LOGIC
-        // ===============================================
-        // Listens for click on the video wrapper, then loads the iframe
         document.getElementById('videoTrigger').addEventListener('click', function() {
             const wrapper = this;
             const iframe = document.getElementById('vimeoIframe');
@@ -909,9 +883,6 @@
             wrapper.classList.add('playing');
         });
 
-        // ===============================================
-        // 3. LINK DATABASE (With Fixed 1B60l Link)
-        // ===============================================
         const LINKS = {
             'CORE': {
                 true:  { true: 'https://donate.stripe.com/7sYaEXduadRf6FPa3b1B60b', false: 'https://donate.stripe.com/8x214n1Ls9AZc09grz1B60i' },
@@ -931,10 +902,6 @@
                 false: 'https://buy.stripe.com/eVq7sL2Pw5kJ5BLa3b1B60q'
             }
         };
-
-        // ===============================================
-        // 4. LOGIC (Progress & Donations)
-        // ===============================================
         
         function formatPeso(num) {
             return '₱' + num.toLocaleString('en-PH', { maximumFractionDigits: 0 });
