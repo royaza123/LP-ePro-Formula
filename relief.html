@@ -736,7 +736,8 @@
 
     <script>
         // Google Sheets Apps Script URL with mode=progress parameter
-        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxHwV_DWVyWEvXUfhPdPJAcgAsa8bRvNuVwR4Q17x5fDRnd1jKnooNTuesPu31zASfalA/exec?mode=progress';
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz60PdAwbw66UONU4iCFh0CMx8GSHZf1TnbkOHc5OuNwLMQ9fAsJrxilIm3fQTNbI8Kxw/exec
+            ';
         
         // Goal amount
         const GOAL = 1000000; // ₱1,000,000
@@ -870,7 +871,7 @@
             }
             
             // Build the donation URL (without ?mode=progress)
-            const baseURL = 'https://script.google.com/macros/s/AKfycbxHwV_DWVyWEvXUfhPdPJAcgAsa8bRvNuVwR4Q17x5fDRnd1jKnooNTuesPu31zASfalA/exec';
+            const baseURL = 'https://script.google.com/macros/s/AKfycbz60PdAwbw66UONU4iCFh0CMx8GSHZf1TnbkOHc5OuNwLMQ9fAsJrxilIm3fQTNbI8Kxw/exec;
             const url = `${baseURL}?ticket_type=${ticketType}&show=${showPublicly}&scholarship=${isScholarship}`;
             
             console.log('Donation URL:', url);
