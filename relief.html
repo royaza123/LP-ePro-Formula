@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relief Fund Progress - ePro Formula</title>
+    <title>Relief Fund & Course - ePro Formula</title>
     
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/ePro%20Formula%20Logo.jpg">
     
@@ -12,6 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
+        /* =========================================
+           1. GLOBAL RESET & BASE STYLES
+           ========================================= */
         * {
             margin: 0;
             padding: 0;
@@ -31,7 +34,7 @@
             overflow-x: hidden;
         }
 
-        /* Animated Background */
+        /* Animated Background Overlay */
         body::before {
             content: '';
             position: fixed;
@@ -46,7 +49,9 @@
             pointer-events: none;
         }
 
-        /* Floating Particles */
+        /* =========================================
+           2. PARTICLE ANIMATIONS (Restored Full)
+           ========================================= */
         .particles {
             position: fixed;
             top: 0;
@@ -67,6 +72,7 @@
             animation: float 15s infinite ease-in-out;
         }
 
+        /* Individual Particle Delays & Positions */
         .particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
         .particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 15s; }
         .particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 10s; }
@@ -83,22 +89,20 @@
                 transform: translateY(100vh) scale(0); 
                 opacity: 0; 
             }
-            10% { 
-                opacity: 1; 
-            }
-            90% { 
-                opacity: 1; 
-            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
             100% { 
                 transform: translateY(-100px) scale(1); 
             }
         }
 
-        /* Main Container */
+        /* =========================================
+           3. LAYOUT & CONTAINERS
+           ========================================= */
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 80px 20px;
+            padding: 60px 20px;
             position: relative;
             z-index: 1;
         }
@@ -106,7 +110,7 @@
         /* Header */
         .header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
 
         .logo {
@@ -140,7 +144,9 @@
             box-shadow: 0 8px 20px rgba(217, 119, 6, 0.3);
         }
 
-        /* Progress Section */
+        /* =========================================
+           4. PROGRESS SECTION (BATTERY & STATS)
+           ========================================= */
         .progress-section {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -174,7 +180,7 @@
         .progress-subtitle {
             font-size: 1.1rem;
             opacity: 0.8;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             text-align: center;
             position: relative;
         }
@@ -183,7 +189,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             position: relative;
         }
 
@@ -212,7 +218,7 @@
             background-clip: text;
         }
 
-        /* Progress Bar Container */
+        /* Progress Bar */
         .progress-bar-container {
             position: relative;
             margin-bottom: 20px;
@@ -230,12 +236,11 @@
 
         .progress-bar-fill {
             height: 100%;
-            /* JS will switch the background color logic */
-            background: #ef4444; 
             border-radius: 30px;
+            background: #ef4444; /* Default Red */
             transition: width 1.5s cubic-bezier(0.65, 0, 0.35, 1), background 0.5s ease, box-shadow 0.5s ease;
-            position: relative;
             width: 0%;
+            position: relative;
             box-shadow: 0 0 20px rgba(217, 119, 6, 0.5);
         }
 
@@ -284,7 +289,7 @@
             text-align: center;
             margin-top: 30px;
         }
-        
+
         .public-sheet-btn {
             display: inline-block;
             padding: 12px 25px;
@@ -296,43 +301,131 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
         }
-        
+
         .public-sheet-btn:hover {
             background: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
         }
 
-        /* Loading State */
-        .loading {
+        /* =========================================
+           5. VIDEO SECTION (CUSTOM VIMEO PLAYER)
+           ========================================= */
+        .story-section {
             text-align: center;
-            padding: 40px;
-            font-size: 1.2rem;
-            opacity: 0.7;
+            margin-bottom: 50px;
         }
 
-        .loading::after {
-            content: '...';
-            animation: dots 1.5s infinite;
+        /* The container for the custom video player */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: #000;
+            margin-bottom: 30px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        @keyframes dots {
-            0%, 20% { content: '.'; }
-            40% { content: '..'; }
-            60%, 100% { content: '...'; }
+        /* The clickable cover overlay */
+        .video-cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Gradient overlay to make the button pop */
+            background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            transition: opacity 0.4s ease, visibility 0.4s;
         }
 
-        /* Error State */
-        .error {
-            background: rgba(220, 38, 38, 0.1);
-            border: 1px solid rgba(220, 38, 38, 0.3);
-            color: #fca5a5;
-            padding: 20px;
-            border-radius: 15px;
+        /* The Custom Orange Play Button */
+        .play-btn {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(217, 119, 6, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Play Icon (Triangle) */
+        .play-btn svg {
+            width: 40px;
+            height: 40px;
+            fill: white;
+            margin-left: 5px; /* Visual adjustment */
+        }
+
+        .video-wrapper:hover .play-btn {
+            transform: scale(1.1);
+            box-shadow: 0 0 50px rgba(217, 119, 6, 0.8);
+        }
+
+        /* The actual Vimeo Iframe container (hidden until clicked) */
+        .vimeo-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .vimeo-container iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* State class applied when video starts playing */
+        .video-wrapper.playing .video-cover {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* PROOF BOX (Under video) */
+        .proof-box {
+            background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+            border-radius: 20px;
+            padding: 35px;
             text-align: center;
-            margin: 20px 0;
+            margin-bottom: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Donation Section */
+        .proof-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #fbbf24;
+        }
+
+        .proof-desc {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .highlight {
+            color: #fbbf24;
+            font-weight: 700;
+        }
+
+        /* =========================================
+           6. DONATION SECTION & CARDS
+           ========================================= */
         .donation-section {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -345,17 +438,23 @@
         .donation-section h2 {
             font-size: 1.8rem;
             font-weight: 800;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
             text-align: center;
         }
 
+        .donation-intro {
+            text-align: center;
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+        
         .donation-options {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             margin-bottom: 30px;
         }
-
+        
         .donation-card {
             background: rgba(255, 255, 255, 0.05);
             border: 2px solid rgba(255, 255, 255, 0.1);
@@ -375,9 +474,10 @@
         }
 
         .donation-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 10px;
-            color: #d97706;
+            color: #fbbf24;
+            font-weight: 700;
         }
 
         .donation-card .price {
@@ -390,14 +490,30 @@
             background-clip: text;
         }
 
-        .donation-card .description {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-bottom: 20px;
-            line-height: 1.6;
-            min-height: 40px;
+        /* Bullet Points inside Cards */
+        .features {
+            text-align: left;
+            margin: 15px 0 25px 0;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            list-style: none;
         }
 
+        .features li {
+            margin-bottom: 10px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .features li::before {
+            content: '✓';
+            color: #fbbf24;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Toggle Switches */
         .toggle-options {
             display: flex;
             flex-direction: column;
@@ -421,8 +537,8 @@
 
         .toggle-switch {
             position: relative;
-            width: 50px;
-            height: 26px;
+            width: 44px;
+            height: 24px;
         }
 
         .toggle-switch input {
@@ -446,8 +562,8 @@
         .slider:before {
             position: absolute;
             content: "";
-            height: 18px;
-            width: 18px;
+            height: 16px;
+            width: 16px;
             left: 4px;
             bottom: 4px;
             background-color: white;
@@ -460,9 +576,10 @@
         }
 
         input:checked + .slider:before {
-            transform: translateX(24px);
+            transform: translateX(20px);
         }
 
+        /* Main Action Button */
         .donate-btn {
             background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
             color: white;
@@ -482,32 +599,35 @@
             box-shadow: 0 8px 20px rgba(217, 119, 6, 0.5);
         }
 
-        .donate-btn:active {
-            transform: translateY(0);
-        }
-
-        /* Info Section */
-        .info-section {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        /* =========================================
+           7. SKILLS SECTION
+           ========================================= */
+        .skills-section {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(6, 182, 212, 0.05));
+            border: 1px solid rgba(34, 197, 94, 0.2);
             border-radius: 20px;
             padding: 40px;
+            margin-bottom: 40px;
             text-align: center;
         }
 
-        .info-section h2 {
+        .skills-section h2 {
             font-size: 1.8rem;
             font-weight: 800;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            color: #4ade80;
         }
 
-        .info-section p {
+        .skills-section p {
             font-size: 1.1rem;
-            line-height: 1.8;
             opacity: 0.9;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
-
+        
         /* Footer */
         .footer {
             text-align: center;
@@ -518,86 +638,34 @@
             font-size: 0.9rem;
         }
 
-        /* Mobile Responsive */
+        /* Mobile Responsive adjustments */
         @media (max-width: 768px) {
-            .container {
-                padding: 40px 16px;
-            }
-
-            .logo {
-                font-size: 2rem;
-            }
-
-            .tagline {
-                font-size: 1rem;
-            }
-
-            .progress-title {
-                font-size: 1.5rem;
-            }
-
-            .progress-subtitle {
-                font-size: 1rem;
-            }
-
-            .stats-container {
-                grid-template-columns: 1fr;
-            }
-
-            .stat-value {
-                font-size: 1.5rem;
-            }
-
-            .progress-bar-bg {
-                height: 50px;
-            }
-
-            .progress-percentage {
-                font-size: 1.2rem;
-            }
-
-            .donation-options {
-                grid-template-columns: 1fr;
-            }
-
-            .donation-card .price {
-                font-size: 2rem;
-            }
-
-            .info-section h2 {
-                font-size: 1.4rem;
-            }
-
-            .info-section p {
-                font-size: 1rem;
-            }
+            .container { padding: 40px 16px; }
+            .logo { font-size: 2rem; }
+            .donation-options { grid-template-columns: 1fr; }
+            .play-btn { width: 70px; height: 70px; }
         }
     </style>
 </head>
 <body>
+
     <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div>
         <div class="particle"></div>
     </div>
 
     <div class="container">
         <div class="header">
             <div class="logo">ePro <span class="formula">FORMULA</span></div>
-            <p class="tagline">Relief Fund Progress Tracker</p>
-            <div class="badge">🇵🇭 Supporting Filipino Communities</div>
+            <p class="tagline">Learn to Earn. Help Rebuild.</p>
+            <div class="badge">🇵🇭 100% Proceeds to Typhoon Relief</div>
         </div>
 
         <div class="progress-section">
-            <h1 class="progress-title">Relief Fund Goal: ₱1,000,000</h1>
-            <p class="progress-subtitle">Together, we're making a difference</p>
+            <h1 class="progress-title">Relief Goal: ₱1,000,000</h1>
+            <p class="progress-subtitle">I donated the first ₱100k. Help us raise the rest.</p>
 
             <div class="stats-container" id="statsContainer">
                 <div class="stat-box">
@@ -633,35 +701,71 @@
             </div>
         </div>
 
+        <div class="story-section">
+            
+            <div class="video-wrapper" id="videoTrigger">
+                <div class="video-cover">
+                    <div class="play-btn">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </div>
+                
+                <div class="vimeo-container">
+                    <iframe id="vimeoIframe" 
+                            data-src="https://player.vimeo.com/video/1148687196?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1" 
+                            frameborder="0" 
+                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            title="Short Video Landscape">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="proof-box">
+                <div class="proof-title">Why buy this course?</div>
+                <div class="proof-desc">
+                    I taught over <span class="highlight">700 people</span> in Israel who now make an average of <span class="highlight">$3,000 USD profit monthly</span>. 
+                    <br><br>
+                    You aren't just donating. You are buying the tools to build your future, while helping Cebu rebuild theirs.
+                </div>
+            </div>
+        </div>
+
         <div class="donation-section">
-            <h2>Support the Relief Fund</h2>
+            <h2>Get the Course & Donate</h2>
+            <p class="donation-intro">Choose a package. 100% of proceeds go to the relief fund.</p>
+            
             <div class="donation-options">
                 
                 <div class="donation-card">
                     <div>
-                        <h3>Core Offer</h3>
+                        <h3>Core Course</h3>
                         <div class="price">₱499</div>
-                        <div class="description">Standard core scholarship offer</div>
+                        <ul class="features">
+                            <li>Complete ePro Formula Course</li>
+                            <li>Direct Supplier Lists</li>
+                            <li>Top Niches List</li>
+                            <li>Essential for beginners</li>
+                        </ul>
                     </div>
-                    
                     <div>
                         <div class="toggle-options">
                             <div class="toggle-row">
                                 <span class="toggle-label">Show publicly</span>
                                 <label class="toggle-switch">
-                                    <input type="checkbox" id="core499-public" checked>
+                                    <input type="checkbox" id="core-public" checked>
                                     <span class="slider"></span>
                                 </label>
                             </div>
                             <div class="toggle-row">
                                 <span class="toggle-label">Scholarship</span>
                                 <label class="toggle-switch">
-                                    <input type="checkbox" id="core499-scholarship">
+                                    <input type="checkbox" id="core-schol">
                                     <span class="slider"></span>
                                 </label>
                             </div>
                         </div>
-                        <button class="donate-btn" onclick="donate('CORE')">Donate ₱499</button>
+                        <button class="donate-btn" onclick="donate('CORE')">Buy & Donate ₱499</button>
                     </div>
                 </div>
 
@@ -669,9 +773,13 @@
                     <div>
                         <h3>Sprint Package</h3>
                         <div class="price">₱3,499</div>
-                        <div class="description">Sprint scholarship support</div>
+                        <ul class="features">
+                            <li><strong>Everything in Core</strong></li>
+                            <li>Ready Backend Store Setup</li>
+                            <li>Includes: Logo, Niche, Name</li>
+                            <li>Professional Banner Design</li>
+                        </ul>
                     </div>
-                    
                     <div>
                         <div class="toggle-options">
                             <div class="toggle-row">
@@ -684,22 +792,26 @@
                             <div class="toggle-row">
                                 <span class="toggle-label">Scholarship</span>
                                 <label class="toggle-switch">
-                                    <input type="checkbox" id="sprint-scholarship">
+                                    <input type="checkbox" id="sprint-schol">
                                     <span class="slider"></span>
                                 </label>
                             </div>
                         </div>
-                        <button class="donate-btn" onclick="donate('SPRINT')">Donate ₱3,499</button>
+                        <button class="donate-btn" onclick="donate('SPRINT')">Buy & Donate ₱3,499</button>
                     </div>
                 </div>
 
                 <div class="donation-card">
                     <div>
                         <h3>Intensive Builder</h3>
-                        <div class="price">₱9,999</div>
-                        <div class="description">Full intensive builder program</div>
+                        <div class="price">₱10,000</div>
+                        <ul class="features">
+                            <li><strong>Everything in Sprint</strong></li>
+                            <li><strong>10 Meetings</strong> (instead of 3)</li>
+                            <li>Full Product Ready (SEO, Title, Pics)</li>
+                            <li>Done-For-You Pricing Strategy</li>
+                        </ul>
                     </div>
-                    
                     <div>
                         <div class="toggle-options">
                             <div class="toggle-row">
@@ -712,12 +824,12 @@
                             <div class="toggle-row">
                                 <span class="toggle-label">Scholarship</span>
                                 <label class="toggle-switch">
-                                    <input type="checkbox" id="intensive-scholarship">
+                                    <input type="checkbox" id="intensive-schol">
                                     <span class="slider"></span>
                                 </label>
                             </div>
                         </div>
-                        <button class="donate-btn" onclick="donate('INTENSIVE')">Donate ₱9,999</button>
+                        <button class="donate-btn" onclick="donate('INTENSIVE')">Buy & Donate ₱10k</button>
                     </div>
                 </div>
 
@@ -725,9 +837,12 @@
                     <div>
                         <h3>Flexible Amount</h3>
                         <div class="price">Any ₱</div>
-                        <div class="description">Choose your own contribution</div>
+                        <ul class="features">
+                            <li>Pure Donation</li>
+                            <li>Help us reach the goal</li>
+                            <li>Every peso counts</li>
+                        </ul>
                     </div>
-                    
                     <div>
                         <div class="toggle-options">
                             <div class="toggle-row">
@@ -745,35 +860,62 @@
             </div>
         </div>
 
-        <div class="info-section">
-            <h2>Our Mission</h2>
+        <div class="skills-section">
+            <h2>Have no money? Offer your Skill!</h2>
             <p>
-                Every peso raised goes directly to supporting Filipino communities in need. 
-                Through ePro Formula, we're not just building businesses — we're building a community 
-                that lifts each other up. Thank you for being part of this journey.
+                Influencers, SEO experts, site builders, handymen, car owners... whatever you can do to help us reach 1M or deliver aid, we need you.
             </p>
+            
+            <div class="ml-embedded" data-form="RCy60O"></div>
         </div>
 
         <div class="footer">
-            <p>© 2025 ePro Formula. All rights reserved.</p>
+            <p>© 2025 ePro Formula. Building Business. Rebuilding Communities.</p>
         </div>
     </div>
 
     <script>
-        // ==========================================
-        // CONFIGURATION
-        // ==========================================
-        
-        // !!! PASTE YOUR NEW PUBLIC SCRIPT URL HERE !!!
-        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxg3U2JtDVHNg54g6VUXLd7ySlNNP5uTjUFh9VVo_o-kz1LHK_S9iS4WeJU-mLNAyT8/exec';
-        
-        const GOAL = 1000000; // ₱1,000,000
+        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+        ml('account', '1551678');
+    </script>
 
-        // Mapping Database: [LinkType][IsPublic][IsScholarship]
-const LINKS = {
+    <script src="https://player.vimeo.com/api/player.js"></script>
+
+    <script>
+        // ===============================================
+        // 1. CONFIGURATION
+        // ===============================================
+        
+        // !!! PASTE YOUR NEW PUBLIC READER SCRIPT URL HERE !!!
+        const APPS_SCRIPT_URL = 'PASTE_YOUR_NEW_SCRIPT_URL_HERE';
+        
+        const GOAL = 1000000;
+
+        // ===============================================
+        // 2. VIMEO LOGIC
+        // ===============================================
+        // Listens for click on the video wrapper, then loads the iframe
+        document.getElementById('videoTrigger').addEventListener('click', function() {
+            const wrapper = this;
+            const iframe = document.getElementById('vimeoIframe');
+            
+            // Set the src from data-src to start loading and playing
+            iframe.src = iframe.getAttribute('data-src');
+            
+            // Add class to hide the cover/button
+            wrapper.classList.add('playing');
+        });
+
+        // ===============================================
+        // 3. LINK DATABASE (With Fixed 1B60l Link)
+        // ===============================================
+        const LINKS = {
             'CORE': {
                 true:  { true: 'https://donate.stripe.com/7sYaEXduadRf6FPa3b1B60b', false: 'https://donate.stripe.com/8x214n1Ls9AZc09grz1B60i' },
-                // BELOW IS THE FIX: Changed the first link in this row
+                // Fixed Link Below:
                 false: { true: 'https://donate.stripe.com/6oUaEX9dU4gFc09ejr1B60l', false: 'https://donate.stripe.com/14A7sLfCiaF36FPdfn1B60o' }
             },
             'SPRINT': {
@@ -790,135 +932,96 @@ const LINKS = {
             }
         };
 
-        // Format number as Philippine Peso
-        function formatPeso(amount) {
-            return '₱' + amount.toLocaleString('en-PH', { 
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 0 
-            });
+        // ===============================================
+        // 4. LOGIC (Progress & Donations)
+        // ===============================================
+        
+        function formatPeso(num) {
+            return '₱' + num.toLocaleString('en-PH', { maximumFractionDigits: 0 });
         }
 
-        // Format percentage
-        function formatPercentage(value) {
-            return value.toFixed(1) + '%';
+        function formatPercentage(num) {
+            return num.toFixed(1) + '%';
         }
 
-        // Battery Logic (0-19 Red, 20-59 Yellow, 60+ Green)
-        function setBarColor(percent, element) {
-            // Clear previous styles
+        // Color Logic: Red (0-19), Yellow (20-59), Green (60+)
+        function setBatteryColor(percent, element) {
             element.style.background = '';
             element.style.boxShadow = '';
 
             if (percent < 20) {
-                // RED
-                element.style.background = '#ef4444';
+                element.style.background = '#ef4444'; 
                 element.style.boxShadow = '0 0 20px rgba(239, 68, 68, 0.6)';
             } else if (percent < 60) {
-                // YELLOW
-                element.style.background = '#eab308';
+                element.style.background = '#eab308'; 
                 element.style.boxShadow = '0 0 20px rgba(234, 179, 8, 0.6)';
             } else {
-                // GREEN
-                element.style.background = '#22c55e';
+                element.style.background = '#22c55e'; 
                 element.style.boxShadow = '0 0 20px rgba(34, 197, 94, 0.6)';
             }
         }
 
-        // Update the progress bar and stats
-        function updateProgress(remainingPHP) {
-            // Calculate raised amount
-            const raisedAmount = GOAL - remainingPHP;
-            
-            // Calculate percentage
-            const percentage = Math.min((raisedAmount / GOAL) * 100, 100);
-            
-            // Update DOM elements
-            document.getElementById('raisedAmount').textContent = formatPeso(raisedAmount);
-            document.getElementById('remainingAmount').textContent = formatPeso(remainingPHP);
-            document.getElementById('percentageDisplay').textContent = formatPercentage(percentage);
-            
-            // Update progress bar
-            const progressBar = document.getElementById('progressBar');
-            const progressPercentage = document.getElementById('progressPercentage');
-            
-            // Animate
-            progressBar.style.width = percentage + '%';
-            progressPercentage.textContent = formatPercentage(percentage);
-            
-            // Apply Battery Color Logic
-            setBarColor(percentage, progressBar);
+        async function updateProgress(data) {
+            let remaining = data.Remaining_PHP;
+            if (remaining === undefined || remaining === null) remaining = GOAL;
+            const raised = GOAL - remaining;
+
+            let percent;
+            if (data.percent !== undefined && data.percent !== null) {
+                percent = Number(data.percent) * 100;
+            } else {
+                percent = Math.min((raised / GOAL) * 100, 100);
+            }
+
+            document.getElementById('raisedAmount').innerText = formatPeso(raised);
+            document.getElementById('remainingAmount').innerText = formatPeso(remaining);
+            document.getElementById('percentageDisplay').innerText = formatPercentage(percent);
+            document.getElementById('progressPercentage').innerText = formatPercentage(percent);
+
+            const bar = document.getElementById('progressBar');
+            bar.style.width = percent + '%';
+            setBatteryColor(percent, bar);
         }
 
-        // Fetch data from Google Sheets
         async function fetchData() {
-            const statsContainer = document.getElementById('statsContainer');
-            
             try {
                 const response = await fetch(APPS_SCRIPT_URL);
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-                }
-                
+                if (!response.ok) throw new Error('Network error');
                 const data = await response.json();
-                
-                // Get remaining PHP or default to Goal (0 raised)
-                let remainingPHP = data.Remaining_PHP;
-                if (remainingPHP === undefined || remainingPHP === null) {
-                    remainingPHP = GOAL;
-                }
-                
-                updateProgress(Number(remainingPHP));
-                
+                updateProgress(data);
             } catch (error) {
                 console.error('Fetch error:', error);
-                document.getElementById('raisedAmount').innerHTML = '<span style="color:#fca5a5; font-size:1rem;">Connecting...</span>';
+                document.getElementById('raisedAmount').innerText = '...';
             }
         }
 
-        // Donation function
-        function donate(ticketType) {
-            let isPublic, isScholarship, url;
-            
-            if (ticketType === 'FLEX') {
+        function donate(type) {
+            let isPublic, isSchol, url;
+
+            if (type === 'FLEX') {
                 isPublic = document.getElementById('flex-public').checked;
                 url = LINKS['FLEX'][isPublic];
             } else {
-                // Construct IDs: core499-public, sprint-public, intensive-public
-                let idPrefix;
-                if(ticketType === 'CORE') idPrefix = 'core499';
-                else if(ticketType === 'SPRINT') idPrefix = 'sprint';
-                else if(ticketType === 'INTENSIVE') idPrefix = 'intensive';
-
+                const idPrefix = type.toLowerCase(); 
                 isPublic = document.getElementById(`${idPrefix}-public`).checked;
-                isScholarship = document.getElementById(`${idPrefix}-scholarship`).checked;
-                
-                url = LINKS[ticketType][isPublic][isScholarship];
+                isSchol = document.getElementById(`${idPrefix}-schol`).checked;
+                url = LINKS[type][isPublic][isSchol];
             }
-            
-            if (url) {
-                window.location.href = url;
-            } else {
-                alert('Link not found for this selection.');
-            }
+
+            if(url) window.location.href = url;
+            else alert('Donation link not found.');
         }
 
-        // Initialize on page load
-        window.addEventListener('DOMContentLoaded', () => {
+        // Initialize
+        window.onload = () => {
             fetchData();
-            
-            // Refresh data every 60 seconds
-            setInterval(fetchData, 60000);
-        });
+            setInterval(fetchData, 60000); 
 
-        // Add visual feedback on successful load
-        window.addEventListener('load', () => {
+            // Fade in page load
             document.body.style.opacity = '0';
-            setTimeout(() => {
-                document.body.style.transition = 'opacity 0.5s ease-in-out';
-                document.body.style.opacity = '1';
-            }, 100);
-        });
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => { document.body.style.opacity = '1'; }, 100);
+        };
     </script>
 </body>
 </html>
