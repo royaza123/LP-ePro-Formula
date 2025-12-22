@@ -736,7 +736,7 @@
 
     <script>
         // Google Sheets Apps Script URL with mode=progress parameter
-        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxS0OTtNhLlEL5Of5VgQcH1UlciBU66eEU8HgPgWWiB8sffOmov9gQthxwq7AdK7ZiypQ/exec';
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxHwV_DWVyWEvXUfhPdPJAcgAsa8bRvNuVwR4Q17x5fDRnd1jKnooNTuesPu31zASfalA/exec?mode=progress';
         
         // Goal amount
         const GOAL = 1000000; // ₱1,000,000
@@ -794,35 +794,48 @@
                     }
                 });
                 
+                console.log('=== RESPONSE RECEIVED ===');
                 console.log('Response status:', response.status);
                 console.log('Response ok:', response.ok);
+                console.log('Response headers:', [...response.headers.entries()]);
                 
                 if (!response.ok) {
                     throw new Error(`HTTP ${response.status}: ${response.statusText}`);
                 }
                 
                 const data = await response.json();
-                console.log('Data received:', data);
+                console.log('=== DATA PARSED ===');
+                console.log('Full data object:', data);
+                console.log('Data type:', typeof data);
+                console.log('Data keys:', Object.keys(data));
                 
                 // Check if we have the Remaining_PHP field
                 if (data && typeof data.Remaining_PHP !== 'undefined') {
                     const remainingPHP = parseFloat(data.Remaining_PHP);
-                    console.log('Remaining PHP:', remainingPHP);
+                    console.log('=== REMAINING_PHP FOUND ===');
+                    console.log('Remaining PHP (raw):', data.Remaining_PHP);
+                    console.log('Remaining PHP (parsed):', remainingPHP);
+                    console.log('Is NaN?', isNaN(remainingPHP));
                     
                     if (!isNaN(remainingPHP)) {
+                        console.log('=== CALLING UPDATE PROGRESS ===');
                         updateProgress(remainingPHP);
                         console.log('=== FETCH SUCCESS ===');
                     } else {
                         throw new Error('Invalid Remaining_PHP value: ' + data.Remaining_PHP);
                     }
                 } else {
+                    console.error('=== REMAINING_PHP NOT FOUND ===');
                     console.error('Available fields:', Object.keys(data));
+                    console.error('Full data:', JSON.stringify(data));
                     throw new Error('Remaining_PHP field not found');
                 }
                 
             } catch (error) {
                 console.error('=== FETCH ERROR ===');
-                console.error('Error:', error.message);
+                console.error('Error type:', error.name);
+                console.error('Error message:', error.message);
+                console.error('Error stack:', error.stack);
                 
                 // Show error message
                 statsContainer.innerHTML = `
@@ -870,7 +883,7 @@
             }
             
             // Build the donation URL (without ?mode=progress)
-            const baseURL = 'https://script.google.com/macros/s/AKfycbxS0OTtNhLlEL5Of5VgQcH1UlciBU66eEU8HgPgWWiB8sffOmov9gQthxwq7AdK7ZiypQ/exec;
+            const baseURL = 'https://script.google.com/macros/s/AKfycbxHwV_DWVyWEvXUfhPdPJAcgAsa8bRvNuVwR4Q17x5fDRnd1jKnooNTuesPu31zASfalA/exec';
             const url = `${baseURL}?ticket_type=${ticketType}&show=${showPublicly}&scholarship=${isScholarship}`;
             
             console.log('Donation URL:', url);
