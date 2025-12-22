@@ -928,31 +928,43 @@
             }
         }
 
-        async function updateProgress(data) {
+async function updateProgress(data) {
+            // 1. Handle Amounts
             let remaining = data.Remaining_PHP;
-            if (remaining === undefined || remaining === null) remaining = GOAL;
+            
+            // Safety: Ensure remaining is a valid number
+            if (remaining === undefined || remaining === null || isNaN(remaining)) {
+                remaining = GOAL;
+            }
+            
+            // Calculate Raised
             const raised = GOAL - remaining;
 
-            let percent;
-            if (data.percent !== undefined && data.percent !== null) {
-                percent = Number(data.percent) * 100;
-            } else {
-                percent = Math.min((raised / GOAL) * 100, 100);
-            }
+            // 2. Handle Percentage (THE BULLETPROOF FIX)
+            // We ignore data.percent entirely. We calculate it strictly from the money.
+            // Formula: (Raised / Goal) * 100
+            let percent = (raised / GOAL) * 100;
 
+            // Cap the visual bar width at 100% so it doesn't overflow
+            const displayPercent = Math.min(percent, 100);
+
+            // 3. Update Text
             document.getElementById('raisedAmount').innerText = formatPeso(raised);
             document.getElementById('remainingAmount').innerText = formatPeso(remaining);
-            document.getElementById('percentageDisplay').innerText = formatPercentage(percent);
-            document.getElementById('progressPercentage').innerText = formatPercentage(percent);
+            
+            // Show 1 decimal place (e.g. "10.0%")
+            document.getElementById('percentageDisplay').innerText = percent.toFixed(1) + '%';
+            document.getElementById('progressPercentage').innerText = percent.toFixed(1) + '%';
 
+            // 4. Update Bar & Color
             const bar = document.getElementById('progressBar');
-            bar.style.width = percent + '%';
+            bar.style.width = displayPercent + '%'; 
             setBatteryColor(percent, bar);
         }
 
         async function fetchData() {
             try {
-                const response = await fetch(APPS_SCRIPT_URL);
+                const response = await fetch('https://script.google.com/macros/s/AKfycbxg3U2JtDVHNg54g6VUXLd7ySlNNP5uTjUFh9VVo_o-kz1LHK_S9iS4WeJU-mLNAyT8/exec');
                 if (!response.ok) throw new Error('Network error');
                 const data = await response.json();
                 updateProgress(data);
