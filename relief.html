@@ -310,6 +310,156 @@
             margin: 20px 0;
         }
 
+        /* Donation Section */
+        .donation-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .donation-section h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .donation-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .donation-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .donation-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(217, 119, 6, 0.5);
+            box-shadow: 0 10px 30px rgba(217, 119, 6, 0.3);
+        }
+
+        .donation-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #d97706;
+        }
+
+        .donation-card .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .donation-card .description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .toggle-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .toggle-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+        }
+
+        .toggle-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 26px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #d97706;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        .donate-btn {
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(217, 119, 6, 0.3);
+        }
+
+        .donate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(217, 119, 6, 0.5);
+        }
+
+        .donate-btn:active {
+            transform: translateY(0);
+        }
+
         /* Info Section */
         .info-section {
             background: rgba(255, 255, 255, 0.05);
@@ -380,6 +530,14 @@
                 font-size: 1.2rem;
             }
 
+            .donation-options {
+                grid-template-columns: 1fr;
+            }
+
+            .donation-card .price {
+                font-size: 2rem;
+            }
+
             .info-section h2 {
                 font-size: 1.4rem;
             }
@@ -448,6 +606,118 @@
             </div>
         </div>
 
+        <!-- Donation Section -->
+        <div class="donation-section">
+            <h2>Support the Relief Fund</h2>
+            <div class="donation-options">
+                
+                <!-- CORE ₱499 -->
+                <div class="donation-card">
+                    <h3>Core Support</h3>
+                    <div class="price">₱499</div>
+                    <div class="description">Help provide essential relief supplies to one family</div>
+                    
+                    <div class="toggle-options">
+                        <div class="toggle-row">
+                            <span class="toggle-label">Show publicly</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="core499-public" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-row">
+                            <span class="toggle-label">Scholarship</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="core499-scholarship">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button class="donate-btn" onclick="donate('CORE_499')">Donate ₱499</button>
+                </div>
+
+                <!-- MARIA ₱2,999 -->
+                <div class="donation-card">
+                    <h3>Maria Package</h3>
+                    <div class="price">₱2,999</div>
+                    <div class="description">Support comprehensive relief for multiple families</div>
+                    
+                    <div class="toggle-options">
+                        <div class="toggle-row">
+                            <span class="toggle-label">Show publicly</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="maria2999-public" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-row">
+                            <span class="toggle-label">Scholarship</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="maria2999-scholarship">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button class="donate-btn" onclick="donate('MARIA_2999')">Donate ₱2,999</button>
+                </div>
+
+                <!-- MARIA 10K x 10 -->
+                <div class="donation-card">
+                    <h3>Maria 10K Package</h3>
+                    <div class="price">₱10,000</div>
+                    <div class="description">Major impact - support entire communities</div>
+                    
+                    <div class="toggle-options">
+                        <div class="toggle-row">
+                            <span class="toggle-label">Show publicly</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="maria10k-public" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-row">
+                            <span class="toggle-label">Scholarship</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="maria10k-scholarship">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button class="donate-btn" onclick="donate('MARIA_10K_10')">Donate ₱10,000</button>
+                </div>
+
+                <!-- Flexible Donation -->
+                <div class="donation-card">
+                    <h3>Flexible Amount</h3>
+                    <div class="price">Any ₱</div>
+                    <div class="description">Choose your own contribution amount</div>
+                    
+                    <div class="toggle-options">
+                        <div class="toggle-row">
+                            <span class="toggle-label">Show publicly</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="flex-public" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-row">
+                            <span class="toggle-label">Scholarship</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="flex-scholarship">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button class="donate-btn" onclick="donate('FLEX_DONATION')">Donate Custom</button>
+                </div>
+
+            </div>
+        </div>
+
         <!-- Info Section -->
         <div class="info-section">
             <h2>Our Mission</h2>
@@ -465,8 +735,8 @@
     </div>
 
     <script>
-        // Google Sheets Apps Script URL
-        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwKcw2O-fIBrz2P9bogoMXp5ILAWUgw0dXB9U6eyzPJAxUSH2xyXjDDlRQtcvWhkzIZEw/exec';
+        // Google Sheets Apps Script URL with mode=progress parameter
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwKcw2O-fIBrz2P9bogoMXp5ILAWUgw0dXB9U6eyzPJAxUSH2xyXjDDlRQtcvWhkzIZEw/exec?mode=progress';
         
         // Goal amount
         const GOAL = 1000000; // ₱1,000,000
@@ -510,13 +780,25 @@
 
         // Fetch data from Google Sheets
         async function fetchData() {
+            const statsContainer = document.getElementById('statsContainer');
+            
             try {
-                console.log('Fetching data from Google Sheets...');
+                console.log('=== FETCH START ===');
+                console.log('URL:', APPS_SCRIPT_URL);
                 
-                const response = await fetch(APPS_SCRIPT_URL);
+                const response = await fetch(APPS_SCRIPT_URL, {
+                    method: 'GET',
+                    mode: 'cors',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                console.log('Response status:', response.status);
+                console.log('Response ok:', response.ok);
                 
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
                 }
                 
                 const data = await response.json();
@@ -525,29 +807,76 @@
                 // Check if we have the Remaining_PHP field
                 if (data && typeof data.Remaining_PHP !== 'undefined') {
                     const remainingPHP = parseFloat(data.Remaining_PHP);
+                    console.log('Remaining PHP:', remainingPHP);
                     
                     if (!isNaN(remainingPHP)) {
                         updateProgress(remainingPHP);
+                        console.log('=== FETCH SUCCESS ===');
                     } else {
-                        throw new Error('Invalid Remaining_PHP value');
+                        throw new Error('Invalid Remaining_PHP value: ' + data.Remaining_PHP);
                     }
                 } else {
-                    throw new Error('Remaining_PHP field not found in response');
+                    console.error('Available fields:', Object.keys(data));
+                    throw new Error('Remaining_PHP field not found');
                 }
                 
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.error('=== FETCH ERROR ===');
+                console.error('Error:', error.message);
                 
                 // Show error message
-                const statsContainer = document.getElementById('statsContainer');
                 statsContainer.innerHTML = `
                     <div class="error" style="grid-column: 1 / -1;">
-                        <strong>Unable to load data</strong><br>
-                        ${error.message}<br>
-                        <small>Please check your internet connection or try again later.</small>
+                        <strong>⚠️ Unable to load data</strong><br><br>
+                        <strong>Error:</strong> ${error.message}<br><br>
+                        <small>Check the browser console (F12) for details</small><br><br>
+                        <button onclick="location.reload()" style="
+                            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+                            color: white;
+                            padding: 10px 20px;
+                            border: none;
+                            border-radius: 20px;
+                            cursor: pointer;
+                            font-weight: 600;
+                            margin-top: 10px;
+                        ">Retry</button>
                     </div>
                 `;
             }
+        }
+
+        // Donation function - builds URL based on ticket type and toggles
+        function donate(ticketType) {
+            // Get toggle states based on ticket type
+            let showPublicly, isScholarship;
+            
+            switch(ticketType) {
+                case 'CORE_499':
+                    showPublicly = document.getElementById('core499-public').checked;
+                    isScholarship = document.getElementById('core499-scholarship').checked;
+                    break;
+                case 'MARIA_2999':
+                    showPublicly = document.getElementById('maria2999-public').checked;
+                    isScholarship = document.getElementById('maria2999-scholarship').checked;
+                    break;
+                case 'MARIA_10K_10':
+                    showPublicly = document.getElementById('maria10k-public').checked;
+                    isScholarship = document.getElementById('maria10k-scholarship').checked;
+                    break;
+                case 'FLEX_DONATION':
+                    showPublicly = document.getElementById('flex-public').checked;
+                    isScholarship = document.getElementById('flex-scholarship').checked;
+                    break;
+            }
+            
+            // Build the donation URL (without ?mode=progress)
+            const baseURL = 'https://script.google.com/macros/s/AKfycbwKcw2O-fIBrz2P9bogoMXp5ILAWUgw0dXB9U6eyzPJAxUSH2xyXjDDlRQtcvWhkzIZEw/exec';
+            const url = `${baseURL}?ticket_type=${ticketType}&show=${showPublicly}&scholarship=${isScholarship}`;
+            
+            console.log('Donation URL:', url);
+            
+            // Redirect to the donation page
+            window.location.href = url;
         }
 
         // Initialize on page load
