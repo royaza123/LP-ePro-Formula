@@ -357,7 +357,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Default background before JS loads image */
             background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
             background-size: cover;
             background-position: center;
@@ -368,7 +367,6 @@
             transition: opacity 0.4s ease, visibility 0.4s;
         }
         
-        /* Darken overlay for video cover so play button pops */
         .video-cover::after {
             content: '';
             position: absolute;
@@ -464,8 +462,14 @@
             margin: 0 auto 50px auto;
             box-shadow: 0 0 40px rgba(217, 119, 6, 0.2);
             position: relative;
+            cursor: zoom-in; /* Indicate clickable */
+            transition: transform 0.2s;
         }
         
+        .featured-hero-card:hover {
+            transform: scale(1.02);
+        }
+
         .featured-hero-card::after {
             content: '⭐ TOP RESULT';
             position: absolute;
@@ -493,10 +497,10 @@
             color: #22c55e;
         }
 
-        /* --- SWIPER CAROUSEL --- */
+        /* --- SWIPER CAROUSEL (IMAGES) --- */
         .swiper {
             width: 100%;
-            padding: 20px 0 60px 0; /* Adjusted padding */
+            padding: 20px 0 60px 0; 
         }
 
         .swiper-slide {
@@ -517,6 +521,7 @@
             align-items: center;
             justify-content: center;
             padding: 10px;
+            cursor: zoom-in; /* Indicate clickable */
         }
 
         .slide-image-wrapper img {
@@ -524,7 +529,7 @@
             max-height: 100%;
             width: auto;
             height: auto;
-            object-fit: contain; /* Ensures the whole screenshot is seen, even if different aspect ratio */
+            object-fit: contain; 
         }
 
         .slide-caption {
@@ -536,9 +541,9 @@
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Swiper Arrows (Navigation) */
+        /* Swiper Arrows */
         .swiper-button-next, .swiper-button-prev {
-            color: #d97706; /* Orange arrows */
+            color: #d97706; 
             background: rgba(255,255,255,0.1);
             width: 50px;
             height: 50px;
@@ -556,32 +561,11 @@
         }
 
         /* =========================================
-           7. WHAT IS DROPSHIPPING
+           7. VIDEO TESTIMONIALS CAROUSEL
            ========================================= */
-        .explainer-section {
-            background: rgba(15, 23, 42, 0.6);
-            border-radius: 20px;
-            padding: 40px;
-            margin: 60px 0;
-            border: 1px solid rgba(255,255,255,0.05);
-            text-align: center;
-        }
-        
-        .explainer-section h2 {
-            font-size: 2rem;
+        .student-story {
             margin-bottom: 20px;
-            color: #fbbf24;
-        }
-
-        /* =========================================
-           8. VIDEO TESTIMONIALS (MOVED DOWN)
-           ========================================= */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-            justify-content: center;
-            margin-top: 40px;
+            text-align: center;
         }
 
         .phone-frame {
@@ -591,7 +575,7 @@
             background: #000;
             position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            max-width: 300px;
+            max-width: 280px; /* Limit width in carousel */
             margin: 0 auto;
         }
 
@@ -609,12 +593,9 @@
             height: 100%;
         }
 
-        .student-story {
-            margin-bottom: 20px;
-        }
-
         .student-info {
             margin-top: 15px;
+            padding: 0 10px;
         }
 
         .student-name {
@@ -641,30 +622,102 @@
             line-height: 1.4;
         }
 
-        .cta-btn-large {
-            display: inline-block;
-            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
-            color: white;
-            padding: 20px 40px;
-            border-radius: 50px;
-            font-size: 1.5rem;
-            font-weight: 900;
-            text-decoration: none;
-            margin: 40px 0;
-            box-shadow: 0 0 30px rgba(217, 119, 6, 0.4);
-            text-transform: uppercase;
-            transition: transform 0.2s;
-            border: none;
-            cursor: pointer;
+        /* =========================================
+           8. ZOOM MODAL (LIGHTBOX)
+           ========================================= */
+        .lightbox-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        .cta-btn-large:hover {
-            transform: scale(1.05);
+        .lightbox-modal.active {
+            display: flex;
+        }
+
+        .lightbox-content-wrapper {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            overflow: hidden; /* Hide overflow from zoom */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: grab;
+        }
+
+        .lightbox-img {
+            max-width: 95%;
+            max-height: 95%;
+            transition: transform 0.1s ease-out; /* Smooth zoom */
+            object-fit: contain;
+        }
+
+        .lightbox-controls {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 10000;
+        }
+
+        .zoom-label {
+            color: white;
+            font-weight: bold;
+        }
+
+        input[type=range] {
+            width: 100%;
+            accent-color: #d97706;
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            z-index: 10001;
+        }
+
+        .close-lightbox:hover {
+            background: rgba(255,255,255,0.3);
         }
 
         /* =========================================
-           9. DONATION SECTION
+           9. OTHER SECTIONS (Donation, Footer, Etc)
            ========================================= */
+        .explainer-section {
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 60px 0;
+            border: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+        }
+        
+        .explainer-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #fbbf24;
+        }
+
         .donation-section {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -837,9 +890,6 @@
             box-shadow: 0 8px 20px rgba(217, 119, 6, 0.5);
         }
 
-        /* =========================================
-           10. SKILLS SECTION & FOOTER
-           ========================================= */
         .skills-section {
             background: linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(6, 182, 212, 0.05));
             border: 1px solid rgba(34, 197, 94, 0.2);
@@ -866,6 +916,27 @@
             margin-right: auto;
         }
         
+        .cta-btn-large {
+            display: inline-block;
+            background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-decoration: none;
+            margin: 40px 0;
+            box-shadow: 0 0 30px rgba(217, 119, 6, 0.4);
+            text-transform: uppercase;
+            transition: transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-btn-large:hover {
+            transform: scale(1.05);
+        }
+
         .footer {
             text-align: center;
             margin-top: 60px;
@@ -875,14 +946,12 @@
             font-size: 0.9rem;
         }
 
-        /* Mobile Responsive adjustments */
         @media (max-width: 768px) {
             .container { padding: 40px 16px; }
             .logo { font-size: 2rem; }
             .donation-options { grid-template-columns: 1fr; }
             .play-btn { width: 70px; height: 70px; }
             .cta-btn-large { width: 100%; font-size: 1.2rem; }
-            /* Hide swiper arrows on mobile if they obscure content, but generally they are fine */
         }
     </style>
 </head>
@@ -895,11 +964,22 @@
         <div class="particle"></div>
     </div>
 
+    <div class="lightbox-modal" id="lightbox">
+        <button class="close-lightbox" onclick="closeZoom()">&times;</button>
+        <div class="lightbox-content-wrapper" id="lightboxWrapper">
+            <img src="" class="lightbox-img" id="lightboxImg" alt="Zoomed Result">
+        </div>
+        <div class="lightbox-controls">
+            <span class="zoom-label">Zoom:</span>
+            <input type="range" min="1" max="3" step="0.1" value="1" id="zoomRange">
+        </div>
+    </div>
+
     <div class="container">
         <div class="header">
             <div class="logo">ePro <span class="formula">FORMULA</span></div>
             <p class="tagline">Learn to Earn. Help Rebuild.</p>
-            <div class="badge">🇵🇭 100% Proceeds to Typhoon Relief</div>
+            <div class="badge">🇵🇭 100% Proceeds to Typhoon Tino Relief</div>
         </div>
 
         <div class="nav-wrapper">
@@ -948,14 +1028,12 @@
         </div>
 
         <div class="story-section" id="story">
-            
             <div class="video-wrapper" id="videoTrigger" data-vimeo-id="1148687196">
                 <div class="video-cover">
                     <div class="play-btn">
                         <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                     </div>
                 </div>
-                
                 <div class="vimeo-container">
                     <iframe id="vimeoIframe" 
                             data-src="https://player.vimeo.com/video/1148687196?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1" 
@@ -970,54 +1048,54 @@
 
         <div class="results-section" id="results">
             <h2>Screenshots <span class="green-highlight">Don't Lie</span></h2>
-            <p class="sub">These are real numbers. Real dates. Real money.</p>
+            <p class="sub">Tap any image to zoom in.</p>
             
-            <div class="featured-hero-card">
-                <img src="images/results/notable results/6K USD one day.jpg" alt="6K USD in one day" loading="lazy">
+            <div class="featured-hero-card" onclick="openZoom('https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/images/results/notable%20results/6K%20USD%20one%20day.jpg')">
+                <img src="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/images/results/notable%20results/6K%20USD%20one%20day.jpg" alt="6K USD in one day" loading="lazy">
                 <div class="hero-caption">$6,000 in ONE DAY</div>
             </div>
             
-            <div class="swiper mySwiper">
+            <div class="swiper mySwiper imageSwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <div class="slide-image-wrapper">
-                            <img src="images/results/notable results/1,368.50 dollars a day.jpg" alt="1368 dollars a day" loading="lazy">
+                        <div class="slide-image-wrapper" onclick="openZoom('https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/images/results/notable%20results/1,368.50%20dollars%20a%20day.jpg')">
+                            <img src="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/images/results/notable%20results/1,368.50%20dollars%20a%20day.jpg" alt="1368 dollars a day" loading="lazy">
                         </div>
                         <div class="slide-caption">$1,368 in a day</div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="slide-image-wrapper">
-                            <img src="images/results/notable results/1,999 dollars a day.jpg" alt="1999 dollars a day" loading="lazy">
+                        <div class="slide-image-wrapper" onclick="openZoom('https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/images/results/notable%20results/1,999%20dollars%20a%20day.jpg')">
+                            <img src="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/images/results/notable%20results/1,999%20dollars%20a%20day.jpg" alt="1999 dollars a day" loading="lazy">
                         </div>
                         <div class="slide-caption">$1,999 in a day</div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="slide-image-wrapper">
-                            <img src="images/results/notable results/2,132 dollars a day.jpg" alt="2132 dollars a day" loading="lazy">
+                        <div class="slide-image-wrapper" onclick="openZoom('https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/images/results/notable%20results/2,132%20dollars%20a%20day.jpg')">
+                            <img src="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/images/results/notable%20results/2,132%20dollars%20a%20day.jpg" alt="2132 dollars a day" loading="lazy">
                         </div>
                         <div class="slide-caption">$2,132 in a day</div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="slide-image-wrapper">
-                            <img src="images/results/notable results/15,500 dollars a month.jpg" alt="15500 dollars a month" loading="lazy">
+                        <div class="slide-image-wrapper" onclick="openZoom('https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/images/results/notable%20results/15,500%20dollars%20a%20month.jpg')">
+                            <img src="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/images/results/notable%20results/15,500%20dollars%20a%20month.jpg" alt="15500 dollars a month" loading="lazy">
                         </div>
                         <div class="slide-caption">$15,500 in a MONTH</div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="slide-image-wrapper">
-                            <img src="images/results/notable results/4,771.50 dollars a week.jpg" alt="4771 dollars a week" loading="lazy">
+                        <div class="slide-image-wrapper" onclick="openZoom('https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/images/results/notable%20results/4,771.50%20dollars%20a%20week.jpg')">
+                            <img src="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/images/results/notable%20results/4,771.50%20dollars%20a%20week.jpg" alt="4771 dollars a week" loading="lazy">
                         </div>
                         <div class="slide-caption">$4,771 in one week</div>
                     </div>
                      <div class="swiper-slide">
-                        <div class="slide-image-wrapper">
-                            <img src="images/results/notable results/many mails sales.jpg" alt="Inbox full of sales" loading="lazy">
+                        <div class="slide-image-wrapper" onclick="openZoom('https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/images/results/notable%20results/many%20mails%20sales.jpg')">
+                            <img src="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/images/results/notable%20results/many%20mails%20sales.jpg" alt="Inbox full of sales" loading="lazy">
                         </div>
                         <div class="slide-caption">Inbox FULL of "You got paid"</div>
                     </div>
                      <div class="swiper-slide">
-                        <div class="slide-image-wrapper">
-                            <img src="images/results/notable results/896 dollars a day.jpg" alt="896 dollars a day" loading="lazy">
+                        <div class="slide-image-wrapper" onclick="openZoom('https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/images/results/notable%20results/896%20dollars%20a%20day.jpg')">
+                            <img src="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/images/results/notable%20results/896%20dollars%20a%20day.jpg" alt="896 dollars a day" loading="lazy">
                         </div>
                         <div class="slide-caption">$896 easy daily cash</div>
                     </div>
@@ -1177,47 +1255,133 @@
             <h2>Hear Their Voices</h2>
             <p class="sub">Normal people. Crazy results. Watch this.</p>
 
-            <div class="video-grid">
-                <div class="student-story">
-                    <div class="phone-frame">
-                        <div class="vertical-video-wrapper">
-                            <iframe src="https://player.vimeo.com/video/1122862062?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Noam, 19, Solider, 2K USD monthly"></iframe>
+            <div class="swiper mySwiper videoSwiper">
+                <div class="swiper-wrapper">
+                    
+                    <div class="swiper-slide student-story">
+                        <div class="phone-frame">
+                            <div class="vertical-video-wrapper">
+                                <iframe src="https://player.vimeo.com/video/1122862062?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Noam, 19, Solider, 2K USD monthly"></iframe>
+                            </div>
+                        </div>
+                        <div class="student-info">
+                            <span class="student-name">Noam, 19 Years Old</span>
+                            <div class="student-result">$2,000/Month</div>
+                            <p class="student-desc">He is a soldier. He has NO time. He still makes money.</p>
                         </div>
                     </div>
-                    <div class="student-info">
-                        <span class="student-name">Noam, 19 Years Old</span>
-                        <div class="student-result">$2,000/Month</div>
-                        <p class="student-desc">He is a soldier. He has NO time. He still makes money.</p>
-                    </div>
-                </div>
-                <div class="student-story">
-                    <div class="phone-frame">
-                        <div class="vertical-video-wrapper">
-                            <iframe src="https://player.vimeo.com/video/1122844273?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Beeri, 16, 5K USD montly"></iframe>
+
+                    <div class="swiper-slide student-story">
+                        <div class="phone-frame">
+                            <div class="vertical-video-wrapper">
+                                <iframe src="https://player.vimeo.com/video/1122844273?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Beeri, 16, 5K USD montly"></iframe>
+                            </div>
+                        </div>
+                        <div class="student-info">
+                            <span class="student-name">Beeri, 16 Years Old</span>
+                            <div class="student-result">$5,000/Month</div>
+                            <p class="student-desc">He is a kid! He makes more than his teachers in 3 months.</p>
                         </div>
                     </div>
-                    <div class="student-info">
-                        <span class="student-name">Beeri, 16 Years Old</span>
-                        <div class="student-result">$5,000/Month</div>
-                        <p class="student-desc">He is a kid! He makes more than his teachers in 3 months.</p>
-                    </div>
-                </div>
-                <div class="student-story">
-                    <div class="phone-frame">
-                        <div class="vertical-video-wrapper">
-                            <iframe src="https://player.vimeo.com/video/1122865324?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Eden, 27, 6K USD monthly"></iframe>
+
+                    <div class="swiper-slide student-story">
+                        <div class="phone-frame">
+                            <div class="vertical-video-wrapper">
+                                <iframe src="https://player.vimeo.com/video/1122865324?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Eden, 27, 6K USD monthly"></iframe>
+                            </div>
+                        </div>
+                        <div class="student-info">
+                            <span class="student-name">Eden, 27 Years Old</span>
+                            <div class="student-result">$6,000/Month</div>
+                            <p class="student-desc">She paid for her WHOLE wedding with this money.</p>
                         </div>
                     </div>
-                    <div class="student-info">
-                        <span class="student-name">Eden, 27 Years Old</span>
-                        <div class="student-result">$6,000/Month</div>
-                        <p class="student-desc">She paid for her WHOLE wedding with this money.</p>
+
+                    <div class="swiper-slide student-story">
+                        <div class="phone-frame">
+                            <div class="vertical-video-wrapper">
+                                <iframe src="https://player.vimeo.com/video/1122865827?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Paul, 56, Moving to Thailand"></iframe>
+                            </div>
+                        </div>
+                        <div class="student-info">
+                            <span class="student-name">Paul, 56 Years Old</span>
+                            <div class="student-result">Retiring to Thailand</div>
+                            <p class="student-desc">He quit his gym business. He is moving to paradise.</p>
+                        </div>
                     </div>
+
+                    <div class="swiper-slide student-story">
+                        <div class="phone-frame">
+                            <div class="vertical-video-wrapper">
+                                <iframe src="https://player.vimeo.com/video/1122865368?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Netanel, 19, Quit Ikea Chef Job"></iframe>
+                            </div>
+                        </div>
+                        <div class="student-info">
+                            <span class="student-name">Netanel, 19 Years Old</span>
+                            <div class="student-result">$6,000/Month</div>
+                            <p class="student-desc">He was a chef at IKEA. He quit. Now he is free.</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide student-story">
+                        <div class="phone-frame">
+                            <div class="vertical-video-wrapper">
+                                <iframe src="https://player.vimeo.com/video/1122842339?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Idan, 28, 3K USD"></iframe>
+                            </div>
+                        </div>
+                        <div class="student-info">
+                            <span class="student-name">Idan, 28 Years Old</span>
+                            <div class="student-result">$3,000/Month (Part Time)</div>
+                            <p class="student-desc">He has a full time job. He does this on the side. Easy money.</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide student-story">
+                        <div class="phone-frame">
+                            <div class="vertical-video-wrapper">
+                                <iframe src="https://player.vimeo.com/video/1122845750?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Gedalia, 25, 10K USD MONTHLY"></iframe>
+                            </div>
+                        </div>
+                        <div class="student-info">
+                            <span class="student-name">Gedalia, 25 Years Old</span>
+                            <div class="student-result">$10,000 in 3 Months</div>
+                            <p class="student-desc">He spent $1M on other courses. They failed. This worked.</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide student-story">
+                        <div class="phone-frame">
+                            <div class="vertical-video-wrapper">
+                                <iframe src="https://player.vimeo.com/video/1122846985?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Ido, 19, 7K USD IN 2 WEEKS"></iframe>
+                            </div>
+                        </div>
+                        <div class="student-info">
+                            <span class="student-name">Ido, 19 Years Old</span>
+                            <div class="student-result">$7,000 in 2 WEEKS</div>
+                            <p class="student-desc">He is in the army service. He made this while serving.</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide student-story">
+                        <div class="phone-frame">
+                            <div class="vertical-video-wrapper">
+                                <iframe src="https://player.vimeo.com/video/1122849599?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Nikita, 22, University student"></iframe>
+                            </div>
+                        </div>
+                        <div class="student-info">
+                            <span class="student-name">Nikita, 22 Years Old</span>
+                            <div class="student-result">$3,000/Month</div>
+                            <p class="student-desc">He is a university student. He studies and makes cash.</p>
+                        </div>
+                    </div>
+
                 </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
 
             <a href="#donate-anchor" class="cta-btn-large" style="background: #e74c3c;">I Want To Start NOW</a>
-            <p style="margin-top:10px; opacity:0.7;">(100% of proceeds go to Typhoon Relief)</p>
+            <p style="margin-top:10px; opacity:0.7;">(100% of proceeds go to Typhoon Tino Relief)</p>
         </div>
 
         <div class="skills-section">
@@ -1247,33 +1411,76 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
-        // INITIALIZE SWIPER
-        var swiper = new Swiper(".mySwiper", {
+        // --- 1. IMAGE CAROUSEL ---
+        var imageSwiper = new Swiper(".imageSwiper", {
             slidesPerView: 1,
             spaceBetween: 20,
-            loop: true, // Infinite loop
+            loop: true, 
             autoplay: {
-                delay: 10000, // 10 Seconds
+                delay: 10000, 
                 disableOnInteraction: false,
             },
             navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
+                nextEl: ".imageSwiper .swiper-button-next",
+                prevEl: ".imageSwiper .swiper-button-prev",
             },
             breakpoints: {
-                640: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                },
-                900: {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                },
+                640: { slidesPerView: 2, spaceBetween: 20 },
+                900: { slidesPerView: 3, spaceBetween: 30 },
             },
         });
 
-        // VIMEO THUMBNAIL FETCH
-        // This grabs the thumbnail from your video ID so the "cover" isn't just black.
+        // --- 2. VIDEO CAROUSEL ---
+        var videoSwiper = new Swiper(".videoSwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true, 
+            // NOTE: Autoplay on videos with iframes can be tricky, kept it but user can pause
+            autoplay: {
+                delay: 15000, // Slower for videos
+                disableOnInteraction: true,
+            },
+            navigation: {
+                nextEl: ".videoSwiper .swiper-button-next",
+                prevEl: ".videoSwiper .swiper-button-prev",
+            },
+            breakpoints: {
+                640: { slidesPerView: 2, spaceBetween: 20 },
+                900: { slidesPerView: 3, spaceBetween: 30 },
+            },
+        });
+
+        // --- 3. ZOOM LIGHTBOX LOGIC ---
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const zoomRange = document.getElementById('zoomRange');
+        
+        function openZoom(src) {
+            lightbox.classList.add('active');
+            lightboxImg.src = src;
+            lightboxImg.style.transform = `scale(1)`;
+            zoomRange.value = 1;
+        }
+
+        function closeZoom() {
+            lightbox.classList.remove('active');
+            lightboxImg.src = '';
+        }
+
+        // Zoom slider event
+        zoomRange.addEventListener('input', function() {
+            const val = this.value;
+            lightboxImg.style.transform = `scale(${val})`;
+        });
+
+        // Close on background click
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox || e.target.id === 'lightboxWrapper') {
+                closeZoom();
+            }
+        });
+
+        // --- 4. VIMEO THUMBNAIL FETCH ---
         const videoWrapper = document.getElementById('videoTrigger');
         const vimeoId = videoWrapper.getAttribute('data-vimeo-id');
         
@@ -1282,31 +1489,25 @@
                 .then(response => response.json())
                 .then(data => {
                     const cover = videoWrapper.querySelector('.video-cover');
-                    // Set the fetched thumbnail as background
                     cover.style.backgroundImage = `url(${data.thumbnail_url})`;
                 })
                 .catch(err => console.log('Could not fetch Vimeo thumb', err));
         }
 
+        // --- 5. PROGRESS BAR LOGIC ---
         const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxg3U2JtDVHNg54g6VUXLd7ySlNNP5uTjUFh9VVo_o-kz1LHK_S9iS4WeJU-mLNAyT8/exec';
-        
         const GOAL = 1000000;
 
         document.getElementById('videoTrigger').addEventListener('click', function() {
             const wrapper = this;
             const iframe = document.getElementById('vimeoIframe');
-            
-            // Set the src from data-src to start loading and playing
             iframe.src = iframe.getAttribute('data-src');
-            
-            // Add class to hide the cover/button
             wrapper.classList.add('playing');
         });
 
         const LINKS = {
             'CORE': {
                 true:  { true: 'https://donate.stripe.com/7sYaEXduadRf6FPa3b1B60b', false: 'https://donate.stripe.com/8x214n1Ls9AZc09grz1B60i' },
-                // Fixed Link Below:
                 false: { true: 'https://donate.stripe.com/6oUaEX9dU4gFc09ejr1B60l', false: 'https://donate.stripe.com/14A7sLfCiaF36FPdfn1B60o' }
             },
             'SPRINT': {
@@ -1325,10 +1526,6 @@
         
         function formatPeso(num) {
             return '₱' + num.toLocaleString('en-PH', { maximumFractionDigits: 0 });
-        }
-
-        function formatPercentage(num) {
-            return num.toFixed(1) + '%';
         }
 
         // Color Logic: Red (0-19), Yellow (20-59), Green (60+)
