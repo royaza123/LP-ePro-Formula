@@ -34,6 +34,8 @@
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
+            opacity: 0; /* Fade in handled by JS */
+            transition: opacity 0.5s ease;
         }
 
         /* Animated Background Overlay */
@@ -47,6 +49,19 @@
             background: 
                 radial-gradient(circle at 20% 30%, rgba(217, 119, 6, 0.05) 0%, transparent 50%),
                 radial-gradient(circle at 80% 70%, rgba(146, 64, 14, 0.05) 0%, transparent 50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Subtle Map Vignette for Typhoon Context (CSS Only) */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.8) 100%);
             z-index: 0;
             pointer-events: none;
         }
@@ -173,6 +188,99 @@
         }
 
         /* =========================================
+           3.5. MANIFESTO SECTION (HERO TEXT)
+           ========================================= */
+        .manifesto-section {
+            margin-bottom: 50px;
+            padding: 30px;
+            border-left: 2px solid #d97706;
+            background: rgba(0,0,0,0.2);
+            border-radius: 0 10px 10px 0;
+        }
+
+        .manifesto-backstory {
+            font-size: 1rem;
+            color: #888; /* Dimmed/Grey */
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .manifesto-deal {
+            font-size: 1.2rem;
+            color: #fff; /* White Pop */
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .win-win-box {
+            display: block;
+            margin: 25px 0;
+            padding: 15px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid #22c55e;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
+        }
+        
+        .check-icon {
+            color: #22c55e;
+            margin-right: 10px;
+        }
+
+        .zero-profit-badge {
+            background: #ef4444;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: line-through;
+            margin-left: 5px;
+            opacity: 0.9;
+        }
+        
+        /* THE EQUATION GRAPHIC */
+        .equation-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 40px auto;
+            max-width: 600px;
+        }
+
+        .equation-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255,255,255,0.03);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px dashed rgba(255,255,255,0.1);
+        }
+
+        .eq-item {
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .eq-arrow {
+            color: #d97706;
+            font-size: 1.2rem;
+        }
+
+        .eq-result {
+            color: #22c55e; /* Green for Rich/Survive */
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        /* =========================================
            4. PROGRESS SECTION
            ========================================= */
         .progress-section {
@@ -203,7 +311,48 @@
             margin-bottom: 10px;
             text-align: center;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
         }
+
+        .live-pulse {
+            width: 12px;
+            height: 12px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+        }
+
+        .live-pulse::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #22c55e;
+            border-radius: 50%;
+            animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+
+        .live-text {
+            font-size: 0.8rem;
+            color: #22c55e;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
 
         .progress-subtitle {
             font-size: 1.1rem;
@@ -306,6 +455,17 @@
             font-size: 0.9rem;
             opacity: 0.8;
             position: relative;
+        }
+        
+        .progress-context-badge {
+            display: inline-block;
+            background: #22c55e;
+            color: #000;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-left: 10px;
+            font-size: 0.8rem;
         }
 
         .public-sheet-container {
@@ -482,6 +642,21 @@
             font-weight: bold;
             font-size: 0.8rem;
         }
+        
+        .click-hint {
+            position: absolute;
+            bottom: 25px;
+            right: 25px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
 
         .featured-hero-card img {
             width: 100%;
@@ -522,6 +697,7 @@
             justify-content: center;
             padding: 10px;
             cursor: zoom-in; /* Indicate clickable */
+            position: relative;
         }
 
         .slide-image-wrapper img {
@@ -736,11 +912,27 @@
             margin-bottom: 10px;
             text-align: center;
         }
+        
+        .donation-promise {
+            text-align: center;
+            color: #22c55e;
+            font-weight: 700;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            border: 1px dashed #22c55e;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(34, 197, 94, 0.1);
+        }
 
         .donation-intro {
             text-align: center;
             opacity: 0.8;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
         
         .donation-options {
@@ -760,12 +952,37 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
         }
 
         .donation-card:hover {
             transform: translateY(-5px);
             border-color: rgba(217, 119, 6, 0.5);
             box-shadow: 0 10px 30px rgba(217, 119, 6, 0.3);
+        }
+        
+        /* SOLD OUT STYLE */
+        .donation-card.sold-out {
+            opacity: 0.5;
+            filter: grayscale(1);
+            pointer-events: none;
+            user-select: none;
+        }
+        
+        .donation-card.sold-out::after {
+            content: 'SOLD OUT';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #ef4444;
+            border: 5px solid #ef4444;
+            padding: 10px 20px;
+            border-radius: 10px;
+            z-index: 10;
+            background: rgba(0,0,0,0.8);
         }
 
         .donation-card h3 {
@@ -946,6 +1163,13 @@
             opacity: 0.6;
             font-size: 0.9rem;
         }
+        
+        .footer-trust {
+            font-size: 0.85rem;
+            color: #22c55e;
+            margin-top: 10px;
+            font-weight: bold;
+        }
 
         @media (max-width: 768px) {
             .container { padding: 40px 16px; }
@@ -953,6 +1177,8 @@
             .donation-options { grid-template-columns: 1fr; }
             .play-btn { width: 70px; height: 70px; }
             .cta-btn-large { width: 100%; font-size: 1.2rem; }
+            .manifesto-section { padding: 20px; }
+            .win-win-box { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -989,9 +1215,41 @@
             <a href="#results" class="nav-btn">Does this work?</a>
             <a href="#donate-anchor" class="nav-btn primary">Get Course & Donate</a>
         </div>
+        
+        <div class="manifesto-section">
+            <p class="manifesto-backstory">
+                If you don't know who I am, it doesn't matter. What matters is that people in our community are suffering from Typhoon Tino, and they need help <strong>now</strong>. I have a skill set that generates money online. You have cash that can save lives.
+            </p>
+            <p class="manifesto-deal">
+                Here is the deal: I am giving away my entire ePro Formula course—the same one that has generated 6-figures for students. I am taking <span class="zero-profit-badge">I keep ₱0</span> profit.
+            </p>
+            <div class="win-win-box">
+                <span class="check-icon">✓</span> You get RICH. They get another chance. Win-Win.
+            </div>
+        </div>
+        
+        <div class="equation-wrapper">
+            <div class="equation-row">
+                <div class="eq-item">💵 Your Cash</div>
+                <div class="eq-arrow">➔</div>
+                <div class="eq-item">🧠 My Knowledge</div>
+                <div class="eq-arrow">➔</div>
+                <div class="eq-item eq-result">🚀 You Get Rich</div>
+            </div>
+            <div class="equation-row">
+                <div class="eq-item">💵 Your Cash</div>
+                <div class="eq-arrow">➔</div>
+                <div class="eq-item">❤️ Relief Fund</div>
+                <div class="eq-arrow">➔</div>
+                <div class="eq-item eq-result">🏠 They Survive</div>
+            </div>
+        </div>
 
         <div class="progress-section">
-            <h1 class="progress-title">Relief Goal: ₱1,000,000</h1>
+            <h1 class="progress-title">
+                <span class="live-pulse"></span>
+                <span class="live-text">LIVE DATA</span>
+            </h1>
             <p class="progress-subtitle">I donated the first ₱100k. Help us raise the rest.</p>
 
             <div class="stats-container" id="statsContainer">
@@ -1016,6 +1274,10 @@
                 </div>
                 <div class="progress-labels">
                     <span>₱0</span>
+                    <span>
+                        Still Needed 
+                        <span class="progress-context-badge" id="contextBadge">100% left</span>
+                    </span>
                     <span>₱1,000,000</span>
                 </div>
             </div>
@@ -1023,7 +1285,7 @@
             <div class="public-sheet-container">
                 <a href="https://docs.google.com/spreadsheets/d/1qsw8uobLY7v0MK0UDTA3xEPXRxrj-J2sRmxHskS2dyg/edit?gid=248957390#gid=248957390" 
                    target="_blank" class="public-sheet-btn">
-                    📄 View Public Donor List
+                   📄 View Public Donor List
                 </a>
             </div>
         </div>
@@ -1049,10 +1311,11 @@
 
         <div class="results-section" id="results">
             <h2>Screenshots <span class="green-highlight">Don't Lie</span></h2>
-            <p class="sub">Tap any image to zoom in.</p>
+            <p class="sub">Tap to Inspect the Income Proof.</p>
             
-            <div class="featured-hero-card" onclick="openZoom('6K%20USD%20one%20day.jpg')">
-                <img src="6K%20USD%20one%20day.jpg" alt="6K USD in one day" loading="lazy">
+            <div class="featured-hero-card" onclick="openZoom('hero-proof.jpg')">
+                <img src="hero-proof.jpg" alt="6K USD in one day" loading="lazy">
+                <div class="click-hint">🔍 Tap to Inspect</div>
                 <div class="hero-caption">$6,000 in ONE DAY</div>
             </div>
             
@@ -1114,8 +1377,9 @@
             
             <div class="video-wrapper">
                 <div class="vimeo-container" style="position:relative; z-index:1;">
-                     <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#111; color:#555;">
-                        <p>Video Placeholder (Upload to Vimeo & Update ID)</p>
+                     <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#111; color:#555; flex-direction:column; gap:10px;">
+                        <span style="font-size:2rem;">🎥</span>
+                        <p>Video Placeholder<br>(Upload Explanation Video Here)</p>
                      </div>
                 </div>
             </div>
@@ -1123,7 +1387,11 @@
 
         <div class="donation-section" id="donate-anchor">
             <h2>Get the Course & Donate</h2>
-            <p class="donation-intro">Choose a package. 100% of proceeds go to the relief fund.</p>
+            <p class="donation-intro">Choose a package. Help the victims.</p>
+            
+            <div class="donation-promise">
+                🛡️ 100% of this purchase is donated immediately.
+            </div>
             
             <div class="donation-options">
                 
@@ -1222,6 +1490,21 @@
                         <button class="donate-btn" onclick="donate('INTENSIVE')">Buy & Donate ₱10k</button>
                     </div>
                 </div>
+                
+                <div class="donation-card sold-out">
+                    <div>
+                        <h3>1-on-1 Mentorship</h3>
+                        <div class="price">₱50,000</div>
+                        <ul class="features">
+                            <li>Personal Cellphone Access</li>
+                            <li>Daily Audits</li>
+                            <li>Guaranteed Success</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <button class="donate-btn">SOLD OUT</button>
+                    </div>
+                </div>
 
                 <div class="donation-card">
                     <div>
@@ -1268,20 +1551,20 @@
                         <div class="student-info">
                             <span class="student-name">Beeri, 16 Years Old</span>
                             <div class="student-result">$5,000/Month</div>
-                            <p class="student-desc">16 years old. Making more than his teachers.</p>
+                            <p class="student-desc">Making more than his teachers.</p>
                         </div>
                     </div>
 
                     <div class="swiper-slide student-story">
                         <div class="phone-frame">
                             <div class="vertical-video-wrapper">
-                                <iframe src="https://player.vimeo.com/video/1122862062?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Noam, 19, Solider, 2K USD monthly,  making a yearly salary in the army from Etsy"></iframe>
+                                <iframe src="https://player.vimeo.com/video/1122862062?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Noam, 19, Solider, 2K USD monthly,  making a yearly salary in the army from Etsy"></iframe>
                             </div>
                         </div>
                         <div class="student-info">
                             <span class="student-name">Noam, 19 Years Old</span>
                             <div class="student-result">$2,000/Month</div>
-                            <p class="student-desc">A soldier making a full salary while serving.</p>
+                            <p class="student-desc">Making a Soldier's Salary on the Side.</p>
                         </div>
                     </div>
 
@@ -1294,7 +1577,7 @@
                         <div class="student-info">
                             <span class="student-name">Eden, 27 Years Old</span>
                             <div class="student-result">$6,000/Month</div>
-                            <p class="student-desc">She paid for her WHOLE wedding with this money.</p>
+                            <p class="student-desc">Paid for her Wedding with One Store.</p>
                         </div>
                     </div>
 
@@ -1307,7 +1590,7 @@
                         <div class="student-info">
                             <span class="student-name">Paul, 56 Years Old</span>
                             <div class="student-result">Retiring to Thailand</div>
-                            <p class="student-desc">Quit his gym business. Moving to paradise.</p>
+                            <p class="student-desc">Escaped the Rat Race at 56.</p>
                         </div>
                     </div>
 
@@ -1320,7 +1603,7 @@
                         <div class="student-info">
                             <span class="student-name">Netanel, 19 Years Old</span>
                             <div class="student-result">$6,000/Month</div>
-                            <p class="student-desc">Quit his IKEA chef job. Now he is free.</p>
+                            <p class="student-desc">Quit the 9-5 Grind (IKEA Chef) at 19.</p>
                         </div>
                     </div>
 
@@ -1396,6 +1679,7 @@
 
         <div class="footer">
             <p>© 2025 ePro Formula. Building Business. Rebuilding Communities.</p>
+            <p class="footer-trust">✅ Funds are tracked publicly via Google Sheets. Receipts posted daily.</p>
         </div>
     </div>
 
@@ -1435,15 +1719,9 @@
         var videoSwiper = new Swiper(".videoSwiper", {
             slidesPerView: 1,
             spaceBetween: 20,
-            
-            // IMPORTANT FIXES FOR IFRAMES:
-            // 1. Disable loop to prevent cloning iframes (which breaks them)
             loop: false, 
-            // 2. Enable rewind so it "feels" like a loop
             rewind: true,
-            // 3. Disable autoplay so users can watch the videos
             autoplay: false,
-            
             navigation: {
                 nextEl: ".videoSwiper .swiper-button-next",
                 prevEl: ".videoSwiper .swiper-button-prev",
@@ -1452,6 +1730,16 @@
                 640: { slidesPerView: 2, spaceBetween: 20 },
                 900: { slidesPerView: 3, spaceBetween: 30 },
             },
+            // FIX: Stop iframe video when sliding
+            on: {
+                slideChange: function() {
+                    document.querySelectorAll('iframe').forEach(v => {
+                        // Resetting src stops the video
+                        var currentSrc = v.src;
+                        v.src = currentSrc;
+                    });
+                }
+            }
         });
 
         // --- 3. ZOOM LIGHTBOX LOGIC ---
@@ -1562,6 +1850,10 @@
             document.getElementById('remainingAmount').innerText = formatPeso(remaining);
             document.getElementById('percentageDisplay').innerText = percent.toFixed(1) + '%';
             document.getElementById('progressPercentage').innerText = percent.toFixed(1) + '%';
+            
+            // New Context Badge Logic
+            const remainingPercent = 100 - percent;
+            document.getElementById('contextBadge').innerText = remainingPercent.toFixed(1) + '% left';
 
             const bar = document.getElementById('progressBar');
             bar.style.width = displayPercent + '%'; 
