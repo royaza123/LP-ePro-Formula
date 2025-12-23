@@ -131,6 +131,42 @@
             z-index: 1;
         }
 
+        /* STICKY CONTACT BUTTON (Top Right) */
+        .sticky-contact-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            z-index: 9990; /* High z-index but below modals */
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .sticky-contact-btn:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: #d97706;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 600px) {
+            .sticky-contact-btn {
+                top: 15px;
+                right: 15px;
+                padding: 8px 15px;
+                font-size: 0.8rem;
+            }
+        }
+
         /* =========================================
            4. HERO SECTION (VIOLENT & CLICKABLE)
            ========================================= */
@@ -945,6 +981,8 @@
 </head>
 <body>
 
+    <a href="mailto:aetophis@aetophis.com" class="sticky-contact-btn">✉️ Contact</a>
+
     <div class="particles">
         <div class="particle"></div><div class="particle"></div><div class="particle"></div>
         <div class="particle"></div><div class="particle"></div><div class="particle"></div>
@@ -953,7 +991,7 @@
     </div>
 
     <div class="lightbox-modal" id="lightbox">
-        <button class="close-lightbox" onclick="closeZoom()">&times;</button>
+        <button class="close-lightbox" onclick="closeZoom()" aria-label="Close Zoom">&times;</button>
         <div class="lightbox-content-wrapper" id="lightboxWrapper">
             <img src="" class="lightbox-img" id="lightboxImg" alt="Zoomed Result">
         </div>
@@ -965,7 +1003,7 @@
 
     <div class="lightbox-modal" id="gcashModal">
         <div class="legal-content" style="max-width:400px; text-align:center;">
-            <button class="close-legal" onclick="closeGcash()">&times;</button>
+            <button class="close-legal" onclick="closeGcash()" aria-label="Close Modal">&times;</button>
             <h2 style="border:none; margin-bottom:10px; color:#2463eb;">Scan to Pay via GCash</h2>
             <div style="background:#fff; padding:10px; border-radius:10px; display:inline-block; margin-bottom:20px;">
                 <img id="gcashQrImg" src="" alt="GCash QR" style="max-width:100%; display:block;">
@@ -974,7 +1012,12 @@
                 <p style="margin-bottom:10px; color:#fbbf24; font-weight:bold;">⚠️ IMPORTANT:</p>
                 <p>1. Scan the QR code to pay.</p>
                 <p>2. <strong>Take a screenshot</strong> of the payment receipt.</p>
-                <p>3. Send the screenshot to our <a href="#" style="color:#2463eb;">Facebook Page</a> or Email.</p>
+                <p>3. Send the screenshot via:</p>
+                <ul style="margin-left:20px; margin-bottom:15px;">
+                    <li><a href="https://www.facebook.com/profile.php?id=61579629904148" target="_blank" style="color:#2463eb;">Facebook Page</a></li>
+                    <li>Email: <a href="mailto:aetophis@aetophis.com" style="color:#2463eb;">aetophis@aetophis.com</a></li>
+                    <li>Viber/SMS: <strong>09621811360</strong></li>
+                </ul>
                 <p style="margin-top:15px; font-size:0.8rem; opacity:0.7;">*GCash payments are manually verified. Please allow 24 hours for your name to appear on the Tracker.</p>
             </div>
         </div>
@@ -982,14 +1025,14 @@
 
     <div id="legalModal" class="legal-modal">
         <div class="legal-content">
-            <button class="close-legal" onclick="closeLegal()">&times;</button>
+            <button class="close-legal" onclick="closeLegal()" aria-label="Close Legal">&times;</button>
             <div id="legalText"></div>
         </div>
     </div>
     
     <div id="usageModal" class="legal-modal">
         <div class="legal-content">
-            <button class="close-legal" onclick="closeUsageModal()">&times;</button>
+            <button class="close-legal" onclick="closeUsageModal()" aria-label="Close Usage">&times;</button>
             <h2>How is the money used?</h2>
             <p style="font-size: 1.1rem; line-height: 1.6;">Before we fed every family with 1.5KG of rice, two sardines and one bottle of water which managed us to feed 500 families (200 per bag) we'll do the same this time which will allow us to feed 5,000 families.</p>
         </div>
@@ -1347,7 +1390,7 @@
                                 </label>
                             </div>
                         </div>
-                        <button class="donate-btn" style="background:#333;" onclick="donate('FLEX')">Donate Custom</button>
+                        <button class="donate-btn" onclick="donate('FLEX')">Donate Custom</button>
                         <button class="gcash-btn" onclick="openGcash('costume')">Pay via GCash (QR)</button>
                     </div>
                 </div>
@@ -1510,6 +1553,7 @@
                 <a onclick="openLegal('privacy')">Privacy Policy</a>
                 <a onclick="openLegal('terms')">Terms of Service</a>
                 <a onclick="openLegal('refund')">Refund Policy</a>
+                <a onclick="openLegal('accessibility')">Accessibility Statement</a>
             </div>
         </div>
     </div>
@@ -1748,6 +1792,20 @@
                 <h3>Why No Refunds?</h3>
                 <p>Because 100% of your payment is immediately allocated to purchasing food, water, and building materials for typhoon victims, we cannot reverse the transaction once the funds have been deployed to the ground.</p>
                 <p>Please consider your purchase as a donation with a bonus educational gift attached.</p>
+            `,
+            'accessibility': `
+                <h2>Accessibility Statement</h2>
+                <p>ePro Formula is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards.</p>
+                <h3>Measures to support accessibility</h3>
+                <p>We take the following measures to ensure accessibility of the ePro Formula Relief site:</p>
+                <ul>
+                    <li>Include accessibility as part of our mission statement.</li>
+                    <li>Ensure high contrast colors for readability.</li>
+                    <li>Provide alternative text for images.</li>
+                </ul>
+                <h3>Feedback</h3>
+                <p>We welcome your feedback on the accessibility of this site. Please let us know if you encounter accessibility barriers on ePro Formula Relief:</p>
+                <p>E-mail: <a href="mailto:aetophis@aetophis.com" style="color:#22c55e;">aetophis@aetophis.com</a></p>
             `
         };
 
