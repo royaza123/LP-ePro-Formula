@@ -491,10 +491,16 @@
         .slide-image-wrapper {
             position: relative;
             cursor: zoom-in;
+            /* Ensure aspect ratio consistency for all slides */
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #111;
         }
         .slide-image-wrapper img {
             width: 100%;
-            border-radius: 10px;
+            height: 100%;
+            object-fit: cover;
             display: block;
         }
         .slide-caption {
@@ -502,6 +508,9 @@
             font-size: 0.9rem;
             font-weight: 700;
             color: #22c55e;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         /* --- UPDATED EXTERNAL WHITE ARROWS --- */
@@ -546,7 +555,7 @@
             background: #000;
             position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            max-width: 280px;
+            /* Max width removed here to let Swiper control size, handled in breakpoints */
             width: 100%;
             margin: 0 auto;
         }
@@ -562,13 +571,13 @@
         }
 
         .student-info { margin-top: 15px; padding: 0 10px; }
-        .student-name { font-size: 1.3rem; font-weight: 800; display: block; color: white; }
+        .student-name { font-size: 1.1rem; font-weight: 800; display: block; color: white; }
         .student-result {
-            color: #000; font-weight: bold; font-size: 1rem;
+            color: #000; font-weight: bold; font-size: 0.9rem;
             background: #22c55e; display: inline-block;
             padding: 3px 10px; border-radius: 5px; margin: 5px 0;
         }
-        .student-desc { font-size: 0.95rem; color: #aaa; line-height: 1.4; }
+        .student-desc { font-size: 0.85rem; color: #aaa; line-height: 1.4; }
 
 
         /* =========================================
@@ -789,6 +798,10 @@
             margin-top: 20px;
             font-size: 1.1rem;
         }
+        
+        .legal-content p {
+            margin-bottom: 15px;
+        }
 
         .close-legal {
             position: absolute;
@@ -799,6 +812,19 @@
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
+        }
+        
+        .footer-extra-links a {
+            color: #22c55e;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .footer-extra-links a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -828,6 +854,14 @@
             <div id="legalText"></div>
         </div>
     </div>
+    
+    <div id="usageModal" class="legal-modal">
+        <div class="legal-content">
+            <button class="close-legal" onclick="closeUsageModal()">&times;</button>
+            <h2>How is the money used?</h2>
+            <p style="font-size: 1.1rem; line-height: 1.6;">Before we fed every family with 1.5KG of rice, two sardines and one bottle of water which managed us to feed 500 families (200 per bag) we'll do the same this time which will allow us to feed 5,000 families.</p>
+        </div>
+    </div>
 
     <div class="container">
         
@@ -835,8 +869,8 @@
             <div class="mission-badge">🚨 Relief Operations Live</div>
             
             <h1 class="hero-headline">
-                LEARN TO <span>EARN</span>.<br>
-                HELP <span>REBUILD</span>.
+                LEARN TO <span>MAKE MONEY ONLINE</span>.<br>
+                HELP <span>REBUILD CEBU AFTER TINO</span>.
             </h1>
 
             <div class="manifesto-box">
@@ -1294,7 +1328,11 @@
 
         <div style="text-align:center; margin-top:60px; padding-top:40px; border-top:1px solid rgba(255,255,255,0.1); opacity:0.6; font-size:0.9rem;">
             <p>© 2025 ePro Formula. Building Business. Rebuilding Communities.</p>
-            <p style="color:#22c55e; margin-top:10px; font-weight:bold;">✅ Funds are tracked publicly via Google Sheets. Receipts posted daily.</p>
+            
+            <div class="footer-extra-links" style="margin-top:20px;">
+                <a href="https://docs.google.com/spreadsheets/d/1qsw8uobLY7v0MK0UDTA3xEPXRxrj-J2sRmxHskS2dyg/edit?gid=248957390#gid=248957390" target="_blank">✅ Funds are tracked publicly via Google Sheets.</a>
+                <a onclick="openUsageModal()">❓ How is the money used?</a>
+            </div>
             
             <div class="footer-legal-links">
                 <a onclick="openLegal('privacy')">Privacy Policy</a>
@@ -1322,6 +1360,7 @@
             slidesPerView: 1,
             spaceBetween: 20,
             loop: true, 
+            slidesPerGroup: 1, // Moves 1 slide at a time
             autoplay: {
                 delay: 10000, 
                 disableOnInteraction: false,
@@ -1332,7 +1371,7 @@
             },
             breakpoints: {
                 640: { slidesPerView: 2, spaceBetween: 20 },
-                900: { slidesPerView: 3, spaceBetween: 30 },
+                900: { slidesPerView: 4, spaceBetween: 20 }, // 4 images per line on desktop
             },
         });
 
@@ -1340,8 +1379,8 @@
         var videoSwiper = new Swiper(".videoSwiper", {
             slidesPerView: 1,
             spaceBetween: 20,
-            loop: false, 
-            rewind: true,
+            loop: true, // Endless loop
+            slidesPerGroup: 1, // Moves 1 slide at a time
             autoplay: false,
             navigation: {
                 nextEl: ".videoSwiper .swiper-button-next",
@@ -1349,7 +1388,7 @@
             },
             breakpoints: {
                 640: { slidesPerView: 2, spaceBetween: 20 },
-                900: { slidesPerView: 3, spaceBetween: 30 },
+                1024: { slidesPerView: 3, spaceBetween: 30 }, // 3 videos per line on desktop
             },
             on: {
                 slideChange: function() {
@@ -1496,9 +1535,10 @@
             setTimeout(() => { document.body.style.opacity = '1'; }, 100);
         };
 
-        // --- 6. LEGAL MODAL LOGIC ---
+        // --- 6. LEGAL & USAGE MODAL LOGIC ---
         const legalModal = document.getElementById('legalModal');
         const legalText = document.getElementById('legalText');
+        const usageModal = document.getElementById('usageModal');
 
         const LEGAL_CONTENT = {
             'privacy': `
@@ -1539,10 +1579,19 @@
         function closeLegal() {
             legalModal.style.display = 'none';
         }
+        
+        function openUsageModal() {
+            usageModal.style.display = 'flex';
+        }
+        
+        function closeUsageModal() {
+            usageModal.style.display = 'none';
+        }
 
         // Close on background click
-        legalModal.addEventListener('click', function(e) {
+        window.addEventListener('click', function(e) {
             if (e.target === legalModal) closeLegal();
+            if (e.target === usageModal) closeUsageModal();
         });
     </script>
 </body>
