@@ -981,7 +981,7 @@
 </head>
 <body>
 
-    <a href="mailto:aetophis@aetophis.com" class="sticky-contact-btn">✉️ Contact</a>
+    <a href="mailto:aetophis@aetophis.com" target="_blank" class="sticky-contact-btn">✉️ Contact</a>
 
     <div class="particles">
         <div class="particle"></div><div class="particle"></div><div class="particle"></div>
@@ -1015,7 +1015,7 @@
                 <p>3. Send the screenshot via:</p>
                 <ul style="margin-left:20px; margin-bottom:15px;">
                     <li><a href="https://www.facebook.com/profile.php?id=61579629904148" target="_blank" style="color:#2463eb;">Facebook Page</a></li>
-                    <li>Email: <a href="mailto:aetophis@aetophis.com" style="color:#2463eb;">aetophis@aetophis.com</a></li>
+                    <li>Email: <a href="mailto:aetophis@aetophis.com" target="_blank" style="color:#2463eb;">aetophis@aetophis.com</a></li>
                     <li>Viber/SMS: <strong>09621811360</strong></li>
                 </ul>
                 <p style="margin-top:15px; font-size:0.8rem; opacity:0.7;">*GCash payments are manually verified. Please allow 24 hours for your name to appear on the Tracker.</p>
@@ -1232,7 +1232,7 @@
                 <div class="swiper-button-prev"></div>
             </div>
 
-            <a href="#donate-anchor" class="cta-btn-large">Show Me How To Do This</a>
+            <a href="#what-is" class="cta-btn-large">Show Me How To Do This</a>
         </div>
 
         <div id="what-is" style="text-align:center; margin-bottom:50px; background:rgba(255,255,255,0.02); padding:30px; border-radius:15px;">
@@ -1718,7 +1718,7 @@
                 url = LINKS[type][isPublic][isSchol];
             }
 
-            if(url) window.location.href = url;
+            if(url) window.open(url, '_blank');
             else alert('Donation link not found.');
         }
 
