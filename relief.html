@@ -434,13 +434,47 @@
             z-index: 2;
         }
 
+        /* PREMIUM 'MOVEMENT' BUTTON STYLES */
         .public-sheet-btn {
-            display: inline-block;
-            margin-top: 15px;
-            color: #888;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 25px;
+            color: #fff;
             text-decoration: none;
-            font-size: 0.9rem;
-            border-bottom: 1px dotted #888;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            background: rgba(255, 255, 255, 0.08); /* Glass effect */
+            padding: 14px 30px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .public-sheet-btn:hover {
+            background: rgba(34, 197, 94, 0.15); /* Green tint on hover */
+            border-color: #22c55e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.2);
+        }
+
+        /* The 'Live' Pulsing Dot */
+        .live-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #22c55e;
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { opacity: 1; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { opacity: 1; box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+            100% { opacity: 1; box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
         }
 
         /* =========================================
@@ -976,7 +1010,7 @@
             <div class="trust-content">
                 <h3>Actions > Screenshots</h3>
                 <p>
-                    We didn't wait for banks. We took <strong>₱100,000 cash</strong> straight to the suppliers.
+                    We didn't wait for banks. We took <strong>₱100,000 cash</strong> From our own pockets, straight to the suppliers. Bought 30 sacks of 25KG each, 1,000 Canned sardines, and 500 bottles of water
                     <br><br>
                     That's us in the photo with the first <strong>500+ relief packs</strong>. No red tape. No middleman fees. Just food for families.
                     <br><br>
@@ -1005,7 +1039,14 @@
                     title="Short Video Landscape">
             </iframe>
         </div>
-        
+        <div style="text-align:center; margin: 30px 0 50px 0;">
+    <a href="#donate-anchor" class="cta-btn-large" style="margin: 0; font-size: 1.3rem; padding: 15px 35px;">
+        Get Access & Help Victims
+    </a>
+    <p style="margin-top:12px; font-size:0.9rem; color:#888; font-style: italic;">
+        (Instant Course Access + Instant Donation)
+    </p>
+</div>
         <div class="equation-wrapper">
             <div class="equation-row">
                 <div class="eq-item">💵 Your Cash</div>
@@ -1022,6 +1063,8 @@
                 <div class="eq-item eq-result">🏠 They Survive</div>
             </div>
         </div>
+
+       </div>
 
         <div class="progress-section">
             <p style="text-align:center; color:#ccc; margin-bottom:20px;">I donated the first ₱100k. Help us raise the rest.</p>
@@ -1045,7 +1088,8 @@
             <div style="text-align:center;">
                 <a href="https://docs.google.com/spreadsheets/d/1qsw8uobLY7v0MK0UDTA3xEPXRxrj-J2sRmxHskS2dyg/edit?gid=248957390#gid=248957390" 
                    target="_blank" class="public-sheet-btn">
-                   📄 Verify on Public Donor List
+                   <span class="live-dot"></span> 
+                   See the Bayanihan Spirit Live
                 </a>
             </div>
         </div>
