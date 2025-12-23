@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relief Fund & Course - ePro Formula</title>
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Relief Fund & Course - ePro Formula">
+    <meta property="og:description" content="Learn to Earn. Help Rebuild. 100% of proceeds go to Typhoon Relief. Get the 6-figure system now.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/ePro%20Formula%20Logo.jpg">
+    <meta property="og:url" content="https://eproformula.com/relief">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/ePro%20Formula%20Logo.jpg">
     
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/ePro%20Formula%20Logo.jpg">
     
@@ -698,6 +706,80 @@
             .win-win-link { padding: 15px; margin-top: 15px; }
             .win-win-text { font-size: 1.1rem; }
         }
+        /* LEGAL FOOTER & MODALS */
+.footer-legal-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+.footer-legal-links a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.footer-legal-links a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.legal-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    z-index: 10000;
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.legal-content {
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.1);
+    max-width: 600px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding: 40px;
+    border-radius: 15px;
+    position: relative;
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.legal-content h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.legal-content h3 {
+    color: #fff;
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+.close-legal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
     </style>
 </head>
 <body>
@@ -1380,6 +1462,54 @@
             document.body.style.transition = 'opacity 0.5s ease';
             setTimeout(() => { document.body.style.opacity = '1'; }, 100);
         };
+        // LEGAL MODAL LOGIC
+const legalModal = document.getElementById('legalModal');
+const legalText = document.getElementById('legalText');
+
+const LEGAL_CONTENT = {
+    'privacy': `
+        <h2>Privacy Policy</h2>
+        <p><strong>Effective Date:</strong> December 2025</p>
+        <p>At ePro Formula Relief Initiative, we prioritize your privacy. We collect only the information necessary to process your donation and deliver the course materials (Name, Email, Payment Details via Stripe).</p>
+        <h3>1. Information Usage</h3>
+        <p>Your email is used to send course login details and updates regarding the relief fund distribution. We do not sell your data.</p>
+        <h3>2. Payment Security</h3>
+        <p>All payments are processed securely through Stripe. We do not store your credit card information on our servers.</p>
+        <h3>3. Transparency</h3>
+        <p>Donation amounts may be listed publicly on our tracking sheet for transparency, but your personal contact info will remain private unless you consent otherwise.</p>
+    `,
+    'terms': `
+        <h2>Terms of Service</h2>
+        <p>By purchasing the ePro Formula course through this relief initiative, you agree to the following:</p>
+        <h3>1. Nature of Purchase</h3>
+        <p>You are purchasing a digital educational product. 100% of the net proceeds from this sale are voluntarily pledged by the creator to Typhoon Relief efforts.</p>
+        <h3>2. Course Access</h3>
+        <p>Access to the course is provided immediately upon payment confirmation via email.</p>
+        <h3>3. Limitation of Liability</h3>
+        <p>The course provides educational strategies. We do not guarantee specific earnings. Your results depend on your implementation.</p>
+    `,
+    'refund': `
+        <h2>Refund Policy</h2>
+        <p>Due to the charitable nature of this specific campaign, <strong>all sales are final</strong>.</p>
+        <h3>Why No Refunds?</h3>
+        <p>Because 100% of your payment is immediately allocated to purchasing food, water, and building materials for typhoon victims, we cannot reverse the transaction once the funds have been deployed to the ground.</p>
+        <p>Please consider your purchase as a donation with a bonus educational gift attached.</p>
+    `
+};
+
+function openLegal(type) {
+    legalText.innerHTML = LEGAL_CONTENT[type];
+    legalModal.style.display = 'flex';
+}
+
+function closeLegal() {
+    legalModal.style.display = 'none';
+}
+
+// Close on background click
+legalModal.addEventListener('click', function(e) {
+    if (e.target === legalModal) closeLegal();
+});
     </script>
 </body>
 </html>
