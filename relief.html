@@ -103,7 +103,6 @@
             z-index: 1;
         }
 
-        /* Header */
         .header {
             text-align: center;
             margin-bottom: 20px;
@@ -140,9 +139,7 @@
             box-shadow: 0 8px 20px rgba(217, 119, 6, 0.3);
         }
 
-        /* =========================================
-           3.5 NAVIGATION / CTAS (NEW)
-           ========================================= */
+        /* Navigation */
         .nav-wrapper {
             display: flex;
             justify-content: center;
@@ -360,12 +357,27 @@
             left: 0;
             width: 100%;
             height: 100%;
+            /* Default background before JS loads image */
             background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 2;
             transition: opacity 0.4s ease, visibility 0.4s;
+        }
+        
+        /* Darken overlay for video cover so play button pops */
+        .video-cover::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: -1;
         }
 
         .play-btn {
@@ -378,6 +390,7 @@
             justify-content: center;
             box-shadow: 0 0 30px rgba(217, 119, 6, 0.5);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 3;
         }
 
         .play-btn svg {
@@ -441,7 +454,7 @@
             text-decoration-thickness: 3px;
         }
 
-        /* Hero Image - The 6k Result */
+        /* --- HERO IMAGE (6k result) --- */
         .featured-hero-card {
             background: rgba(255, 255, 255, 0.05);
             border: 2px solid #d97706;
@@ -480,10 +493,10 @@
             color: #22c55e;
         }
 
-        /* Swiper Carousel Styling */
+        /* --- SWIPER CAROUSEL --- */
         .swiper {
             width: 100%;
-            padding-bottom: 50px !important; /* Space for pagination */
+            padding: 20px 0 60px 0; /* Adjusted padding */
         }
 
         .swiper-slide {
@@ -491,7 +504,6 @@
             border-radius: 15px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            /* Make slides same height */
             height: auto;
             display: flex;
             flex-direction: column;
@@ -500,10 +512,11 @@
         .slide-image-wrapper {
             background: #000;
             width: 100%;
-            height: 300px; /* Fixed height container */
+            height: 300px; /* Fixed height */
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 10px;
         }
 
         .slide-image-wrapper img {
@@ -511,7 +524,7 @@
             max-height: 100%;
             width: auto;
             height: auto;
-            object-fit: contain; /* Ensures the whole screenshot is seen */
+            object-fit: contain; /* Ensures the whole screenshot is seen, even if different aspect ratio */
         }
 
         .slide-caption {
@@ -523,17 +536,27 @@
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        .swiper-pagination-bullet {
-            background: #fff;
-            opacity: 0.5;
+        /* Swiper Arrows (Navigation) */
+        .swiper-button-next, .swiper-button-prev {
+            color: #d97706; /* Orange arrows */
+            background: rgba(255,255,255,0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
         }
-        .swiper-pagination-bullet-active {
-            background: #d97706;
-            opacity: 1;
+        
+        .swiper-button-next::after, .swiper-button-prev::after {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background: rgba(255,255,255,0.2);
         }
 
         /* =========================================
-           7. WHAT IS DROPSHIPPING (NEW SECTION)
+           7. WHAT IS DROPSHIPPING
            ========================================= */
         .explainer-section {
             background: rgba(15, 23, 42, 0.6);
@@ -640,7 +663,7 @@
         }
 
         /* =========================================
-           9. DONATION SECTION (MOVED UP)
+           9. DONATION SECTION
            ========================================= */
         .donation-section {
             background: rgba(255, 255, 255, 0.05);
@@ -649,7 +672,7 @@
             border-radius: 20px;
             padding: 40px;
             margin-bottom: 40px;
-            position: relative; /* For anchor linking */
+            position: relative;
             margin-top: 40px;
         }
 
@@ -858,8 +881,8 @@
             .logo { font-size: 2rem; }
             .donation-options { grid-template-columns: 1fr; }
             .play-btn { width: 70px; height: 70px; }
-            /* Carousel arrows might need adjustment if used, but pagination is safe */
             .cta-btn-large { width: 100%; font-size: 1.2rem; }
+            /* Hide swiper arrows on mobile if they obscure content, but generally they are fine */
         }
     </style>
 </head>
@@ -926,7 +949,7 @@
 
         <div class="story-section" id="story">
             
-            <div class="video-wrapper" id="videoTrigger">
+            <div class="video-wrapper" id="videoTrigger" data-vimeo-id="1148687196">
                 <div class="video-cover">
                     <div class="play-btn">
                         <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -999,7 +1022,8 @@
                         <div class="slide-caption">$896 easy daily cash</div>
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
 
             <a href="#donate-anchor" class="cta-btn-large">Show Me How To Do This</a>
@@ -1166,7 +1190,6 @@
                         <p class="student-desc">He is a soldier. He has NO time. He still makes money.</p>
                     </div>
                 </div>
-
                 <div class="student-story">
                     <div class="phone-frame">
                         <div class="vertical-video-wrapper">
@@ -1179,7 +1202,6 @@
                         <p class="student-desc">He is a kid! He makes more than his teachers in 3 months.</p>
                     </div>
                 </div>
-
                 <div class="student-story">
                     <div class="phone-frame">
                         <div class="vertical-video-wrapper">
@@ -1190,84 +1212,6 @@
                         <span class="student-name">Eden, 27 Years Old</span>
                         <div class="student-result">$6,000/Month</div>
                         <p class="student-desc">She paid for her WHOLE wedding with this money.</p>
-                    </div>
-                </div>
-
-                <div class="student-story">
-                    <div class="phone-frame">
-                        <div class="vertical-video-wrapper">
-                            <iframe src="https://player.vimeo.com/video/1122865827?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Paul, 56, Moving to Thailand"></iframe>
-                        </div>
-                    </div>
-                    <div class="student-info">
-                        <span class="student-name">Paul, 56 Years Old</span>
-                        <div class="student-result">Retiring to Thailand</div>
-                        <p class="student-desc">He quit his gym business. He is moving to paradise.</p>
-                    </div>
-                </div>
-
-                <div class="student-story">
-                    <div class="phone-frame">
-                        <div class="vertical-video-wrapper">
-                            <iframe src="https://player.vimeo.com/video/1122865368?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Netanel, 19, Quit Ikea Chef Job"></iframe>
-                        </div>
-                    </div>
-                    <div class="student-info">
-                        <span class="student-name">Netanel, 19 Years Old</span>
-                        <div class="student-result">$6,000/Month</div>
-                        <p class="student-desc">He was a chef at IKEA. He quit. Now he is free.</p>
-                    </div>
-                </div>
-
-                <div class="student-story">
-                    <div class="phone-frame">
-                        <div class="vertical-video-wrapper">
-                            <iframe src="https://player.vimeo.com/video/1122842339?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Idan, 28, 3K USD"></iframe>
-                        </div>
-                    </div>
-                    <div class="student-info">
-                        <span class="student-name">Idan, 28 Years Old</span>
-                        <div class="student-result">$3,000/Month (Part Time)</div>
-                        <p class="student-desc">He has a full time job. He does this on the side. Easy money.</p>
-                    </div>
-                </div>
-
-                <div class="student-story">
-                    <div class="phone-frame">
-                        <div class="vertical-video-wrapper">
-                            <iframe src="https://player.vimeo.com/video/1122845750?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Gedalia, 25, 10K USD MONTHLY"></iframe>
-                        </div>
-                    </div>
-                    <div class="student-info">
-                        <span class="student-name">Gedalia, 25 Years Old</span>
-                        <div class="student-result">$10,000 in 3 Months</div>
-                        <p class="student-desc">He spent $1M on other courses. They failed. This worked.</p>
-                    </div>
-                </div>
-
-                <div class="student-story">
-                    <div class="phone-frame">
-                        <div class="vertical-video-wrapper">
-                            <iframe src="https://player.vimeo.com/video/1122846985?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Ido, 19, 7K USD IN 2 WEEKS"></iframe>
-                        </div>
-                    </div>
-                    <div class="student-info">
-                        <span class="student-name">Ido, 19 Years Old</span>
-                        <div class="student-result">$7,000 in 2 WEEKS</div>
-                        <p class="student-desc">He is in the army service. He made this while serving.</p>
-                    </div>
-                </div>
-
-                <div class="student-story">
-                    <div class="phone-frame">
-                        <div class="vertical-video-wrapper">
-                            <iframe src="https://player.vimeo.com/video/1122849599?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Nikita, 22, University student"></iframe>
-                        </div>
-                    </div>
-                    <div class="student-info">
-                        <span class="student-name">Nikita, 22 Years Old</span>
-                        <div class="student-result">$3,000/Month</div>
-                        <p class="student-desc">He is a university student. He studies and makes cash.</p>
                     </div>
                 </div>
             </div>
@@ -1307,9 +1251,14 @@
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 1,
             spaceBetween: 20,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
+            loop: true, // Infinite loop
+            autoplay: {
+                delay: 10000, // 10 Seconds
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
             },
             breakpoints: {
                 640: {
@@ -1322,6 +1271,22 @@
                 },
             },
         });
+
+        // VIMEO THUMBNAIL FETCH
+        // This grabs the thumbnail from your video ID so the "cover" isn't just black.
+        const videoWrapper = document.getElementById('videoTrigger');
+        const vimeoId = videoWrapper.getAttribute('data-vimeo-id');
+        
+        if (vimeoId) {
+            fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${vimeoId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const cover = videoWrapper.querySelector('.video-cover');
+                    // Set the fetched thumbnail as background
+                    cover.style.backgroundImage = `url(${data.thumbnail_url})`;
+                })
+                .catch(err => console.log('Could not fetch Vimeo thumb', err));
+        }
 
         const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxg3U2JtDVHNg54g6VUXLd7ySlNNP5uTjUFh9VVo_o-kz1LHK_S9iS4WeJU-mLNAyT8/exec';
         
@@ -1384,34 +1349,19 @@
         }
 
         async function updateProgress(data) {
-            // 1. Handle Amounts
             let remaining = data.Remaining_PHP;
-            
-            // Safety: Ensure remaining is a valid number
             if (remaining === undefined || remaining === null || isNaN(remaining)) {
                 remaining = GOAL;
             }
-            
-            // Calculate Raised
             const raised = GOAL - remaining;
-
-            // 2. Handle Percentage (THE BULLETPROOF FIX)
-            // We ignore data.percent entirely. We calculate it strictly from the money.
-            // Formula: (Raised / Goal) * 100
             let percent = (raised / GOAL) * 100;
-
-            // Cap the visual bar width at 100% so it doesn't overflow
             const displayPercent = Math.min(percent, 100);
 
-            // 3. Update Text
             document.getElementById('raisedAmount').innerText = formatPeso(raised);
             document.getElementById('remainingAmount').innerText = formatPeso(remaining);
-            
-            // Show 1 decimal place (e.g. "10.0%")
             document.getElementById('percentageDisplay').innerText = percent.toFixed(1) + '%';
             document.getElementById('progressPercentage').innerText = percent.toFixed(1) + '%';
 
-            // 4. Update Bar & Color
             const bar = document.getElementById('progressBar');
             bar.style.width = displayPercent + '%'; 
             setBatteryColor(percent, bar);
@@ -1446,12 +1396,10 @@
             else alert('Donation link not found.');
         }
 
-        // Initialize
         window.onload = () => {
             fetchData();
             setInterval(fetchData, 60000); 
 
-            // Fade in page load
             document.body.style.opacity = '0';
             document.body.style.transition = 'opacity 0.5s ease';
             setTimeout(() => { document.body.style.opacity = '1'; }, 100);
