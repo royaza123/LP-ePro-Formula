@@ -921,19 +921,20 @@
             </div>
         </div>
 
-        <div class="video-box" id="story" data-vimeo-id="1148687196">
-            <div class="video-cover">
-                <div class="play-btn">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-                </div>
-            </div>
-            <iframe id="mainStoryIframe" 
-        src="https://player.vimeo.com/video/1148687196?badge=0&autopause=0&player_id=0&app_id=58479" 
-        frameborder="0" 
-        allow="autoplay; fullscreen; picture-in-picture" 
-        title="Short Video Landscape">
-            </iframe>
+   <div class="video-box" id="story" onclick="playHeroVideo(this)">
+    <div class="video-cover" style="background: transparent;">
+        <div class="play-btn">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 5V19L19 12L8 5Z" fill="white"/>
+            </svg>
         </div>
+    </div>
+    <iframe src="https://player.vimeo.com/video/1148687196?badge=0&autopause=0&player_id=0&app_id=58479" 
+            frameborder="0" 
+            allow="autoplay; fullscreen; picture-in-picture" 
+            title="Short Video Landscape">
+    </iframe>
+</div>
 
         <div class="progress-section">
             <p style="text-align:center; color:#ccc; margin-bottom:20px;">I donated the first ₱100k. Help us raise the rest.</p>
@@ -1428,34 +1429,6 @@
                 closeZoom();
             }
         });
-
-       // --- 4. VIMEO THUMBNAIL & PLAY LOGIC (FIXED) ---
-        const videoWrapper = document.getElementById('story');
-        const iframe = document.getElementById('mainStoryIframe');
-        const vimeoId = videoWrapper.getAttribute('data-vimeo-id');
-        
-        // Initialize the Vimeo Player API
-        const player = new Vimeo.Player(iframe);
-
-        if (vimeoId) {
-            fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${vimeoId}`)
-                .then(response => response.json())
-                .then(data => {
-                    const cover = videoWrapper.querySelector('.video-cover');
-                    cover.style.backgroundImage = `url(${data.thumbnail_url})`;
-                })
-                .catch(err => console.log('Could not fetch Vimeo thumb', err));
-        }
-
-        videoWrapper.addEventListener('click', function() {
-            // 1. Hide the cover image immediately
-            this.classList.add('playing');
-
-            // 2. Tell the existing video to Play (No reloading = No double audio)
-            player.play().catch(function(error) {
-                console.error('Error playing video:', error);
-            });
-        });
         
         // --- 5. PROGRESS BAR LOGIC ---
         const GOAL = 1000000;
@@ -1542,7 +1515,13 @@
             document.body.style.transition = 'opacity 0.5s ease';
             setTimeout(() => { document.body.style.opacity = '1'; }, 100);
         };
-
+        function playHeroVideo(container) {
+            container.classList.add('playing');
+            var iframe = container.querySelector('iframe');
+            if (!iframe.src.includes('autoplay=1')) {
+                iframe.src += "&autoplay=1";
+            }
+        }
         // --- 6. LEGAL & USAGE MODAL LOGIC ---
         const legalModal = document.getElementById('legalModal');
         const legalText = document.getElementById('legalText');
