@@ -149,8 +149,7 @@
         </nav>
     </div>
 
-    <!-- KAP TRUST BANNER -->
-    <div class="kap-banner" id="story">
+<div class="kap-banner" id="story">
         <span class="kap-badge">✓ Verified Partner</span>
         
         <div class="kap-img" onclick="openZoom('images/relief/trust/hugging kap me and pele.jpg')">
@@ -162,11 +161,11 @@
             <p class="title">Barangay Captain Clifford Jude Niñal • #FATHEROFTHEHOMELESS • San Nicolas Proper, Talisay City</p>
             <p>We're not just sending money. We're on the ground, buying supplies directly from local stores, packing relief goods ourselves, and delivering them hand-to-hand to families who lost everything.</p>
             <div class="kap-quote">"OUR BROTHER ISRAELITES. WELCOME TO CEBU, PHILIPPINES. THANK YOU FOR HELPING US." — Kap. Clifford Jude Niñal</div>
+            
+            <div class="kap-facebook-embed">
+                <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fclifford.ninal%2Fposts%2Fpfbid0Tyv93dHR9TYnRmYFwV1zX7tUN2PvizPGU2HNrEVCRxzTRtdoMiL2s4dbDhEsFC7Ul&show_text=true&width=500" width="100%" height="400" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
         </div>
-    </div>
-<!-- CLIFFORD FACEBOOK POST -->
-    <div class="facebook-embed">
-        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fclifford.ninal%2Fposts%2Fpfbid0Tyv93dHR9TYnRmYFwV1zX7tUN2PvizPGU2HNrEVCRxzTRtdoMiL2s4dbDhEsFC7Ul&show_text=true&width=500" width="500" height="358" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
     </div>
     <!-- VIDEO SECTION -->
     <div class="section-label">
@@ -309,24 +308,73 @@
         <h2 style="font-family:'Space Grotesk',sans-serif;font-size:2.5rem;text-align:center;margin-bottom:10px">Spreading Across Facebook</h2>
         <p class="sub">Real people sharing. Real trust building.</p>
         
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px">
-            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/cap repost.jpg')">
-                <img src="images/relief/trust/cap repost.jpg" alt="Kap Clifford repost" style="width:100%;display:block">
-            </div>
-            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/pastor Carlos Ramil Lacuna sharing .jpg')">
-                <img src="images/relief/trust/pastor Carlos Ramil Lacuna sharing .jpg" alt="Pastor sharing" style="width:100%;display:block">
-            </div>
-            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/pepole sharing in groups 1 .jpg')">
-                <img src="images/relief/trust/pepole sharing in groups 1 .jpg" alt="Shared in groups" style="width:100%;display:block">
-            </div>
-            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/pepole sharing in their private feed.jpg')">
-                <img src="images/relief/trust/pepole sharing in their private feed.jpg" alt="Private feed share" style="width:100%;display:block">
-            </div>
-            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/42 shares to our posts.jpg')">
-                <img src="images/relief/trust/42 shares to our posts.jpg" alt="42 shares" style="width:100%;display:block">
+<div class="facebook-carousel">
+            <div class="facebook-carousel-track">
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/cap repost.jpg')">
+                    <img src="images/relief/trust/cap repost.jpg" alt="Kap Clifford repost">
+                </div>
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/pastor Carlos Ramil Lacuna sharing .jpg')">
+                    <img src="images/relief/trust/pastor Carlos Ramil Lacuna sharing .jpg" alt="Pastor sharing">
+                </div>
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/pepole sharing in groups 1 .jpg')">
+                    <img src="images/relief/trust/pepole sharing in groups 1 .jpg" alt="Shared in groups">
+                </div>
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/pepole sharing in their private feed.jpg')">
+                    <img src="images/relief/trust/pepole sharing in their private feed.jpg" alt="Private feed share">
+                </div>
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/42 shares to our posts.jpg')">
+                    <img src="images/relief/trust/42 shares to our posts.jpg" alt="42 shares">
+                </div>
+                <!-- Duplicate 1 -->
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/cap repost.jpg')">
+                    <img src="images/relief/trust/cap repost.jpg" alt="Kap Clifford repost">
+                </div>
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/pastor Carlos Ramil Lacuna sharing .jpg')">
+                    <img src="images/relief/trust/pastor Carlos Ramil Lacuna sharing .jpg" alt="Pastor sharing">
+                </div>
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/pepole sharing in groups 1 .jpg')">
+                    <img src="images/relief/trust/pepole sharing in groups 1 .jpg" alt="Shared in groups">
+                </div>
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/pepole sharing in their private feed.jpg')">
+                    <img src="images/relief/trust/pepole sharing in their private feed.jpg" alt="Private feed share">
+                </div>
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/42 shares to our posts.jpg')">
+                    <img src="images/relief/trust/42 shares to our posts.jpg" alt="42 shares">
+                </div>
+                <!-- Duplicate 2 -->
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/cap repost.jpg')">
+                    <img src="images/relief/trust/cap repost.jpg" alt="Kap Clifford repost">
+                </div>
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/pastor Carlos Ramil Lacuna sharing .jpg')">
+                    <img src="images/relief/trust/pastor Carlos Ramil Lacuna sharing .jpg" alt="Pastor sharing">
+                </div>
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/pepole sharing in groups 1 .jpg')">
+                    <img src="images/relief/trust/pepole sharing in groups 1 .jpg" alt="Shared in groups">
+                </div>
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/pepole sharing in their private feed.jpg')">
+                    <img src="images/relief/trust/pepole sharing in their private feed.jpg" alt="Private feed share">
+                </div>
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/42 shares to our posts.jpg')">
+                    <img src="images/relief/trust/42 shares to our posts.jpg" alt="42 shares">
+                </div>
+                <!-- Duplicate 3 -->
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/cap repost.jpg')">
+                    <img src="images/relief/trust/cap repost.jpg" alt="Kap Clifford repost">
+                </div>
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/pastor Carlos Ramil Lacuna sharing .jpg')">
+                    <img src="images/relief/trust/pastor Carlos Ramil Lacuna sharing .jpg" alt="Pastor sharing">
+                </div>
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/pepole sharing in groups 1 .jpg')">
+                    <img src="images/relief/trust/pepole sharing in groups 1 .jpg" alt="Shared in groups">
+                </div>
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/pepole sharing in their private feed.jpg')">
+                    <img src="images/relief/trust/pepole sharing in their private feed.jpg" alt="Private feed share">
+                </div>
+                <div class="facebook-carousel-item" onclick="openZoom('images/relief/trust/42 shares to our posts.jpg')">
+                    <img src="images/relief/trust/42 shares to our posts.jpg" alt="42 shares">
+                </div>
             </div>
         </div>
-    </div>
 
     <!-- PROOF SECTION -->
     <div class="proof" id="proof" style="margin-bottom:60px">
