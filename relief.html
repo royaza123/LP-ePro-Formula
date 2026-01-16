@@ -30,6 +30,24 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* GCash Modal Override - Full Image Visibility */
+        .gcash-content {
+            max-height: 90vh !important;
+            overflow-y: auto !important;
+        }
+        .qr-wrapper {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .qr-wrapper img {
+            max-width: 100% !important;
+            width: auto !important;
+            height: auto !important;
+            display: inline-block !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -60,7 +78,7 @@
 <!-- Lightbox Modal -->
 <div class="lightbox" id="lightbox">
     <button class="close-lightbox" onclick="closeZoom()">&times;</button>
-    <div class="lightbox-wrap" id="lightboxWrap">
+    <div class="lightbox-wrap">
         <img src="" class="lightbox-img" id="lightboxImg" alt="Zoomed Image">
     </div>
 </div>
@@ -135,8 +153,8 @@
     <div class="kap-banner" id="story">
         <span class="kap-badge">✓ Verified Partner</span>
         
-        <div class="kap-img" onclick="openZoom('images/relief/trust/hugging_kap_me_and_pele.jpg')">
-            <img src="images/relief/trust/hugging_kap_me_and_pele.jpg" alt="ePro team with Barangay Captain">
+        <div class="kap-img" onclick="openZoom('images/relief/trust/hugging kap me and pele.jpg')">
+            <img src="images/relief/trust/hugging kap me and pele.jpg" alt="ePro team with Barangay Captain">
         </div>
         
         <div class="kap-content">
@@ -168,7 +186,7 @@
         <h2>Who We Are</h2>
         <p>ePro Formula is an e-commerce education community that usually focuses on building online businesses. Right now, we have shifted our entire focus to raising ₱1M to provide immediate food, water, and shelter for families devastated by Typhoon Tino in Cebu.</p>
         <p style="margin-top:15px">We donated the first ₱100,000 from our own pocket. Now we're giving away our entire course—and 100% of your payment goes directly to relief operations.</p>
-        <div class="dti-badge" onclick="openZoom('images/relief/trust/DTI_certificate.jpg')">
+        <div class="dti-badge" onclick="openZoom('images/relief/trust/DTI certificate.jpg')">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             DTI Registered Business • View Certificate
         </div>
@@ -252,32 +270,32 @@
         <p class="sub">Real photos. Real impact. No middlemen.</p>
         
         <div class="photo-grid">
-            <div class="photo-item featured" onclick="openZoom('images/relief/trust/giving_food_second_villa.jpg')">
-                <img src="images/relief/trust/giving_food_second_villa.jpg" alt="Distributing relief goods">
+            <div class="photo-item featured" onclick="openZoom('images/relief/trust/giving food second villa.jpg')">
+                <img src="images/relief/trust/giving food second villa.jpg" alt="Distributing relief goods">
                 <div class="caption">Distributing in flooded neighborhoods</div>
             </div>
-            <div class="photo-item" onclick="openZoom('images/relief/trust/70K_in_cash_buying_the_stuff.jpg')">
-                <img src="images/relief/trust/70K_in_cash_buying_the_stuff.jpg" alt="Cash for supplies">
+            <div class="photo-item" onclick="openZoom('images/relief/trust/70K in cash buying the stuff.jpg')">
+                <img src="images/relief/trust/70K in cash buying the stuff.jpg" alt="Cash for supplies">
                 <div class="caption">₱70K cash for supplies</div>
             </div>
-            <div class="photo-item" onclick="openZoom('images/relief/trust/all_the_food_before_repacking.jpg')">
-                <img src="images/relief/trust/all_the_food_before_repacking.jpg" alt="Rice sacks">
+            <div class="photo-item" onclick="openZoom('images/relief/trust/all the food before repacking.jpg')">
+                <img src="images/relief/trust/all the food before repacking.jpg" alt="Rice sacks">
                 <div class="caption">Bulk supplies ready</div>
             </div>
-            <div class="photo-item" onclick="openZoom('images/relief/trust/all_the_packed_food.jpg')">
-                <img src="images/relief/trust/all_the_packed_food.jpg" alt="Packed relief bags">
+            <div class="photo-item" onclick="openZoom('images/relief/trust/all the packed food.jpg')">
+                <img src="images/relief/trust/all the packed food.jpg" alt="Packed relief bags">
                 <div class="caption">500+ relief packs ready</div>
             </div>
-            <div class="photo-item" onclick="openZoom('images/relief/trust/all_with_family.jpg')">
-                <img src="images/relief/trust/all_with_family.jpg" alt="Team with community">
+            <div class="photo-item" onclick="openZoom('images/relief/trust/all with family.jpg')">
+                <img src="images/relief/trust/all with family.jpg" alt="Team with community">
                 <div class="caption">With the community</div>
             </div>
-            <div class="photo-item" onclick="openZoom('images/relief/trust/on_the_truck_me_and_pele.jpg')">
-                <img src="images/relief/trust/on_the_truck_me_and_pele.jpg" alt="Loading truck">
+            <div class="photo-item" onclick="openZoom('images/relief/trust/on the truck me and pele.jpg')">
+                <img src="images/relief/trust/on the truck me and pele.jpg" alt="Loading truck">
                 <div class="caption">Loading the truck</div>
             </div>
-            <div class="photo-item" onclick="openZoom('images/relief/trust/me__pele__maria__with_family.jpg')">
-                <img src="images/relief/trust/me__pele__maria__with_family.jpg" alt="Evacuation center">
+            <div class="photo-item" onclick="openZoom('images/relief/trust/me, pele, maria, with family.jpg')">
+                <img src="images/relief/trust/me, pele, maria, with family.jpg" alt="Evacuation center">
                 <div class="caption">At the evacuation center</div>
             </div>
         </div>
@@ -289,20 +307,20 @@
         <p class="sub">Real people sharing. Real trust building.</p>
         
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px">
-            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/cap_repost.jpg')">
-                <img src="images/relief/trust/cap_repost.jpg" alt="Kap Clifford repost" style="width:100%;display:block">
+            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/cap repost.jpg')">
+                <img src="images/relief/trust/cap repost.jpg" alt="Kap Clifford repost" style="width:100%;display:block">
             </div>
-            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/jgp_limbaga_thanking_us_under_kap_post.jpg')">
-                <img src="images/relief/trust/jgp_limbaga_thanking_us_under_kap_post.jpg" alt="Supplier thanking us" style="width:100%;display:block">
+            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/pastor Carlos Ramil Lacuna sharing .jpg')">
+                <img src="images/relief/trust/pastor Carlos Ramil Lacuna sharing .jpg" alt="Pastor sharing" style="width:100%;display:block">
             </div>
-            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/pepole_sharing_in_groups_1_.jpg')">
-                <img src="images/relief/trust/pepole_sharing_in_groups_1_.jpg" alt="Shared in groups" style="width:100%;display:block">
+            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/pepole sharing in groups 1 .jpg')">
+                <img src="images/relief/trust/pepole sharing in groups 1 .jpg" alt="Shared in groups" style="width:100%;display:block">
             </div>
-            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/pepole_sharing_in_their_private_feed.jpg')">
-                <img src="images/relief/trust/pepole_sharing_in_their_private_feed.jpg" alt="Private feed share" style="width:100%;display:block">
+            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/pepole sharing in their private feed.jpg')">
+                <img src="images/relief/trust/pepole sharing in their private feed.jpg" alt="Private feed share" style="width:100%;display:block">
             </div>
-            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/42_shares_to_our_posts.jpg')">
-                <img src="images/relief/trust/42_shares_to_our_posts.jpg" alt="42 shares" style="width:100%;display:block">
+            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/42 shares to our posts.jpg')">
+                <img src="images/relief/trust/42 shares to our posts.jpg" alt="42 shares" style="width:100%;display:block">
             </div>
         </div>
     </div>
@@ -312,46 +330,46 @@
         <h2>Screenshots <span>Don't Lie</span></h2>
         <p class="sub">Tap any image to inspect the evidence.</p>
         
-        <div class="featured-card" onclick="openZoom('images/results/notable_results/6K_In_one_day.jpg')">
-            <img src="images/results/notable_results/6K_In_one_day.jpg" alt="$6,000 in one day">
+        <div class="featured-card" onclick="openZoom('images/results/notable results/6K In one day.jpg')">
+            <img src="images/results/notable results/6K In one day.jpg" alt="$6,000 in one day">
             <div class="result">$6,000 in ONE DAY</div>
         </div>
         
         <div class="swiper results-swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <div style="border-radius:15px;overflow:hidden;cursor:pointer;border:1px solid var(--border)" onclick="openZoom('images/results/notable_results/1,368.50_dollars_a_day.jpg')">
-                        <img src="images/results/notable_results/1,368.50_dollars_a_day.jpg" alt="$1,368 a day" style="width:100%;display:block">
+                    <div style="border-radius:15px;overflow:hidden;cursor:pointer;border:1px solid var(--border)" onclick="openZoom('images/results/notable results/1,368.50 dollars a day.jpg')">
+                        <img src="images/results/notable results/1,368.50 dollars a day.jpg" alt="$1,368 a day" style="width:100%;display:block">
                     </div>
                     <div style="text-align:center;margin-top:10px;font-weight:600;color:var(--orange-light)">$1,368 in a day</div>
                 </div>
                 <div class="swiper-slide">
-                    <div style="border-radius:15px;overflow:hidden;cursor:pointer;border:1px solid var(--border)" onclick="openZoom('images/results/notable_results/1,999_dollars_a_day.jpg')">
-                        <img src="images/results/notable_results/1,999_dollars_a_day.jpg" alt="$1,999 a day" style="width:100%;display:block">
+                    <div style="border-radius:15px;overflow:hidden;cursor:pointer;border:1px solid var(--border)" onclick="openZoom('images/results/notable results/1,999 dollars a day.jpg')">
+                        <img src="images/results/notable results/1,999 dollars a day.jpg" alt="$1,999 a day" style="width:100%;display:block">
                     </div>
                     <div style="text-align:center;margin-top:10px;font-weight:600;color:var(--orange-light)">$1,999 in a day</div>
                 </div>
                 <div class="swiper-slide">
-                    <div style="border-radius:15px;overflow:hidden;cursor:pointer;border:1px solid var(--border)" onclick="openZoom('images/results/notable_results/2,132_dollars_a_day.jpg')">
-                        <img src="images/results/notable_results/2,132_dollars_a_day.jpg" alt="$2,132 a day" style="width:100%;display:block">
+                    <div style="border-radius:15px;overflow:hidden;cursor:pointer;border:1px solid var(--border)" onclick="openZoom('images/results/notable results/2,132 dollars a day.jpg')">
+                        <img src="images/results/notable results/2,132 dollars a day.jpg" alt="$2,132 a day" style="width:100%;display:block">
                     </div>
                     <div style="text-align:center;margin-top:10px;font-weight:600;color:var(--orange-light)">$2,132 in a day</div>
                 </div>
                 <div class="swiper-slide">
-                    <div style="border-radius:15px;overflow:hidden;cursor:pointer;border:1px solid var(--border)" onclick="openZoom('images/results/notable_results/15,500_dollars_a_month.jpg')">
-                        <img src="images/results/notable_results/15,500_dollars_a_month.jpg" alt="$15,500 a month" style="width:100%;display:block">
+                    <div style="border-radius:15px;overflow:hidden;cursor:pointer;border:1px solid var(--border)" onclick="openZoom('images/results/notable results/15,500 dollars a month.jpg')">
+                        <img src="images/results/notable results/15,500 dollars a month.jpg" alt="$15,500 a month" style="width:100%;display:block">
                     </div>
                     <div style="text-align:center;margin-top:10px;font-weight:600;color:var(--orange-light)">$15,500 in a MONTH</div>
                 </div>
                 <div class="swiper-slide">
-                    <div style="border-radius:15px;overflow:hidden;cursor:pointer;border:1px solid var(--border)" onclick="openZoom('images/results/notable_results/4,771.50_dollars_a_week.jpg')">
-                        <img src="images/results/notable_results/4,771.50_dollars_a_week.jpg" alt="$4,771 a week" style="width:100%;display:block">
+                    <div style="border-radius:15px;overflow:hidden;cursor:pointer;border:1px solid var(--border)" onclick="openZoom('images/results/notable results/4,771.50 dollars a week.jpg')">
+                        <img src="images/results/notable results/4,771.50 dollars a week.jpg" alt="$4,771 a week" style="width:100%;display:block">
                     </div>
                     <div style="text-align:center;margin-top:10px;font-weight:600;color:var(--orange-light)">$4,771 in one week</div>
                 </div>
                 <div class="swiper-slide">
-                    <div style="border-radius:15px;overflow:hidden;cursor:pointer;border:1px solid var(--border)" onclick="openZoom('images/results/notable_results/many_mails_sales.jpg')">
-                        <img src="images/results/notable_results/many_mails_sales.jpg" alt="Inbox full of sales" style="width:100%;display:block">
+                    <div style="border-radius:15px;overflow:hidden;cursor:pointer;border:1px solid var(--border)" onclick="openZoom('images/results/notable results/many mails sales.jpg')">
+                        <img src="images/results/notable results/many mails sales.jpg" alt="Inbox full of sales" style="width:100%;display:block">
                     </div>
                     <div style="text-align:center;margin-top:10px;font-weight:600;color:var(--orange-light)">Inbox FULL of sales</div>
                 </div>
@@ -378,8 +396,8 @@
                     <span>₱4,979 in First Month • Zero Experience</span>
                 </div>
             </div>
-            <div class="test-screenshot" onclick="openZoom('images/relief/trust/maria_GC_screenshot.jpg')">
-                <img src="images/relief/trust/maria_GC_screenshot.jpg" alt="Maria's results">
+            <div class="test-screenshot" onclick="openZoom('images/relief/trust/maria GC screenshot.jpg')">
+                <img src="images/relief/trust/maria GC screenshot.jpg" alt="Maria's results">
             </div>
         </div>
         
@@ -392,22 +410,22 @@
                 </div>
             </div>
             <div class="test-content">"Thank you for the guidance on how to find a niche and how to do the dropshipping business. It wasn't that easy but you make things comprehensive."</div>
-            <div class="test-screenshot" onclick="openZoom('images/relief/trust/baboelyn_review.jpg')">
-                <img src="images/relief/trust/baboelyn_review.jpg" alt="Babielyn's testimonial">
+            <div class="test-screenshot" onclick="openZoom('images/relief/trust/baboelyn review.jpg')">
+                <img src="images/relief/trust/baboelyn review.jpg" alt="Babielyn's testimonial">
             </div>
         </div>
         
         <div class="test-card">
             <div class="test-header">
-                <div class="test-avatar">J</div>
+                <div class="test-avatar">R</div>
                 <div class="test-info">
-                    <h4>Jay Ar Masong Lequin</h4>
-                    <span>From Bogo, Cebu</span>
+                    <h4>Romulo Lequin</h4>
+                    <span>From Cebu</span>
                 </div>
             </div>
-            <div class="test-content">"I've been editing your videos for the last three months and the money is good. I can see the progress of people in the group chats and the sales that new sellers in my niche are making. I honestly thought at first that this is not real, but when I saw the results my skeptical mind got the trust. I cannot wait to make my Million Peso."</div>
-            <div class="test-screenshot" onclick="openZoom('images/relief/trust/romulo_review.jpg')">
-                <img src="images/relief/trust/romulo_review.jpg" alt="Jay Ar's testimonial">
+            <div class="test-content">"I've been working with ePro for months and the results speak for themselves. The training is comprehensive and the support is real."</div>
+            <div class="test-screenshot" onclick="openZoom('images/relief/trust/romulo review.jpg')">
+                <img src="images/relief/trust/romulo review.jpg" alt="Romulo's testimonial">
             </div>
         </div>
     </div>
@@ -463,7 +481,7 @@
                         </div>
                     </div>
                     <div class="payment-buttons">
-                        <button class="donate-btn" onclick="handlePayment('core', 499)">Pay Now – ₱499</button>
+                        <button class="donate-btn" onclick="handlePayment('core')">Pay Now – ₱499</button>
                         <button class="gcash-btn" onclick="openGcash('499')">Pay via GCash</button>
                     </div>
                 </div>
@@ -500,7 +518,7 @@
                         </div>
                     </div>
                     <div class="payment-buttons">
-                        <button class="donate-btn" onclick="handlePayment('sprint', 3499)">Pay Now – ₱3,499</button>
+                        <button class="donate-btn" onclick="handlePayment('sprint')">Pay Now – ₱3,499</button>
                         <button class="gcash-btn" onclick="openGcash('3499')">Pay via GCash</button>
                     </div>
                 </div>
@@ -538,7 +556,7 @@
                         </div>
                     </div>
                     <div class="payment-buttons">
-                        <button class="donate-btn" onclick="handlePayment('elite', 9999)">Pay Now – ₱9,999</button>
+                        <button class="donate-btn" onclick="handlePayment('elite')">Pay Now – ₱9,999</button>
                         <button class="gcash-btn" onclick="openGcash('9999')">Pay via GCash</button>
                     </div>
                 </div>
@@ -716,7 +734,7 @@
 <script src="https://player.vimeo.com/api/player.js"></script>
 
 <script>
-// Stripe Payment Links Configuration
+// STRIPE PAYMENT LINKS - EXACT AS PROVIDED
 const STRIPE_LINKS = {
     core: {
         both: 'https://donate.stripe.com/7sYaEXduadRf6FPa3b',
@@ -757,10 +775,10 @@ new Swiper('.results-swiper', {
     }
 });
 
-// Handle Payment with Stripe
-function handlePayment(packageType, amount) {
-    const publicChecked = document.getElementById(`${packageType}-public`).checked;
-    const scholarshipChecked = document.getElementById(`${packageType}-scholarship`).checked;
+// Handle Payment
+function handlePayment(packageType) {
+    const publicChecked = document.getElementById(packageType + '-public').checked;
+    const scholarshipChecked = document.getElementById(packageType + '-scholarship').checked;
     
     let linkKey;
     if (publicChecked && scholarshipChecked) {
@@ -773,8 +791,8 @@ function handlePayment(packageType, amount) {
         linkKey = 'neither';
     }
     
-    const stripeLink = STRIPE_LINKS[packageType][linkKey];
-    window.location.href = stripeLink;
+    const url = STRIPE_LINKS[packageType][linkKey];
+    window.location.href = url;
 }
 
 // Lightbox
@@ -805,7 +823,7 @@ function closeGcash() {
 }
 
 function copyTemplate() {
-    const template = `Hi! I paid for [PACKAGE NAME]\nName: ___\nEmail: ___\nAmount: ₱___\nRef #: ___`;
+    const template = 'Hi! I paid for [PACKAGE NAME]\nName: ___\nEmail: ___\nAmount: ₱___\nRef #: ___';
     navigator.clipboard.writeText(template).then(() => alert('Message template copied!'));
 }
 
@@ -833,7 +851,7 @@ function closeLegal() {
     document.body.style.overflow = '';
 }
 
-// Close modals
+// Close modals on ESC
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeZoom();
@@ -842,6 +860,7 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// Close modals on background click
 document.getElementById('gcashModal').addEventListener('click', (e) => {
     if (e.target.id === 'gcashModal') closeGcash();
 });
