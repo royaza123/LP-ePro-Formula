@@ -1323,3 +1323,19 @@ footer {
     margin-top: 80px;
     text-align: center;
 }
+/* Kap Facebook Embed Inside Banner */
+.kap-facebook-embed {
+    margin-top: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(217, 119, 6, 0.2);
+}
+
+/* Make result labels smaller */
+.results-swiper .swiper-slide > div + div {
+    margin-top: 8px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--orange-light);
+    font-size: 0.85rem;
+}
