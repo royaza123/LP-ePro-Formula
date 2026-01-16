@@ -4,1149 +4,953 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relief Fund & Course - ePro Formula</title>
-    <style>
-        /* ===========================
-           GLOBAL RESET & BASE STYLES
-           =========================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: #000;
-            color: #fff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* ===========================
-           CONTACT BUTTON (TOP RIGHT)
-           =========================== */
-        .contact-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #fff;
-            color: #000;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .contact-btn:hover {
-            background: #f0f0f0;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(255, 255, 255, 0.3);
-        }
-
-        /* ===========================
-           HERO SECTION
-           =========================== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(180deg, #000 0%, #111 100%);
-        }
-
-        .hero-content h1 {
-            font-size: clamp(32px, 6vw, 64px);
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
-        }
-
-        .hero-subtext {
-            font-size: clamp(16px, 2.5vw, 20px);
-            color: #aaa;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* ===========================
-           BUTTONS
-           =========================== */
-        .btn {
-            display: inline-block;
-            padding: 16px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 16px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: #fff;
-            color: #000;
-        }
-
-        .btn-primary:hover {
-            background: #f0f0f0;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #fff;
-            border: 2px solid #fff;
-        }
-
-        .btn-secondary:hover {
-            background: #fff;
-            color: #000;
-            transform: translateY(-2px);
-        }
-
-        .btn-large {
-            padding: 20px 48px;
-            font-size: 18px;
-            margin-top: 20px;
-        }
-
-        /* ===========================
-           SECTIONS
-           =========================== */
-        section {
-            padding: 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        section h2 {
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-
-        .section-subtext {
-            text-align: center;
-            color: #aaa;
-            font-size: 18px;
-            margin-bottom: 60px;
-        }
-
-        .green-text {
-            color: #00ff88;
-        }
-
-        /* ===========================
-           PROOF SECTION (BOOTS ON GROUND)
-           =========================== */
-        .proof-section {
-            background: #0a0a0a;
-        }
-
-        .video-container {
-            max-width: 900px;
-            margin: 0 auto 60px;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-        }
-
-        .video-container iframe {
-            width: 100%;
-            display: block;
-        }
-
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
-        }
-
-        .photo-item {
-            background: #111;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        .photo-item:hover {
-            transform: translateY(-4px);
-        }
-
-        .photo-item img {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .photo-item p {
-            padding: 16px;
-            font-size: 14px;
-            color: #ccc;
-            text-align: center;
-        }
-
-        /* ===========================
-           FACEBOOK SECTION
-           =========================== */
-        .facebook-section {
-            background: #000;
-        }
-
-        .facebook-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .facebook-item {
-            background: #111;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        .facebook-item:hover {
-            transform: translateY(-4px);
-        }
-
-        .facebook-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* ===========================
-           SIMPLE GALLERY (SCREENSHOTS)
-           =========================== */
-        .screenshots-section {
-            background: #0a0a0a;
-        }
-
-        .simple-gallery {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .gallery-display {
-            flex: 1;
-            text-align: center;
-        }
-
-        .gallery-display img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 255, 136, 0.2);
-        }
-
-        .gallery-caption {
-            margin-top: 20px;
-            font-size: 24px;
-            font-weight: 700;
-            color: #00ff88;
-        }
-
-        .gallery-arrow {
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            color: #fff;
-            font-size: 48px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .gallery-arrow:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: scale(1.1);
-        }
-
-        .gallery-arrow:active {
-            transform: scale(0.95);
-        }
-
-        .gallery-dots {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 30px;
-        }
-
-        .gallery-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .gallery-dot.active {
-            background: #00ff88;
-            transform: scale(1.2);
-        }
-
-        /* ===========================
-           STUDENT VIDEO SECTION
-           =========================== */
-        .student-video-section {
-            padding: 80px 20px;
-            text-align: center;
-            background: #000;
-        }
-
-        .student-video-section h2 {
-            margin-bottom: 20px;
-        }
-
-        .student-video-section .section-subtext {
-            margin-bottom: 40px;
-        }
-
-        .video-embed-container {
-            max-width: 800px;
-            margin: 0 auto;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 255, 136, 0.2);
-        }
-
-        .student-note {
-            color: #aaa;
-            font-size: 14px;
-            margin-top: 30px;
-        }
-
-        /* ===========================
-           DONATE SECTION
-           =========================== */
-        .donate-section {
-            background: linear-gradient(180deg, #111 0%, #000 100%);
-            padding: 100px 20px;
-        }
-
-        .donate-content {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .donate-description {
-            font-size: 18px;
-            color: #ccc;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-
-        .relief-list {
-            list-style: none;
-            text-align: left;
-            max-width: 400px;
-            margin: 30px auto;
-            font-size: 16px;
-            color: #ddd;
-        }
-
-        .relief-list li {
-            padding: 8px 0;
-        }
-
-        .donate-note {
-            font-size: 16px;
-            color: #00ff88;
-            margin: 30px 0;
-        }
-
-        .donate-options {
-            background: #0a0a0a;
-            border-radius: 16px;
-            padding: 40px;
-            margin-top: 40px;
-        }
-
-        .donate-options h3 {
-            font-size: 24px;
-            margin-bottom: 24px;
-        }
-
-        .payment-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 30px;
-        }
-
-        .payment-option {
-            background: #111;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: left;
-        }
-
-        .payment-option strong {
-            color: #00ff88;
-            font-size: 16px;
-        }
-
-        .payment-name {
-            color: #aaa;
-            font-size: 14px;
-        }
-
-        .screenshot-note {
-            font-size: 14px;
-            color: #aaa;
-            margin: 20px 0;
-            line-height: 1.6;
-        }
-
-        /* ===========================
-           COURSE SECTION
-           =========================== */
-        .course-section {
-            background: #0a0a0a;
-            padding: 100px 20px;
-        }
-
-        .course-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .course-description {
-            font-size: 18px;
-            color: #ccc;
-            margin-bottom: 60px;
-            line-height: 1.8;
-        }
-
-        .course-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .feature-item {
-            background: #111;
-            padding: 30px;
-            border-radius: 16px;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-4px);
-        }
-
-        .feature-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-        }
-
-        .feature-item h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            color: #fff;
-        }
-
-        .feature-item p {
-            font-size: 14px;
-            color: #aaa;
-        }
-
-        .course-proof {
-            background: #000;
-            padding: 40px;
-            border-radius: 16px;
-            margin-bottom: 40px;
-        }
-
-        .course-proof h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .course-modules {
-            list-style: none;
-            text-align: left;
-            max-width: 500px;
-            margin: 0 auto;
-            font-size: 16px;
-            color: #ddd;
-        }
-
-        .course-modules li {
-            padding: 8px 0;
-        }
-
-        .course-channels {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin: 60px 0 40px;
-        }
-
-        .channel-box {
-            background: #111;
-            padding: 20px;
-            border-radius: 16px;
-        }
-
-        .channel-screenshot {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            margin-bottom: 16px;
-        }
-
-        .channel-box h4 {
-            font-size: 18px;
-            margin-bottom: 8px;
-            color: #fff;
-        }
-
-        .channel-box p {
-            font-size: 14px;
-            color: #aaa;
-        }
-
-        .course-note {
-            color: #aaa;
-            font-size: 14px;
-            margin-top: 20px;
-        }
-
-        /* ===========================
-           FOOTER
-           =========================== */
-        .footer {
-            background: #000;
-            padding: 60px 20px 30px;
-            border-top: 1px solid #222;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h4 {
-            font-size: 18px;
-            margin-bottom: 16px;
-            color: #fff;
-        }
-
-        .footer-section p {
-            font-size: 14px;
-            color: #aaa;
-            margin-bottom: 12px;
-            line-height: 1.6;
-        }
-
-        .footer-section a {
-            color: #00ff88;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: #00cc6a;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #222;
-        }
-
-        .footer-bottom p {
-            font-size: 14px;
-            color: #666;
-        }
-
-        /* ===========================
-           RESPONSIVE DESIGN
-           =========================== */
-        @media (max-width: 768px) {
-            .contact-btn {
-                top: 10px;
-                right: 10px;
-                padding: 10px 20px;
-                font-size: 13px;
-            }
-
-            section {
-                padding: 60px 20px;
-            }
-
-            .photo-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .facebook-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .course-features {
-                grid-template-columns: 1fr;
-            }
-
-            .course-channels {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            .gallery-arrow {
-                width: 50px;
-                height: 50px;
-                font-size: 36px;
-            }
-
-            .simple-gallery {
-                gap: 10px;
-            }
-        }
-    </style>
+    
+    <!-- GTM -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-T478W9J7');</script>
+    
+    <!-- Clarity -->
+    <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "t0vwoh8vuf");</script>
+    
+    <!-- Meta -->
+    <meta property="og:title" content="Relief Fund & Course - ePro Formula">
+    <meta property="og:description" content="Learn to Earn. Help Rebuild. 100% of proceeds go to Typhoon Relief.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/ePro%20Formula%20Logo.jpg">
+    <meta property="og:url" content="https://eproformula.com/relief">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/royaza123/LP-ePro-Formula/main/ePro%20Formula%20Logo.jpg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Contact Button (Top Right) -->
-    <button class="contact-btn" onclick="window.open('https://m.me/yourpage', '_blank')">
-        ✉ Contact
-    </button>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>They Lost Everything.<br>You Can Help.</h1>
-            <p class="hero-subtext">300–350 homes were washed away. Families are sleeping in<br>evacuation centers. No shelter. No supplies. No safety net.</p>
-            <div class="cta-buttons">
-                <a href="#donate" class="btn btn-primary">Send Relief Now</a>
-                <a href="#course" class="btn btn-secondary">Get the Free Course</a>
+<!-- Sticky Contact -->
+<a href="mailto:aetophis@aetophis.com" target="_blank" class="sticky-contact">✉️ Contact</a>
+
+<!-- Messenger Float -->
+<a href="https://m.me/61579629904148" target="_blank" class="messenger-float" title="Message us on Messenger">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.145 2 11.243c0 2.936 1.444 5.544 3.7 7.254V22l3.3-1.857c.88.246 1.813.38 2.778.38h.222c5.523 0 10-4.145 10-9.243S17.523 2 12 2zm1.07 12.4l-2.54-2.74-4.97 2.74 5.47-5.8 2.6 2.74 4.91-2.74-5.47 5.8z"/></svg>
+</a>
+
+<!-- Particles -->
+<div class="particles">
+    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+</div>
+
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox">
+    <button class="close-lightbox" onclick="closeZoom()">&times;</button>
+    <div class="lightbox-wrap" id="lightboxWrap">
+        <img src="" class="lightbox-img" id="lightboxImg" alt="Zoomed Image">
+    </div>
+    <div class="lightbox-controls">
+        <span style="color:#fff;font-weight:bold">Zoom:</span>
+        <input type="range" min="1" max="3" step="0.1" value="1" id="zoomRange">
+    </div>
+</div>
+
+<!-- GCash Modal -->
+<div class="gcash-modal" id="gcashModal">
+    <div class="gcash-content">
+        <button class="close-modal" onclick="closeGcash()">&times;</button>
+        <h2>Pay via GCash</h2>
+        <div class="qr-wrapper">
+            <img id="gcashQr" src="" alt="GCash QR Code">
+        </div>
+        <div class="gcash-direct">
+            <p>Or send directly to:</p>
+            <p class="number">0928 648 6120</p>
+            <p class="name">Maria Nuqui</p>
+        </div>
+        <div class="gcash-instructions">
+            <p class="warning">⚠️ IMPORTANT STEPS:</p>
+            <p>1. Send payment via GCash</p>
+            <p>2. Screenshot your receipt</p>
+            <p>3. Send screenshot + your email to:</p>
+            <p><a href="https://m.me/61579629904148" target="_blank">Messenger</a> or <a href="mailto:aetophis@aetophis.com">Email</a></p>
+            <div class="copy-template" onclick="copyTemplate()">
+                <strong>Click to copy message:</strong><br><br>
+                Hi! I paid for [PACKAGE NAME]<br>
+                Name: ___<br>
+                Email: ___<br>
+                Amount: ₱___<br>
+                Ref #: ___
+            </div>
+            <p style="font-size:0.8rem;opacity:0.7;margin-top:15px">*Course access sent within 2-4 hours (usually faster)</p>
+        </div>
+    </div>
+</div>
+
+<!-- Legal Modal -->
+<div class="legal-modal" id="legalModal">
+    <div class="legal-content">
+        <button class="close-modal" onclick="closeLegal()">&times;</button>
+        <div id="legalText"></div>
+    </div>
+</div>
+
+<!-- Main Container -->
+<div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="mission-badge">
+            <span class="pulse-dot"></span>
+            Relief Operations Live
+        </div>
+        
+        <h1>Learn to Earn <span class="hl">₱25,000+/Month</span>.<br>100% Goes to <span class="hl">Typhoon Tino Victims</span>.</h1>
+        
+        <p>Get our complete ePro Formula dropshipping course. Every peso of your payment goes directly to food, water, and shelter for families in Cebu.</p>
+        
+        <a href="#donate" class="hero-cta">Get Course + Donate Now</a>
+        <span class="hero-sub">Instant course access. Instant donation.</span>
+        
+        <nav class="nav">
+            <a href="#story">Our Story</a>
+            <a href="#proof">Does It Work?</a>
+            <a href="#what-is">What is Dropshipping?</a>
+            <a href="#faq">FAQ</a>
+            <a href="#donate" class="cta">Get Course</a>
+        </nav>
+    </div>
+
+    <!-- KAP TRUST BANNER -->
+    <div class="kap-banner" id="story">
+        <span class="kap-badge">✓ Verified Partner</span>
+        
+        <div class="kap-img" onclick="openZoom('images/relief/trust/hugging_kap_me_and_pele.jpg')">
+            <img src="images/relief/trust/hugging_kap_me_and_pele.jpg" alt="ePro team with Barangay Captain Clifford Jude Niñal">
+        </div>
+        
+        <div class="kap-content">
+            <h3>Recognized by Local Government</h3>
+            <p class="title">Barangay Captain Clifford Jude Niñal • #FATHEROFTHEHOMELESS • San Nicolas Proper, Talisay City</p>
+            <p>We're not just sending money. We're on the ground, buying supplies directly from local stores, packing relief goods ourselves, and delivering them hand-to-hand to families who lost everything.</p>
+            <div class="kap-quote">"OUR BROTHER ISRAELITES. WELCOME TO CEBU, PHILIPPINES. THANK YOU FOR HELPING US." — Kap. Clifford Jude Niñal</div>
+        </div>
+    </div>
+
+    <!-- VIDEO SECTION -->
+    <div class="section-label">
+        <p>See the boots on the ground</p>
+        <div class="line"></div>
+    </div>
+    
+    <div class="video-box" onclick="playVideo(this)">
+        <div class="video-cover">
+            <div class="play-btn">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M8 5V19L19 12L8 5Z" fill="#fff"/></svg>
             </div>
         </div>
-    </section>
+        <iframe src="https://player.vimeo.com/video/1148687196?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Relief Video"></iframe>
+    </div>
+    
+    <div style="text-align:center;margin-bottom:50px">
+        <a href="#donate" class="cta-large">Get Access & Help Victims</a>
+    </div>
 
-    <!-- Boots on the Ground Section -->
-    <section class="proof-section">
+    <!-- ABOUT -->
+    <div class="about">
+        <h2>Who We Are</h2>
+        <p>ePro Formula is an e-commerce education community that usually focuses on building online businesses. Right now, we have shifted our entire focus to raising ₱1M to provide immediate food, water, and shelter for families devastated by Typhoon Tino in Cebu.</p>
+        <p style="margin-top:15px">We donated the first ₱100,000 from our own pocket. Now we're giving away our entire course—and 100% of your payment goes directly to relief operations.</p>
+        <div class="dti-badge" onclick="openZoom('images/relief/trust/DTI_certificate.jpg')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            DTI Registered Business • View Certificate
+        </div>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="progress">
+        <div class="progress-header">
+            <p>We donated the first ₱100K. Help us reach ₱1M.</p>
+        </div>
+        
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-val" id="raisedAmount">₱108,754</div>
+                <div class="stat-lbl">Raised</div>
+            </div>
+            <div class="stat">
+                <div class="stat-val" id="remainingAmount">₱891,246</div>
+                <div class="stat-lbl">To Go</div>
+            </div>
+        </div>
+        
+        <div class="bar-wrap">
+            <div class="bar-text" id="percentDisplay">10.9%</div>
+            <div class="bar-fill" id="progressBar" style="width:10.9%"></div>
+        </div>
+        
+        <p style="text-align:center;color:var(--orange-light);font-weight:600;margin-top:20px">🚚 Relief trucks deploy the moment we hit ₱900K</p>
+        
+        <div style="text-align:center">
+            <a href="https://docs.google.com/spreadsheets/d/1qsw8uobLY7v0MK0UDTA3xEPXRxrj-J2sRmxHskS2dyg/edit?gid=248957390#gid=248957390" target="_blank" class="sheet-btn">
+                <span class="live-dot"></span>
+                Track Every Peso Live
+            </a>
+        </div>
+    </div>
+
+    <!-- DONOR WALL -->
+    <div class="donor-wall">
+        <h3>🙏 The Bayanihan Wall</h3>
+        <div class="donor-list">
+            <div class="donor-item"><span class="donor-name">Liran Yitshaki</span><span class="donor-amount">₱3,499</span></div>
+            <div class="donor-item"><span class="donor-name">Maria Ana Abello</span><span class="donor-amount">₱3,499</span></div>
+            <div class="donor-item"><span class="donor-name">Johnrine Arcales</span><span class="donor-amount">₱499</span></div>
+            <div class="donor-item"><span class="donor-name">Chloe Diza</span><span class="donor-amount">₱499</span></div>
+            <div class="donor-item"><span class="donor-name">Babielyn Caigoy</span><span class="donor-amount">₱499</span></div>
+            <div class="donor-item"><span class="donor-name">Mylene Sandoval</span><span class="donor-amount">₱150</span></div>
+            <div class="donor-item"><span class="donor-name">Romulo Lequin</span><span class="donor-amount">₱100</span></div>
+            <div class="donor-item"><span class="donor-name">Ido Tzfanya</span><span class="donor-amount">₱11</span></div>
+        </div>
+        <p class="donor-footer">Your name appears here after donating ❤️</p>
+    </div>
+
+    <!-- GALLERY -->
+    <div class="gallery">
         <h2>On The Ground</h2>
-        <p class="section-subtext">Real photos. Real impact. No middlemen.</p>
+        <p class="sub">Real photos. Real impact. No middlemen.</p>
         
-        <div class="video-container">
-            <div style="padding:56.25% 0 0 0;position:relative;">
-                <iframe src="https://player.vimeo.com/video/1148687196?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Typhoon Tino Relief"></iframe>
-            </div>
-            <script src="https://player.vimeo.com/api/player.js"></script>
-        </div>
-
         <div class="photo-grid">
-            <div class="photo-item">
-                <img src="images/relief/trust/giving food second vila 2.jpg" alt="Distributing relief goods">
-                <p>Distributing in flooded neighborhoods</p>
+            <div class="photo-item featured" onclick="openZoom('images/relief/trust/giving_food_second_villa.jpg')">
+                <img src="images/relief/trust/giving_food_second_villa.jpg" alt="Distributing relief goods">
+                <div class="caption">Distributing in flooded neighborhoods</div>
             </div>
-            <div class="photo-item">
-                <img src="images/relief/trust/70K in cash buying the stuff.jpg" alt="Cash for supplies">
-                <p>₱70K cash for supplies</p>
+            <div class="photo-item" onclick="openZoom('images/relief/trust/70K_in_cash_buying_the_stuff.jpg')">
+                <img src="images/relief/trust/70K_in_cash_buying_the_stuff.jpg" alt="Cash for supplies">
+                <div class="caption">₱70K cash for supplies</div>
             </div>
-            <div class="photo-item">
-                <img src="images/relief/trust/all the food before repacking.jpg" alt="Rice sacks">
-                <p>Bulk supplies ready</p>
+            <div class="photo-item" onclick="openZoom('images/relief/trust/all_the_food_before_repacking.jpg')">
+                <img src="images/relief/trust/all_the_food_before_repacking.jpg" alt="Rice sacks">
+                <div class="caption">Bulk supplies ready</div>
             </div>
-            <div class="photo-item">
-                <img src="images/relief/trust/all the packed food.jpg" alt="Packed relief bags">
-                <p>500+ relief packs ready</p>
+            <div class="photo-item" onclick="openZoom('images/relief/trust/all_the_packed_food.jpg')">
+                <img src="images/relief/trust/all_the_packed_food.jpg" alt="Packed relief bags">
+                <div class="caption">500+ relief packs ready</div>
             </div>
-            <div class="photo-item">
-                <img src="images/relief/trust/all with family.jpg" alt="Team with community">
-                <p>With the community</p>
+            <div class="photo-item" onclick="openZoom('images/relief/trust/all_with_family.jpg')">
+                <img src="images/relief/trust/all_with_family.jpg" alt="Team with community">
+                <div class="caption">With the community</div>
             </div>
-            <div class="photo-item">
-                <img src="images/relief/trust/on the truck me and pele.jpg" alt="Loading truck">
-                <p>Loading the truck</p>
+            <div class="photo-item" onclick="openZoom('images/relief/trust/on_the_truck_me_and_pele.jpg')">
+                <img src="images/relief/trust/on_the_truck_me_and_pele.jpg" alt="Loading truck">
+                <div class="caption">Loading the truck</div>
             </div>
-            <div class="photo-item">
-                <img src="images/relief/trust/thumbs up all infront of food.jpg" alt="Evacuation center">
-                <p>At the evacuation center</p>
+            <div class="photo-item" onclick="openZoom('images/relief/trust/me__pele__maria__with_family.jpg')">
+                <img src="images/relief/trust/me__pele__maria__with_family.jpg" alt="Evacuation center">
+                <div class="caption">At the evacuation center</div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Facebook Proof Section -->
-    <section class="facebook-section">
+    <!-- SOCIAL SHARES -->
+    <div class="social-shares">
         <h2>Spreading Across Facebook</h2>
-        <p class="section-subtext">Real people sharing. Real trust building.</p>
+        <p class="sub">Real people sharing. Real trust building.</p>
         
-        <div class="facebook-grid">
-            <div class="facebook-item">
-                <img src="images/relief/trust/cap repost.jpg" alt="Kap Clifford repost">
+        <div class="shares-grid">
+            <div class="share-item" onclick="openZoom('images/relief/trust/cap_repost.jpg')">
+                <img src="images/relief/trust/cap_repost.jpg" alt="Kap Clifford repost">
             </div>
-            <div class="facebook-item">
-                <img src="images/relief/trust/romulo review.jpg" alt="Supplier thanking us">
+            <div class="share-item" onclick="openZoom('images/relief/trust/jgp_limbaga_thanking_us_under_kap_post.jpg')">
+                <img src="images/relief/trust/jgp_limbaga_thanking_us_under_kap_post.jpg" alt="Supplier thanking us">
             </div>
-            <div class="facebook-item">
-                <img src="images/relief/trust/pepole sharing in groups 1 .jpg" alt="Shared in groups">
+            <div class="share-item" onclick="openZoom('images/relief/trust/pepole_sharing_in_groups_1_.jpg')">
+                <img src="images/relief/trust/pepole_sharing_in_groups_1_.jpg" alt="Shared in Cebu groups">
             </div>
-            <div class="facebook-item">
-                <img src="images/relief/trust/pepole sharing in their private feed.jpg" alt="Private feed share">
+            <div class="share-item" onclick="openZoom('images/relief/trust/pepole_sharing_in_their_private_feed.jpg')">
+                <img src="images/relief/trust/pepole_sharing_in_their_private_feed.jpg" alt="Private feed share">
             </div>
-            <div class="facebook-item">
-                <img src="images/relief/trust/42 shares to our posts.jpg" alt="42 shares">
+            <div class="share-item" onclick="openZoom('images/relief/trust/42_shares_to_our_posts.jpg')">
+                <img src="images/relief/trust/42_shares_to_our_posts.jpg" alt="42 shares">
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Screenshots Section - RESULTS GALLERY -->
-    <section class="screenshots-section">
-        <h2>Screenshots <span class="green-text">Don't Lie</span></h2>
-        <p class="section-subtext">Tap any image to inspect the evidence.</p>
-
-        <!-- Simple Gallery Container -->
-        <div class="simple-gallery">
-            <button class="gallery-arrow gallery-arrow-left" onclick="previousImage()">‹</button>
-            
-            <div class="gallery-display">
-                <img id="galleryImage" src="images/results/notable results/6K In one day.jpg" alt="Result screenshot">
-                <p id="galleryCaption" class="gallery-caption">$6,000 in ONE DAY</p>
-            </div>
-            
-            <button class="gallery-arrow gallery-arrow-right" onclick="nextImage()">›</button>
-        </div>
-
-        <div class="gallery-dots" id="galleryDots"></div>
-    </section>
-
-    <!-- Student Video Section - What is Dropshipping -->
-    <section class="student-video-section">
-        <h2>What The F**k Is Dropshipping?</h2>
-        <p class="section-subtext">Learn the basics in under 10 minutes.</p>
+    <!-- PROOF SECTION -->
+    <div class="proof" id="proof">
+        <h2>Screenshots <span>Don't Lie</span></h2>
+        <p class="sub">Tap any image to inspect the evidence.</p>
         
-        <div class="video-embed-container">
-            <div style="padding:56.25% 0 0 0;position:relative;">
-                <iframe src="https://player.vimeo.com/video/1115184890?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Free course, Lesson 1, what the f**k is DropShipping"></iframe>
-            </div>
-            <script src="https://player.vimeo.com/api/player.js"></script>
+        <div class="featured-card" onclick="openZoom('images/results/notable results/6K In one day.jpg')">
+            <img src="images/results/notable results/6K In one day.jpg" alt="$6,000 in one day" loading="lazy">
+            <div class="result">$6,000 in ONE DAY</div>
         </div>
         
-        <p class="student-note">700+ students worldwide. Filipino case study video coming soon.</p>
-    </section>
+        <div class="swiper results-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="slide-wrap" onclick="openZoom('images/results/notable results/1,368.50 dollars a day.jpg')">
+                        <img src="images/results/notable results/1,368.50 dollars a day.jpg" alt="$1,368 a day" loading="lazy">
+                    </div>
+                    <div class="slide-caption">$1,368 in a day</div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-wrap" onclick="openZoom('images/results/notable results/1,999 dollars a day.jpg')">
+                        <img src="images/results/notable results/1,999 dollars a day.jpg" alt="$1,999 a day" loading="lazy">
+                    </div>
+                    <div class="slide-caption">$1,999 in a day</div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-wrap" onclick="openZoom('images/results/notable results/2,132 dollars a day.jpg')">
+                        <img src="images/results/notable results/2,132 dollars a day.jpg" alt="$2,132 a day" loading="lazy">
+                    </div>
+                    <div class="slide-caption">$2,132 in a day</div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-wrap" onclick="openZoom('images/results/notable results/15,500 dollars a month.jpg')">
+                        <img src="images/results/notable results/15,500 dollars a month.jpg" alt="$15,500 a month" loading="lazy">
+                    </div>
+                    <div class="slide-caption">$15,500 in a MONTH</div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-wrap" onclick="openZoom('images/results/notable results/4,771.50 dollars a week.jpg')">
+                        <img src="images/results/notable results/4,771.50 dollars a week.jpg" alt="$4,771 a week" loading="lazy">
+                    </div>
+                    <div class="slide-caption">$4,771 in one week</div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="slide-wrap" onclick="openZoom('images/results/notable results/many mails sales.jpg')">
+                        <img src="images/results/notable results/many mails sales.jpg" alt="Inbox full of sales" loading="lazy">
+                    </div>
+                    <div class="slide-caption">Inbox FULL of sales</div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        
+        <a href="#what-is" class="cta-large">Show Me How To Do This</a>
+    </div>
 
-    <!-- Donate Section -->
-    <section id="donate" class="donate-section">
-        <div class="donate-content">
-            <h2>They Lost Everything.<br>You Can Help.</h2>
-            <p class="donate-description">300–350 homes were washed away. Families are sleeping in<br>evacuation centers. No food. No water. No shelter.<br><br>Every peso goes directly to relief packs:</p>
-            <ul class="relief-list">
-                <li>✓ Rice, canned goods, noodles</li>
-                <li>✓ Hygiene kits (soap, toothpaste, sanitary pads)</li>
-                <li>✓ Blankets & mats for evacuation centers</li>
-            </ul>
-            <p class="donate-note"><strong>No admin fees. No overhead.</strong> 100% frontline relief.</p>
+    <!-- FILIPINO TESTIMONIALS -->
+    <div class="filipino-test">
+        <h2>🇵🇭 Fresh Filipino Results</h2>
+        <p class="sub">Real students. Real results. Just started.</p>
+        
+        <div class="test-card featured">
+            <div class="test-header">
+                <div class="test-avatar">M</div>
+                <div class="test-info">
+                    <h4>Maria (Student)</h4>
+                    <span>₱4,979 in First Month • Zero Experience</span>
+                </div>
+            </div>
+            <div class="test-screenshot" onclick="openZoom('images/relief/trust/maria_GC_screenshot.jpg')">
+                <img src="images/relief/trust/maria_GC_screenshot.jpg" alt="Maria's Etsy dashboard showing PHP 4,979">
+            </div>
+        </div>
+        
+        <div class="test-card">
+            <div class="test-header">
+                <div class="test-avatar">B</div>
+                <div class="test-info">
+                    <h4>Babielyn Caigoy</h4>
+                    <span>Course Student</span>
+                </div>
+            </div>
+            <div class="test-content">"Thank you for the guidance on how to find a niche and how to do the dropshipping business. It wasn't that easy but you make things comprehensive."</div>
+            <div class="test-screenshot" onclick="openZoom('images/relief/trust/baboelyn_review.jpg')">
+                <img src="images/relief/trust/baboelyn_review.jpg" alt="Babielyn's WhatsApp testimonial">
+            </div>
+        </div>
+        
+        <div class="test-card">
+            <div class="test-header">
+                <div class="test-avatar">J</div>
+                <div class="test-info">
+                    <h4>Jay Ar Masong Lequin</h4>
+                    <span>From Bogo, Cebu</span>
+                </div>
+            </div>
+            <div class="test-content">"I've been editing your videos for the last three months and the money is good. I can see the progress of people in the group chats and the sales that new sellers in my niche are making. I honestly thought at first that this is not real, but when I saw the results my skeptical mind got the trust. I cannot wait to make my Million Peso."</div>
+            <div class="test-screenshot" onclick="openZoom('images/relief/trust/romulo_review.jpg')">
+                <img src="images/relief/trust/romulo_review.jpg" alt="Jay Ar's Messenger testimonial">
+            </div>
+        </div>
+    </div>
+
+    <!-- WHAT IS DROPSHIPPING -->
+    <div class="explainer" id="what-is">
+        <h2>What is Dropshipping on Etsy?</h2>
+        <p class="sub">Watch this short explanation to understand how the method works.</p>
+        
+        <!-- PLACEHOLDER: Replace with actual Vimeo embed when ready -->
+        <div class="video-placeholder">
+            <span class="icon">🎥</span>
+            <p><strong>Video Coming Soon</strong></p>
+            <p style="font-size:0.85rem">We're filming the explainer video right now.</p>
+        </div>
+        <!-- When video is ready, replace above with:
+        <div class="video-box" onclick="playVideo(this)">
+            <div class="video-cover">
+                <div class="play-btn">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M8 5V19L19 12L8 5Z" fill="#fff"/></svg>
+                </div>
+            </div>
+            <iframe src="https://player.vimeo.com/video/XXXXXXXXX?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="What is Dropshipping"></iframe>
+        </div>
+        -->
+    </div>
+
+    <!-- DONATION SECTION -->
+    <div class="donation" id="donate">
+        <h2>Get the Course. Save a Life.</h2>
+        <p class="sub">Choose a package. 100% proceeds go to relief.</p>
+        
+        <div class="donation-promise">🛡️ 100% of your payment is donated immediately.</div>
+        
+        <div class="donation-options">
             
-            <div class="donate-options">
-                <h3>Send Relief:</h3>
-                <div class="payment-methods">
-                    <div class="payment-option">
-                        <strong>GCash:</strong> 09178925796<br>
-                        <span class="payment-name">Ronjay Barro</span>
-                    </div>
-                    <div class="payment-option">
-                        <strong>PayPal:</strong> paypal.me/ronjbarro
-                    </div>
-                    <div class="payment-option">
-                        <strong>Wise:</strong> Ask via Messenger
-                    </div>
+            <!-- CORE -->
+            <div class="donation-card">
+                <div>
+                    <h3>Core Course</h3>
+                    <div class="price">₱499</div>
+                    <ul class="features">
+                        <li>Complete ePro Formula Course</li>
+                        <li>Direct Supplier Lists</li>
+                        <li>Top Niches List</li>
+                        <li>Essential for beginners</li>
+                    </ul>
                 </div>
-                <p class="screenshot-note">📸 After sending, screenshot your receipt and send it via Messenger.<br>You'll be added to our private transparency group where every peso is documented.</p>
-                <a href="https://m.me/yourpage" class="btn btn-primary">Send Receipt & Join Updates</a>
+                <div>
+                    <div class="toggle-options">
+                        <div class="toggle-row">
+                            <span class="toggle-label">Show my name on Public Donor Wall</span>
+                            <label class="toggle-switch"><input type="checkbox" checked><span class="slider"></span></label>
+                        </div>
+                        <div class="toggle-row">
+                            <span class="toggle-label">Gift course to a typhoon victim</span>
+                            <label class="toggle-switch"><input type="checkbox"><span class="slider"></span></label>
+                        </div>
+                    </div>
+                    <button class="donate-btn" onclick="openGcash('499')">Get Course – ₱499</button>
+                    <button class="gcash-btn" onclick="openGcash('499')">Pay via GCash</button>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Free Course Section -->
-    <section id="course" class="course-section">
-        <div class="course-content">
-            <h2>Learn Etsy Dropshipping.<br>From a Filipino. For Free.</h2>
-            <p class="course-description">This isn't a pitch. It's a full training system that's helped 700+ students worldwide<br>start profitable Etsy shops—including Filipinos earning $4K–$15K/month.</p>
             
-            <div class="course-features">
-                <div class="feature-item">
-                    <div class="feature-icon">📚</div>
-                    <h3>Complete Training</h3>
-                    <p>10 modules covering everything from setup to your first sales</p>
+            <!-- SPRINT -->
+            <div class="donation-card">
+                <div>
+                    <h3>Sprint Package</h3>
+                    <div class="price">₱3,499</div>
+                    <ul class="features">
+                        <li>Everything in Core</li>
+                        <li>1-on-1 Coaching Call (30min)</li>
+                        <li>Advanced Scaling Strategies</li>
+                        <li>Private Community Access</li>
+                        <li>Priority Support</li>
+                    </ul>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🤖</div>
-                    <h3>AI Assistant</h3>
-                    <p>Private Messenger bot trained on Etsy dropshipping</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">👥</div>
-                    <h3>Daily Support</h3>
-                    <p>WhatsApp group where I answer questions with voice replies</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🎯</div>
-                    <h3>PH-Specific</h3>
-                    <p>Built for Filipinos: payment setup, compliance, shipping</p>
-                </div>
-            </div>
-
-            <div class="course-proof">
-                <h3>What You'll Get:</h3>
-                <ul class="course-modules">
-                    <li>✓ How Etsy dropshipping works (PH context)</li>
-                    <li>✓ Compliance rules & allowed categories</li>
-                    <li>✓ Product & niche research methods</li>
-                    <li>✓ Shop setup (branding, shipping, payments)</li>
-                    <li>✓ Listing optimization (titles, tags, images)</li>
-                    <li>✓ Order fulfillment & customer service</li>
-                    <li>✓ My SaaS tool (eProAI) for faster listings</li>
-                </ul>
-            </div>
-
-            <div class="course-channels">
-                <div class="channel-box">
-                    <img src="images/relief/messenger-ai-channel.png" alt="Messenger AI Channel" class="channel-screenshot">
-                    <h4>🤖 AI Channel (Messenger)</h4>
-                    <p>Instant answers, lesson drops, real-time updates</p>
-                </div>
-                <div class="channel-box">
-                    <img src="images/relief/whatsapp-human-channel.png" alt="WhatsApp Human Channel" class="channel-screenshot">
-                    <h4>👥 Human Channel (WhatsApp)</h4>
-                    <p>Daily voice replies from me, real community</p>
+                <div>
+                    <div class="toggle-options">
+                        <div class="toggle-row">
+                            <span class="toggle-label">Show my name on Public Donor Wall</span>
+                            <label class="toggle-switch"><input type="checkbox" checked><span class="slider"></span></label>
+                        </div>
+                        <div class="toggle-row">
+                            <span class="toggle-label">Gift course to a typhoon victim</span>
+                            <label class="toggle-switch"><input type="checkbox"><span class="slider"></span></label>
+                        </div>
+                    </div>
+                    <button class="donate-btn" onclick="openGcash('3499')">Get Package – ₱3,499</button>
+                    <button class="gcash-btn" onclick="openGcash('3499')">Pay via GCash</button>
                 </div>
             </div>
-
-            <a href="https://systeme.io/your-course-link" class="btn btn-primary btn-large">Get Free Access Now</a>
-            <p class="course-note">No credit card. No upsell. Just the full course.</p>
+            
+            <!-- ELITE -->
+            <div class="donation-card">
+                <div>
+                    <h3>Elite Mentorship</h3>
+                    <div class="price">₱9,999</div>
+                    <ul class="features">
+                        <li>Everything in Sprint</li>
+                        <li>3x 1-on-1 Coaching Calls</li>
+                        <li>Done-For-You Shop Setup</li>
+                        <li>Lifetime Community Access</li>
+                        <li>Direct WhatsApp Support</li>
+                        <li>Monthly Group Masterminds</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="toggle-options">
+                        <div class="toggle-row">
+                            <span class="toggle-label">Show my name on Public Donor Wall</span>
+                            <label class="toggle-switch"><input type="checkbox" checked><span class="slider"></span></label>
+                        </div>
+                        <div class="toggle-row">
+                            <span class="toggle-label">Gift course to a typhoon victim</span>
+                            <label class="toggle-switch"><input type="checkbox"><span class="slider"></span></label>
+                        </div>
+                    </div>
+                    <button class="donate-btn" onclick="openGcash('9999')">Get Mentorship – ₱9,999</button>
+                    <button class="gcash-btn" onclick="openGcash('9999')">Pay via GCash</button>
+                </div>
+            </div>
+            
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Relief Fund</h4>
-                <p>100% transparency.<br>Every peso documented.</p>
-                <a href="https://m.me/yourpage">Join Updates Group</a>
-            </div>
-            <div class="footer-section">
-                <h4>Free Course</h4>
-                <p>Complete Etsy training.<br>Built for Filipinos.</p>
-                <a href="https://systeme.io/your-course-link">Start Learning</a>
-            </div>
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <p>Questions? Feedback?</p>
-                <a href="https://m.me/yourpage">Message on Messenger</a>
+        
+        <p style="text-align:center;font-size:0.9rem;color:var(--text-muted);margin-top:20px">
+            Can't afford right now? <a href="https://m.me/61579629904148" style="color:var(--orange-light)">Message us</a> – we have payment plans.
+        </p>
+    </div>
+    <!-- STUDENT VIDEOS -->
+    <div class="student-videos">
+        <h2>What Students Are Saying</h2>
+        <p class="sub">Real video testimonials from our community</p>
+        
+        <div class="swiper students-swiper" style="max-width:350px;margin:0 auto">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="phone-frame">
+                        <div class="vertical-video">
+                            <iframe src="https://player.vimeo.com/video/1029091498?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Beeri Testimonial"></iframe>
+                        </div>
+                    </div>
+                    <div class="student-info">
+                        <span class="student-name">Beeri</span>
+                        <span class="student-result">$15,500/month</span>
+                        <span class="student-desc">From Israel • 6 months in</span>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="phone-frame">
+                        <div class="vertical-video">
+                            <iframe src="https://player.vimeo.com/video/1029086498?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Noam Testimonial"></iframe>
+                        </div>
+                    </div>
+                    <div class="student-info">
+                        <span class="student-name">Noam</span>
+                        <span class="student-result">$4,000/month</span>
+                        <span class="student-desc">Part-time • 3 months in</span>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="phone-frame">
+                        <div class="vertical-video">
+                            <iframe src="https://player.vimeo.com/video/1037445109?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Netanel Testimonial"></iframe>
+                        </div>
+                    </div>
+                    <div class="student-info">
+                        <span class="student-name">Netanel</span>
+                        <span class="student-result">Growing Fast</span>
+                        <span class="student-desc">Full-time student • 4 months in</span>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 ePro Formula · Relief Fund + Free Training</p>
+        
+        <p style="margin-top:30px;font-size:0.9rem;color:var(--text-muted)">
+            700+ students worldwide. Filipino case study video coming soon.
+        </p>
+        
+        <!-- PLACEHOLDER: Maria Case Study Video - Replace when ready -->
+        <!--
+        <div style="margin-top:40px">
+            <h3 style="text-align:center;margin-bottom:20px">🇵🇭 Maria's Story (Case Study)</h3>
+            <div class="video-box" onclick="playVideo(this)">
+                <div class="video-cover">
+                    <div class="play-btn">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M8 5V19L19 12L8 5Z" fill="#fff"/></svg>
+                    </div>
+                </div>
+                <iframe src="https://player.vimeo.com/video/XXXXXXXXX?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Maria Case Study"></iframe>
+            </div>
+        </div>
+        -->
+    </div>
+
+    <!-- FINAL CTA -->
+    <div style="text-align:center;margin:60px 0;padding:50px 30px;background:linear-gradient(135deg,rgba(239,68,68,0.1) 0%,rgba(239,68,68,0.05) 100%);border-radius:20px;border:1px solid rgba(239,68,68,0.2)">
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:2rem;margin-bottom:15px">
+            They Lost Everything.<br>You Can Help.
+        </h2>
+        <p style="color:var(--text-sec);margin-bottom:30px;max-width:500px;margin-left:auto;margin-right:auto">
+            300-350 homes were washed away. Families are sleeping in classrooms. Your course purchase feeds them today.
+        </p>
+        <a href="#donate" class="cta-large red">Get Course & Donate Now</a>
+    </div>
+
+    <!-- VOLUNTEER -->
+    <div class="volunteer">
+        <h2>🙌 Want to Help More?</h2>
+        <p>Can't donate right now? You can still help by sharing this page with your friends and family. Every share counts. Or if you're in Cebu, message us to volunteer on distribution day.</p>
+        <a href="https://www.facebook.com/profile.php?id=61579629904148" target="_blank" class="cta-large fb">Share on Facebook</a>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq" id="faq">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Is this a scam?</span>
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    <p>We understand the concern. Here's the proof:</p>
+                    <p>1. We're DTI registered (Business Name No. 6688607) under MEIR BUSINESS CONSULTANCY SERVICES</p>
+                    <p>2. We work directly with Barangay Captain Clifford Jude Niñal (#FATHEROFTHEHOMELESS)</p>
+                    <p>3. All donations are tracked in a public Google Sheet you can view anytime</p>
+                    <p>4. We've already donated ₱100,000 of our own money</p>
+                    <p>5. We have photos and videos of every relief operation</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Do I need capital to start dropshipping?</span>
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    <p>No! That's the beauty of this model. With Etsy print-on-demand dropshipping:</p>
+                    <p>• No inventory required</p>
+                    <p>• No upfront product costs</p>
+                    <p>• Customers pay you first, then you pay suppliers</p>
+                    <p>• Start with just your phone and internet connection</p>
+                    <p>• Etsy listing fees are minimal (about ₱10 per listing)</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Paano kung di ako techy? (What if I'm not tech-savvy?)</span>
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    <p>The course is designed for complete beginners. Maria, our top Filipino student, had ZERO online selling experience before joining.</p>
+                    <p>• Step-by-step video tutorials</p>
+                    <p>• Tagalog support available</p>
+                    <p>• Private community for questions</p>
+                    <p>• If you can use Facebook, you can do this</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>How do I receive the course after paying?</span>
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    <p>1. Pay via GCash to 0928 648 6120 (Maria Nuqui)</p>
+                    <p>2. Screenshot your payment receipt</p>
+                    <p>3. Send screenshot + your email to our Messenger or email</p>
+                    <p>4. Receive course access within 2-4 hours (usually faster)</p>
+                    <p>We manually verify to prevent fraud and ensure 100% goes to relief.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Where exactly does my money go?</span>
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    <p>100% of your course payment goes to:</p>
+                    <p>• Rice, canned goods, water, and essential supplies</p>
+                    <p>• Direct purchases from local suppliers (like Jgb Limbaga's store)</p>
+                    <p>• Truck rentals for distribution</p>
+                    <p>• Emergency shelter materials</p>
+                    <p>Track every peso in our public Google Sheet. We buy in bulk for maximum impact.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>When will the relief goods be distributed?</span>
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    <p>Relief trucks deploy the moment we hit ₱900,000. This will be a ONE-TIME massive distribution with multiple trucks hitting different areas of Cebu simultaneously.</p>
+                    <p>We're coordinating with Barangay Captain Clifford Niñal to ensure supplies reach the families who need them most.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Can I get a refund?</span>
+                <span class="icon">+</span>
+            </div>
+            <div class="faq-answer">
+                <div class="faq-answer-content">
+                    <p>Because 100% of proceeds go directly to typhoon relief, we cannot offer refunds. Your payment becomes a donation the moment it's received.</p>
+                    <p>That said, if you're unhappy with the course content, message us. We'll work something out – we want you to succeed.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 ePro Formula. All Rights Reserved.</p>
+        <p style="margin-top:10px;color:var(--green);font-weight:600">
+            100% of relief campaign proceeds go to Typhoon Tino victims.
+        </p>
+        
+        <div class="footer-links">
+            <a href="https://www.facebook.com/profile.php?id=61579629904148" target="_blank">Follow us on Facebook</a>
+            <a href="https://docs.google.com/spreadsheets/d/1qsw8uobLY7v0MK0UDTA3xEPXRxrj-J2sRmxHskS2dyg/edit?gid=248957390#gid=248957390" target="_blank">View Public Donation Tracker</a>
+            <a href="mailto:aetophis@aetophis.com">Contact: aetophis@aetophis.com</a>
+        </div>
+        
+        <div class="dti-footer">
+            <p><strong>MEIR BUSINESS CONSULTANCY SERVICES</strong></p>
+            <p>DTI Registration: <span class="reg">6688607</span></p>
+            <p>Valid: January 2025 - January 2030</p>
+            <p>Owner: Maria Antoniette Agatha Nuqui</p>
+        </div>
+        
+        <div class="footer-legal">
+            <a onclick="openLegal('privacy')">Privacy Policy</a>
+            <a onclick="openLegal('terms')">Terms of Service</a>
+            <a onclick="openLegal('refund')">Refund Policy</a>
         </div>
     </footer>
 
-    <script>
-    // ===========================
-    // SIMPLE GALLERY FUNCTIONALITY
-    // ===========================
+</div>
+<!-- End Container -->
 
-    // Gallery data (screenshots with captions)
-    const galleryImages = [
-        {
-            src: 'images/results/notable results/6K In one day.jpg',
-            caption: '$6,000 in ONE DAY'
-        },
-        {
-            src: 'images/results/notable results/15,500 dollars a month.jpg',
-            caption: '$15,500/month · 6 months in'
-        },
-        {
-            src: 'images/results/notable results/4,500 dollars a month.jpg',
-            caption: '$4,500/month · 3 months in'
-        },
-        {
-            src: 'images/results/notable results/5,388 dollars a month.jpg',
-            caption: '$5,388/month'
-        },
-        {
-            src: 'images/results/notable results/1,999 dollars a day.jpg',
-            caption: '$1,999 in ONE DAY'
-        },
-        {
-            src: 'images/results/notable results/2,132 dollars a day.jpg',
-            caption: '$2,132 in ONE DAY'
-        },
-        {
-            src: 'images/results/notable results/2,110 dollars a day.jpg',
-            caption: '$2,110 in ONE DAY'
-        },
-        {
-            src: 'images/results/notable results/1,368.50 dollars a day.jpg',
-            caption: '$1,368.50 in ONE DAY'
-        },
-        {
-            src: 'images/results/notable results/896 dollars a day.jpg',
-            caption: '$896 in ONE DAY'
-        },
-        {
-            src: 'images/results/notable results/716 dollars a day.jpg',
-            caption: '$716 in ONE DAY'
-        },
-        {
-            src: 'images/results/notable results/640 dollars a day.jpg',
-            caption: '$640 in ONE DAY'
-        },
-        {
-            src: 'images/results/notable results/531 dollars a day.jpg',
-            caption: '$531 in ONE DAY'
-        },
-        {
-            src: 'images/results/notable results/4,771.50 dollars a week.jpg',
-            caption: '$4,771.50 per WEEK'
-        },
-        {
-            src: 'images/results/notable results/4,346.22 dollars a week.jpg',
-            caption: '$4,346.22 per WEEK'
-        },
-        {
-            src: 'images/results/notable results/2,116 dollars a week.jpg',
-            caption: '$2,116 per WEEK'
-        },
-        {
-            src: 'images/results/notable results/1,122 dollars a week.jpg',
-            caption: '$1,122 per WEEK'
-        },
-        {
-            src: 'images/results/notable results/many mails sales.jpg',
-            caption: 'Non-stop sales notifications'
-        }
-    ];
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    let currentImageIndex = 0;
+<script>
+// Page Load Animation
+window.addEventListener('load', () => {
+    document.body.style.opacity = '1';
+});
 
-    // Initialize gallery on page load
-    document.addEventListener('DOMContentLoaded', function() {
-        initializeGallery();
+// Initialize Swipers
+const resultsSwiper = new Swiper('.results-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+        640: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
+    }
+});
+
+const studentsSwiper = new Swiper('.students-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    effect: 'cards',
+    grabCursor: true
+});
+
+// Video Play
+function playVideo(box) {
+    box.classList.add('playing');
+    const iframe = box.querySelector('iframe');
+    const src = iframe.src;
+    iframe.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1';
+}
+
+// Lightbox / Zoom Functions
+let currentZoom = 1;
+let isDragging = false;
+let startX, startY, translateX = 0, translateY = 0;
+
+function openZoom(imgSrc) {
+    const modal = document.getElementById('lightbox');
+    const img = document.getElementById('lightboxImg');
+    img.src = imgSrc;
+    currentZoom = 1;
+    translateX = 0;
+    translateY = 0;
+    img.style.transform = 'scale(1) translate(0, 0)';
+    document.getElementById('zoomRange').value = 1;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeZoom() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+document.getElementById('zoomRange').addEventListener('input', (e) => {
+    currentZoom = parseFloat(e.target.value);
+    updateImageTransform();
+});
+
+function updateImageTransform() {
+    const img = document.getElementById('lightboxImg');
+    img.style.transform = `scale(${currentZoom}) translate(${translateX}px, ${translateY}px)`;
+}
+
+// Lightbox drag functionality
+const lightboxWrap = document.getElementById('lightboxWrap');
+
+lightboxWrap.addEventListener('mousedown', (e) => {
+    if (currentZoom > 1) {
+        isDragging = true;
+        startX = e.clientX - translateX;
+        startY = e.clientY - translateY;
+    }
+});
+
+lightboxWrap.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+        translateX = e.clientX - startX;
+        translateY = e.clientY - startY;
+        updateImageTransform();
+    }
+});
+
+lightboxWrap.addEventListener('mouseup', () => isDragging = false);
+lightboxWrap.addEventListener('mouseleave', () => isDragging = false);
+
+document.getElementById('lightbox').addEventListener('click', (e) => {
+    if (e.target.id === 'lightbox' || e.target.id === 'lightboxWrap') {
+        closeZoom();
+    }
+});
+
+// GCash Modal
+function openGcash(amount) {
+    const modal = document.getElementById('gcashModal');
+    const qrImg = document.getElementById('gcashQr');
+    
+    if (amount === '499') {
+        qrImg.src = 'images/relief/gcash/499.png';
+    } else if (amount === '3499') {
+        qrImg.src = 'images/relief/gcash/3,499.png';
+    } else if (amount === '9999') {
+        qrImg.src = 'images/relief/gcash/9,999.png';
+    } else {
+        qrImg.src = 'images/relief/gcash/costume.png';
+    }
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeGcash() {
+    document.getElementById('gcashModal').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function copyTemplate() {
+    const template = `Hi! I paid for [PACKAGE NAME]
+Name: ___
+Email: ___
+Amount: ₱___
+Ref #: ___`;
+    navigator.clipboard.writeText(template).then(() => {
+        alert('Message template copied! Paste it in Messenger.');
     });
+}
 
-    function initializeGallery() {
-        // Create dots
-        const dotsContainer = document.getElementById('galleryDots');
-        galleryImages.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.className = 'gallery-dot';
-            if (index === 0) dot.classList.add('active');
-            dot.onclick = () => goToImage(index);
-            dotsContainer.appendChild(dot);
-        });
+// FAQ Toggle
+function toggleFaq(element) {
+    const item = element.parentElement;
+    item.classList.toggle('open');
+}
 
-        // Show first image
-        updateGallery();
-    }
-
-    function nextImage() {
-        currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-        updateGallery();
-    }
-
-    function previousImage() {
-        currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-        updateGallery();
-    }
-
-    function goToImage(index) {
-        currentImageIndex = index;
-        updateGallery();
-    }
-
-    function updateGallery() {
-        // Update image and caption
-        const galleryImage = document.getElementById('galleryImage');
-        const galleryCaption = document.getElementById('galleryCaption');
-        
-        galleryImage.src = galleryImages[currentImageIndex].src;
-        galleryCaption.textContent = galleryImages[currentImageIndex].caption;
-
-        // Update dots
-        const dots = document.querySelectorAll('.gallery-dot');
-        dots.forEach((dot, index) => {
-            if (index === currentImageIndex) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
-        });
-    }
-
-    // ===========================
-    // SMOOTH SCROLLING FOR LINKS
-    // ===========================
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // ===========================
-    // IMAGE ZOOM ON CLICK
-    // ===========================
-    document.addEventListener('DOMContentLoaded', function() {
-        const photos = document.querySelectorAll('.photo-item img, .facebook-item img');
-        
-        photos.forEach(photo => {
-            photo.addEventListener('click', function() {
-                createLightbox(this.src);
-            });
-        });
-    });
-
-    function createLightbox(imageSrc) {
-        // Create overlay
-        const overlay = document.createElement('div');
-        overlay.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
+// Legal Modal
+function openLegal(type) {
+    const modal = document.getElementById('legalModal');
+    const textDiv = document.getElementById('legalText');
+    
+    if (type === 'privacy') {
+        textDiv.innerHTML = `
+            <h2>Privacy Policy</h2>
+            <p><strong>Last Updated:</strong> December 2024</p>
+            <h3>Information We Collect</h3>
+            <p>We collect your name, email address, and payment information when you purchase a course or make a donation.</p>
+            <h3>How We Use Your Information</h3>
+            <p>Your information is used solely to deliver your course access and add your name to the public donor wall (if you opt in).</p>
+            <h3>Data Security</h3>
+            <p>We use industry-standard security measures to protect your personal information.</p>
+            <h3>Contact</h3>
+            <p>Questions? Email us at aetophis@aetophis.com</p>
         `;
-
-        // Create image
-        const img = document.createElement('img');
-        img.src = imageSrc;
-        img.style.cssText = `
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 8px;
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
+    } else if (type === 'terms') {
+        textDiv.innerHTML = `
+            <h2>Terms of Service</h2>
+            <p><strong>Last Updated:</strong> December 2024</p>
+            <h3>Course Access</h3>
+            <p>Upon verified payment, you receive lifetime access to the ePro Formula course materials.</p>
+            <h3>Donation Terms</h3>
+            <p>100% of proceeds from this relief campaign go directly to Typhoon Tino relief operations in Cebu.</p>
+            <h3>Intellectual Property</h3>
+            <p>Course materials are for personal use only. Redistribution is prohibited.</p>
+            <h3>Disclaimer</h3>
+            <p>Results vary. We do not guarantee specific income results.</p>
         `;
-
-        // Create close button
-        const closeBtn = document.createElement('button');
-        closeBtn.innerHTML = '×';
-        closeBtn.style.cssText = `
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            color: white;
-            font-size: 40px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
+    } else if (type === 'refund') {
+        textDiv.innerHTML = `
+            <h2>Refund Policy</h2>
+            <p><strong>Last Updated:</strong> December 2024</p>
+            <h3>Relief Campaign Purchases</h3>
+            <p>Because 100% of proceeds go directly to typhoon relief, we cannot offer refunds for purchases made during this campaign. Your payment becomes a donation the moment it is received.</p>
+            <h3>Course Quality Guarantee</h3>
+            <p>If you are genuinely unhappy with the course content, please message us. We want you to succeed and will work with you to address any concerns.</p>
+            <h3>Contact</h3>
+            <p>Questions? Email us at aetophis@aetophis.com or message us on Facebook.</p>
         `;
-
-        closeBtn.addEventListener('mouseenter', function() {
-            this.style.background = 'rgba(255, 255, 255, 0.3)';
-            this.style.transform = 'scale(1.1)';
-        });
-
-        closeBtn.addEventListener('mouseleave', function() {
-            this.style.background = 'rgba(255, 255, 255, 0.2)';
-            this.style.transform = 'scale(1)';
-        });
-
-        // Append elements
-        overlay.appendChild(img);
-        overlay.appendChild(closeBtn);
-        document.body.appendChild(overlay);
-
-        // Close on click
-        overlay.addEventListener('click', function(e) {
-            if (e.target === overlay || e.target === closeBtn) {
-                document.body.removeChild(overlay);
-            }
-        });
-
-        // Close on ESC key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && document.body.contains(overlay)) {
-                document.body.removeChild(overlay);
-            }
-        });
     }
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
 
-    // ===========================
-    // KEYBOARD NAVIGATION FOR GALLERY
-    // ===========================
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowLeft') {
-            previousImage();
-        } else if (e.key === 'ArrowRight') {
-            nextImage();
-        }
-    });
-    </script>
+function closeLegal() {
+    document.getElementById('legalModal').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Close modals on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeZoom();
+        closeGcash();
+        closeLegal();
+    }
+});
+
+// Close modals when clicking outside content
+document.getElementById('gcashModal').addEventListener('click', (e) => {
+    if (e.target.id === 'gcashModal') closeGcash();
+});
+
+document.getElementById('legalModal').addEventListener('click', (e) => {
+    if (e.target.id === 'legalModal') closeLegal();
+});
+</script>
+
+<!-- GTM noscript -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T478W9J7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
 </body>
 </html>
