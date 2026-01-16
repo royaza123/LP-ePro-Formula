@@ -566,6 +566,55 @@ body::before {
     opacity: 1;
 }
 
+/* Facebook Shares Carousel */
+.facebook-carousel {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.facebook-carousel-track {
+    display: flex;
+    gap: 20px;
+    animation: scroll-carousel 30s linear infinite;
+}
+
+.facebook-carousel-track:hover {
+    animation-play-state: paused;
+}
+
+.facebook-carousel-item {
+    flex: 0 0 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.facebook-carousel-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--orange);
+    box-shadow: 0 10px 30px rgba(217, 119, 6, 0.3);
+}
+
+.facebook-carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@keyframes scroll-carousel {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
 /* Proof Section */
 .proof h2 {
     font-family: 'Space Grotesk', sans-serif;
@@ -596,6 +645,9 @@ body::before {
     border: 2px solid var(--orange);
     box-shadow: 0 10px 40px rgba(217, 119, 6, 0.3);
     transition: all 0.3s ease;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .featured-card:hover {
@@ -606,6 +658,8 @@ body::before {
 .featured-card img {
     width: 100%;
     display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
 }
 
 .featured-card .result {
@@ -619,6 +673,30 @@ body::before {
     font-weight: 800;
     font-size: 1.2rem;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Results Swiper - Uniform Squares */
+.results-swiper .swiper-slide > div {
+    aspect-ratio: 1/1;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.results-swiper .swiper-slide > div:hover {
+    border-color: var(--orange);
+    box-shadow: 0 10px 30px rgba(217, 119, 6, 0.3);
+    transform: translateY(-5px);
+}
+
+.results-swiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .cta-large {
@@ -662,6 +740,10 @@ body::before {
 .test-card.featured {
     border: 2px solid var(--orange);
     box-shadow: 0 10px 40px rgba(217, 119, 6, 0.3);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
 }
 
 .test-header {
@@ -681,6 +763,7 @@ body::before {
     justify-content: center;
     font-weight: 800;
     font-size: 1.5rem;
+    flex-shrink: 0;
 }
 
 .test-info h4 {
@@ -706,6 +789,12 @@ body::before {
     cursor: pointer;
     border: 1px solid var(--border);
     transition: all 0.3s ease;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.test-card.featured .test-screenshot {
+    max-width: 600px;
 }
 
 .test-screenshot:hover {
@@ -716,6 +805,8 @@ body::before {
 .test-screenshot img {
     width: 100%;
     display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
 }
 
 /* Donation */
