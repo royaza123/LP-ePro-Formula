@@ -571,12 +571,13 @@ body::before {
     position: relative;
     overflow: hidden;
     padding: 20px 0;
+    margin-bottom: 40px;
 }
 
 .facebook-carousel-track {
     display: flex;
-    gap: 20px;
-    animation: scroll-carousel 30s linear infinite;
+    gap: 15px;
+    animation: scroll-carousel 40s linear infinite;
 }
 
 .facebook-carousel-track:hover {
@@ -584,8 +585,9 @@ body::before {
 }
 
 .facebook-carousel-item {
-    flex: 0 0 300px;
-    border-radius: 15px;
+    flex: 0 0 200px;
+    height: 200px;
+    border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
     background: rgba(255, 255, 255, 0.05);
@@ -645,9 +647,10 @@ body::before {
     border: 2px solid var(--orange);
     box-shadow: 0 10px 40px rgba(217, 119, 6, 0.3);
     transition: all 0.3s ease;
-    max-width: 600px;
+    max-width: 500px;
     margin-left: auto;
     margin-right: auto;
+    height: 400px;
 }
 
 .featured-card:hover {
@@ -657,9 +660,10 @@ body::before {
 
 .featured-card img {
     width: 100%;
+    height: 100%;
+    object-fit: contain;
     display: block;
-    aspect-ratio: 16/9;
-    object-fit: cover;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .featured-card .result {
@@ -676,14 +680,22 @@ body::before {
 }
 
 /* Results Swiper - Uniform Squares */
+.results-swiper {
+    margin-bottom: 40px;
+}
+
 .results-swiper .swiper-slide > div {
-    aspect-ratio: 1/1;
+    width: 100%;
+    height: 350px;
     border-radius: 15px;
     overflow: hidden;
     cursor: pointer;
     border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .results-swiper .swiper-slide > div:hover {
@@ -695,8 +707,15 @@ body::before {
 .results-swiper .swiper-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
+}
+
+.results-swiper .swiper-slide > div + div {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--orange-light);
 }
 
 .cta-large {
@@ -1272,4 +1291,35 @@ footer {
         bottom: 15px;
         right: 10px;
     }
+}
+
+/* Facebook Embed */
+.facebook-embed {
+    max-width: 500px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.facebook-embed iframe {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(217, 119, 6, 0.2);
+}
+
+/* Volunteer Section Updates */
+.volunteer {
+    text-align: center;
+}
+
+.volunteer h2 {
+    margin-bottom: 30px;
+}
+
+.volunteer p {
+    margin-bottom: 50px;
+}
+
+/* Share Button Spacing */
+.share-section {
+    margin-top: 80px;
+    text-align: center;
 }
