@@ -28,10 +28,13 @@
     <!-- Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
-    <!-- Styles -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<!-- GTM noscript -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T478W9J7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- Sticky Contact -->
 <a href="mailto:aetophis@aetophis.com" target="_blank" class="sticky-contact">✉️ Contact</a>
@@ -43,9 +46,15 @@
 
 <!-- Particles -->
 <div class="particles">
-    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
 </div>
 
 <!-- Lightbox Modal -->
@@ -53,10 +62,6 @@
     <button class="close-lightbox" onclick="closeZoom()">&times;</button>
     <div class="lightbox-wrap" id="lightboxWrap">
         <img src="" class="lightbox-img" id="lightboxImg" alt="Zoomed Image">
-    </div>
-    <div class="lightbox-controls">
-        <span style="color:#fff;font-weight:bold">Zoom:</span>
-        <input type="range" min="1" max="3" step="0.1" value="1" id="zoomRange">
     </div>
 </div>
 
@@ -131,7 +136,7 @@
         <span class="kap-badge">✓ Verified Partner</span>
         
         <div class="kap-img" onclick="openZoom('images/relief/trust/hugging_kap_me_and_pele.jpg')">
-            <img src="images/relief/trust/hugging_kap_me_and_pele.jpg" alt="ePro team with Barangay Captain Clifford Jude Niñal">
+            <img src="images/relief/trust/hugging_kap_me_and_pele.jpg" alt="ePro team with Barangay Captain">
         </div>
         
         <div class="kap-content">
@@ -148,16 +153,13 @@
         <div class="line"></div>
     </div>
     
-    <div class="video-box" onclick="playVideo(this)">
-        <div class="video-cover">
-            <div class="play-btn">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M8 5V19L19 12L8 5Z" fill="#fff"/></svg>
-            </div>
+    <div class="video-box">
+        <div style="padding:56.25% 0 0 0;position:relative;">
+            <iframe src="https://player.vimeo.com/video/1148687196?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Typhoon Tino Relief"></iframe>
         </div>
-        <iframe src="https://player.vimeo.com/video/1148687196?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Relief Video"></iframe>
     </div>
     
-    <div style="text-align:center;margin-bottom:50px">
+    <div style="text-align:center;margin:30px 0 50px">
         <a href="#donate" class="cta-large">Get Access & Help Victims</a>
     </div>
 
@@ -174,24 +176,24 @@
 
     <!-- PROGRESS -->
     <div class="progress">
-        <div class="progress-header">
-            <p>We donated the first ₱100K. Help us reach ₱1M.</p>
+        <div style="text-align:center;margin-bottom:30px">
+            <p style="font-size:1.3rem;font-weight:700;color:var(--orange-light)">We donated the first ₱100K. Help us reach ₱1M.</p>
         </div>
         
         <div class="stats">
             <div class="stat">
-                <div class="stat-val" id="raisedAmount">₱108,754</div>
+                <div class="stat-val">₱108,754</div>
                 <div class="stat-lbl">Raised</div>
             </div>
             <div class="stat">
-                <div class="stat-val" id="remainingAmount">₱891,246</div>
+                <div class="stat-val">₱891,246</div>
                 <div class="stat-lbl">To Go</div>
             </div>
         </div>
         
         <div class="bar-wrap">
-            <div class="bar-text" id="percentDisplay">10.9%</div>
-            <div class="bar-fill" id="progressBar" style="width:10.9%"></div>
+            <div class="bar-text">10.9%</div>
+            <div class="bar-fill" style="width:10.9%"></div>
         </div>
         
         <p style="text-align:center;color:var(--orange-light);font-weight:600;margin-top:20px">🚚 Relief trucks deploy the moment we hit ₱900K</p>
@@ -207,22 +209,46 @@
     <!-- DONOR WALL -->
     <div class="donor-wall">
         <h3>🙏 The Bayanihan Wall</h3>
-        <div class="donor-list">
-            <div class="donor-item"><span class="donor-name">Liran Yitshaki</span><span class="donor-amount">₱3,499</span></div>
-            <div class="donor-item"><span class="donor-name">Maria Ana Abello</span><span class="donor-amount">₱3,499</span></div>
-            <div class="donor-item"><span class="donor-name">Johnrine Arcales</span><span class="donor-amount">₱499</span></div>
-            <div class="donor-item"><span class="donor-name">Chloe Diza</span><span class="donor-amount">₱499</span></div>
-            <div class="donor-item"><span class="donor-name">Babielyn Caigoy</span><span class="donor-amount">₱499</span></div>
-            <div class="donor-item"><span class="donor-name">Mylene Sandoval</span><span class="donor-amount">₱150</span></div>
-            <div class="donor-item"><span class="donor-name">Romulo Lequin</span><span class="donor-amount">₱100</span></div>
-            <div class="donor-item"><span class="donor-name">Ido Tzfanya</span><span class="donor-amount">₱11</span></div>
+        <div style="display:grid;gap:15px;margin-bottom:20px">
+            <div style="display:flex;justify-content:space-between;padding:15px 20px;background:rgba(255,255,255,0.03);border-radius:10px">
+                <span style="font-weight:600">Liran Yitshaki</span>
+                <span style="color:var(--orange-light);font-weight:700">₱3,499</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:15px 20px;background:rgba(255,255,255,0.03);border-radius:10px">
+                <span style="font-weight:600">Maria Ana Abello</span>
+                <span style="color:var(--orange-light);font-weight:700">₱3,499</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:15px 20px;background:rgba(255,255,255,0.03);border-radius:10px">
+                <span style="font-weight:600">Johnrine Arcales</span>
+                <span style="color:var(--orange-light);font-weight:700">₱499</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:15px 20px;background:rgba(255,255,255,0.03);border-radius:10px">
+                <span style="font-weight:600">Chloe Diza</span>
+                <span style="color:var(--orange-light);font-weight:700">₱499</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:15px 20px;background:rgba(255,255,255,0.03);border-radius:10px">
+                <span style="font-weight:600">Babielyn Caigoy</span>
+                <span style="color:var(--orange-light);font-weight:700">₱499</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:15px 20px;background:rgba(255,255,255,0.03);border-radius:10px">
+                <span style="font-weight:600">Mylene Sandoval</span>
+                <span style="color:var(--orange-light);font-weight:700">₱150</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:15px 20px;background:rgba(255,255,255,0.03);border-radius:10px">
+                <span style="font-weight:600">Romulo Lequin</span>
+                <span style="color:var(--orange-light);font-weight:700">₱100</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:15px 20px;background:rgba(255,255,255,0.03);border-radius:10px">
+                <span style="font-weight:600">Ido Tzfanya</span>
+                <span style="color:var(--orange-light);font-weight:700">₱11</span>
+            </div>
         </div>
-        <p class="donor-footer">Your name appears here after donating ❤️</p>
+        <p style="text-align:center;color:var(--text-muted);font-size:0.9rem">Your name appears here after donating ❤️</p>
     </div>
 
     <!-- GALLERY -->
-    <div class="gallery">
-        <h2>On The Ground</h2>
+    <div style="margin-bottom:60px">
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:2.5rem;text-align:center;margin-bottom:10px">On The Ground</h2>
         <p class="sub">Real photos. Real impact. No middlemen.</p>
         
         <div class="photo-grid">
@@ -258,88 +284,90 @@
     </div>
 
     <!-- SOCIAL SHARES -->
-    <div class="social-shares">
-        <h2>Spreading Across Facebook</h2>
+    <div style="margin-bottom:60px">
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:2.5rem;text-align:center;margin-bottom:10px">Spreading Across Facebook</h2>
         <p class="sub">Real people sharing. Real trust building.</p>
         
-        <div class="shares-grid">
-            <div class="share-item" onclick="openZoom('images/relief/trust/cap_repost.jpg')">
-                <img src="images/relief/trust/cap_repost.jpg" alt="Kap Clifford repost">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px">
+            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/cap_repost.jpg')">
+                <img src="images/relief/trust/cap_repost.jpg" alt="Kap Clifford repost" style="width:100%;display:block">
             </div>
-            <div class="share-item" onclick="openZoom('images/relief/trust/jgp_limbaga_thanking_us_under_kap_post.jpg')">
-                <img src="images/relief/trust/jgp_limbaga_thanking_us_under_kap_post.jpg" alt="Supplier thanking us">
+            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/jgp_limbaga_thanking_us_under_kap_post.jpg')">
+                <img src="images/relief/trust/jgp_limbaga_thanking_us_under_kap_post.jpg" alt="Supplier thanking us" style="width:100%;display:block">
             </div>
-            <div class="share-item" onclick="openZoom('images/relief/trust/pepole_sharing_in_groups_1_.jpg')">
-                <img src="images/relief/trust/pepole_sharing_in_groups_1_.jpg" alt="Shared in Cebu groups">
+            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/pepole_sharing_in_groups_1_.jpg')">
+                <img src="images/relief/trust/pepole_sharing_in_groups_1_.jpg" alt="Shared in groups" style="width:100%;display:block">
             </div>
-            <div class="share-item" onclick="openZoom('images/relief/trust/pepole_sharing_in_their_private_feed.jpg')">
-                <img src="images/relief/trust/pepole_sharing_in_their_private_feed.jpg" alt="Private feed share">
+            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/pepole_sharing_in_their_private_feed.jpg')">
+                <img src="images/relief/trust/pepole_sharing_in_their_private_feed.jpg" alt="Private feed share" style="width:100%;display:block">
             </div>
-            <div class="share-item" onclick="openZoom('images/relief/trust/42_shares_to_our_posts.jpg')">
-                <img src="images/relief/trust/42_shares_to_our_posts.jpg" alt="42 shares">
+            <div style="border-radius:15px;overflow:hidden;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid var(--border);transition:all 0.3s ease" onclick="openZoom('images/relief/trust/42_shares_to_our_posts.jpg')">
+                <img src="images/relief/trust/42_shares_to_our_posts.jpg" alt="42 shares" style="width:100%;display:block">
             </div>
         </div>
     </div>
 
     <!-- PROOF SECTION -->
-    <div class="proof" id="proof">
+    <div class="proof" id="proof" style="margin-bottom:60px">
         <h2>Screenshots <span>Don't Lie</span></h2>
         <p class="sub">Tap any image to inspect the evidence.</p>
         
-        <div class="featured-card" onclick="openZoom('images/results/notable results/6K In one day.jpg')">
-            <img src="images/results/notable results/6K In one day.jpg" alt="$6,000 in one day" loading="lazy">
+        <div class="featured-card" onclick="openZoom('images/results/notable_results/6K_In_one_day.jpg')">
+            <img src="images/results/notable_results/6K_In_one_day.jpg" alt="$6,000 in one day">
             <div class="result">$6,000 in ONE DAY</div>
         </div>
         
         <div class="swiper results-swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <div class="slide-wrap" onclick="openZoom('images/results/notable results/1,368.50 dollars a day.jpg')">
-                        <img src="images/results/notable results/1,368.50 dollars a day.jpg" alt="$1,368 a day" loading="lazy">
+                    <div style="border-radius:15px;overflow:hidden;cursor:pointer;border:1px solid var(--border)" onclick="openZoom('images/results/notable_results/1,368.50_dollars_a_day.jpg')">
+                        <img src="images/results/notable_results/1,368.50_dollars_a_day.jpg" alt="$1,368 a day" style="width:100%;display:block">
                     </div>
-                    <div class="slide-caption">$1,368 in a day</div>
+                    <div style="text-align:center;margin-top:10px;font-weight:600;color:var(--orange-light)">$1,368 in a day</div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="slide-wrap" onclick="openZoom('images/results/notable results/1,999 dollars a day.jpg')">
-                        <img src="images/results/notable results/1,999 dollars a day.jpg" alt="$1,999 a day" loading="lazy">
+                    <div style="border-radius:15px;overflow:hidden;cursor:pointer;border:1px solid var(--border)" onclick="openZoom('images/results/notable_results/1,999_dollars_a_day.jpg')">
+                        <img src="images/results/notable_results/1,999_dollars_a_day.jpg" alt="$1,999 a day" style="width:100%;display:block">
                     </div>
-                    <div class="slide-caption">$1,999 in a day</div>
+                    <div style="text-align:center;margin-top:10px;font-weight:600;color:var(--orange-light)">$1,999 in a day</div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="slide-wrap" onclick="openZoom('images/results/notable results/2,132 dollars a day.jpg')">
-                        <img src="images/results/notable results/2,132 dollars a day.jpg" alt="$2,132 a day" loading="lazy">
+                    <div style="border-radius:15px;overflow:hidden;cursor:pointer;border:1px solid var(--border)" onclick="openZoom('images/results/notable_results/2,132_dollars_a_day.jpg')">
+                        <img src="images/results/notable_results/2,132_dollars_a_day.jpg" alt="$2,132 a day" style="width:100%;display:block">
                     </div>
-                    <div class="slide-caption">$2,132 in a day</div>
+                    <div style="text-align:center;margin-top:10px;font-weight:600;color:var(--orange-light)">$2,132 in a day</div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="slide-wrap" onclick="openZoom('images/results/notable results/15,500 dollars a month.jpg')">
-                        <img src="images/results/notable results/15,500 dollars a month.jpg" alt="$15,500 a month" loading="lazy">
+                    <div style="border-radius:15px;overflow:hidden;cursor:pointer;border:1px solid var(--border)" onclick="openZoom('images/results/notable_results/15,500_dollars_a_month.jpg')">
+                        <img src="images/results/notable_results/15,500_dollars_a_month.jpg" alt="$15,500 a month" style="width:100%;display:block">
                     </div>
-                    <div class="slide-caption">$15,500 in a MONTH</div>
+                    <div style="text-align:center;margin-top:10px;font-weight:600;color:var(--orange-light)">$15,500 in a MONTH</div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="slide-wrap" onclick="openZoom('images/results/notable results/4,771.50 dollars a week.jpg')">
-                        <img src="images/results/notable results/4,771.50 dollars a week.jpg" alt="$4,771 a week" loading="lazy">
+                    <div style="border-radius:15px;overflow:hidden;cursor:pointer;border:1px solid var(--border)" onclick="openZoom('images/results/notable_results/4,771.50_dollars_a_week.jpg')">
+                        <img src="images/results/notable_results/4,771.50_dollars_a_week.jpg" alt="$4,771 a week" style="width:100%;display:block">
                     </div>
-                    <div class="slide-caption">$4,771 in one week</div>
+                    <div style="text-align:center;margin-top:10px;font-weight:600;color:var(--orange-light)">$4,771 in one week</div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="slide-wrap" onclick="openZoom('images/results/notable results/many mails sales.jpg')">
-                        <img src="images/results/notable results/many mails sales.jpg" alt="Inbox full of sales" loading="lazy">
+                    <div style="border-radius:15px;overflow:hidden;cursor:pointer;border:1px solid var(--border)" onclick="openZoom('images/results/notable_results/many_mails_sales.jpg')">
+                        <img src="images/results/notable_results/many_mails_sales.jpg" alt="Inbox full of sales" style="width:100%;display:block">
                     </div>
-                    <div class="slide-caption">Inbox FULL of sales</div>
+                    <div style="text-align:center;margin-top:10px;font-weight:600;color:var(--orange-light)">Inbox FULL of sales</div>
                 </div>
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
         
-        <a href="#what-is" class="cta-large">Show Me How To Do This</a>
+        <div style="text-align:center;margin-top:40px">
+            <a href="#what-is" class="cta-large">Show Me How To Do This</a>
+        </div>
     </div>
 
     <!-- FILIPINO TESTIMONIALS -->
-    <div class="filipino-test">
-        <h2>🇵🇭 Fresh Filipino Results</h2>
+    <div style="margin-bottom:60px">
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:2.5rem;text-align:center;margin-bottom:10px">🇵🇭 Fresh Filipino Results</h2>
         <p class="sub">Real students. Real results. Just started.</p>
         
         <div class="test-card featured">
@@ -351,7 +379,7 @@
                 </div>
             </div>
             <div class="test-screenshot" onclick="openZoom('images/relief/trust/maria_GC_screenshot.jpg')">
-                <img src="images/relief/trust/maria_GC_screenshot.jpg" alt="Maria's Etsy dashboard showing PHP 4,979">
+                <img src="images/relief/trust/maria_GC_screenshot.jpg" alt="Maria's results">
             </div>
         </div>
         
@@ -365,7 +393,7 @@
             </div>
             <div class="test-content">"Thank you for the guidance on how to find a niche and how to do the dropshipping business. It wasn't that easy but you make things comprehensive."</div>
             <div class="test-screenshot" onclick="openZoom('images/relief/trust/baboelyn_review.jpg')">
-                <img src="images/relief/trust/baboelyn_review.jpg" alt="Babielyn's WhatsApp testimonial">
+                <img src="images/relief/trust/baboelyn_review.jpg" alt="Babielyn's testimonial">
             </div>
         </div>
         
@@ -379,44 +407,33 @@
             </div>
             <div class="test-content">"I've been editing your videos for the last three months and the money is good. I can see the progress of people in the group chats and the sales that new sellers in my niche are making. I honestly thought at first that this is not real, but when I saw the results my skeptical mind got the trust. I cannot wait to make my Million Peso."</div>
             <div class="test-screenshot" onclick="openZoom('images/relief/trust/romulo_review.jpg')">
-                <img src="images/relief/trust/romulo_review.jpg" alt="Jay Ar's Messenger testimonial">
+                <img src="images/relief/trust/romulo_review.jpg" alt="Jay Ar's testimonial">
             </div>
         </div>
     </div>
 
     <!-- WHAT IS DROPSHIPPING -->
-    <div class="explainer" id="what-is">
-        <h2>What is Dropshipping on Etsy?</h2>
+    <div id="what-is" style="margin-bottom:60px">
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:2.5rem;text-align:center;margin-bottom:10px">What is Dropshipping on Etsy?</h2>
         <p class="sub">Watch this short explanation to understand how the method works.</p>
         
-        <!-- PLACEHOLDER: Replace with actual Vimeo embed when ready -->
-        <div class="video-placeholder">
-            <span class="icon">🎥</span>
-            <p><strong>Video Coming Soon</strong></p>
-            <p style="font-size:0.85rem">We're filming the explainer video right now.</p>
-        </div>
-        <!-- When video is ready, replace above with:
-        <div class="video-box" onclick="playVideo(this)">
-            <div class="video-cover">
-                <div class="play-btn">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M8 5V19L19 12L8 5Z" fill="#fff"/></svg>
-                </div>
+        <div class="video-box">
+            <div style="padding:56.25% 0 0 0;position:relative;">
+                <iframe src="https://player.vimeo.com/video/1115184890?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="What is Dropshipping"></iframe>
             </div>
-            <iframe src="https://player.vimeo.com/video/XXXXXXXXX?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="What is Dropshipping"></iframe>
         </div>
-        -->
     </div>
 
     <!-- DONATION SECTION -->
-    <div class="donation" id="donate">
-        <h2>Get the Course. Save a Life.</h2>
+    <div id="donate" style="margin-bottom:60px">
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:2.5rem;text-align:center;margin-bottom:10px">Get the Course. Save a Life.</h2>
         <p class="sub">Choose a package. 100% proceeds go to relief.</p>
         
         <div class="donation-promise">🛡️ 100% of your payment is donated immediately.</div>
         
         <div class="donation-options">
             
-            <!-- CORE -->
+            <!-- CORE ₱499 -->
             <div class="donation-card">
                 <div>
                     <h3>Core Course</h3>
@@ -432,19 +449,27 @@
                     <div class="toggle-options">
                         <div class="toggle-row">
                             <span class="toggle-label">Show my name on Public Donor Wall</span>
-                            <label class="toggle-switch"><input type="checkbox" checked><span class="slider"></span></label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="core-public" checked>
+                                <span class="slider"></span>
+                            </label>
                         </div>
                         <div class="toggle-row">
                             <span class="toggle-label">Gift course to a typhoon victim</span>
-                            <label class="toggle-switch"><input type="checkbox"><span class="slider"></span></label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="core-scholarship">
+                                <span class="slider"></span>
+                            </label>
                         </div>
                     </div>
-                    <button class="donate-btn" onclick="openGcash('499')">Get Course – ₱499</button>
-                    <button class="gcash-btn" onclick="openGcash('499')">Pay via GCash</button>
+                    <div class="payment-buttons">
+                        <button class="donate-btn" onclick="handlePayment('core', 499)">Pay Now – ₱499</button>
+                        <button class="gcash-btn" onclick="openGcash('499')">Pay via GCash</button>
+                    </div>
                 </div>
             </div>
             
-            <!-- SPRINT -->
+            <!-- SPRINT ₱3,499 -->
             <div class="donation-card">
                 <div>
                     <h3>Sprint Package</h3>
@@ -461,19 +486,27 @@
                     <div class="toggle-options">
                         <div class="toggle-row">
                             <span class="toggle-label">Show my name on Public Donor Wall</span>
-                            <label class="toggle-switch"><input type="checkbox" checked><span class="slider"></span></label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="sprint-public" checked>
+                                <span class="slider"></span>
+                            </label>
                         </div>
                         <div class="toggle-row">
                             <span class="toggle-label">Gift course to a typhoon victim</span>
-                            <label class="toggle-switch"><input type="checkbox"><span class="slider"></span></label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="sprint-scholarship">
+                                <span class="slider"></span>
+                            </label>
                         </div>
                     </div>
-                    <button class="donate-btn" onclick="openGcash('3499')">Get Package – ₱3,499</button>
-                    <button class="gcash-btn" onclick="openGcash('3499')">Pay via GCash</button>
+                    <div class="payment-buttons">
+                        <button class="donate-btn" onclick="handlePayment('sprint', 3499)">Pay Now – ₱3,499</button>
+                        <button class="gcash-btn" onclick="openGcash('3499')">Pay via GCash</button>
+                    </div>
                 </div>
             </div>
             
-            <!-- ELITE -->
+            <!-- ELITE ₱9,999 -->
             <div class="donation-card">
                 <div>
                     <h3>Elite Mentorship</h3>
@@ -491,15 +524,23 @@
                     <div class="toggle-options">
                         <div class="toggle-row">
                             <span class="toggle-label">Show my name on Public Donor Wall</span>
-                            <label class="toggle-switch"><input type="checkbox" checked><span class="slider"></span></label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="elite-public" checked>
+                                <span class="slider"></span>
+                            </label>
                         </div>
                         <div class="toggle-row">
                             <span class="toggle-label">Gift course to a typhoon victim</span>
-                            <label class="toggle-switch"><input type="checkbox"><span class="slider"></span></label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="elite-scholarship">
+                                <span class="slider"></span>
+                            </label>
                         </div>
                     </div>
-                    <button class="donate-btn" onclick="openGcash('9999')">Get Mentorship – ₱9,999</button>
-                    <button class="gcash-btn" onclick="openGcash('9999')">Pay via GCash</button>
+                    <div class="payment-buttons">
+                        <button class="donate-btn" onclick="handlePayment('elite', 9999)">Pay Now – ₱9,999</button>
+                        <button class="gcash-btn" onclick="openGcash('9999')">Pay via GCash</button>
+                    </div>
                 </div>
             </div>
             
@@ -508,71 +549,6 @@
         <p style="text-align:center;font-size:0.9rem;color:var(--text-muted);margin-top:20px">
             Can't afford right now? <a href="https://m.me/61579629904148" style="color:var(--orange-light)">Message us</a> – we have payment plans.
         </p>
-    </div>
-    <!-- STUDENT VIDEOS -->
-    <div class="student-videos">
-        <h2>What Students Are Saying</h2>
-        <p class="sub">Real video testimonials from our community</p>
-        
-        <div class="swiper students-swiper" style="max-width:350px;margin:0 auto">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="phone-frame">
-                        <div class="vertical-video">
-                            <iframe src="https://player.vimeo.com/video/1029091498?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Beeri Testimonial"></iframe>
-                        </div>
-                    </div>
-                    <div class="student-info">
-                        <span class="student-name">Beeri</span>
-                        <span class="student-result">$15,500/month</span>
-                        <span class="student-desc">From Israel • 6 months in</span>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="phone-frame">
-                        <div class="vertical-video">
-                            <iframe src="https://player.vimeo.com/video/1029086498?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Noam Testimonial"></iframe>
-                        </div>
-                    </div>
-                    <div class="student-info">
-                        <span class="student-name">Noam</span>
-                        <span class="student-result">$4,000/month</span>
-                        <span class="student-desc">Part-time • 3 months in</span>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="phone-frame">
-                        <div class="vertical-video">
-                            <iframe src="https://player.vimeo.com/video/1037445109?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Netanel Testimonial"></iframe>
-                        </div>
-                    </div>
-                    <div class="student-info">
-                        <span class="student-name">Netanel</span>
-                        <span class="student-result">Growing Fast</span>
-                        <span class="student-desc">Full-time student • 4 months in</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <p style="margin-top:30px;font-size:0.9rem;color:var(--text-muted)">
-            700+ students worldwide. Filipino case study video coming soon.
-        </p>
-        
-        <!-- PLACEHOLDER: Maria Case Study Video - Replace when ready -->
-        <!--
-        <div style="margin-top:40px">
-            <h3 style="text-align:center;margin-bottom:20px">🇵🇭 Maria's Story (Case Study)</h3>
-            <div class="video-box" onclick="playVideo(this)">
-                <div class="video-cover">
-                    <div class="play-btn">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M8 5V19L19 12L8 5Z" fill="#fff"/></svg>
-                    </div>
-                </div>
-                <iframe src="https://player.vimeo.com/video/XXXXXXXXX?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Maria Case Study"></iframe>
-            </div>
-        </div>
-        -->
     </div>
 
     <!-- FINAL CTA -->
@@ -594,8 +570,8 @@
     </div>
 
     <!-- FAQ -->
-    <div class="faq" id="faq">
-        <h2>Frequently Asked Questions</h2>
+    <div id="faq" style="margin-bottom:60px">
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:2.5rem;text-align:center;margin-bottom:40px">Frequently Asked Questions</h2>
         
         <div class="faq-item">
             <div class="faq-question" onclick="toggleFaq(this)">
@@ -654,11 +630,10 @@
             </div>
             <div class="faq-answer">
                 <div class="faq-answer-content">
-                    <p>1. Pay via GCash to 0928 648 6120 (Maria Nuqui)</p>
-                    <p>2. Screenshot your payment receipt</p>
-                    <p>3. Send screenshot + your email to our Messenger or email</p>
+                    <p>1. Click "Pay Now" and complete payment via Stripe (secure credit/debit card)</p>
+                    <p>2. Or choose GCash: Pay to 0928 648 6120 (Maria Nuqui)</p>
+                    <p>3. For GCash: Screenshot receipt and send to Messenger or email</p>
                     <p>4. Receive course access within 2-4 hours (usually faster)</p>
-                    <p>We manually verify to prevent fraud and ensure 100% goes to relief.</p>
                 </div>
             </div>
         </div>
@@ -735,19 +710,41 @@
     </footer>
 
 </div>
-<!-- End Container -->
 
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://player.vimeo.com/api/player.js"></script>
 
 <script>
-// Page Load Animation
+// Stripe Payment Links Configuration
+const STRIPE_LINKS = {
+    core: {
+        both: 'https://donate.stripe.com/7sYaEXduadRf6FPa3b',
+        publicOnly: 'https://donate.stripe.com/8x214n1Ls9AZc09grz',
+        scholarshipOnly: 'https://donate.stripe.com/6oUaEX9dU4gFc09ejr',
+        neither: 'https://donate.stripe.com/14A7sLfCiaF36FPdfn'
+    },
+    sprint: {
+        both: 'https://donate.stripe.com/9B65kDcq68wVfcl1wF',
+        publicOnly: 'https://donate.stripe.com/cNiaEX4XE8wV5BLfnv',
+        scholarshipOnly: 'https://donate.stripe.com/8x214n1LsbJ78NX5MV',
+        neither: 'https://donate.stripe.com/8x24gz1Ls7sR6FP7V3'
+    },
+    elite: {
+        both: 'https://donate.stripe.com/9B65kDcq68wVfcl1wF',
+        publicOnly: 'https://donate.stripe.com/00w5kDahYcNbfcl6QZ',
+        scholarshipOnly: 'https://donate.stripe.com/4gM3cv0Ho4gF1lvcbj',
+        neither: 'https://donate.stripe.com/6oU4gz9dU3cB3tD1wF'
+    }
+};
+
+// Page Load
 window.addEventListener('load', () => {
     document.body.style.opacity = '1';
 });
 
-// Initialize Swipers
-const resultsSwiper = new Swiper('.results-swiper', {
+// Swiper
+new Swiper('.results-swiper', {
     slidesPerView: 1,
     spaceBetween: 20,
     navigation: {
@@ -760,36 +757,30 @@ const resultsSwiper = new Swiper('.results-swiper', {
     }
 });
 
-const studentsSwiper = new Swiper('.students-swiper', {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    effect: 'cards',
-    grabCursor: true
-});
-
-// Video Play
-function playVideo(box) {
-    box.classList.add('playing');
-    const iframe = box.querySelector('iframe');
-    const src = iframe.src;
-    iframe.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1';
+// Handle Payment with Stripe
+function handlePayment(packageType, amount) {
+    const publicChecked = document.getElementById(`${packageType}-public`).checked;
+    const scholarshipChecked = document.getElementById(`${packageType}-scholarship`).checked;
+    
+    let linkKey;
+    if (publicChecked && scholarshipChecked) {
+        linkKey = 'both';
+    } else if (publicChecked && !scholarshipChecked) {
+        linkKey = 'publicOnly';
+    } else if (!publicChecked && scholarshipChecked) {
+        linkKey = 'scholarshipOnly';
+    } else {
+        linkKey = 'neither';
+    }
+    
+    const stripeLink = STRIPE_LINKS[packageType][linkKey];
+    window.location.href = stripeLink;
 }
 
-// Lightbox / Zoom Functions
-let currentZoom = 1;
-let isDragging = false;
-let startX, startY, translateX = 0, translateY = 0;
-
+// Lightbox
 function openZoom(imgSrc) {
-    const modal = document.getElementById('lightbox');
-    const img = document.getElementById('lightboxImg');
-    img.src = imgSrc;
-    currentZoom = 1;
-    translateX = 0;
-    translateY = 0;
-    img.style.transform = 'scale(1) translate(0, 0)';
-    document.getElementById('zoomRange').value = 1;
-    modal.classList.add('active');
+    document.getElementById('lightboxImg').src = imgSrc;
+    document.getElementById('lightbox').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
@@ -798,60 +789,13 @@ function closeZoom() {
     document.body.style.overflow = '';
 }
 
-document.getElementById('zoomRange').addEventListener('input', (e) => {
-    currentZoom = parseFloat(e.target.value);
-    updateImageTransform();
-});
-
-function updateImageTransform() {
-    const img = document.getElementById('lightboxImg');
-    img.style.transform = `scale(${currentZoom}) translate(${translateX}px, ${translateY}px)`;
-}
-
-// Lightbox drag functionality
-const lightboxWrap = document.getElementById('lightboxWrap');
-
-lightboxWrap.addEventListener('mousedown', (e) => {
-    if (currentZoom > 1) {
-        isDragging = true;
-        startX = e.clientX - translateX;
-        startY = e.clientY - translateY;
-    }
-});
-
-lightboxWrap.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-        translateX = e.clientX - startX;
-        translateY = e.clientY - startY;
-        updateImageTransform();
-    }
-});
-
-lightboxWrap.addEventListener('mouseup', () => isDragging = false);
-lightboxWrap.addEventListener('mouseleave', () => isDragging = false);
-
-document.getElementById('lightbox').addEventListener('click', (e) => {
-    if (e.target.id === 'lightbox' || e.target.id === 'lightboxWrap') {
-        closeZoom();
-    }
-});
-
 // GCash Modal
 function openGcash(amount) {
-    const modal = document.getElementById('gcashModal');
     const qrImg = document.getElementById('gcashQr');
-    
-    if (amount === '499') {
-        qrImg.src = 'images/relief/gcash/499.png';
-    } else if (amount === '3499') {
-        qrImg.src = 'images/relief/gcash/3,499.png';
-    } else if (amount === '9999') {
-        qrImg.src = 'images/relief/gcash/9,999.png';
-    } else {
-        qrImg.src = 'images/relief/gcash/costume.png';
-    }
-    
-    modal.classList.add('active');
+    if (amount === '499') qrImg.src = 'images/relief/gcash/499.png';
+    else if (amount === '3499') qrImg.src = 'images/relief/gcash/3,499.png';
+    else if (amount === '9999') qrImg.src = 'images/relief/gcash/9,999.png';
+    document.getElementById('gcashModal').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
@@ -861,67 +805,26 @@ function closeGcash() {
 }
 
 function copyTemplate() {
-    const template = `Hi! I paid for [PACKAGE NAME]
-Name: ___
-Email: ___
-Amount: ₱___
-Ref #: ___`;
-    navigator.clipboard.writeText(template).then(() => {
-        alert('Message template copied! Paste it in Messenger.');
-    });
+    const template = `Hi! I paid for [PACKAGE NAME]\nName: ___\nEmail: ___\nAmount: ₱___\nRef #: ___`;
+    navigator.clipboard.writeText(template).then(() => alert('Message template copied!'));
 }
 
-// FAQ Toggle
+// FAQ
 function toggleFaq(element) {
-    const item = element.parentElement;
-    item.classList.toggle('open');
+    element.parentElement.classList.toggle('open');
 }
 
-// Legal Modal
+// Legal
 function openLegal(type) {
-    const modal = document.getElementById('legalModal');
     const textDiv = document.getElementById('legalText');
-    
     if (type === 'privacy') {
-        textDiv.innerHTML = `
-            <h2>Privacy Policy</h2>
-            <p><strong>Last Updated:</strong> December 2024</p>
-            <h3>Information We Collect</h3>
-            <p>We collect your name, email address, and payment information when you purchase a course or make a donation.</p>
-            <h3>How We Use Your Information</h3>
-            <p>Your information is used solely to deliver your course access and add your name to the public donor wall (if you opt in).</p>
-            <h3>Data Security</h3>
-            <p>We use industry-standard security measures to protect your personal information.</p>
-            <h3>Contact</h3>
-            <p>Questions? Email us at aetophis@aetophis.com</p>
-        `;
+        textDiv.innerHTML = '<h2>Privacy Policy</h2><p><strong>Last Updated:</strong> December 2024</p><h3>Information We Collect</h3><p>We collect your name, email address, and payment information when you purchase a course or make a donation.</p><h3>How We Use Your Information</h3><p>Your information is used solely to deliver your course access and add your name to the public donor wall (if you opt in).</p><h3>Data Security</h3><p>We use industry-standard security measures to protect your personal information.</p><h3>Contact</h3><p>Questions? Email us at aetophis@aetophis.com</p>';
     } else if (type === 'terms') {
-        textDiv.innerHTML = `
-            <h2>Terms of Service</h2>
-            <p><strong>Last Updated:</strong> December 2024</p>
-            <h3>Course Access</h3>
-            <p>Upon verified payment, you receive lifetime access to the ePro Formula course materials.</p>
-            <h3>Donation Terms</h3>
-            <p>100% of proceeds from this relief campaign go directly to Typhoon Tino relief operations in Cebu.</p>
-            <h3>Intellectual Property</h3>
-            <p>Course materials are for personal use only. Redistribution is prohibited.</p>
-            <h3>Disclaimer</h3>
-            <p>Results vary. We do not guarantee specific income results.</p>
-        `;
+        textDiv.innerHTML = '<h2>Terms of Service</h2><p><strong>Last Updated:</strong> December 2024</p><h3>Course Access</h3><p>Upon verified payment, you receive lifetime access to the ePro Formula course materials.</p><h3>Donation Terms</h3><p>100% of proceeds from this relief campaign go directly to Typhoon Tino relief operations in Cebu.</p><h3>Intellectual Property</h3><p>Course materials are for personal use only. Redistribution is prohibited.</p><h3>Disclaimer</h3><p>Results vary. We do not guarantee specific income results.</p>';
     } else if (type === 'refund') {
-        textDiv.innerHTML = `
-            <h2>Refund Policy</h2>
-            <p><strong>Last Updated:</strong> December 2024</p>
-            <h3>Relief Campaign Purchases</h3>
-            <p>Because 100% of proceeds go directly to typhoon relief, we cannot offer refunds for purchases made during this campaign. Your payment becomes a donation the moment it is received.</p>
-            <h3>Course Quality Guarantee</h3>
-            <p>If you are genuinely unhappy with the course content, please message us. We want you to succeed and will work with you to address any concerns.</p>
-            <h3>Contact</h3>
-            <p>Questions? Email us at aetophis@aetophis.com or message us on Facebook.</p>
-        `;
+        textDiv.innerHTML = '<h2>Refund Policy</h2><p><strong>Last Updated:</strong> December 2024</p><h3>Relief Campaign Purchases</h3><p>Because 100% of proceeds go directly to typhoon relief, we cannot offer refunds for purchases made during this campaign. Your payment becomes a donation the moment it is received.</p><h3>Course Quality Guarantee</h3><p>If you are genuinely unhappy with the course content, please message us. We want you to succeed and will work with you to address any concerns.</p><h3>Contact</h3><p>Questions? Email us at aetophis@aetophis.com or message us on Facebook.</p>';
     }
-    
-    modal.classList.add('active');
+    document.getElementById('legalModal').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
@@ -930,7 +833,7 @@ function closeLegal() {
     document.body.style.overflow = '';
 }
 
-// Close modals on Escape key
+// Close modals
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeZoom();
@@ -939,7 +842,6 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Close modals when clicking outside content
 document.getElementById('gcashModal').addEventListener('click', (e) => {
     if (e.target.id === 'gcashModal') closeGcash();
 });
@@ -947,10 +849,11 @@ document.getElementById('gcashModal').addEventListener('click', (e) => {
 document.getElementById('legalModal').addEventListener('click', (e) => {
     if (e.target.id === 'legalModal') closeLegal();
 });
-</script>
 
-<!-- GTM noscript -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T478W9J7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+document.getElementById('lightbox').addEventListener('click', (e) => {
+    if (e.target.id === 'lightbox') closeZoom();
+});
+</script>
 
 </body>
 </html>
